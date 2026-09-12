@@ -1350,12 +1350,15 @@
   background: linear-gradient(160deg, #090e28 0%, #030614 60%, #0d0d38 100%);
   border-color: rgba(129, 140, 248, 0.22);
 }
+
 .case-study-card[data-category="ecommerce"]:hover {
   border-color: rgba(129, 140, 248, 0.5);
 }
+
 .case-study-card[data-category="ecommerce"] .case-study-badge {
   color: #818cf8;
 }
+
 .case-study-card[data-category="ecommerce"] .cs-metric-val {
   color: #a5b4fc;
 }
@@ -1365,12 +1368,15 @@
   background: linear-gradient(160deg, #031812 0%, #020f0b 60%, #05261d 100%);
   border-color: rgba(52, 211, 153, 0.22);
 }
+
 .case-study-card[data-category="seo"]:hover {
   border-color: rgba(52, 211, 153, 0.5);
 }
+
 .case-study-card[data-category="seo"] .case-study-badge {
   color: #34d399;
 }
+
 .case-study-card[data-category="seo"] .cs-metric-val {
   color: #6ee7b7;
 }
@@ -1380,12 +1386,15 @@
   background: linear-gradient(160deg, #03162b 0%, #010c18 60%, #04213d 100%);
   border-color: rgba(56, 189, 248, 0.22);
 }
+
 .case-study-card[data-category="web-design"]:hover {
   border-color: rgba(56, 189, 248, 0.5);
 }
+
 .case-study-card[data-category="web-design"] .case-study-badge {
   color: #38bdf8;
 }
+
 .case-study-card[data-category="web-design"] .cs-metric-val {
   color: #7dd3fc;
 }
@@ -1395,12 +1404,15 @@
   background: linear-gradient(160deg, #1b0e02 0%, #0b0501 60%, #2a1503 100%);
   border-color: rgba(251, 191, 36, 0.22);
 }
+
 .case-study-card[data-category="smm"]:hover {
   border-color: rgba(251, 191, 36, 0.5);
 }
+
 .case-study-card[data-category="smm"] .case-study-badge {
   color: #fbbf24;
 }
+
 .case-study-card[data-category="smm"] .cs-metric-val {
   color: #fde047;
 }
@@ -2070,6 +2082,7 @@
   #faq .section-title {
     white-space: normal;
   }
+
   .faq-accordion-grid {
     grid-template-columns: 1fr;
     gap: 8px;
@@ -2542,7 +2555,7 @@ dialog.custom-modal::backdrop {
    9. About Section (Spacious & Balanced Height Layout)
    -------------------------------------------------------------------------- */
 .about-section {
-  padding: 80px 0 88px 0;
+  padding: 44px 0;
   background: #FFFFFF;
   position: relative;
 }
@@ -2962,14 +2975,14 @@ dialog.custom-modal::backdrop {
   content: '';
   position: absolute;
   inset: 0;
-  background: 
+  background:
     radial-gradient(ellipse 650px 320px at 80% 25%, rgba(212, 175, 55, 0.12) 0%, transparent 70%),
     radial-gradient(ellipse 600px 380px at 15% 75%, rgba(47, 133, 232, 0.18) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
 
-#contact > .container {
+#contact>.container {
   position: relative;
   z-index: 1;
 }
@@ -3053,8 +3066,17 @@ dialog.custom-modal::backdrop {
 }
 
 @keyframes pulseDot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.85); }
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
 }
 
 .contact-office-title {
@@ -3490,7 +3512,7 @@ dialog.custom-modal::backdrop {
   content: '';
   position: absolute;
   inset: 0;
-  background: 
+  background:
     radial-gradient(ellipse 650px 320px at 80% 25%, rgba(212, 175, 55, 0.14) 0%, transparent 70%),
     radial-gradient(ellipse 600px 380px at 15% 75%, rgba(47, 133, 232, 0.2) 0%, transparent 70%);
   pointer-events: none;
@@ -3786,7 +3808,7 @@ dialog.custom-modal::backdrop {
 }
 
 @media (min-width: 1061px) {
-  .services-visual-grid > .service-image-card:last-child:nth-child(3n + 1) {
+  .services-visual-grid>.service-image-card:last-child:nth-child(3n + 1) {
     grid-column: 2;
   }
 }
@@ -3796,7 +3818,8 @@ dialog.custom-modal::backdrop {
     grid-template-columns: repeat(2, 1fr);
     gap: 18px;
   }
-  .services-visual-grid > .service-image-card:last-child:nth-child(2n + 1) {
+
+  .services-visual-grid>.service-image-card:last-child:nth-child(2n + 1) {
     grid-column: 1 / -1;
     max-width: 520px;
     width: 100%;
@@ -4472,6 +4495,7 @@ dialog.custom-modal::backdrop {
 
 /* Responsive adjustments for internal pages */
 @media (max-width: 900px) {
+
   .deepdive-body-grid,
   .about-story-grid,
   .about-hq-grid,
@@ -4480,9 +4504,11 @@ dialog.custom-modal::backdrop {
     grid-template-columns: 1fr;
     gap: 20px;
   }
+
   .about-metrics-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .team-grid {
     grid-template-columns: 1fr;
   }
@@ -4590,6 +4616,7 @@ dialog.custom-modal::backdrop {
     grid-template-columns: 1fr;
     gap: 28px;
   }
+
   .spotlight-card-split {
     grid-template-columns: 1fr;
   }
@@ -5065,62 +5092,101 @@ dialog.custom-modal::backdrop {
 }
 
 @media (max-width: 900px) {
+
   .comparison-grid,
   .spotlight-card {
     grid-template-columns: 1fr;
     gap: 20px;
   }
+
   .deliverables-system-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .framework-process-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 600px) {
+
   .deliverables-system-grid,
   .framework-process-grid {
     grid-template-columns: 1fr;
   }
+
   .spotlight-metric-grid {
     grid-template-columns: 1fr;
     gap: 8px;
   }
 }
 
-/* Minimalist Deliverables Grid & Cards */
+/* --------------------------------------------------------------------------
+   13. Service Page Capabilities Section (Index.html 2-Column Balanced Architecture)
+   -------------------------------------------------------------------------- */
+.service-capabilities-layout {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 32px;
+  align-items: stretch; /* Both columns stretch to matching height */
+}
+
+.service-capabilities-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.service-capabilities-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 2.6vw, 2.2rem);
+  font-weight: 800;
+  color: var(--text-dark);
+  line-height: 1.22;
+  margin: 6px 0 10px 0;
+  letter-spacing: -0.015em;
+}
+
+.service-capabilities-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 18px;
+}
+
+/* 4 Minimalist Deliverable Cards in 2x2 Grid */
 .deliverables-minimal-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 14px;
+  gap: 12px;
+  margin-bottom: 16px;
 }
-@media (max-width: 640px) {
-  .deliverables-minimal-grid {
-    grid-template-columns: 1fr;
-  }
-}
+
 .deliverable-mini-card {
   background: #FFFFFF;
   border: 1px solid #E2E8F0;
   border-radius: 12px;
-  padding: 16px 18px;
+  padding: 14px 16px;
   transition: all 0.25s ease;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 6px;
   box-shadow: 0 4px 14px rgba(4, 31, 63, 0.04);
 }
+
 .deliverable-mini-card:hover {
   border-color: rgba(212, 175, 55, 0.6);
   transform: translateY(-2px);
   box-shadow: 0 8px 22px rgba(4, 31, 63, 0.08);
 }
+
 .deliverable-mini-header {
   display: flex;
   align-items: center;
   gap: 10px;
 }
+
 .deliverable-mini-icon {
   font-size: 1.15rem;
   width: 34px;
@@ -5133,18 +5199,21 @@ dialog.custom-modal::backdrop {
   justify-content: center;
   flex-shrink: 0;
 }
+
 .deliverable-mini-title {
   font-size: 0.95rem;
   font-weight: 700;
   color: #093360;
   margin: 0;
 }
+
 .deliverable-mini-desc {
   font-size: 0.825rem;
   color: #475569;
   line-height: 1.45;
   margin: 0;
 }
+
 .deliverable-mini-tag {
   display: inline-block;
   align-self: flex-start;
@@ -5158,4 +5227,68 @@ dialog.custom-modal::backdrop {
   text-transform: uppercase;
   letter-spacing: 0.04em;
   margin-top: 4px;
+}
+
+/* Right Column: Visual Card Matching Left Column Height */
+.service-capabilities-visual {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-capabilities-visual .service-showcase-visual-card {
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 14px;
+  padding: 6px;
+  background: #FFFFFF;
+  border: 1px solid rgba(212, 175, 55, 0.38);
+  box-shadow: 0 8px 24px rgba(4, 31, 63, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-capabilities-visual .service-showcase-visual-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(212, 175, 55, 0.65);
+  box-shadow: 0 12px 30px rgba(4, 31, 63, 0.1), 0 0 20px rgba(212, 175, 55, 0.12);
+}
+
+.service-capabilities-visual .service-visual-wrapper {
+  height: 100%;
+  width: 100%;
+  flex: 1;
+  min-height: 100%;
+  aspect-ratio: unset;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #021327;
+}
+
+.service-capabilities-visual .service-hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 960px) {
+  .service-capabilities-layout {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .service-capabilities-visual {
+    height: 280px;
+  }
+}
+
+@media (max-width: 600px) {
+  .service-capabilities-content .deliverables-minimal-grid {
+    grid-template-columns: 1fr;
+  }
 }

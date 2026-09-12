@@ -143,8 +143,14 @@ img {
 
 /* Sections */
 .section {
-  padding: 90px 0;
+  padding: 44px 0;
   position: relative;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 30px 0;
+  }
 }
 
 .section-alt {
@@ -159,23 +165,29 @@ img {
 .section-header {
   text-align: center;
   max-width: 780px;
-  margin: 0 auto 60px auto;
+  margin: 0 auto 24px auto;
+}
+
+@media (max-width: 768px) {
+  .section-header {
+    margin: 0 auto 18px auto;
+  }
 }
 
 .section-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 16px;
+  padding: 4px 14px;
   background: var(--primary-tint);
   border: 1px solid var(--border-blue);
   border-radius: var(--radius-full);
   color: var(--primary);
-  font-size: 0.8125rem;
+  font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 
 .section-badge-gold {
@@ -185,9 +197,10 @@ img {
 }
 
 .section-title {
-  font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+  font-size: clamp(1.85rem, 3.2vw, 2.5rem);
   font-weight: 800;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
+  line-height: 1.25;
 }
 
 .section-blue .section-title {
@@ -195,9 +208,9 @@ img {
 }
 
 .section-subtitle {
-  font-size: 1.125rem;
+  font-size: 0.95rem;
   color: var(--text-muted);
-  line-height: 1.7;
+  line-height: 1.55;
 }
 
 .section-blue .section-subtitle {
@@ -1196,14 +1209,14 @@ img {
   background: var(--primary-darker);
   border-top: 2px solid var(--gold-primary);
   color: rgba(255, 255, 255, 0.85);
-  padding: 80px 0 36px 0;
+  padding: 48px 0 24px 0;
 }
 
 .footer-top {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr 1fr;
-  gap: 48px;
-  margin-bottom: 60px;
+  gap: 36px;
+  margin-bottom: 36px;
 }
 
 .footer-brand p {
@@ -1243,7 +1256,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 32px;
+  padding-top: 24px;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   font-size: 0.8125rem;
   color: rgba(255, 255, 255, 0.6);
@@ -1268,7 +1281,7 @@ img {
 
 @media (max-width: 640px) {
   .section {
-    padding: 64px 0;
+    padding: 30px 0;
   }
   .hero-stats-row {
     flex-direction: column;
