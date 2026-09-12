@@ -3578,36 +3578,36 @@ dialog.custom-modal::backdrop {
 }
 
 /* ==========================================================================
-   Services Page Visual Image Card Grid (Less Text, High Visual Impact)
+   Services Page Visual Image Card Grid (3-4 in a Row Edition)
    ========================================================================== */
 .services-visual-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 26px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
   margin-top: 10px;
 }
 
 .service-image-card {
   background: #FFFFFF;
-  border-radius: 18px;
+  border-radius: 16px;
   overflow: hidden;
-  border: 1.5px solid rgba(212, 175, 55, 0.35);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+  border: 1.5px solid rgba(212, 175, 55, 0.32);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.07), 0 2px 5px rgba(0, 0, 0, 0.03);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
 }
 
 .service-image-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px);
   border-color: rgba(212, 175, 55, 0.85);
-  box-shadow: 0 24px 50px rgba(9, 51, 96, 0.2), 0 0 0 1px rgba(212, 175, 55, 0.45);
+  box-shadow: 0 20px 42px rgba(9, 51, 96, 0.18), 0 0 0 1px rgba(212, 175, 55, 0.4);
 }
 
 .service-card-media {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9.5;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
   background: #021327;
 }
@@ -3616,64 +3616,59 @@ dialog.custom-modal::backdrop {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
   display: block;
 }
 
 .service-image-card:hover .service-card-media img {
-  transform: scale(1.04);
+  transform: scale(1.05);
 }
 
 .service-card-metric-badge {
   position: absolute;
-  top: 14px;
-  left: 14px;
-  background: rgba(4, 23, 44, 0.9);
+  top: 12px;
+  left: 12px;
+  background: rgba(4, 23, 44, 0.92);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(212, 175, 55, 0.6);
   color: #FFE89E;
-  font-size: 0.74rem;
+  font-size: 0.68rem;
   font-weight: 800;
-  padding: 5px 12px;
+  padding: 4px 10px;
   border-radius: 100px;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.025em;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
 }
 
 .service-card-body {
-  padding: 22px 24px;
+  padding: 18px 20px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
 .service-card-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
   margin-bottom: 8px;
 }
 
-.service-card-icon {
-  font-size: 1.35rem;
-  line-height: 1;
-}
-
 .service-card-title {
-  font-size: 1.22rem;
+  font-size: 1.05rem;
   font-weight: 800;
   color: #0F172A;
-  line-height: 1.3;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   margin: 0;
 }
 
 .service-card-desc {
-  font-size: 0.86rem;
+  font-size: 0.8125rem;
   color: #475569;
-  line-height: 1.55;
-  margin-bottom: 14px;
-  flex-grow: 1;
+  line-height: 1.48;
+  margin-bottom: 12px;
+  height: 2.96em;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -3682,19 +3677,22 @@ dialog.custom-modal::backdrop {
 
 .service-card-tags {
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 16px;
+  flex-wrap: nowrap;
+  gap: 5px;
+  margin-bottom: 14px;
+  overflow: hidden;
 }
 
 .service-card-tags .tech-pill {
-  font-size: 0.72rem;
+  white-space: nowrap;
+  font-size: 0.68rem;
   font-weight: 600;
-  padding: 3px 10px;
-  border-radius: 6px;
+  padding: 2px 7px;
+  border-radius: 4px;
   background: #F1F5F9;
   color: #334155;
   border: 1px solid #E2E8F0;
+  flex-shrink: 0;
 }
 
 .service-card-action {
@@ -3705,15 +3703,15 @@ dialog.custom-modal::backdrop {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
   width: 100%;
-  padding: 11px 18px;
-  font-size: 0.88rem;
+  padding: 10px 14px;
+  font-size: 0.84rem;
   font-weight: 700;
   color: #04172C;
   background: linear-gradient(135deg, #FFE89E 0%, #E2BE4B 50%, #C49114 100%);
   border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 10px;
+  border-radius: 9px;
   text-decoration: none;
   transition: all 0.2s ease;
   box-shadow: 0 4px 12px rgba(212, 175, 55, 0.28);
@@ -3722,15 +3720,140 @@ dialog.custom-modal::backdrop {
 .service-card-btn:hover {
   background: linear-gradient(135deg, #FFF2B8 0%, #ECC758 50%, #D8A21B 100%);
   transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.45);
+  box-shadow: 0 6px 16px rgba(212, 175, 55, 0.45);
   color: #04172C;
 }
 
-@media (max-width: 860px) {
+/* Dual Action Buttons inside Service Image Cards */
+.service-image-card .service-card-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid #E2E8F0;
+  position: relative;
+  z-index: 2;
+}
+
+.service-image-card .service-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 40px;
+  padding: 0 12px;
+  border-radius: 9px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.service-image-card .service-btn-details {
+  background: #093360;
+  color: #FFFFFF;
+  border: 1.5px solid #093360;
+  box-shadow: 0 2px 8px rgba(9, 51, 96, 0.18);
+  backdrop-filter: none;
+}
+
+.service-image-card .service-btn-details:hover {
+  background: #0084ff;
+  border-color: #0084ff;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 132, 255, 0.35);
+}
+
+.service-image-card .service-btn-whatsapp {
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  color: #FFFFFF;
+  border: 1px solid rgba(52, 211, 153, 0.5);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.25);
+}
+
+.service-image-card .service-btn-whatsapp:hover {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  border-color: #34d399;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.4);
+}
+
+@media (min-width: 1061px) {
+  .services-visual-grid > .service-image-card:last-child:nth-child(3n + 1) {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 1060px) {
+  .services-visual-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+  .services-visual-grid > .service-image-card:last-child:nth-child(2n + 1) {
+    grid-column: 1 / -1;
+    max-width: 520px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
   .services-visual-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 16px;
   }
+}
+
+/* View All Services CTA Button on Homepage */
+.services-view-all-wrap {
+  text-align: center;
+  margin-top: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.view-all-services-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 32px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  border-radius: 12px;
+  letter-spacing: 0.02em;
+  background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+  color: #04172c;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.view-all-services-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(212, 175, 55, 0.5);
+  background: linear-gradient(135deg, #ffd700 0%, #ffe89e 100%);
+  color: #04172c;
+}
+
+.view-all-services-btn .view-all-btn-arrow {
+  transition: transform 0.25s ease;
+  font-size: 1.15rem;
+  display: inline-block;
+  line-height: 1;
+}
+
+.view-all-services-btn:hover .view-all-btn-arrow {
+  transform: translateX(4px);
 }
 
 /* Services Deep-Dive List */
@@ -4964,4 +5087,75 @@ dialog.custom-modal::backdrop {
     grid-template-columns: 1fr;
     gap: 8px;
   }
+}
+
+/* Minimalist Deliverables Grid & Cards */
+.deliverables-minimal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+@media (max-width: 640px) {
+  .deliverables-minimal-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.deliverable-mini-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 16px 18px;
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0 4px 14px rgba(4, 31, 63, 0.04);
+}
+.deliverable-mini-card:hover {
+  border-color: rgba(212, 175, 55, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(4, 31, 63, 0.08);
+}
+.deliverable-mini-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.deliverable-mini-icon {
+  font-size: 1.15rem;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: rgba(9, 51, 96, 0.08);
+  color: #093360;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.deliverable-mini-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #093360;
+  margin: 0;
+}
+.deliverable-mini-desc {
+  font-size: 0.825rem;
+  color: #475569;
+  line-height: 1.45;
+  margin: 0;
+}
+.deliverable-mini-tag {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: #92400E;
+  background: #FEF3C7;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 4px;
 }
