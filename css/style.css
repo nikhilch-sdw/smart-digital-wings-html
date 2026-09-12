@@ -432,6 +432,12 @@ img {
   font-weight: 700;
 }
 
+.nav-link.active:hover {
+  background: var(--gold-gradient-bg);
+  color: #041f3f;
+  filter: brightness(1.05);
+}
+
 /* Navigation Dropdowns */
 .nav-dropdown {
   position: relative;
@@ -451,7 +457,7 @@ img {
 
 .dropdown-chevron {
   transition: transform var(--transition-fast);
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 .nav-dropdown:hover .dropdown-chevron,
@@ -460,6 +466,17 @@ img {
   transform: rotate(180deg);
   color: var(--gold-light);
   opacity: 1;
+}
+
+.nav-dropdown-toggle.active .dropdown-chevron {
+  color: #041f3f;
+  opacity: 1;
+}
+
+.nav-dropdown:hover .nav-dropdown-toggle.active .dropdown-chevron,
+.nav-dropdown.open .nav-dropdown-toggle.active .dropdown-chevron {
+  color: #041f3f;
+  transform: rotate(180deg);
 }
 
 .nav-dropdown-menu {
@@ -472,8 +489,8 @@ img {
   -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(212, 175, 55, 0.35);
   border-radius: var(--radius-md);
-  padding: 8px;
-  min-width: 280px;
+  padding: 6px;
+  min-width: 210px;
   box-shadow: 0 20px 45px rgba(2, 19, 39, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.06);
   opacity: 0;
   pointer-events: none;
@@ -481,7 +498,7 @@ img {
   z-index: 100;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 3px;
 }
 
 /* Hover bridge so cursor movement between button and menu never drops hover */
@@ -505,8 +522,8 @@ img {
 .dropdown-item {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 10px 12px;
+  gap: 10px;
+  padding: 8px 10px;
   border-radius: var(--radius-sm);
   text-decoration: none;
   transition: all var(--transition-fast);
@@ -520,15 +537,15 @@ img {
 }
 
 .dropdown-item-icon {
-  font-size: 1.1rem;
-  width: 34px;
-  height: 34px;
+  font-size: 0.95rem;
+  width: 30px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: rgba(9, 81, 158, 0.45);
   border: 1px solid rgba(212, 175, 55, 0.25);
-  border-radius: var(--radius-sm);
+  border-radius: 7px;
   flex-shrink: 0;
 }
 
@@ -545,10 +562,11 @@ img {
 
 .dropdown-item-title {
   font-family: var(--font-display);
-  font-size: 0.875rem;
+  font-size: 0.84375rem;
   font-weight: 700;
   color: #FFFFFF;
   transition: color var(--transition-fast);
+  white-space: nowrap;
 }
 
 .dropdown-item:hover .dropdown-item-title {
@@ -556,9 +574,7 @@ img {
 }
 
 .dropdown-item-desc {
-  font-size: 0.71875rem;
-  color: rgba(255, 255, 255, 0.65);
-  line-height: 1.3;
+  display: none;
 }
 
 /* Mobile Drawer Group Headings */

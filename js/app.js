@@ -68,34 +68,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Active Link Scrollspy (matching DOM order)
-  const sections = [
-    { id: 'hero', selector: '.desktop-nav a[href="#hero"]' },
-    { id: 'about', selector: '.desktop-nav .nav-dropdown:nth-child(4) .nav-dropdown-toggle' },
-    { id: 'services', selector: '.desktop-nav .nav-dropdown:nth-child(2) .nav-dropdown-toggle' },
-    { id: 'calculator', selector: '.desktop-nav .nav-dropdown:nth-child(2) .nav-dropdown-toggle' },
-    { id: 'packages', selector: '.desktop-nav .nav-dropdown:nth-child(2) .nav-dropdown-toggle' },
-    { id: 'process', selector: '.desktop-nav .nav-dropdown:nth-child(2) .nav-dropdown-toggle' },
-    { id: 'portfolio', selector: '.desktop-nav a[href="#portfolio"]' },
-    { id: 'reviews', selector: '.desktop-nav .nav-dropdown:nth-child(4) .nav-dropdown-toggle' },
-    { id: 'careers', selector: '.desktop-nav .nav-dropdown:nth-child(4) .nav-dropdown-toggle' },
-    { id: 'faq', selector: '.desktop-nav .nav-dropdown:nth-child(4) .nav-dropdown-toggle' },
-    { id: 'contact', selector: '.desktop-nav a[href="#contact"]' }
-  ];
+  // Active Link Scrollspy (only for index.html with live section IDs)
+  const heroSection = document.getElementById('hero');
+  if (heroSection) {
+    const sections = [
+      { id: 'hero', selector: '.desktop-nav a[href="index.html"], .desktop-nav a[href="#hero"]' },
+      { id: 'services', selector: '.desktop-nav .nav-dropdown:nth-child(2) .nav-dropdown-toggle' },
+      { id: 'calculator', selector: '.desktop-nav .nav-dropdown:nth-child(2) .nav-dropdown-toggle' },
+      { id: 'packages', selector: '.desktop-nav .nav-dropdown:nth-child(2) .nav-dropdown-toggle' },
+      { id: 'process', selector: '.desktop-nav .nav-dropdown:nth-child(2) .nav-dropdown-toggle' },
+      { id: 'portfolio', selector: '.desktop-nav a[href="case-studies.html"], .desktop-nav a[href="#portfolio"]' },
+      { id: 'reviews', selector: '.desktop-nav .nav-dropdown:nth-child(4) .nav-dropdown-toggle' },
+      { id: 'about', selector: '.desktop-nav .nav-dropdown:nth-child(4) .nav-dropdown-toggle' },
+      { id: 'faq', selector: '.desktop-nav .nav-dropdown:nth-child(4) .nav-dropdown-toggle' },
+      { id: 'contact', selector: '.desktop-nav a[href="contact.html"], .desktop-nav a[href="#contact"]' }
+    ];
 
-  const allNavLinks = document.querySelectorAll('.desktop-nav .nav-link');
-  window.addEventListener('scroll', () => {
-    const scrollPosition = window.scrollY + 200;
-    for (let i = sections.length - 1; i >= 0; i--) {
-      const el = document.getElementById(sections[i].id);
-      if (el && el.offsetTop <= scrollPosition) {
-        allNavLinks.forEach(link => link.classList.remove('active'));
-        const activeLink = document.querySelector(sections[i].selector);
-        if (activeLink) activeLink.classList.add('active');
-        break;
+    const allNavLinks = document.querySelectorAll('.desktop-nav .nav-link');
+    window.addEventListener('scroll', () => {
+      const scrollPosition = window.scrollY + 200;
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sections[i].id);
+        if (el && el.offsetTop <= scrollPosition) {
+          allNavLinks.forEach(link => link.classList.remove('active'));
+          const activeLink = document.querySelector(sections[i].selector);
+          if (activeLink) activeLink.classList.add('active');
+          break;
+        }
       }
-    }
-  });
+    });
+  }
 
   // ------------------------------------------------------------------------
   // 1.2 Clockwise Motion Animation & Dynamic Metric Stream
@@ -103,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const metricsStage = document.getElementById('aboutMetricsStage');
   if (metricsStage) {
     const cards = Array.from(metricsStage.querySelectorAll('.about-metric-card'));
-    
+
     // 4 Dynamic Content Streams (One for each card, rotating each cycle)
     const metricStreams = [
       // Card 0 (Blue)
@@ -202,6 +204,17 @@ document.addEventListener('DOMContentLoaded', () => {
   if (closeConsultBtn && consultModal) {
     closeConsultBtn.addEventListener('click', () => consultModal.close());
   }
+  const closeInternalModalBtn = document.getElementById('closeModalBtn');
+  if (closeInternalModalBtn && consultModal) {
+    closeInternalModalBtn.addEventListener('click', () => consultModal.close());
+  }
+  document.querySelectorAll('.modal-close, .modal-close-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (consultModal) consultModal.close();
+      const sModal = document.getElementById('serviceDetailModal');
+      if (sModal) sModal.close();
+    });
+  });
 
   // Light dismiss: click outside modal content
   if (consultModal) {
@@ -317,6 +330,48 @@ document.addEventListener('DOMContentLoaded', () => {
             consultForm.reset();
           }, 400);
         }, 3000);
+      } else {
+        showToast(res.message || 'Submission error', 'error');
+      }
+    });
+  }
+
+  // Simple Consultation Form (Internal Pages Modal)
+  const simpleConsultForm = document.getElementById('consultationForm');
+  if (simpleConsultForm) {
+    simpleConsultForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submitBtn = simpleConsultForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn ? submitBtn.innerHTML : 'Submit';
+      if (submitBtn) {
+        submitBtn.innerHTML = '<span>Reserving Consultation...</span>';
+        submitBtn.disabled = true;
+      }
+
+      const payload = {
+        name: document.getElementById('leadName')?.value,
+        email: document.getElementById('leadEmail')?.value,
+        phone: document.getElementById('leadPhone')?.value,
+        service: document.getElementById('leadService')?.value,
+        notes: document.getElementById('leadNotes')?.value
+      };
+
+      const res = (typeof submitProposalEnquiry === 'function')
+        ? await submitProposalEnquiry(payload)
+        : { success: true };
+
+      if (submitBtn) {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }
+
+      if (res.success) {
+        if (typeof triggerConfetti === 'function') triggerConfetti();
+        showToast('Growth consultation booked! Check your inbox for confirmation.');
+        simpleConsultForm.reset();
+        setTimeout(() => {
+          if (consultModal) consultModal.close();
+        }, 1500);
       } else {
         showToast(res.message || 'Submission error', 'error');
       }
@@ -463,7 +518,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('serviceModalMetric').textContent = data.metric;
       document.getElementById('serviceModalTimeline').textContent = data.timeline;
       document.getElementById('serviceModalPrice').textContent = data.price;
-      
+
       const listEl = document.getElementById('serviceModalDeliverables');
       listEl.innerHTML = data.deliverables.map(d => `
         <li style="display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;font-size:0.9375rem;color:var(--text-main);">
@@ -573,6 +628,72 @@ document.addEventListener('DOMContentLoaded', () => {
       if (lastChild) {
         reviewsContainer.insertBefore(lastChild, reviewsContainer.firstElementChild);
       }
+    });
+  }
+
+  // ------------------------------------------------------------------------
+  // 9. Headquarters Contact Page Form
+  // ------------------------------------------------------------------------
+  const hqContactForm = document.getElementById('contactHeadquartersForm');
+  if (hqContactForm) {
+    hqContactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submitBtn = hqContactForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn ? submitBtn.innerHTML : 'Send Enquiry';
+      if (submitBtn) {
+        submitBtn.innerHTML = '<span>Transmitting Dossier...</span>';
+        submitBtn.disabled = true;
+      }
+
+      const payload = {
+        name: document.getElementById('contactName')?.value,
+        email: document.getElementById('contactEmail')?.value,
+        phone: document.getElementById('contactPhone')?.value,
+        service: document.getElementById('contactService')?.value,
+        budget: document.getElementById('contactBudget')?.value,
+        message: document.getElementById('contactMessage')?.value
+      };
+
+      const res = (typeof submitContactEnquiry === 'function')
+        ? await submitContactEnquiry(payload)
+        : { success: true };
+
+      if (submitBtn) {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }
+
+      if (res.success) {
+        if (typeof triggerConfetti === 'function') triggerConfetti();
+        showToast('Official enquiry registered! An account director will reach out shortly.');
+        hqContactForm.reset();
+      } else {
+        showToast(res.message || 'Submission error', 'error');
+      }
+    });
+  }
+
+  // ------------------------------------------------------------------------
+  // 10. Case Studies Hub Category Filters
+  // ------------------------------------------------------------------------
+  const csTabs = document.querySelectorAll('.cs-tab');
+  const csDetailCards = document.querySelectorAll('.cs-detail-card');
+  if (csTabs.length > 0) {
+    csTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        csTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        const filter = tab.getAttribute('data-filter');
+        csDetailCards.forEach(card => {
+          const cat = card.getAttribute('data-category');
+          if (filter === 'all' || cat === filter) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
     });
   }
 });

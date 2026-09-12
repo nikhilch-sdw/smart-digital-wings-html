@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Eliminate attribution blind spots with Smart Digital Wings. Server-side GTM, GA4 custom data layers, multi-touch attribution, heatmap friction audits, and scientific A/B split testing.">
+  <title>Enterprise Analytics, GA4 Attribution & CRO | Smart Digital Wings</title>
+
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Core & Component Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-announcement-bar">
+    <div class="container announcement-content">
+      <span class="announcement-pill">🔥 Q3 2026 Strategy Slots Open</span>
+      <span class="announcement-text">Claim your complimentary ₹15,000 GA4 Tracking & Conversion Audit before slots fill up.</span>
+      <a href="#audit" class="announcement-link">Claim Slot &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Main Sticky Header -->
+  <header class="main-header" id="mainHeader">
+    <div class="header-container">
+
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" aria-label="Smart Digital Wings Home">
+        <div class="logo-emblem">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+          </svg>
+        </div>
+        <div class="logo-text-group">
+          <span class="logo-brand-name">SMART DIGITAL WINGS</span>
+          <span class="logo-tagline">ELEVATE • SCALE • DOMINATE</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Pill -->
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+
+        <!-- Services Dropdown -->
+        <div class="nav-dropdown">
+          <a href="services.html" class="nav-link nav-dropdown-toggle active" aria-haspopup="true" aria-expanded="false">
+            <span>Services</span>
+            <svg class="dropdown-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="services.html" class="dropdown-item">
+              <span class="dropdown-item-icon">⚡</span>
+              <span class="dropdown-item-title">All Services Directory</span>
+            </a>
+            <a href="service-smm.html" class="dropdown-item">
+              <span class="dropdown-item-icon">📱</span>
+              <span class="dropdown-item-title">Social Media & Meta Ads</span>
+            </a>
+            <a href="service-seo.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🚀</span>
+              <span class="dropdown-item-title">Search Engine Optimization</span>
+            </a>
+            <a href="service-web-design.html" class="dropdown-item">
+              <span class="dropdown-item-icon">💻</span>
+              <span class="dropdown-item-title">High-Converting Web Design</span>
+            </a>
+            <a href="service-ppc.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🎯</span>
+              <span class="dropdown-item-title">Google PPC Search Ads</span>
+            </a>
+            <a href="service-branding.html" class="dropdown-item">
+              <span class="dropdown-item-icon">👑</span>
+              <span class="dropdown-item-title">Brand Identity & Design</span>
+            </a>
+            <a href="service-analytics.html" class="dropdown-item active">
+              <span class="dropdown-item-icon">📊</span>
+              <span class="dropdown-item-title">Enterprise Analytics & CRO</span>
+            </a>
+            <a href="packages.html" class="dropdown-item">
+              <span class="dropdown-item-icon">💎</span>
+              <span class="dropdown-item-title">Retainer Packages</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Case Studies -->
+        <a href="case-studies.html" class="nav-link">Case Studies</a>
+
+        <!-- Company Dropdown -->
+        <div class="nav-dropdown">
+          <a href="about.html" class="nav-link nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+            <span>Company</span>
+            <svg class="dropdown-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="about.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🏢</span>
+              <span class="dropdown-item-title">About Us</span>
+            </a>
+            <a href="packages.html" class="dropdown-item">
+              <span class="dropdown-item-icon">💎</span>
+              <span class="dropdown-item-title">Retainer Packages</span>
+            </a>
+            <a href="index.html#reviews" class="dropdown-item">
+              <span class="dropdown-item-icon">⭐</span>
+              <span class="dropdown-item-title">Client Reviews</span>
+            </a>
+            <a href="index.html#faq" class="dropdown-item">
+              <span class="dropdown-item-icon">❓</span>
+              <span class="dropdown-item-title">General FAQs</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact Direct Link -->
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Right Header Actions -->
+      <div class="header-actions">
+        <a href="tel:+917017281826" class="header-phone-badge" aria-label="Direct Phone Line">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg>
+          <span>+91 7017281826</span>
+        </a>
+
+        <button class="btn btn-gold btn-header open-consultation-btn">
+          <span>Get Free Proposal</span>
+          <span style="font-size:0.75rem;">✦</span>
+        </button>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button id="mobileMenuToggle" class="mobile-toggle" aria-label="Toggle Navigation Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div id="mobileDrawer" class="mobile-nav-drawer">
+    <a href="index.html" class="nav-link">Home</a>
+    <div class="mobile-nav-group-title">Services & Growth</div>
+    <a href="services.html" class="nav-link mobile-sublink">⚡ All Services Directory</a>
+    <a href="service-smm.html" class="nav-link mobile-sublink">📱 Social Media & Meta Ads</a>
+    <a href="service-seo.html" class="nav-link mobile-sublink">🚀 Search Engine Optimization</a>
+    <a href="service-web-design.html" class="nav-link mobile-sublink">💻 High-Converting Web Design</a>
+    <a href="service-ppc.html" class="nav-link mobile-sublink">🎯 Google PPC Search Ads</a>
+    <a href="service-branding.html" class="nav-link mobile-sublink">👑 Brand Identity & Design</a>
+    <a href="service-analytics.html" class="nav-link mobile-sublink active">📊 Enterprise Analytics & CRO</a>
+    <a href="packages.html" class="nav-link mobile-sublink">💎 Retainer Packages</a>
+    <div class="mobile-nav-group-title">Proof & Company</div>
+    <a href="case-studies.html" class="nav-link mobile-sublink">🏆 Case Studies</a>
+    <a href="about.html" class="nav-link mobile-sublink">🏢 About Us</a>
+    <a href="contact.html" class="nav-link mobile-sublink">📍 Contact Us</a>
+    <div style="margin-top:16px;">
+      <button class="btn btn-gold btn-lg open-consultation-btn" style="width:100%;">Get Free Proposal &rarr;</button>
+    </div>
+  </div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="internal-hero-section">
+      <div class="container">
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-sep">/</span>
+          <a href="services.html">Services</a>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-current">Enterprise Analytics & CRO</span>
+        </nav>
+
+        <div class="internal-hero-content">
+          <div class="section-badge section-badge-gold">📊 Attribution & Conversion Science</div>
+          <h1 class="internal-hero-title">
+            Eliminate Data Blind Spots & <span class="gold-text-glow">Engineer Unstoppable CRO</span>
+          </h1>
+          <p class="internal-hero-subtitle">
+            You cannot scale what you do not measure accurately. We deploy server-side Google Tag Manager, multi-touch GA4 attribution models, user session recordings, and scientific A/B split testing that extracts maximum profit from every visitor.
+          </p>
+
+          <div class="service-hero-trust-list">
+            <span class="service-hero-trust-item"><span class="trust-check">✓</span> 100% Server-Side First-Party Tracking</span>
+            <span class="service-hero-trust-item"><span class="trust-check">✓</span> Multi-Touch Cross-Channel Attribution</span>
+            <span class="service-hero-trust-item"><span class="trust-check">✓</span> Rigorous A/B Testing & Behavioral Heatmaps</span>
+          </div>
+
+          <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:20px;">
+            <button class="btn btn-gold btn-lg open-consultation-btn">
+              <span>Claim Free Analytics Audit</span>
+              <span>&rarr;</span>
+            </button>
+            <a href="https://wa.me/917017281826?text=Hi%20Smart%20Digital%20Wings,%20I'm%20interested%20in%20Server-Side%20Analytics%20%26%20CRO."
+              target="_blank" rel="noopener noreferrer" class="btn btn-outline-white btn-lg" style="display:inline-flex;align-items:center;gap:8px;">
+              <span>WhatsApp Strategy Call</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="service-hero-stats">
+            <div class="service-hero-stat-item">
+              <span class="service-hero-stat-num">100%</span>
+              <span class="service-hero-stat-lbl">Purchase Attribution Signal Recovery</span>
+            </div>
+            <div class="service-hero-stat-item">
+              <span class="service-hero-stat-num">+120%</span>
+              <span class="service-hero-stat-lbl">Average Funnel Conversion Lift</span>
+            </div>
+            <div class="service-hero-stat-item">
+              <span class="service-hero-stat-num">24/7</span>
+              <span class="service-hero-stat-lbl">Live Executive Looker Studio Dashboards</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header" style="text-align:center;">
+          <div class="section-badge">The Unfair Advantage</div>
+          <h2 class="section-title">Broken Pixel Tracking vs. <span class="blue-text">Our Server-Side Data Engine</span></h2>
+          <p class="section-subtitle">Why standard Google Analytics and browser pixels lie about where your revenue actually comes from.</p>
+        </div>
+
+        <div class="comparison-grid">
+          <!-- Traditional Analytics Flaws -->
+          <div class="comparison-card card-flaw">
+            <div class="comparison-header">
+              <span class="comparison-badge">Broken Browser Tracking</span>
+              <h3 class="comparison-title">Data Blind Spots & Guesswork</h3>
+            </div>
+            <ul class="comp-list" style="list-style:none;padding:0;margin:0;">
+              <li><strong>Loses 30-40% of Purchases:</strong> Standard browser pixels are blocked by iOS privacy, Brave, and ad blockers.</li>
+              <li><strong>Double-Counting Revenue:</strong> Both Meta and Google Ads take 100% credit for the exact same transaction.</li>
+              <li><strong>Zero Behavioral Insight:</strong> Have no idea why users drop off at the checkout step or where they experience friction.</li>
+              <li><strong>Random Guesses on Landing Pages:</strong> Changing page headlines based on gut feeling rather than statistical testing.</li>
+              <li><strong>Clunky Unreadable GA4 Setup:</strong> Confusing standard GA4 reports where founders cannot find basic daily conversion metrics.</li>
+            </ul>
+          </div>
+
+          <!-- Smart Digital Wings Superior Model -->
+          <div class="comparison-card card-superior">
+            <div class="comparison-header">
+              <span class="comparison-badge">The Smart Digital Wings Model</span>
+              <h3 class="comparison-title">100% Signal Clarity & CRO</h3>
+            </div>
+            <ul class="comp-list" style="list-style:none;padding:0;margin:0;">
+              <li><strong>Server-Side GTM Architecture:</strong> First-party cloud server tracking capturing 100% of purchase and lead events.</li>
+              <li><strong>Data-Driven Multi-Touch Models:</strong> Clear visibility into which channel initiated, assisted, and closed every sale.</li>
+              <li><strong>Session Replays & Rage-Click Audits:</strong> Watching real user friction points to systematically eliminate checkout barriers.</li>
+              <li><strong>Rigorous A/B Split Testing:</strong> Controlled scientific experiments backed by statistical significance confidence scores.</li>
+              <li><strong>Custom Executive Looker Dashboards:</strong> Unified, beautiful dashboards showing your real blended ROAS and net profit live.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 Core Deliverables System -->
+    <section class="section section-white">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">Pillar Deliverables</div>
+          <h2 class="section-title">The Complete <span class="blue-text">Analytics & CRO Architecture</span></h2>
+          <p class="section-subtitle">A comprehensive data pipeline engineered to turn ambiguous traffic into predictable growth metrics.</p>
+        </div>
+
+        <div class="deliverables-system-grid">
+          <div class="deliverable-sys-card">
+            <div class="deliverable-sys-icon">☁️</div>
+            <h3 class="deliverable-sys-title">Server-Side Tag Management</h3>
+            <p class="deliverable-sys-desc">Google Cloud Server-Side GTM routing tracking data as a first-party subdomain (data.yourdomain.com), immune to ad blockers.</p>
+            <ul class="deliverable-sys-bullets">
+              <li>100% first-party cookie persistence</li>
+              <li>Bypasses iOS Safari ITP restrictions</li>
+              <li>Reduces site bloat by offloading tags</li>
+            </ul>
+          </div>
+
+          <div class="deliverable-sys-card">
+            <div class="deliverable-sys-icon">📈</div>
+            <h3 class="deliverable-sys-title">Custom GA4 E-Commerce Data Layer</h3>
+            <p class="deliverable-sys-desc">Complete e-commerce event setup: view_item, add_to_cart, begin_checkout, and purchase with profit margin parameters.</p>
+            <ul class="deliverable-sys-bullets">
+              <li>Zero revenue discrepancy with Shopify</li>
+              <li>Customer lifetime value (LTV) cohorts</li>
+              <li>Custom conversion funnels & drop-offs</li>
+            </ul>
+          </div>
+
+          <div class="deliverable-sys-card">
+            <div class="deliverable-sys-icon">🔥</div>
+            <h3 class="deliverable-sys-title">Heatmaps & Session Recordings</h3>
+            <p class="deliverable-sys-desc">Deploying Microsoft Clarity and Hotjar to observe real user navigation patterns, scroll depths, and rage clicks on mobile devices.</p>
+            <ul class="deliverable-sys-bullets">
+              <li>Mobile scroll & click heatmaps</li>
+              <li>Form field abandonment diagnostics</li>
+              <li>Rage click & dead click isolation</li>
+            </ul>
+          </div>
+
+          <div class="deliverable-sys-card">
+            <div class="deliverable-sys-icon">🧪</div>
+            <h3 class="deliverable-sys-title">Scientific A/B Split Testing</h3>
+            <p class="deliverable-sys-desc">Systematic testing of hero headlines, pricing structures, guarantee badges, and CTA buttons with 95%+ statistical significance.</p>
+            <ul class="deliverable-sys-bullets">
+              <li>Hypothesis-driven testing roadmap</li>
+              <li>Statistical significance calculation</li>
+              <li>Permanent winner deployment</li>
+            </ul>
+          </div>
+
+          <div class="deliverable-sys-card">
+            <div class="deliverable-sys-icon">📊</div>
+            <h3 class="deliverable-sys-title">Executive Looker Studio Dashboards</h3>
+            <p class="deliverable-sys-desc">Custom, real-time dashboards blending Google Ads, Meta Ads, SEO, and Shopify data into a single executive dashboard.</p>
+            <ul class="deliverable-sys-bullets">
+              <li>Blended Marketing Efficiency Ratio (MER)</li>
+              <li>Daily automated Slack reporting alerts</li>
+              <li>Multi-touch attribution channel comparison</li>
+            </ul>
+          </div>
+
+          <div class="deliverable-sys-card">
+            <div class="deliverable-sys-icon">🔄</div>
+            <h3 class="deliverable-sys-title">Cohort & Customer Lifetime Value</h3>
+            <p class="deliverable-sys-desc">Deep customer retention analysis tracking 30, 60, and 90-day repeat purchase rates to calculate your exact allowable CAC.</p>
+            <ul class="deliverable-sys-bullets">
+              <li>First-order to second-order velocity</li>
+              <li>Churn rate modeling & alerts</li>
+              <li>Cohort contribution margin tracking</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4-Step Framework -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header" style="text-align:center;">
+          <div class="section-badge">Execution Roadmap</div>
+          <h2 class="section-title">The 4-Stage <span class="blue-text">Analytics & CRO Framework</span></h2>
+          <p class="section-subtitle">How we build an ironclad attribution architecture and systematically scale conversion rates.</p>
+        </div>
+
+        <div class="framework-process-grid">
+          <div class="framework-step-card">
+            <div class="framework-step-num">01</div>
+            <div class="framework-step-phase">Audit & Discrepancy Fix</div>
+            <h4 class="framework-step-title">Days 1 - 5</h4>
+            <p class="framework-step-desc">Identifying pixel discrepancies between your CRM and ad platforms, fixing duplicate events, and mapping tracking architecture.</p>
+          </div>
+
+          <div class="framework-step-card">
+            <div class="framework-step-num">02</div>
+            <div class="framework-step-phase">Server-Side Cloud Setup</div>
+            <h4 class="framework-step-title">Days 6 - 12</h4>
+            <p class="framework-step-desc">Deploying Google Cloud server-side container, configuring first-party cookies, and verifying Meta CAPI and GA4 event pipelines.</p>
+          </div>
+
+          <div class="framework-step-card">
+            <div class="framework-step-num">03</div>
+            <div class="framework-step-phase">Friction Discovery & Heatmaps</div>
+            <h4 class="framework-step-title">Days 13 - 20</h4>
+            <p class="framework-step-desc">Analyzing 1,000+ session recordings to isolate checkout friction, mobile layout obstacles, and form abandonment triggers.</p>
+          </div>
+
+          <div class="framework-step-card">
+            <div class="framework-step-num">04</div>
+            <div class="framework-step-phase">Continuous A/B Sprint</div>
+            <h4 class="framework-step-title">Day 21+</h4>
+            <p class="framework-step-desc">Launching iterative A/B split tests on high-impact page elements to continuously increase conversion rate and customer value.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Spotlight Case Study -->
+    <section class="section section-white">
+      <div class="container">
+        <div class="spotlight-card">
+          <div class="spotlight-content">
+            <div class="spotlight-kicker">FEATURED CASE STUDY SPOTLIGHT</div>
+            <h2 class="spotlight-title">HyperScale D2C: 100% Attribution Signal Recovery & +120% Checkout CVR</h2>
+            <p class="spotlight-desc">
+              HyperScale D2C was losing 38% of their purchase attribution due to iOS 14+ privacy filters, causing Meta Ads to under-report ROAS. We deployed server-side GTM tracking and ran 4 iterative A/B checkout tests, lifting overall store conversion rate from 1.5% to 3.3%.
+            </p>
+
+            <div class="spotlight-metric-grid">
+              <div>
+                <div class="spotlight-metric-num">100%</div>
+                <div class="spotlight-metric-lbl">Signal Match Rate Recovered</div>
+              </div>
+              <div>
+                <div class="spotlight-metric-num">+120%</div>
+                <div class="spotlight-metric-lbl">Checkout Conversion Lift</div>
+              </div>
+              <div>
+                <div class="spotlight-metric-num">+3.8X</div>
+                <div class="spotlight-metric-lbl">Verified Meta Ad ROAS</div>
+              </div>
+            </div>
+
+            <div class="spotlight-quote-box">
+              <p class="spotlight-quote-text">
+                "We were scaling blind before Smart Digital Wings stepped in. Their server-side tracking gave us 100% clarity on where our revenue was coming from, and their A/B testing doubled our site's profitability in 60 days."
+              </p>
+              <span class="spotlight-quote-author">— Neha Kapoor, Chief Operating Officer, HyperScale D2C</span>
+            </div>
+          </div>
+
+          <div class="spotlight-sidebar-box" style="background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.14);border-radius:14px;padding:26px;">
+            <div style="font-size:0.75rem;font-weight:800;color:var(--gold-light);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:10px;">
+              ANALYTICS STACK DEPLOYED
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;">
+              <span class="tech-pill">Google Analytics 4</span>
+              <span class="tech-pill">Server-Side GTM</span>
+              <span class="tech-pill">Google Cloud Platform</span>
+              <span class="tech-pill">Microsoft Clarity</span>
+              <span class="tech-pill">Looker Studio</span>
+            </div>
+
+            <div style="border-top:1px solid rgba(255,255,255,0.12);padding-top:18px;">
+              <div style="font-size:0.875rem;font-weight:700;color:#FFFFFF;margin-bottom:6px;">Stop operating with tracking blind spots</div>
+              <p style="font-size:0.78125rem;color:rgba(255,255,255,0.8);line-height:1.4;margin-bottom:16px;">
+                Get a forensic audit of your GA4, GTM, and attribution tracking setup within 2 hours.
+              </p>
+              <button class="btn btn-gold open-consultation-btn" style="width:100%;">Claim Free Analytics Audit &rarr;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Frequently Asked Questions -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header" style="text-align:center;">
+          <div class="section-badge">Client FAQs</div>
+          <h2 class="section-title">Common Questions About <span class="blue-text">Our Analytics & CRO Service</span></h2>
+          <p class="section-subtitle">Clear explanations of server-side data, tracking compliance, and A/B testing.</p>
+        </div>
+
+        <div class="service-faq-container">
+          <details class="service-faq-item" open>
+            <summary>What exactly is server-side tracking and why is it better than client-side?</summary>
+            <div class="service-faq-content">
+              Standard client-side tracking sends data from the user's browser directly to Google or Meta, making it vulnerable to ad blockers and browser privacy rules (like Apple's iOS ITP). Server-side tracking sends data first to your own cloud server, which then securely sends verified purchase data to ad platforms—recovering up to 40% of lost signals.
+            </div>
+          </details>
+
+          <details class="service-faq-item">
+            <summary>Will server-side tracking slow down our website?</summary>
+            <div class="service-faq-content">
+              No, it actually speeds up your website! Because heavy third-party tracking scripts are moved from the user's browser to your cloud server, the visitor's device downloads significantly less JavaScript, resulting in faster Core Web Vitals and lower bounce rates.
+            </div>
+          </details>
+
+          <details class="service-faq-item">
+            <summary>How much traffic do we need to run meaningful A/B split tests?</summary>
+            <div class="service-faq-content">
+              For landing page or checkout A/B testing, we generally recommend a minimum of 8,000 to 15,000 monthly unique visitors and at least 150-200 conversions per month to reach statistical significance (95%+ confidence) within 2 to 4 weeks.
+            </div>
+          </details>
+
+          <details class="service-faq-item">
+            <summary>Can you integrate our offline sales and phone calls into GA4?</summary>
+            <div class="service-faq-content">
+              Yes. We set up measurement protocol webhooks that automatically send offline CRM conversion values (such as completed contract signings, in-store purchases, or qualified sales calls) back into Google Analytics 4.
+            </div>
+          </details>
+
+          <details class="service-faq-item">
+            <summary>How is our data protected and are your systems GDPR / DPDP compliant?</summary>
+            <div class="service-faq-content">
+              Yes, 100% compliant. Server-side tracking gives you complete control over what data is sent to third parties. We automatically hash and scrub all personally identifiable information (PII) before transmission to adhere strictly to international and Indian data protection regulations.
+            </div>
+          </details>
+
+          <details class="service-faq-item">
+            <summary>What will our Looker Studio dashboard look like?</summary>
+            <div class="service-faq-content">
+              You receive a custom-designed, single-pane-of-glass executive dashboard that brings your ad spend, ROAS, cost per lead, organic search traffic, and net store revenue into a clean visual interface with zero technical jargon.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Conversion CTA Section -->
+    <section id="audit" class="section section-blue" style="padding:60px 0;">
+      <div class="container">
+        <div style="max-width:800px;margin:0 auto;text-align:center;">
+          <div class="section-badge section-badge-gold">Take Action Today</div>
+          <h2 class="section-title" style="color:#FFFFFF;margin-bottom:14px;">Stop Flying Blind with Inaccurate Ad Data</h2>
+          <p class="section-subtitle" style="color:rgba(255,255,255,0.9);margin-bottom:28px;">
+            Claim your complimentary ₹15,000 Analytics & Attribution Audit. We'll identify your data discrepancy gaps, inspect your event triggers, and map out a bulletproof tracking setup.
+          </p>
+
+          <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+            <button class="btn btn-gold btn-lg open-consultation-btn">
+              <span>Claim Complimentary Analytics Audit</span>
+              <span>&rarr;</span>
+            </button>
+            <a href="tel:+917017281826" class="btn btn-outline-white btn-lg">
+              <span>Call Data Lead: +91 7017281826</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="main-footer">
+    <div class="container footer-grid">
+      <div class="footer-col footer-col-brand">
+        <a href="index.html" class="footer-logo">
+          <div class="logo-emblem">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path
+                d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+            </svg>
+          </div>
+          <div class="logo-text-group">
+            <span class="logo-brand-name">SMART DIGITAL WINGS</span>
+            <span class="logo-tagline">ELEVATE • SCALE • DOMINATE</span>
+          </div>
+        </a>
+        <p class="footer-about">
+          Premier performance digital growth agency specializing in high-converting web design, aggressive SEO, and viral paid media.
+        </p>
+        <div class="footer-contact-info">
+          <p><strong>HQ:</strong> Meerut Cantt, Uttar Pradesh, India</p>
+          <p><strong>Direct:</strong> +91 7017281826</p>
+          <p><strong>Email:</strong> growth@smartdigitalwings.com</p>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Services</h4>
+        <ul class="footer-links">
+          <li><a href="service-smm.html">Social Media & Meta Ads</a></li>
+          <li><a href="service-seo.html">Search Engine Optimization</a></li>
+          <li><a href="service-web-design.html">High-Converting Web Design</a></li>
+          <li><a href="service-ppc.html">Google PPC Search Ads</a></li>
+          <li><a href="service-branding.html">Brand Identity & Design</a></li>
+          <li><a href="service-analytics.html">Enterprise Analytics & CRO</a></li>
+          <li><a href="packages.html">Retainer Packages</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Company</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">About Smart Digital Wings</a></li>
+          <li><a href="case-studies.html">Case Studies & Results</a></li>
+          <li><a href="packages.html">Retainer Pricing</a></li>
+          <li><a href="contact.html">Contact Headquarters</a></li>
+          <li><a href="index.html#reviews">Client Testimonials</a></li>
+          <li><a href="index.html#faq">General FAQs</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Instant Audit</h4>
+        <p style="font-size:0.8125rem;color:rgba(255,255,255,0.7);line-height:1.5;margin-bottom:14px;">
+          Speak directly with our growth strategist and receive an executive performance roadmap within 2 hours.
+        </p>
+        <button class="btn btn-gold btn-md open-consultation-btn" style="width:100%;">Book Strategy Call &rarr;</button>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-flex">
+        <p>&copy; 2026 Smart Digital Wings. All Rights Reserved. Built for high-growth enterprise scale.</p>
+        <div class="footer-legal-links">
+          <a href="#">Privacy Policy</a>
+          <span>•</span>
+          <a href="#">Terms of Service</a>
+          <span>•</span>
+          <a href="#">Security</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Consultation Modal Dialog -->
+  <dialog id="consultationModal" class="custom-modal" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <button id="closeModalBtn" class="modal-close-btn" aria-label="Close modal">&times;</button>
+      <div class="modal-header">
+        <span class="section-badge" style="margin-bottom:6px;font-size:0.7rem;padding:3px 10px;">Free Strategy Session</span>
+        <h3 id="modalTitle" class="modal-title">Claim Your Analytics & CRO Audit</h3>
+        <p class="modal-desc">Fill in your website details below to receive a personalized tracking and conversion optimization plan within 2 hours.</p>
+      </div>
+
+      <form id="consultationForm" class="modal-form">
+        <div class="form-group">
+          <label for="consultName" class="form-label">Full Name *</label>
+          <input type="text" id="consultName" class="form-input" placeholder="e.g. Vikram Sharma" required>
+        </div>
+
+        <div class="form-group">
+          <label for="consultPhone" class="form-label">Phone / WhatsApp Number *</label>
+          <input type="tel" id="consultPhone" class="form-input" placeholder="+91 98765 43210" required>
+        </div>
+
+        <div class="form-group">
+          <label for="consultEmail" class="form-label">Work Email *</label>
+          <input type="email" id="consultEmail" class="form-input" placeholder="vikram@brand.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="consultService" class="form-label">Service Required</label>
+          <select id="consultService" class="form-select">
+            <option value="Enterprise Analytics, GA4 & CRO" selected>Enterprise Analytics, GA4 & CRO</option>
+            <option value="Social Media Marketing & Meta Ads">Social Media Marketing & Meta Ads</option>
+            <option value="Technical SEO Dominance">Technical SEO Dominance</option>
+            <option value="High-Converting Web Design">High-Converting Web Design</option>
+            <option value="Full 360 Growth Retainer">Full 360° Growth Retainer</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="consultBudget" class="form-label">Monthly Growth Budget</label>
+          <select id="consultBudget" class="form-select">
+            <option value="₹25,000 - ₹50,000">₹25,000 - ₹50,000 / mo</option>
+            <option value="₹50,000 - ₹1,00,000" selected>₹50,000 - ₹1,00,000 / mo</option>
+            <option value="₹1,00,000 - ₹2,50,000">₹1,00,000 - ₹2,50,000 / mo</option>
+            <option value="₹2,50,000+">₹2,50,000+ / mo (Enterprise)</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-gold btn-lg" style="width:100%;margin-top:8px;">
+          <span>Get Free Analytics Proposal</span>
+          <span>&rarr;</span>
+        </button>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- Core Scripts -->
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>
