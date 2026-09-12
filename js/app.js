@@ -379,7 +379,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ------------------------------------------------------------------------
-  // 3. Hero Section Quick Proposal Form
+  // 3. Hero Section Quick Proposal Form (With Direct WhatsApp Dispatch)
   // ------------------------------------------------------------------------
   const heroForm = document.getElementById('heroProposalForm');
   if (heroForm) {
@@ -387,30 +387,104 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       const submitBtn = heroForm.querySelector('button[type="submit"]');
       const originalText = submitBtn.innerHTML;
-      submitBtn.innerHTML = '<span>Analyzing Brand...</span>';
+      submitBtn.innerHTML = '<span>Generating Your Roadmap...</span>';
       submitBtn.disabled = true;
 
       const payload = {
-        name: document.getElementById('heroName')?.value,
-        phone: document.getElementById('heroPhone')?.value,
-        email: document.getElementById('heroEmail')?.value,
-        service: document.getElementById('heroService')?.value,
-        budget: document.getElementById('heroBudget')?.value
+        name: document.getElementById('heroName')?.value || '',
+        phone: document.getElementById('heroPhone')?.value || '',
+        email: document.getElementById('heroEmail')?.value || '',
+        service: document.getElementById('heroService')?.value || '',
+        budget: document.getElementById('heroBudget')?.value || ''
       };
 
-      const res = await submitProposalEnquiry(payload);
+      // 1. Submit to lead repository/API
+      await submitProposalEnquiry(payload);
+
+      // 2. Construct clean formatted WhatsApp message for direct dispatch
+      const agencyWhatsApp = '917017281826';
+      const waMessage = 
+`🚀 *NEW GROWTH PROPOSAL ENQUIRY*
+━━━━━━━━━━━━━━━━━━━━━
+👤 *Full Name:* ${payload.name}
+📱 *Phone / WhatsApp:* ${payload.phone}
+✉️ *Work Email:* ${payload.email}
+💼 *Monthly Budget:* ${payload.budget}
+🎯 *Primary Growth Goal:* ${payload.service}
+━━━━━━━━━━━━━━━━━━━━━
+🌐 *Source:* Smart Digital Wings Instant Proposal Audit
+⏱️ *Timestamp:* ${new Date().toLocaleString('en-IN')}`;
+
+      const waUrl = `https://api.whatsapp.com/send?phone=${agencyWhatsApp}&text=${encodeURIComponent(waMessage)}`;
+
+      // 3. Reset button state & show celebratory feedback
       submitBtn.innerHTML = originalText;
       submitBtn.disabled = false;
 
-      if (res.success) {
-        triggerConfetti();
-        showToast('Proposal request received! Expect your roadmap in 2 hours.');
-        heroForm.reset();
-      } else {
-        showToast(res.message || 'Submission error', 'error');
-      }
+      triggerConfetti();
+      showToast('Proposal request received! Our Growth Director will connect with your roadmap shortly.');
+
+      // 4. Dispatch WhatsApp message directly
+      window.open(waUrl, '_blank');
+
+      heroForm.reset();
     });
   }
+
+  // ------------------------------------------------------------------------
+  // 3.1 Internal Service Pages Fast-Track Quote Forms
+  // ------------------------------------------------------------------------
+  const fastTrackForms = document.querySelectorAll('.internal-fast-track-form');
+  fastTrackForms.forEach(form => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<span>Generating Proposal...</span>';
+      submitBtn.disabled = true;
+
+      const nameInput = form.querySelector('.ft-name');
+      const phoneInput = form.querySelector('.ft-phone');
+      const budgetInput = form.querySelector('.ft-budget');
+      const serviceName = form.getAttribute('data-service') || 'Comprehensive Growth';
+
+      const payload = {
+        name: nameInput?.value || '',
+        phone: phoneInput?.value || '',
+        budget: budgetInput?.value || '',
+        service: serviceName
+      };
+
+      // 1. Submit lead to local API/tracker
+      await submitProposalEnquiry(payload);
+
+      // 2. Format WhatsApp message
+      const agencyWhatsApp = '917017281826';
+      const waMessage = 
+`🚀 *FAST-TRACK PROPOSAL ENQUIRY*
+━━━━━━━━━━━━━━━━━━━━━
+🎯 *Service Requested:* ${payload.service}
+👤 *Full Name:* ${payload.name}
+📱 *Phone / WhatsApp:* ${payload.phone}
+💼 *Monthly Budget:* ${payload.budget}
+━━━━━━━━━━━━━━━━━━━━━
+🌐 *Source:* Smart Digital Wings Internal Service Audit
+⏱️ *Timestamp:* ${new Date().toLocaleString('en-IN')}`;
+
+      const waUrl = `https://api.whatsapp.com/send?phone=${agencyWhatsApp}&text=${encodeURIComponent(waMessage)}`;
+
+      submitBtn.innerHTML = originalText;
+      submitBtn.disabled = false;
+
+      triggerConfetti();
+      showToast(`Audit request received for ${serviceName}! Our Director will connect shortly.`);
+
+      // 3. Dispatch to WhatsApp
+      window.open(waUrl, '_blank');
+
+      form.reset();
+    });
+  });
 
   // ------------------------------------------------------------------------
   // 4. Services Deep-Dive Modal

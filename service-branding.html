@@ -22,39 +22,28 @@
 
 <body>
 
-  <!-- Top Announcement Bar -->
-  <div class="top-announcement-bar">
-    <div class="container announcement-content">
-      <span class="announcement-pill">🔥 Q3 2026 Strategy Slots Open</span>
-      <span class="announcement-text">Claim your complimentary ₹15,000 Brand Positioning & Creative Audit before slots fill up.</span>
-      <a href="#audit" class="announcement-link">Claim Slot &rarr;</a>
-    </div>
-  </div>
-
-  <!-- Main Sticky Header -->
-  <header class="main-header" id="mainHeader">
-    <div class="header-container">
+  <!-- Main Navigation Header (Royal Blue #093360) -->
+  <header class="main-header">
+    <div class="container nav-container">
 
       <!-- Brand Logo -->
       <a href="index.html" class="brand-logo" aria-label="Smart Digital Wings Home">
-        <div class="logo-emblem">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path
-              d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-          </svg>
+        <div class="logo-badge">
+          <div class="logo-badge-inner">
+            <img src="assets/Smart Digital Wings (1).png" alt="Smart Digital Wings Logo">
+          </div>
         </div>
-        <div class="logo-text-group">
-          <span class="logo-brand-name">SMART DIGITAL WINGS</span>
-          <span class="logo-tagline">ELEVATE • SCALE • DOMINATE</span>
+        <div class="brand-info">
+          <span class="brand-name">SMART <span class="gold-text">DIGITAL WINGS</span></span>
+          <span class="brand-sub">Elevate • Scale • Dominate</span>
         </div>
       </a>
 
-      <!-- Desktop Navigation Pill -->
-      <nav class="desktop-nav" aria-label="Primary Navigation">
+      <!-- Desktop Navigation Links (5 Clean Primary Items) -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
         <a href="index.html" class="nav-link">Home</a>
 
-        <!-- Services Dropdown -->
+        <!-- Services & Solutions Dropdown (Active) -->
         <div class="nav-dropdown">
           <a href="services.html" class="nav-link nav-dropdown-toggle active" aria-haspopup="true" aria-expanded="false">
             <span>Services</span>
@@ -99,10 +88,10 @@
           </div>
         </div>
 
-        <!-- Case Studies -->
+        <!-- Case Studies (Direct Link) -->
         <a href="case-studies.html" class="nav-link">Case Studies</a>
 
-        <!-- Company Dropdown -->
+        <!-- Company & Proof Dropdown -->
         <div class="nav-dropdown">
           <a href="about.html" class="nav-link nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
             <span>Company</span>
@@ -126,35 +115,33 @@
             </a>
             <a href="index.html#faq" class="dropdown-item">
               <span class="dropdown-item-icon">❓</span>
-              <span class="dropdown-item-title">General FAQs</span>
+              <span class="dropdown-item-title">FAQ</span>
             </a>
           </div>
         </div>
 
-        <!-- Contact Direct Link -->
+        <!-- Contact (Direct Link) -->
         <a href="contact.html" class="nav-link">Contact</a>
       </nav>
 
-      <!-- Right Header Actions -->
-      <div class="header-actions">
-        <a href="tel:+917017281826" class="header-phone-badge" aria-label="Direct Phone Line">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+      <!-- CTA Buttons & Contact -->
+      <div class="nav-cta-group">
+        <a href="tel:+917017281826" class="nav-phone" title="Direct Phone">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path
               d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
           </svg>
           <span>+91 7017281826</span>
         </a>
-
-        <button class="btn btn-gold btn-header open-consultation-btn">
+        <button class="btn btn-gold btn-header-cta open-consultation-btn">
           <span>Get Free Proposal</span>
-          <span style="font-size:0.75rem;">✦</span>
+          <span class="cta-arrow">+</span>
         </button>
-
-        <!-- Mobile Hamburger Toggle -->
-        <button id="mobileMenuToggle" class="mobile-toggle" aria-label="Toggle Navigation Menu">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-            <line x1="3" y1="6" x2="21" y2="6" />
+        <!-- Mobile Hamburger Toggle Button -->
+        <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Toggle Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="6" x2="21" y2="6" />
             <line x1="3" y1="18" x2="21" y2="18" />
           </svg>
         </button>
@@ -190,53 +177,53 @@
       <div class="container">
         <nav class="breadcrumb-nav" aria-label="Breadcrumb">
           <a href="index.html">Home</a>
-          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-sep">›</span>
           <a href="services.html">Services</a>
-          <span class="breadcrumb-sep">/</span>
-          <span class="breadcrumb-current">Brand Identity & Luxury Creative</span>
+          <span class="breadcrumb-sep">›</span>
+          <span class="breadcrumb-current">Brand Identity &amp; Luxury Creative</span>
         </nav>
 
-        <div class="internal-hero-content">
-          <div class="section-badge section-badge-gold">👑 Imperial Brand Architecture</div>
-          <h1 class="internal-hero-title">
-            Visual Distinction Crafted to <span class="gold-text-glow">Command Premium Pricing</span>
-          </h1>
-          <p class="internal-hero-subtitle">
-            Premium brands command premium margins. We architect unforgettable brand identities, luxury positioning design systems, and high-production 4K video creatives that elevate your perceived market value above all competitors.
-          </p>
+        <div class="service-hero-grid">
+          <div class="service-hero-left">
+            <div class="section-badge section-badge-gold">👑 Imperial Brand Architecture</div>
+            <h1 class="internal-hero-title">
+              Visual Distinction Crafted to <span class="gold-text-glow">Command Premium Pricing</span>
+            </h1>
+            <p class="internal-hero-subtitle">
+              Unforgettable brand identities, luxury positioning design systems, and high-production 4K creatives that command premium margins.
+            </p>
 
-          <div class="service-hero-trust-list">
-            <span class="service-hero-trust-item"><span class="trust-check">✓</span> 3.2x Average Perceived Price Lift</span>
-            <span class="service-hero-trust-item"><span class="trust-check">✓</span> 100% Brand Unity Across All Channels</span>
-            <span class="service-hero-trust-item"><span class="trust-check">✓</span> Studio-Grade 4K Motion & Ad Production</span>
+            <div style="margin-top:20px;margin-bottom:24px;">
+              <button class="btn btn-gold btn-lg open-consultation-btn">
+                <span>Claim Free Brand Audit</span>
+                <span>&rarr;</span>
+              </button>
+            </div>
+
+            <div class="service-hero-stats">
+              <div class="service-hero-stat-item">
+                <span class="service-hero-stat-num">3.2X</span>
+                <span class="service-hero-stat-lbl">Average Price Premium Realized</span>
+              </div>
+              <div class="service-hero-stat-item">
+                <span class="service-hero-stat-num">100%</span>
+                <span class="service-hero-stat-lbl">Brand Design System Unity</span>
+              </div>
+              <div class="service-hero-stat-item">
+                <span class="service-hero-stat-num">4K Cinema</span>
+                <span class="service-hero-stat-lbl">Video Production Standard</span>
+              </div>
+            </div>
           </div>
 
-          <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:20px;">
-            <button class="btn btn-gold btn-lg open-consultation-btn">
-              <span>Claim Free Brand Audit</span>
-              <span>&rarr;</span>
-            </button>
-            <a href="https://wa.me/917017281826?text=Hi%20Smart%20Digital%20Wings,%20I'm%20interested%20in%20elevating%20our%20Brand%20Identity."
-              target="_blank" rel="noopener noreferrer" class="btn btn-outline-white btn-lg" style="display:inline-flex;align-items:center;gap:8px;">
-              <span>WhatsApp Strategy Call</span>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
-              </svg>
-            </a>
-          </div>
-
-          <div class="service-hero-stats">
-            <div class="service-hero-stat-item">
-              <span class="service-hero-stat-num">3.2X</span>
-              <span class="service-hero-stat-lbl">Average Price Premium Realized</span>
-            </div>
-            <div class="service-hero-stat-item">
-              <span class="service-hero-stat-num">100%</span>
-              <span class="service-hero-stat-lbl">Brand Design System Unity</span>
-            </div>
-            <div class="service-hero-stat-item">
-              <span class="service-hero-stat-num">4K Cinema</span>
-              <span class="service-hero-stat-lbl">Video Production Standard</span>
+          <!-- Hero Visual Right -->
+          <div class="service-hero-visual-card">
+            <div class="service-visual-wrapper">
+              <img src="assets/service-branding.jpg" alt="Luxury Brand Identity and Packaging Design Showcase" class="service-hero-img" loading="eager">
+              <div class="service-img-overlay-badge">
+                <span class="badge-dot"></span>
+                <span>3.2x Perceived Price Lift Engine</span>
+              </div>
             </div>
           </div>
         </div>
@@ -519,25 +506,62 @@
       </div>
     </section>
 
-    <!-- Bottom Conversion CTA Section -->
-    <section id="audit" class="section section-blue" style="padding:60px 0;">
+    <!-- Minimalist Fast-Track Proposal Section -->
+    <section id="audit" class="section section-blue" style="padding:70px 0;">
       <div class="container">
-        <div style="max-width:800px;margin:0 auto;text-align:center;">
-          <div class="section-badge section-badge-gold">Take Action Today</div>
-          <h2 class="section-title" style="color:#FFFFFF;margin-bottom:14px;">Stop Competing on Price with Commodity Branding</h2>
-          <p class="section-subtitle" style="color:rgba(255,255,255,0.9);margin-bottom:28px;">
-            Claim your complimentary ₹15,000 Brand Positioning Audit. We'll analyze your market competitors, dissect your visual presence, and propose an executive rebrand blueprint.
-          </p>
-
-          <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-            <button class="btn btn-gold btn-lg open-consultation-btn">
-              <span>Claim Complimentary Brand Audit</span>
-              <span>&rarr;</span>
-            </button>
-            <a href="tel:+917017281826" class="btn btn-outline-white btn-lg">
-              <span>Call Creative Director: +91 7017281826</span>
-            </a>
+        <div class="internal-fast-track-card">
+          <div class="hero-card-glow-bar"></div>
+          <div class="fast-track-header">
+            <div class="hero-form-badge">
+              <span class="pulse-dot-green"></span>
+              <span>⚡ 100% FREE AUDIT • 2-HOUR TURNAROUND</span>
+            </div>
+            <h2 class="fast-track-title">
+              Claim Your Free <span class="gold-gradient-text">Brand Positioning &amp; Design Audit</span>
+            </h2>
+            <p class="fast-track-desc">
+              Elevate your market perception with an executive audit of your visual guidelines, logo, and brand packaging.
+            </p>
           </div>
+
+          <form class="internal-fast-track-form" data-service="Brand Identity &amp; Design">
+            <div class="internal-fast-track-grid">
+              <div class="form-group">
+                <label class="form-label"><span class="label-icon">👤</span> Full Name *</label>
+                <input type="text" class="form-input ft-name" placeholder="e.g. Vikram Sharma" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label"><span class="label-icon">📱</span> Phone / WhatsApp *</label>
+                <input type="tel" class="form-input ft-phone" placeholder="+91 98765 43210" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label"><span class="label-icon">💼</span> Rebrand Budget</label>
+                <select class="form-select ft-budget">
+                  <option value="₹25,000 - ₹50,000">₹25,000 - ₹50,000 (Identity Kit)</option>
+                  <option value="₹50,000 - ₹1,00,000" selected>₹50,000 - ₹1,00,000 (Complete Brand System)</option>
+                  <option value="₹1,00,000 - ₹2,00,000">₹1,00,000 - ₹2,00,000 (Luxury Rebrand)</option>
+                  <option value="₹2,00,000+">₹2,00,000+ (Omnichannel Enterprise)</option>
+                </select>
+              </div>
+            </div>
+
+            <div style="margin-top:12px;">
+              <button type="submit" class="internal-fast-track-btn">
+                <span>Get Free Brand Transformation Proposal</span>
+                <span style="font-size:1.15rem;margin-left:4px;">&rarr;</span>
+              </button>
+            </div>
+
+            <div class="hero-form-trust-footer" style="margin-top:14px;">
+              <span>🔒 100% Confidential</span>
+              <span class="trust-dot">•</span>
+              <span>⚡ 2-Hour Response</span>
+              <span class="trust-dot">•</span>
+              <span>🛡️ Zero Obligation</span>
+            </div>
+          </form>
         </div>
       </div>
     </section>

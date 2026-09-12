@@ -1,20 +1,20 @@
 /* ==========================================================================
-   SMART DIGITAL WINGS - ROYAL SAPPHIRE BLUE (#09519e) & GOLD DESIGN SYSTEM
+   SMART DIGITAL WINGS - DEEP ROYAL BLUE (#093360) & GOLD DESIGN SYSTEM
    Modern, High-Contrast Luxury Agency Architecture (Zero Black Theme)
    ========================================================================== */
 
 :root {
-  /* Primary Royal Blue Palette (Replacing Black) */
-  --primary: #09519e;
-  --primary-hover: #074282;
-  --primary-light: #166ecc;
-  --primary-lighter: #2f85e8;
-  --primary-dark: #063162;
-  --primary-darker: #041f3f;
-  --primary-deep: #021327;
-  --primary-surface: #0a3d75;
-  --primary-tint: #eaf3fc;
-  --primary-tint-light: #f4f8fd;
+  /* Primary Deep Royal Blue Palette (#093360) */
+  --primary: #093360;
+  --primary-hover: #072648;
+  --primary-light: #124885;
+  --primary-lighter: #1b62af;
+  --primary-dark: #062343;
+  --primary-darker: #04172c;
+  --primary-deep: #020d1a;
+  --primary-surface: #0a3a6c;
+  --primary-tint: #e8eff8;
+  --primary-tint-light: #f3f7fc;
   
   /* Metallic Champagne & Gold Hierarchy */
   --gold-primary: #D4AF37;
@@ -26,11 +26,11 @@
   --gold-gradient-bg: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 55%, #A67C1E 100%);
   --gold-gradient-btn: linear-gradient(135deg, #FFE89E 0%, #D4AF37 50%, #BD8C1B 100%);
   
-  /* Blue Gradients */
-  --hero-gradient: linear-gradient(145deg, #09519e 0%, #07386d 50%, #041f3f 100%);
-  --blue-gradient-card: linear-gradient(160deg, #0a3d75 0%, #063162 100%);
-  --blue-glow: 0 10px 30px rgba(9, 81, 158, 0.3);
-  --blue-glow-lg: 0 15px 45px rgba(9, 81, 158, 0.45);
+  /* Blue Gradients (#093360 Banner & Card Highlights) */
+  --hero-gradient: linear-gradient(145deg, #093360 0%, #082d54 50%, #062343 100%);
+  --blue-gradient-card: linear-gradient(160deg, #093360 0%, #062343 100%);
+  --blue-glow: 0 10px 30px rgba(9, 51, 96, 0.3);
+  --blue-glow-lg: 0 15px 45px rgba(9, 51, 96, 0.45);
   
   /* Clean Light Surfaces */
   --bg-body: #F8FAFC;
@@ -41,7 +41,7 @@
   --text-muted: #64748B;
   --text-dim: #94A3B8;
   --border-light: #E2E8F0;
-  --border-blue: rgba(9, 81, 158, 0.2);
+  --border-blue: rgba(9, 51, 96, 0.2);
   --border-gold: rgba(212, 175, 55, 0.4);
   
   /* Typography */
@@ -249,13 +249,13 @@ img {
 .btn-blue {
   background: var(--primary);
   color: #FFFFFF;
-  box-shadow: 0 4px 18px rgba(9, 81, 158, 0.3);
+  box-shadow: 0 4px 18px rgba(9, 51, 96, 0.3);
 }
 
 .btn-blue:hover {
   background: var(--primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(9, 81, 158, 0.45);
+  box-shadow: 0 8px 25px rgba(9, 51, 96, 0.45);
 }
 
 .btn-outline-white {
@@ -326,7 +326,7 @@ img {
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(9, 81, 158, 0.95);
+  background: rgba(9, 51, 96, 0.95);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
@@ -335,8 +335,8 @@ img {
 }
 
 .main-header.scrolled {
-  background: rgba(6, 49, 98, 0.98);
-  box-shadow: 0 10px 25px rgba(4, 31, 63, 0.4);
+  background: rgba(6, 35, 67, 0.98);
+  box-shadow: 0 10px 25px rgba(4, 23, 44, 0.4);
   border-bottom-color: rgba(212, 175, 55, 0.4);
 }
 
@@ -543,7 +543,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(9, 81, 158, 0.45);
+  background: rgba(9, 51, 96, 0.45);
   border: 1px solid rgba(212, 175, 55, 0.25);
   border-radius: 7px;
   flex-shrink: 0;
@@ -680,7 +680,7 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   Hero Section (#09519e Royal Gradient)
+   Hero Section (#093360 Deep Royal Gradient)
    -------------------------------------------------------------------------- */
 .hero-section {
   background: var(--hero-gradient);
@@ -724,9 +724,9 @@ img {
 .hero-description {
   font-size: 0.9375rem;
   color: rgba(255, 255, 255, 0.9);
-  line-height: 1.55;
-  margin-bottom: 16px;
-  max-width: 540px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  max-width: 580px;
 }
 
 .hero-actions {
@@ -734,7 +734,7 @@ img {
   align-items: center;
   flex-wrap: wrap;
   gap: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 22px;
 }
 
 .hero-benefits-row {
@@ -782,83 +782,361 @@ img {
 
 .stat-label {
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.78);
-  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
 }
 
-/* Hero Proposal Form Card - 2-Column Compact Layout */
-.hero-form-card {
+/* ==========================================================================
+   Hero Proposal Form Card - Ultra-Luxury High-Converting Edition
+   ========================================================================== */
+.hero-form-card,
+.hero-proposal-card {
   background: #FFFFFF;
   color: var(--text-dark);
-  border: 2px solid var(--gold-primary);
-  border-radius: var(--radius-md);
-  padding: 20px 24px;
-  box-shadow: 0 16px 40px rgba(4, 31, 63, 0.4);
+  border: 2px solid rgba(212, 175, 55, 0.48);
+  border-radius: 20px;
+  padding: 26px 28px 22px 28px;
+  box-shadow: 
+    0 24px 64px -10px rgba(4, 23, 44, 0.55),
+    0 0 0 1px rgba(212, 175, 55, 0.35),
+    0 10px 30px rgba(9, 51, 96, 0.18);
   position: relative;
+  overflow: hidden;
+  z-index: 2;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.hero-form-card:hover {
+  box-shadow: 
+    0 30px 75px -10px rgba(4, 23, 44, 0.62),
+    0 0 0 1.5px rgba(212, 175, 55, 0.55),
+    0 14px 40px rgba(9, 51, 96, 0.25);
+}
+
+/* Luminous Accent Highlight Bar Top */
+.hero-card-glow-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4.5px;
+  background: linear-gradient(90deg, #D4AF37 0%, #FFE58F 30%, #093360 65%, #D4AF37 100%);
 }
 
 .hero-form-header {
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
-.hero-form-title {
-  font-size: 1.25rem;
+.hero-form-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 12px;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(9, 51, 96, 0.06) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: var(--radius-full);
+  font-size: 0.7rem;
   font-weight: 800;
-  color: var(--text-dark);
-  margin-bottom: 2px;
+  letter-spacing: 0.06em;
+  color: #8C6813;
+  text-transform: uppercase;
+  margin-bottom: 10px;
 }
 
-.hero-form-desc {
-  font-size: 0.78125rem;
-  color: var(--text-muted);
-  line-height: 1.35;
+.pulse-dot-green {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22C55E;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25);
+  animation: pulseGreen 2s infinite;
+}
+
+@keyframes pulseGreen {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+.hero-form-title,
+.hero-card-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #0F172A;
+  line-height: 1.22;
+  margin-bottom: 4px;
+  letter-spacing: -0.015em;
+}
+
+.hero-form-desc,
+.hero-card-desc {
+  font-size: 0.8125rem;
+  color: #64748B;
+  line-height: 1.45;
+  margin-bottom: 14px;
 }
 
 .hero-proposal-form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px 12px;
+  gap: 12px 14px;
 }
 
 .hero-proposal-form-grid .form-group {
   margin-bottom: 0;
 }
 
-.hero-proposal-form-grid .form-group-full {
+.hero-proposal-form-grid .form-group-full,
+.hero-proposal-form-grid .form-group.full-width {
   grid-column: span 2;
 }
 
 .hero-proposal-form-grid .form-label {
-  display: block;
-  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.77rem;
   font-weight: 700;
-  color: var(--text-dark);
-  margin-bottom: 3px;
+  color: #1E293B;
+  margin-bottom: 5px;
+}
+
+.hero-proposal-form-grid .form-label .label-icon {
+  font-size: 0.85rem;
 }
 
 .hero-proposal-form-grid .form-input,
 .hero-proposal-form-grid .form-select {
   width: 100%;
-  background: #FFFFFF;
-  border: 1.5px solid var(--border-light);
-  border-radius: var(--radius-sm);
-  padding: 8px 12px;
-  font-size: 0.8125rem;
-  color: var(--text-dark);
+  background: #F8FAFC;
+  border: 1.5px solid #CBD5E1;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0F172A;
   font-family: inherit;
-  transition: var(--transition-fast);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.hero-proposal-form-grid .form-input::placeholder {
+  color: #94A3B8;
+  font-weight: 400;
+}
+
+.hero-proposal-form-grid .form-select {
+  appearance: none;
+  background-color: #F8FAFC;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%230F172A' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 34px;
+  cursor: pointer;
+}
+
+.hero-proposal-form-grid .form-input:hover,
+.hero-proposal-form-grid .form-select:hover {
+  background: #FFFFFF;
+  border-color: #94A3B8;
 }
 
 .hero-proposal-form-grid .form-input:focus,
 .hero-proposal-form-grid .form-select:focus {
   outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 2.5px rgba(9, 81, 158, 0.15);
+  background: #FFFFFF;
+  border-color: #093360;
+  box-shadow: 0 0 0 3.5px rgba(9, 51, 96, 0.14), 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-.hero-proposal-form-grid .btn {
-  padding: 10px 18px;
-  font-size: 0.9rem;
+/* Luxury WhatsApp Gold Submit Button */
+.hero-form-submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 13px 22px;
+  font-size: 0.9375rem;
+  font-weight: 800;
+  color: #04172C;
+  background: linear-gradient(135deg, #FFE89E 0%, #E2BE4B 50%, #C49114 100%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.45), 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  user-select: none;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.hero-form-submit-btn:hover {
+  background: linear-gradient(135deg, #FFF2B8 0%, #ECC758 50%, #D8A21B 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(212, 175, 55, 0.62), 0 4px 12px rgba(4, 23, 44, 0.15);
+}
+
+.hero-form-submit-btn:active {
+  transform: translateY(0);
+}
+
+.hero-form-trust-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #64748B;
+  text-align: center;
+}
+
+.hero-form-trust-footer .trust-dot {
+  color: #CBD5E1;
+}
+
+/* ==========================================================================
+   Internal Page Minimalist Proposal Form Card (Compact 3-Field Edition)
+   ========================================================================== */
+.internal-fast-track-card {
+  max-width: 880px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  color: var(--text-dark);
+  border: 2px solid rgba(212, 175, 55, 0.48);
+  border-radius: 20px;
+  padding: 32px 36px 26px 36px;
+  box-shadow: 
+    0 24px 64px -10px rgba(4, 23, 44, 0.55),
+    0 0 0 1px rgba(212, 175, 55, 0.35),
+    0 10px 30px rgba(9, 51, 96, 0.18);
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+  text-align: left;
+}
+
+.internal-fast-track-card .fast-track-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 22px auto;
+}
+
+.internal-fast-track-card .fast-track-title {
+  font-size: clamp(1.4rem, 2.6vw, 1.85rem);
+  font-weight: 800;
+  color: #0F172A;
+  line-height: 1.25;
+  margin-bottom: 6px;
+  letter-spacing: -0.015em;
+}
+
+.internal-fast-track-card .fast-track-desc {
+  font-size: 0.875rem;
+  color: #64748B;
+  line-height: 1.5;
+}
+
+.internal-fast-track-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1.1fr 1fr;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.internal-fast-track-grid .form-group {
+  margin-bottom: 0;
+}
+
+.internal-fast-track-grid .form-label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.77rem;
+  font-weight: 700;
+  color: #1E293B;
+  margin-bottom: 5px;
+}
+
+.internal-fast-track-grid .form-input,
+.internal-fast-track-grid .form-select {
+  width: 100%;
+  background: #F8FAFC;
+  border: 1.5px solid #CBD5E1;
+  border-radius: 10px;
+  padding: 11px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0F172A;
+  font-family: inherit;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.internal-fast-track-grid .form-select {
+  appearance: none;
+  background-color: #F8FAFC;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%230F172A' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 34px;
+  cursor: pointer;
+}
+
+.internal-fast-track-grid .form-input:hover,
+.internal-fast-track-grid .form-select:hover {
+  background: #FFFFFF;
+  border-color: #94A3B8;
+}
+
+.internal-fast-track-grid .form-input:focus,
+.internal-fast-track-grid .form-select:focus {
+  outline: none;
+  background: #FFFFFF;
+  border-color: #093360;
+  box-shadow: 0 0 0 3.5px rgba(9, 51, 96, 0.14), 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.internal-fast-track-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 14px 24px;
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: #04172C;
+  background: linear-gradient(135deg, #FFE89E 0%, #E2BE4B 50%, #C49114 100%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.45), 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  user-select: none;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.internal-fast-track-btn:hover {
+  background: linear-gradient(135deg, #FFF2B8 0%, #ECC758 50%, #D8A21B 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(212, 175, 55, 0.62), 0 4px 12px rgba(4, 23, 44, 0.15);
+}
+
+.internal-fast-track-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 860px) {
+  .internal-fast-track-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .internal-fast-track-card {
+    padding: 24px 20px 20px 20px;
+  }
 }
 
 .form-group {
@@ -888,7 +1166,7 @@ img {
 .form-input:focus, .form-select:focus, .form-textarea:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(9, 81, 158, 0.15);
+  box-shadow: 0 0 0 3px rgba(9, 51, 96, 0.15);
 }
 
 /* Clean Cards */
@@ -903,7 +1181,7 @@ img {
 
 .clean-card:hover {
   border-color: var(--primary);
-  box-shadow: 0 15px 40px rgba(9, 81, 158, 0.12);
+  box-shadow: 0 15px 40px rgba(9, 51, 96, 0.12);
   transform: translateY(-4px);
 }
 
