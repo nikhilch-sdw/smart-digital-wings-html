@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
       { id: 'calculator', selector: '.desktop-nav .nav-dropdown:nth-child(2) .nav-dropdown-toggle' },
       { id: 'packages', selector: '.desktop-nav .nav-dropdown:nth-child(2) .nav-dropdown-toggle' },
       { id: 'process', selector: '.desktop-nav .nav-dropdown:nth-child(2) .nav-dropdown-toggle' },
-      { id: 'portfolio', selector: '.desktop-nav a[href="case-studies.html"], .desktop-nav a[href="#portfolio"]' },
+      { id: 'portfolio', selector: '.desktop-nav a[href="our-work.html"], .desktop-nav a[href="case-studies.html"], .desktop-nav a[href="#portfolio"]' },
       { id: 'reviews', selector: '.desktop-nav .nav-dropdown:nth-child(4) .nav-dropdown-toggle' },
       { id: 'about', selector: '.desktop-nav .nav-dropdown:nth-child(4) .nav-dropdown-toggle' },
       { id: 'faq', selector: '.desktop-nav .nav-dropdown:nth-child(4) .nav-dropdown-toggle' },
