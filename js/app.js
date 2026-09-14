@@ -348,12 +348,18 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.disabled = true;
       }
 
+      const name = document.getElementById('leadName')?.value || document.getElementById('consultName')?.value || 'Valued Brand';
+      const email = document.getElementById('leadEmail')?.value || document.getElementById('consultEmail')?.value || 'N/A';
+      const phone = document.getElementById('leadPhone')?.value || document.getElementById('consultPhone')?.value || 'N/A';
+      const service = document.getElementById('leadService')?.value || document.getElementById('consultService')?.value || 'Growth Strategy Audit';
+      const notes = document.getElementById('leadNotes')?.value || 'Brand growth consultation request';
+
       const payload = {
-        name: document.getElementById('leadName')?.value,
-        email: document.getElementById('leadEmail')?.value,
-        phone: document.getElementById('leadPhone')?.value,
-        service: document.getElementById('leadService')?.value,
-        notes: document.getElementById('leadNotes')?.value
+        name,
+        email,
+        phone,
+        service,
+        notes
       };
 
       const res = (typeof submitProposalEnquiry === 'function')
@@ -367,7 +373,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (res.success) {
         if (typeof triggerConfetti === 'function') triggerConfetti();
-        showToast('Growth consultation booked! Check your inbox for confirmation.');
+        showToast('Growth audit reserved! Dispatching to WhatsApp desk...');
+
+        // Direct WhatsApp Lead Dispatch
+        const waMsg = encodeURIComponent(
+          `*✦ GROWTH AUDIT REQUEST | Smart Digital Wings*\n\n` +
+          `👤 *Name:* ${name}\n` +
+          `📧 *Email:* ${email}\n` +
+          `📞 *Phone:* ${phone}\n` +
+          `🎯 *Service:* ${service}\n` +
+          `📝 *Challenge/Target:* ${notes}\n\n` +
+          `_Submitted via Private Strategy Desk on Smart Digital Wings._`
+        );
+        window.open(`https://api.whatsapp.com/send?phone=917017281826&text=${waMsg}`, '_blank');
+
         simpleConsultForm.reset();
         setTimeout(() => {
           if (consultModal) consultModal.close();
@@ -375,6 +394,33 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         showToast(res.message || 'Submission error', 'error');
       }
+    });
+  }
+
+  // ------------------------------------------------------------------------
+  // Case Studies Category Filtering (Meta, SEO, Web Design, All)
+  // ------------------------------------------------------------------------
+  const csFilterBtns = document.querySelectorAll('.case-study-filters .filter-btn');
+  const csCards = document.querySelectorAll('.case-study-detail-card');
+
+  if (csFilterBtns.length > 0 && csCards.length > 0) {
+    csFilterBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        csFilterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter');
+        csCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            card.style.display = 'block';
+            card.style.animation = 'fadeInUp 0.35s ease forwards';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
     });
   }
 
@@ -519,7 +565,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'High-Intent Buyer Keyword Mapping & Search Intent Clusters',
         'Tier-1 Authority Backlink Acquisition & PR Link Outreach',
         'Google Business Profile & Multi-Location Local SEO Domination',
-        'Structured Schema Markup & AI Search (SGE) GEO Readiness'
+        'Structured Schema Markup & Semantic Search (SGE) GEO Readiness'
       ]
     },
     web: {
