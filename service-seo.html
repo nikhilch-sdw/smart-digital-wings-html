@@ -45,7 +45,8 @@
 
         <!-- Services & Solutions Dropdown (Active) -->
         <div class="nav-dropdown">
-          <a href="services.html" class="nav-link nav-dropdown-toggle active" aria-haspopup="true" aria-expanded="false">
+          <a href="services.html" class="nav-link nav-dropdown-toggle active" aria-haspopup="true"
+            aria-expanded="false">
             <span>Services</span>
             <svg class="dropdown-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2.5">
@@ -53,10 +54,6 @@
             </svg>
           </a>
           <div class="nav-dropdown-menu">
-            <a href="services.html" class="dropdown-item">
-              <span class="dropdown-item-icon">⚡</span>
-              <span class="dropdown-item-title">All Services Directory</span>
-            </a>
             <a href="service-smm.html" class="dropdown-item">
               <span class="dropdown-item-icon">📱</span>
               <span class="dropdown-item-title">Social Media & Meta Ads</span>
@@ -80,10 +77,6 @@
             <a href="service-analytics.html" class="dropdown-item">
               <span class="dropdown-item-icon">📊</span>
               <span class="dropdown-item-title">Enterprise Analytics & CRO</span>
-            </a>
-            <a href="packages.html" class="dropdown-item">
-              <span class="dropdown-item-icon">💎</span>
-              <span class="dropdown-item-title">Retainer Packages</span>
             </a>
           </div>
         </div>
@@ -154,17 +147,17 @@
   <div id="mobileDrawer" class="mobile-nav-drawer">
     <a href="index.html" class="nav-link">Home</a>
     <div class="mobile-nav-group-title">Services & Growth</div>
-    <a href="services.html" class="nav-link mobile-sublink">⚡ All Services Directory</a>
     <a href="service-smm.html" class="nav-link mobile-sublink">📱 Social Media & Meta Ads</a>
     <a href="service-seo.html" class="nav-link mobile-sublink active">🚀 Search Engine Optimization</a>
     <a href="service-web-design.html" class="nav-link mobile-sublink">💻 High-Converting Web Design</a>
     <a href="service-ppc.html" class="nav-link mobile-sublink">🎯 Google PPC Search Ads</a>
     <a href="service-branding.html" class="nav-link mobile-sublink">👑 Brand Identity & Design</a>
     <a href="service-analytics.html" class="nav-link mobile-sublink">📊 Enterprise Analytics & CRO</a>
-    <a href="packages.html" class="nav-link mobile-sublink">💎 Retainer Packages</a>
+    
     <div class="mobile-nav-group-title">Proof & Company</div>
     <a href="our-work.html" class="nav-link mobile-sublink">🏆 Our Work</a>
     <a href="about.html" class="nav-link mobile-sublink">🏢 About Us</a>
+    <a href="packages.html" class="nav-link mobile-sublink">💎 Retainer Packages</a>
     <a href="contact.html" class="nav-link mobile-sublink">📍 Contact Us</a>
     <div style="margin-top:16px;">
       <button class="btn btn-gold btn-lg open-consultation-btn" style="width:100%;">Get Free Proposal &rarr;</button>
@@ -172,8 +165,8 @@
   </div>
 
   <main>
-    <!-- Hero Section -->
-    <section class="internal-hero-section">
+    <!-- Minimalist Breadcrumb Bar -->
+    <div class="breadcrumb-strip">
       <div class="container">
         <nav class="breadcrumb-nav" aria-label="Breadcrumb">
           <a href="index.html">Home</a>
@@ -182,53 +175,8 @@
           <span class="breadcrumb-sep">›</span>
           <span class="breadcrumb-current">Search Engine Optimization</span>
         </nav>
-
-        <div class="service-hero-grid">
-          <div class="service-hero-left">
-            <div class="section-badge section-badge-gold">🚀 Organic Search Dominance</div>
-            <h1 class="internal-hero-title">
-              Rank #1 on Google for <span class="gold-text-glow">High-Intent Purchase Queries</span>
-            </h1>
-            <p class="internal-hero-subtitle">
-              Capture commercial traffic from buyers actively searching for your solutions with programmatic topic clusters and Tier-1 editorial backlinks.
-            </p>
-
-            <div style="margin-top:20px;margin-bottom:24px;">
-              <button class="btn btn-gold btn-lg open-consultation-btn">
-                <span>Claim Free SEO &amp; Ranking Audit</span>
-                <span>&rarr;</span>
-              </button>
-            </div>
-
-            <div class="service-hero-stats">
-              <div class="service-hero-stat-item">
-                <span class="service-hero-stat-num">340%</span>
-                <span class="service-hero-stat-lbl">Average Organic Traffic Lift</span>
-              </div>
-              <div class="service-hero-stat-item">
-                <span class="service-hero-stat-num">1,200+</span>
-                <span class="service-hero-stat-lbl">Keywords in Google Top 3</span>
-              </div>
-              <div class="service-hero-stat-item">
-                <span class="service-hero-stat-num">0 PBNs</span>
-                <span class="service-hero-stat-lbl">100% Genuine Digital PR Placements</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Hero Visual Right -->
-          <div class="service-hero-visual-card">
-            <div class="service-visual-wrapper">
-              <img src="assets/service-seo.jpg" alt="Google Search Dominance and SEO Analytics Dashboard" class="service-hero-img" loading="eager">
-              <div class="service-img-overlay-badge">
-                <span class="badge-dot"></span>
-                <span>+380% Organic Traffic Engine</span>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
-    </section>
+    </div>
 
     <!-- Core Capabilities Showcase (Index.html 2-Column Balanced Architecture) -->
     <section class="section section-alt">
@@ -238,9 +186,9 @@
           <div class="service-capabilities-content">
             <div>
               <div class="section-badge" style="margin-bottom:10px;">Pillar Deliverables</div>
-              <h2 class="service-capabilities-title">
+              <h1 class="service-capabilities-title">
                 The High-Impact <span class="blue-text">Search Dominance Stack</span>
-              </h2>
+              </h1>
               <p class="service-capabilities-desc">
                 A multi-layered system designed to capture and retain #1 rankings across competitive markets.
               </p>
@@ -252,7 +200,8 @@
                     <span class="deliverable-mini-icon">🛠️</span>
                     <h3 class="deliverable-mini-title">Technical SEO &amp; Core Web Vitals</h3>
                   </div>
-                  <p class="deliverable-mini-desc">Crawl debt eradication, JavaScript hydration, and sub-second page performance.</p>
+                  <p class="deliverable-mini-desc">Crawl debt eradication, JavaScript hydration, and sub-second page
+                    performance.</p>
                   <span class="deliverable-mini-tag">99+ Speed Score</span>
                 </div>
 
@@ -261,7 +210,8 @@
                     <span class="deliverable-mini-icon">🌐</span>
                     <h3 class="deliverable-mini-title">Programmatic Topic Clusters</h3>
                   </div>
-                  <p class="deliverable-mini-desc">Pillar-spoke content ecosystems structured to satisfy Google's topical authority algorithms.</p>
+                  <p class="deliverable-mini-desc">Pillar-spoke content ecosystems structured to satisfy Google's
+                    topical authority algorithms.</p>
                   <span class="deliverable-mini-tag">Topical Authority</span>
                 </div>
 
@@ -270,7 +220,8 @@
                     <span class="deliverable-mini-icon">📰</span>
                     <h3 class="deliverable-mini-title">Tier-1 Digital PR Backlinks</h3>
                   </div>
-                  <p class="deliverable-mini-desc">Authentic editorial citations (DR 65-88+) earned through data research and press outreach.</p>
+                  <p class="deliverable-mini-desc">Authentic editorial citations (DR 65-88+) earned through data
+                    research and press outreach.</p>
                   <span class="deliverable-mini-tag">Zero Spam Links</span>
                 </div>
 
@@ -279,7 +230,8 @@
                     <span class="deliverable-mini-icon">🛡️</span>
                     <h3 class="deliverable-mini-title">Knowledge Graph &amp; Schema Defense</h3>
                   </div>
-                  <p class="deliverable-mini-desc">E-E-A-T entity optimization that secures featured snippets and rich organic citations.</p>
+                  <p class="deliverable-mini-desc">E-E-A-T entity optimization that secures featured snippets and rich
+                    organic citations.</p>
                   <span class="deliverable-mini-tag">Semantic Search Ready</span>
                 </div>
               </div>
@@ -298,7 +250,8 @@
           <div class="service-capabilities-visual">
             <div class="service-showcase-visual-card">
               <div class="service-visual-wrapper">
-                <img src="assets/services-hero.jpg" alt="Technical SEO Enterprise Stack" class="service-hero-img" loading="lazy">
+                <img src="assets/services-hero.jpg" alt="Technical SEO Enterprise Stack" class="service-hero-img"
+                  loading="lazy">
                 <div class="service-img-overlay-badge">
                   <span class="badge-dot" style="background:#10B981;"></span>
                   <span>✦ Enterprise Search Architecture</span>
@@ -318,7 +271,8 @@
             <div class="spotlight-kicker">FEATURED CASE SPOTLIGHT</div>
             <h2 class="spotlight-title">Apex Nutrition: Rank #1 Across 38 Buyer Keywords</h2>
             <p class="spotlight-desc">
-              Eliminated 400+ zombie index pages, rebuilt taxonomy around semantic clusters, and earned tier-1 digital PR placements in fitness media, driving +340% organic revenue.
+              Eliminated 400+ zombie index pages, rebuilt taxonomy around semantic clusters, and earned tier-1 digital
+              PR placements in fitness media, driving +340% organic revenue.
             </p>
 
             <div class="spotlight-metric-grid">
@@ -338,14 +292,17 @@
 
             <div class="spotlight-quote-box">
               <p class="spotlight-quote-text">
-                "Smart Digital Wings had us ranking #1 for our most valuable transactional keywords within 90 days. Our organic pipeline is now our biggest profit driver."
+                "Smart Digital Wings had us ranking #1 for our most valuable transactional keywords within 90 days. Our
+                organic pipeline is now our biggest profit driver."
               </p>
               <span class="spotlight-quote-author">— Rajesh Verma, CMO, Apex Nutrition India</span>
             </div>
           </div>
 
-          <div class="spotlight-img-wrap" style="height:100%; border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,0.18); box-shadow:0 12px 32px rgba(0,0,0,0.4);">
-            <img src="assets/hero-dashboard.png" alt="Google Search Dominance Metrics" style="width:100%; height:100%; object-fit:cover; display:block;" loading="lazy">
+          <div class="spotlight-img-wrap"
+            style="height:100%; border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,0.18); box-shadow:0 12px 32px rgba(0,0,0,0.4);">
+            <img src="assets/hero-dashboard.png" alt="Google Search Dominance Metrics"
+              style="width:100%; height:100%; object-fit:cover; display:block;" loading="lazy">
           </div>
         </div>
       </div>
@@ -364,21 +321,26 @@
           <details class="service-faq-item" open>
             <summary>How long does it take to rank on Page 1 of Google?</summary>
             <div class="service-faq-content">
-              For low-to-medium competition terms on existing domains, rank velocity is typically achieved in 60 to 90 days. High-volume enterprise commercial keywords mature within 4 to 6 months of steady technical fixes and authority link acquisition.
+              For low-to-medium competition terms on existing domains, rank velocity is typically achieved in 60 to 90
+              days. High-volume enterprise commercial keywords mature within 4 to 6 months of steady technical fixes and
+              authority link acquisition.
             </div>
           </details>
 
           <details class="service-faq-item">
             <summary>Are your backlinks 100% white-hat and safe from Google penalties?</summary>
             <div class="service-faq-content">
-              Yes, strictly 100% white-hat. We do not use PBNs, automated spam, or link farms. Every link is an authentic editorial placement earned via custom digital PR research, expert quotes, and outreach to genuine editors.
+              Yes, strictly 100% white-hat. We do not use PBNs, automated spam, or link farms. Every link is an
+              authentic editorial placement earned via custom digital PR research, expert quotes, and outreach to
+              genuine editors.
             </div>
           </details>
 
           <details class="service-faq-item">
             <summary>How do you protect rankings against Google Core Updates and search evolution?</summary>
             <div class="service-faq-content">
-              We engineer deep E-E-A-T signals across your site, implementing validated author schema, verified credentials, and structured FAQ entities that directly feed Google's rich snippets and knowledge panels.
+              We engineer deep E-E-A-T signals across your site, implementing validated author schema, verified
+              credentials, and structured FAQ entities that directly feed Google's rich snippets and knowledge panels.
             </div>
           </details>
         </div>
@@ -417,7 +379,7 @@
                   <option value="₹25,000 - ₹50,000">₹25,000 - ₹50,000 / mo</option>
                   <option value="₹50,000 - ₹1,00,000" selected>₹50,000 - ₹1,00,000 / mo</option>
                   <option value="₹1,00,000 - ₹2,50,000">₹1,00,000 - ₹2,50,000 / mo</option>
-                  <option value="₹2,50,000+">₹2,50,000+ / mo (Enterprise Scale)</option>
+                  <option value="₹2,50,000+">₹2,50,000+ / mo (Enterprise)</option>
                 </select>
               </div>
             </div>
@@ -429,19 +391,30 @@
               </button>
             </div>
 
-                        <div class="hero-form-trust-footer">
+            <div class="hero-form-trust-footer">
               <span class="trust-item">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
                 <span>100% Confidential</span>
               </span>
               <span class="trust-dot">•</span>
               <span class="trust-item">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
                 <span>2-Hour Response</span>
               </span>
               <span class="trust-dot">•</span>
               <span class="trust-item">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
                 <span>Zero Obligation</span>
               </span>
             </div>
@@ -472,7 +445,8 @@
             </div>
           </a>
           <p>
-            Elite digital growth agency for Performance Paid Ads, Technical SEO, High-Converting Web Design, and Multi-Touch Data Attribution.
+            Elite digital growth agency for Performance Paid Ads, Technical SEO, High-Converting Web Design, and
+            Multi-Touch Data Attribution.
           </p>
         </div>
 
@@ -560,7 +534,8 @@
           <p class="modal-desc">Fill in your website details below to receive a comprehensive audit within 2 hours.</p>
         </div>
         <button id="closeModalBtn" class="modal-close-btn" aria-label="Close modal">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>

@@ -45,7 +45,8 @@
 
         <!-- Services & Solutions Dropdown (Active) -->
         <div class="nav-dropdown">
-          <a href="services.html" class="nav-link nav-dropdown-toggle active" aria-haspopup="true" aria-expanded="false">
+          <a href="services.html" class="nav-link nav-dropdown-toggle active" aria-haspopup="true"
+            aria-expanded="false">
             <span>Services</span>
             <svg class="dropdown-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2.5">
@@ -53,10 +54,6 @@
             </svg>
           </a>
           <div class="nav-dropdown-menu">
-            <a href="services.html" class="dropdown-item">
-              <span class="dropdown-item-icon">⚡</span>
-              <span class="dropdown-item-title">All Services Directory</span>
-            </a>
             <a href="service-smm.html" class="dropdown-item active">
               <span class="dropdown-item-icon">📱</span>
               <span class="dropdown-item-title">Social Media & Meta Ads</span>
@@ -80,10 +77,6 @@
             <a href="service-analytics.html" class="dropdown-item">
               <span class="dropdown-item-icon">📊</span>
               <span class="dropdown-item-title">Enterprise Analytics & CRO</span>
-            </a>
-            <a href="packages.html" class="dropdown-item">
-              <span class="dropdown-item-icon">💎</span>
-              <span class="dropdown-item-title">Retainer Packages</span>
             </a>
           </div>
         </div>
@@ -154,17 +147,17 @@
   <div id="mobileDrawer" class="mobile-nav-drawer">
     <a href="index.html" class="nav-link">Home</a>
     <div class="mobile-nav-group-title">Services & Growth</div>
-    <a href="services.html" class="nav-link mobile-sublink">⚡ All Services Directory</a>
     <a href="service-smm.html" class="nav-link mobile-sublink active">📱 Social Media & Meta Ads</a>
     <a href="service-seo.html" class="nav-link mobile-sublink">🚀 Search Engine Optimization</a>
     <a href="service-web-design.html" class="nav-link mobile-sublink">💻 High-Converting Web Design</a>
     <a href="service-ppc.html" class="nav-link mobile-sublink">🎯 Google PPC Search Ads</a>
     <a href="service-branding.html" class="nav-link mobile-sublink">👑 Brand Identity & Design</a>
     <a href="service-analytics.html" class="nav-link mobile-sublink">📊 Enterprise Analytics & CRO</a>
-    <a href="packages.html" class="nav-link mobile-sublink">💎 Retainer Packages</a>
+    
     <div class="mobile-nav-group-title">Proof & Company</div>
     <a href="our-work.html" class="nav-link mobile-sublink">🏆 Our Work</a>
     <a href="about.html" class="nav-link mobile-sublink">🏢 About Us</a>
+    <a href="packages.html" class="nav-link mobile-sublink">💎 Retainer Packages</a>
     <a href="contact.html" class="nav-link mobile-sublink">📍 Contact Us</a>
     <div style="margin-top:16px;">
       <button class="btn btn-gold btn-lg open-consultation-btn" style="width:100%;">Get Free Proposal &rarr;</button>
@@ -172,8 +165,8 @@
   </div>
 
   <main>
-    <!-- Hero Section -->
-    <section class="internal-hero-section">
+    <!-- Minimalist Breadcrumb Bar -->
+    <div class="breadcrumb-strip">
       <div class="container">
         <nav class="breadcrumb-nav" aria-label="Breadcrumb">
           <a href="index.html">Home</a>
@@ -182,53 +175,8 @@
           <span class="breadcrumb-sep">›</span>
           <span class="breadcrumb-current">Social Media Marketing &amp; Meta Ads</span>
         </nav>
-
-        <div class="service-hero-grid">
-          <div class="service-hero-left">
-            <div class="section-badge section-badge-gold">⚡ Premier Paid Social Engine</div>
-            <h1 class="internal-hero-title">
-              Engineering High-ROAS <span class="gold-text-glow">Meta &amp; TikTok Ad Domination</span>
-            </h1>
-            <p class="internal-hero-subtitle">
-              Scale revenue predictably with viral creative testing, predictive CBO bidding, and server-side Conversions API (CAPI) signal tracking.
-            </p>
-
-            <div style="margin-top:20px;margin-bottom:24px;">
-              <button class="btn btn-gold btn-lg open-consultation-btn">
-                <span>Claim Free Meta Ad Audit</span>
-                <span>&rarr;</span>
-              </button>
-            </div>
-
-            <div class="service-hero-stats">
-              <div class="service-hero-stat-item">
-                <span class="service-hero-stat-num">4.8X</span>
-                <span class="service-hero-stat-lbl">Average Portfolio ROAS</span>
-              </div>
-              <div class="service-hero-stat-item">
-                <span class="service-hero-stat-num">₹28 Cr+</span>
-                <span class="service-hero-stat-lbl">Ad Spend Managed</span>
-              </div>
-              <div class="service-hero-stat-item">
-                <span class="service-hero-stat-num">98.4%</span>
-                <span class="service-hero-stat-lbl">Attribution Tracking Accuracy</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Hero Visual Right -->
-          <div class="service-hero-visual-card">
-            <div class="service-visual-wrapper">
-              <img src="assets/service-smm.jpg" alt="Meta & TikTok Ads Performance Dashboard" class="service-hero-img" loading="eager">
-              <div class="service-img-overlay-badge">
-                <span class="badge-dot"></span>
-                <span>8.4x Verified Meta ROAS Engine</span>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
-    </section>
+    </div>
 
     <!-- Core Capabilities Showcase (Index.html 2-Column Balanced Architecture) -->
     <section class="section section-alt">
@@ -238,9 +186,9 @@
           <div class="service-capabilities-content">
             <div>
               <div class="section-badge" style="margin-bottom:10px;">Core Deliverables</div>
-              <h2 class="service-capabilities-title">
+              <h1 class="service-capabilities-title">
                 The High-Impact <span class="blue-text">Paid Social Architecture</span>
-              </h2>
+              </h1>
               <p class="service-capabilities-desc">
                 Every element required to turn paid traffic into profitable, compounding revenue.
               </p>
@@ -252,7 +200,8 @@
                     <span class="deliverable-mini-icon">🎬</span>
                     <h3 class="deliverable-mini-title">Dynamic Creative Testing (DCT)</h3>
                   </div>
-                  <p class="deliverable-mini-desc">15-30 modular hooks and video angles tested weekly to isolate breakout winners.</p>
+                  <p class="deliverable-mini-desc">15-30 modular hooks and video angles tested weekly to isolate
+                    breakout winners.</p>
                   <span class="deliverable-mini-tag">15-30 Hooks / Mo</span>
                 </div>
 
@@ -261,7 +210,8 @@
                     <span class="deliverable-mini-icon">📡</span>
                     <h3 class="deliverable-mini-title">Conversions API (CAPI)</h3>
                   </div>
-                  <p class="deliverable-mini-desc">Server-side signal capture via Meta Graph API bypassing browser ad blockers.</p>
+                  <p class="deliverable-mini-desc">Server-side signal capture via Meta Graph API bypassing browser ad
+                    blockers.</p>
                   <span class="deliverable-mini-tag">100% Event Match</span>
                 </div>
 
@@ -270,7 +220,8 @@
                     <span class="deliverable-mini-icon">📈</span>
                     <h3 class="deliverable-mini-title">Predictive CBO Scaling</h3>
                   </div>
-                  <p class="deliverable-mini-desc">Automated performance bid rules that scale budgets only when ROAS targets are hit.</p>
+                  <p class="deliverable-mini-desc">Automated performance bid rules that scale budgets only when ROAS
+                    targets are hit.</p>
                   <span class="deliverable-mini-tag">Cost-Cap Protected</span>
                 </div>
 
@@ -279,7 +230,8 @@
                     <span class="deliverable-mini-icon">📊</span>
                     <h3 class="deliverable-mini-title">Daily Optimization &amp; Slack</h3>
                   </div>
-                  <p class="deliverable-mini-desc">Dedicated Senior Media Buyer in your Slack with 24/7 Looker Studio dashboards.</p>
+                  <p class="deliverable-mini-desc">Dedicated Senior Media Buyer in your Slack with 24/7 Looker Studio
+                    dashboards.</p>
                   <span class="deliverable-mini-tag">24/7 Live Tracking</span>
                 </div>
               </div>
@@ -298,7 +250,8 @@
           <div class="service-capabilities-visual">
             <div class="service-showcase-visual-card">
               <div class="service-visual-wrapper">
-                <img src="assets/services-hero.jpg" alt="Paid Social Enterprise Architecture" class="service-hero-img" loading="lazy">
+                <img src="assets/services-hero.jpg" alt="Paid Social Enterprise Architecture" class="service-hero-img"
+                  loading="lazy">
                 <div class="service-img-overlay-badge">
                   <span class="badge-dot" style="background:#10B981;"></span>
                   <span>✦ Enterprise Meta &amp; TikTok Stack</span>
@@ -318,7 +271,8 @@
             <div class="spotlight-kicker">FEATURED CASE SPOTLIGHT</div>
             <h2 class="spotlight-title">Aura Luxury: Scaling from &#8377;4.5L to &#8377;32L/mo at 8.4X ROAS</h2>
             <p class="spotlight-desc">
-              Rebuilt Aura's creative pipeline with direct-response 4K video reels and server-side CAPI tracking, cutting customer acquisition cost by 46% and scaling net revenue by 610% in 120 days.
+              Rebuilt Aura's creative pipeline with direct-response 4K video reels and server-side CAPI tracking,
+              cutting customer acquisition cost by 46% and scaling net revenue by 610% in 120 days.
             </p>
 
             <div class="spotlight-metric-grid">
@@ -338,14 +292,17 @@
 
             <div class="spotlight-quote-box">
               <p class="spotlight-quote-text">
-                "Smart Digital Wings rebuilt our creative pipeline. Our cost per purchase plummeted in week one and we scaled without ad fatigue."
+                "Smart Digital Wings rebuilt our creative pipeline. Our cost per purchase plummeted in week one and we
+                scaled without ad fatigue."
               </p>
               <span class="spotlight-quote-author">— Vikram Singhania, Founder &amp; MD, Aura Luxury</span>
             </div>
           </div>
 
-          <div class="spotlight-img-wrap" style="height:100%; border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,0.18); box-shadow:0 12px 32px rgba(0,0,0,0.4);">
-            <img src="assets/hero-dashboard.png" alt="Meta Ads Verified Performance Metrics" style="width:100%; height:100%; object-fit:cover; display:block;" loading="lazy">
+          <div class="spotlight-img-wrap"
+            style="height:100%; border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,0.18); box-shadow:0 12px 32px rgba(0,0,0,0.4);">
+            <img src="assets/hero-dashboard.png" alt="Meta Ads Verified Performance Metrics"
+              style="width:100%; height:100%; object-fit:cover; display:block;" loading="lazy">
           </div>
         </div>
       </div>
@@ -364,21 +321,25 @@
           <details class="service-faq-item" open>
             <summary>What is the minimum ad spend required to work with Smart Digital Wings?</summary>
             <div class="service-faq-content">
-              We typically partner with brands spending a minimum of &#8377;35,000 to &#8377;50,000 monthly on ad spend (excluding agency management fees) to guarantee sufficient statistical volume for our creative testing algorithms.
+              We typically partner with brands spending a minimum of &#8377;35,000 to &#8377;50,000 monthly on ad spend
+              (excluding agency management fees) to guarantee sufficient statistical volume for our creative testing
+              algorithms.
             </div>
           </details>
 
           <details class="service-faq-item">
             <summary>Do you produce the ad creatives and video reels, or do we supply them?</summary>
             <div class="service-faq-content">
-              Both! We script direct-response video hooks, assemble graphic carousels, and edit raw creator footage into high-converting 4K video ads in-house.
+              Both! We script direct-response video hooks, assemble graphic carousels, and edit raw creator footage into
+              high-converting 4K video ads in-house.
             </div>
           </details>
 
           <details class="service-faq-item">
             <summary>Do I retain complete ownership of my ad accounts and creative assets?</summary>
             <div class="service-faq-content">
-              Yes, 100%. All campaigns run inside your own Meta Business Manager. You retain full lifetime ownership of all custom audiences, pixels, ad data, and creatives.
+              Yes, 100%. All campaigns run inside your own Meta Business Manager. You retain full lifetime ownership of
+              all custom audiences, pixels, ad data, and creatives.
             </div>
           </details>
         </div>
@@ -417,7 +378,7 @@
                   <option value="₹25,000 - ₹50,000">₹25,000 - ₹50,000 / mo</option>
                   <option value="₹50,000 - ₹1,00,000" selected>₹50,000 - ₹1,00,000 / mo</option>
                   <option value="₹1,00,000 - ₹2,50,000">₹1,00,000 - ₹2,50,000 / mo</option>
-                  <option value="₹2,50,000+">₹2,50,000+ / mo (Enterprise Scale)</option>
+                  <option value="₹2,50,000+">₹2,50,000+ / mo (Enterprise)</option>
                 </select>
               </div>
             </div>
@@ -429,19 +390,30 @@
               </button>
             </div>
 
-                        <div class="hero-form-trust-footer">
+            <div class="hero-form-trust-footer">
               <span class="trust-item">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
                 <span>100% Confidential</span>
               </span>
               <span class="trust-dot">•</span>
               <span class="trust-item">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
                 <span>2-Hour Response</span>
               </span>
               <span class="trust-dot">•</span>
               <span class="trust-item">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
                 <span>Zero Obligation</span>
               </span>
             </div>
@@ -472,7 +444,8 @@
             </div>
           </a>
           <p>
-            Elite digital growth agency for Performance Paid Ads, Technical SEO, High-Converting Web Design, and Multi-Touch Data Attribution.
+            Elite digital growth agency for Performance Paid Ads, Technical SEO, High-Converting Web Design, and
+            Multi-Touch Data Attribution.
           </p>
         </div>
 
@@ -557,10 +530,12 @@
         <div class="modal-header-text">
           <span class="modal-kicker">✦ FREE STRATEGY SESSION</span>
           <h3 id="modalTitle" class="modal-title">Claim Your Meta Ad Growth Audit</h3>
-          <p class="modal-desc">Fill in your details below to receive a personalized performance plan within 2 hours.</p>
+          <p class="modal-desc">Fill in your details below to receive a personalized performance plan within 2 hours.
+          </p>
         </div>
         <button id="closeModalBtn" class="modal-close-btn" aria-label="Close modal">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>

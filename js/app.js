@@ -68,36 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Active Link Scrollspy (only for index.html with live section IDs)
-  const heroSection = document.getElementById('hero');
-  if (heroSection) {
-    const sections = [
-      { id: 'hero', selector: '.desktop-nav a[href="index.html"], .desktop-nav a[href="#hero"]' },
-      { id: 'services', selector: '.desktop-nav .nav-dropdown:nth-child(2) .nav-dropdown-toggle' },
-      { id: 'calculator', selector: '.desktop-nav .nav-dropdown:nth-child(2) .nav-dropdown-toggle' },
-      { id: 'packages', selector: '.desktop-nav .nav-dropdown:nth-child(2) .nav-dropdown-toggle' },
-      { id: 'process', selector: '.desktop-nav .nav-dropdown:nth-child(2) .nav-dropdown-toggle' },
-      { id: 'portfolio', selector: '.desktop-nav a[href="our-work.html"], .desktop-nav a[href="case-studies.html"], .desktop-nav a[href="#portfolio"]' },
-      { id: 'reviews', selector: '.desktop-nav .nav-dropdown:nth-child(4) .nav-dropdown-toggle' },
-      { id: 'about', selector: '.desktop-nav .nav-dropdown:nth-child(4) .nav-dropdown-toggle' },
-      { id: 'faq', selector: '.desktop-nav .nav-dropdown:nth-child(4) .nav-dropdown-toggle' },
-      { id: 'contact', selector: '.desktop-nav a[href="contact.html"], .desktop-nav a[href="#contact"]' }
-    ];
 
-    const allNavLinks = document.querySelectorAll('.desktop-nav .nav-link');
-    window.addEventListener('scroll', () => {
-      const scrollPosition = window.scrollY + 200;
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sections[i].id);
-        if (el && el.offsetTop <= scrollPosition) {
-          allNavLinks.forEach(link => link.classList.remove('active'));
-          const activeLink = document.querySelector(sections[i].selector);
-          if (activeLink) activeLink.classList.add('active');
-          break;
-        }
-      }
-    });
-  }
 
   // ------------------------------------------------------------------------
   // 1.2 Clockwise Motion Animation & Dynamic Metric Stream
@@ -138,11 +109,13 @@ document.addEventListener('DOMContentLoaded', () => {
       ]
     ];
 
+    const colorThemes = ['card-blue', 'card-emerald', 'card-gold', 'card-cyan'];
+
     const cardStates = [
-      { quad: 0, dataIdx: 0 },
-      { quad: 1, dataIdx: 0 },
-      { quad: 2, dataIdx: 0 },
-      { quad: 3, dataIdx: 0 }
+      { quad: 0, dataIdx: 0, colorIdx: 0 },
+      { quad: 1, dataIdx: 0, colorIdx: 1 },
+      { quad: 2, dataIdx: 0, colorIdx: 2 },
+      { quad: 3, dataIdx: 0, colorIdx: 3 }
     ];
 
     let isPaused = false;
@@ -158,7 +131,12 @@ document.addEventListener('DOMContentLoaded', () => {
         cardStates[i].quad = (cardStates[i].quad + 1) % 4;
         card.classList.add(`quad-${cardStates[i].quad}`);
 
-        // 2. Dynamically Update Data with smooth fade
+        // 2. Cycle Colors: Each card takes a different distinct color when changing position
+        card.classList.remove(colorThemes[cardStates[i].colorIdx]);
+        cardStates[i].colorIdx = (cardStates[i].colorIdx + 1) % colorThemes.length;
+        card.classList.add(colorThemes[cardStates[i].colorIdx]);
+
+        // 3. Dynamically Update Data with smooth fade
         cardStates[i].dataIdx = (cardStates[i].dataIdx + 1) % metricStreams[i].length;
         const nextData = metricStreams[i][cardStates[i].dataIdx];
 
@@ -179,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Run clockwise motion continuously every 3.8s
+    // Run clockwise motion continuously every 3.8s (restored original smooth timer)
     setInterval(advanceClockwiseMotion, 3800);
   }
 
@@ -828,4 +806,158 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // ------------------------------------------------------------------------
+  // High-Performance Interactive Living Cyber Particle Constellation Engine
+  // ------------------------------------------------------------------------
+  const heroCanvas = document.getElementById('heroLiveCanvas');
+  const heroSectionRef = document.getElementById('hero');
+  if (heroCanvas && heroSectionRef) {
+    const ctx = heroCanvas.getContext('2d');
+    let width = 0, height = 0, dpr = 1;
+    let particles = [];
+    let animationFrameId = null;
+    let isVisible = true;
+    const mouse = { x: -1000, y: -1000, radius: 175 };
+
+    function resizeCanvas() {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      width = heroSectionRef.offsetWidth;
+      height = heroSectionRef.offsetHeight;
+      if (width <= 0 || height <= 0) return;
+      heroCanvas.width = width * dpr;
+      heroCanvas.height = height * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      initParticles();
+    }
+
+    function initParticles() {
+      particles = [];
+      const count = Math.floor(Math.min(Math.max(width * 0.042, 35), 60));
+      for (let i = 0; i < count; i++) {
+        const isGold = Math.random() > 0.62;
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.75,
+          vy: (Math.random() - 0.5) * 0.75,
+          radius: Math.random() * 2 + 1.2,
+          color: isGold ? 'rgba(245, 158, 11, ' : 'rgba(56, 189, 248, ',
+          alpha: Math.random() * 0.45 + 0.45,
+          pulseSpeed: Math.random() * 0.03 + 0.02,
+          pulse: Math.random() * Math.PI
+        });
+      }
+    }
+
+    heroSectionRef.addEventListener('mousemove', (e) => {
+      const rect = heroSectionRef.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+    });
+
+    heroSectionRef.addEventListener('mouseleave', () => {
+      mouse.x = -1000;
+      mouse.y = -1000;
+    });
+
+    function drawParticles() {
+      if (!isVisible) return;
+      ctx.clearRect(0, 0, width, height);
+
+      const maxDist = 120;
+      const maxDistSq = maxDist * maxDist;
+
+      // 1. Draw connections
+      for (let i = 0; i < particles.length; i++) {
+        const p1 = particles[i];
+
+        // Connection to cursor
+        const dxMouse = mouse.x - p1.x;
+        const dyMouse = mouse.y - p1.y;
+        const distMouseSq = dxMouse * dxMouse + dyMouse * dyMouse;
+        if (distMouseSq < mouse.radius * mouse.radius) {
+          const distMouse = Math.sqrt(distMouseSq);
+          const mouseAlpha = (1 - distMouse / mouse.radius) * 0.6;
+          ctx.strokeStyle = `rgba(56, 189, 248, ${mouseAlpha})`;
+          ctx.lineWidth = 1.3;
+          ctx.beginPath();
+          ctx.moveTo(p1.x, p1.y);
+          ctx.lineTo(mouse.x, mouse.y);
+          ctx.stroke();
+        }
+
+        // Connections between particles
+        for (let j = i + 1; j < particles.length; j++) {
+          const p2 = particles[j];
+          const dx = p1.x - p2.x;
+          const dy = p1.y - p2.y;
+          const distSq = dx * dx + dy * dy;
+
+          if (distSq < maxDistSq) {
+            const dist = Math.sqrt(distSq);
+            const lineAlpha = (1 - dist / maxDist) * 0.32;
+            ctx.strokeStyle = p1.color + `${lineAlpha})`;
+            ctx.lineWidth = 0.9;
+            ctx.beginPath();
+            ctx.moveTo(p1.x, p1.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      // 2. Draw & update particles
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0) { p.x = 0; p.vx *= -1; }
+        else if (p.x > width) { p.x = width; p.vx *= -1; }
+        if (p.y < 0) { p.y = 0; p.vy *= -1; }
+        else if (p.y > height) { p.y = height; p.vy *= -1; }
+
+        p.pulse += p.pulseSpeed;
+        const currentAlpha = Math.min(Math.max(p.alpha + Math.sin(p.pulse) * 0.2, 0.2), 1);
+        const currentRadius = p.radius + Math.sin(p.pulse) * 0.4;
+
+        // Glowing outer halo
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, currentRadius * 2.5, 0, Math.PI * 2);
+        ctx.fillStyle = p.color + `${currentAlpha * 0.35})`;
+        ctx.fill();
+
+        // Bright solid core
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, currentRadius, 0, Math.PI * 2);
+        ctx.fillStyle = p.color + `${currentAlpha})`;
+        ctx.fill();
+      }
+
+      animationFrameId = requestAnimationFrame(drawParticles);
+    }
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          isVisible = entry.isIntersecting;
+          if (isVisible) {
+            cancelAnimationFrame(animationFrameId);
+            animationFrameId = requestAnimationFrame(drawParticles);
+          }
+        });
+      }, { threshold: 0.05 });
+      observer.observe(heroSectionRef);
+    }
+
+    window.addEventListener('resize', () => {
+      clearTimeout(window._heroCanvasTimer);
+      window._heroCanvasTimer = setTimeout(resizeCanvas, 100);
+    });
+
+    resizeCanvas();
+    animationFrameId = requestAnimationFrame(drawParticles);
+  }
 });
+
