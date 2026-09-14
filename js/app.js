@@ -959,5 +959,33 @@ document.addEventListener('DOMContentLoaded', () => {
     resizeCanvas();
     animationFrameId = requestAnimationFrame(drawParticles);
   }
+
+  // ------------------------------------------------------------------------
+  // 13. Service Internal Pages Results Multi-Card Slider
+  // ------------------------------------------------------------------------
+  document.querySelectorAll('.results-slider-section').forEach(section => {
+    const track = section.querySelector('.results-slider-track');
+    const prevBtn = section.querySelector('.slider-prev-btn');
+    const nextBtn = section.querySelector('.slider-next-btn');
+
+    if (!track) return;
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        const card = track.querySelector('.result-slide-card');
+        const scrollAmount = card ? card.offsetWidth + 20 : 340;
+        track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        const card = track.querySelector('.result-slide-card');
+        const scrollAmount = card ? card.offsetWidth + 20 : 340;
+        track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      });
+    }
+  });
 });
+
 
