@@ -662,23 +662,35 @@ document.addEventListener('DOMContentLoaded', () => {
   // ------------------------------------------------------------------------
   const filterChips = document.querySelectorAll('.filter-chip-btn');
   const caseStudyCards = document.querySelectorAll('.case-study-card');
+  let currentFilter = 'all';
+
+  function updateCaseStudiesVisibility() {
+    caseStudyCards.forEach((card) => {
+      const cat = card.getAttribute('data-category');
+      const matchesFilter = currentFilter === 'all' || cat === currentFilter;
+      card.classList.toggle('is-hidden', !matchesFilter);
+    });
+  }
 
   filterChips.forEach(chip => {
     chip.addEventListener('click', () => {
       filterChips.forEach(c => c.classList.remove('active'));
       chip.classList.add('active');
-
-      const filterVal = chip.getAttribute('data-filter');
-      caseStudyCards.forEach(card => {
-        const cat = card.getAttribute('data-category');
-        if (filterVal === 'all' || cat === filterVal) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
-      });
+      currentFilter = chip.getAttribute('data-filter') || 'all';
+      updateCaseStudiesVisibility();
     });
   });
+
+  // Pre-decode all case study images in the background for zero-latency tab switching
+  caseStudyCards.forEach((card) => {
+    const img = card.querySelector('img');
+    if (img && typeof img.decode === 'function') {
+      img.decode().catch(() => {});
+    }
+  });
+
+  // Initial call on page load: ensures all cards in the section are active
+  updateCaseStudiesVisibility();
 
   // ------------------------------------------------------------------------
   // 6. FAQ Accordions
