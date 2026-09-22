@@ -44,9 +44,9 @@
   --border-blue: rgba(9, 51, 96, 0.2);
   --border-gold: rgba(212, 175, 55, 0.4);
   
-  /* Typography */
-  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --font-display: 'Outfit', sans-serif;
+  /* Typography - Modern Executive Tech (Manrope & Inter) */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
   
   /* Spacing & Radii */
   --header-height: 76px;
@@ -77,16 +77,20 @@ body {
   background-color: var(--bg-body);
   color: var(--text-main);
   line-height: 1.6;
+  letter-spacing: -0.011em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   overflow-x: hidden;
 }
 
-/* Headings */
+/* Headings - Crisp, Modern Architectural Authority */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   color: var(--text-dark);
-  line-height: 1.2;
+  line-height: 1.15;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.028em;
 }
 
 a {
@@ -391,11 +395,11 @@ img {
 }
 
 .brand-name {
-  font-family: var(--font-sans);
-  font-size: 1.125rem;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
   color: #093360;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
   line-height: 1.15;
 }
 
@@ -2131,6 +2135,43 @@ img {
   font-size: 0.75rem;
 }
 
+/* ==========================================================================
+   AGENCY SHOWCASE: LONG FORMAT VIDEO
+   ========================================================================== */
+.agency-video-section {
+  padding: 32px 0;
+  background: #F8FAFC;
+  border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
+  position: relative;
+}
+
+.agency-video-wrapper {
+  max-width: 1160px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #04172C;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  box-shadow: 0 16px 40px -12px rgba(9, 51, 96, 0.14), 0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+  position: relative;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.agency-video-wrapper:hover {
+  box-shadow: 0 24px 50px -12px rgba(9, 51, 96, 0.2);
+}
+
+.agency-video-element {
+  width: 100%;
+  max-height: 480px;
+  aspect-ratio: 21 / 9;
+  object-fit: cover;
+  display: block;
+  background: #04172C;
+  outline: none;
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
   .hero-grid {
@@ -2151,6 +2192,16 @@ img {
 @media (max-width: 640px) {
   .section {
     padding: 30px 0;
+  }
+  .agency-video-section {
+    padding: 20px 0;
+  }
+  .agency-video-wrapper {
+    border-radius: 10px;
+  }
+  .agency-video-element {
+    aspect-ratio: 16 / 9;
+    max-height: 250px;
   }
   .hero-stats-row {
     flex-direction: column;

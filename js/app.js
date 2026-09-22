@@ -1235,6 +1235,13 @@ document.addEventListener('DOMContentLoaded', () => {
     updateSegments(0, SLIDE_DURATION, 0);
     scheduleNext(SLIDE_DURATION);
   }
+
+  // Ensure Agency Showcase Video is explicitly muted by default
+  const agencyVideo = document.getElementById('agencyVideoPlayer');
+  if (agencyVideo) {
+    agencyVideo.muted = true;
+    agencyVideo.defaultMuted = true;
+  }
 });
 
 
