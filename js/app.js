@@ -986,6 +986,256 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   });
+
+  // ------------------------------------------------------------------------
+  // 14. Ultra-Premium Cinema Auto Slider Banner (1920x750 Canvas)
+  // ------------------------------------------------------------------------
+  const sliderTrack = document.getElementById('mainSliderTrack');
+  const heroSlider = document.querySelector('.premium-slider-banner, .full-screen-slider-banner');
+
+  if (sliderTrack && heroSlider) {
+    const slides = Array.from(sliderTrack.querySelectorAll('.slider-slide'));
+    const prevBtn = document.getElementById('fullSliderPrev');
+    const nextBtn = document.getElementById('fullSliderNext');
+    const dotsContainer = document.getElementById('fullSliderDots');
+    const counterEl = document.getElementById('fullSliderCounter');
+    const currentNumEl = counterEl ? counterEl.querySelector('.current-slide') : null;
+    const totalNumEl = counterEl ? counterEl.querySelector('.total-slides') : null;
+    const segments = dotsContainer ? Array.from(dotsContainer.querySelectorAll('.segment-btn')) : [];
+    const pauseToggleBtn = document.getElementById('sliderPauseBtn');
+
+    const SLIDE_DURATION = 5500; // 5.5 seconds per slide
+    let currentSlide = 0;
+    let autoSlideTimer = null;
+    let isPaused = false;
+    let slideStartTime = Date.now();
+    let remainingTime = SLIDE_DURATION;
+
+    // Set initial counter
+    if (totalNumEl) {
+      totalNumEl.textContent = String(slides.length).padStart(2, '0');
+    }
+
+    function getSegmentFill(index) {
+      if (index >= 0 && index < segments.length) {
+        return segments[index].querySelector('.segment-fill');
+      }
+      return null;
+    }
+
+    function updateSegments(activeIdx, duration, fromPercent = 0) {
+      segments.forEach((seg, idx) => {
+        const fill = seg.querySelector('.segment-fill');
+        if (!fill) return;
+
+        if (idx < activeIdx) {
+          seg.classList.remove('active');
+          seg.classList.add('completed');
+          seg.setAttribute('aria-selected', 'false');
+          fill.style.transition = 'none';
+          fill.style.width = '100%';
+        } else if (idx > activeIdx) {
+          seg.classList.remove('active', 'completed');
+          seg.setAttribute('aria-selected', 'false');
+          fill.style.transition = 'none';
+          fill.style.width = '0%';
+        } else {
+          // Current active segment
+          seg.classList.add('active');
+          seg.classList.remove('completed');
+          seg.setAttribute('aria-selected', 'true');
+
+          fill.style.transition = 'none';
+          fill.style.width = `${fromPercent}%`;
+          fill.offsetHeight; // trigger reflow
+          fill.style.transition = `width ${duration}ms linear`;
+          fill.style.width = '100%';
+        }
+      });
+    }
+
+    function pauseSegmentProgress() {
+      const activeFill = getSegmentFill(currentSlide);
+      if (activeFill) {
+        const computedWidth = window.getComputedStyle(activeFill).width;
+        activeFill.style.transition = 'none';
+        activeFill.style.width = computedWidth;
+      }
+    }
+
+    function goToSlide(index) {
+      if (slides.length <= 1) return;
+
+      const targetIndex = (index + slides.length) % slides.length;
+      if (targetIndex === currentSlide && slides[currentSlide].classList.contains('active')) {
+        slideStartTime = Date.now();
+        remainingTime = SLIDE_DURATION;
+        if (!isPaused) {
+          updateSegments(currentSlide, SLIDE_DURATION, 0);
+          scheduleNext(SLIDE_DURATION);
+        }
+        return;
+      }
+
+      // Update active slide classes
+      slides[currentSlide].classList.remove('active');
+      slides[currentSlide].setAttribute('aria-hidden', 'true');
+
+      currentSlide = targetIndex;
+      slides[currentSlide].classList.add('active');
+      slides[currentSlide].setAttribute('aria-hidden', 'false');
+
+      // Update counter
+      if (currentNumEl) {
+        currentNumEl.textContent = String(currentSlide + 1).padStart(2, '0');
+      }
+
+      // Reset timer & segment progress
+      clearTimeout(autoSlideTimer);
+      slideStartTime = Date.now();
+      remainingTime = SLIDE_DURATION;
+
+      if (!isPaused) {
+        updateSegments(currentSlide, SLIDE_DURATION, 0);
+        scheduleNext(SLIDE_DURATION);
+      } else {
+        updateSegments(currentSlide, 0, 0);
+      }
+    }
+
+    function scheduleNext(duration) {
+      clearTimeout(autoSlideTimer);
+      autoSlideTimer = setTimeout(() => {
+        if (!isPaused) {
+          goToSlide(currentSlide + 1);
+        }
+      }, duration);
+    }
+
+    function pauseSlider() {
+      if (isPaused) return;
+      isPaused = true;
+      clearTimeout(autoSlideTimer);
+      const elapsed = Date.now() - slideStartTime;
+      remainingTime = Math.max(400, remainingTime - elapsed);
+      pauseSegmentProgress();
+      updatePauseButtonUI(true);
+    }
+
+    function resumeSlider() {
+      if (!isPaused) return;
+      isPaused = false;
+      slideStartTime = Date.now();
+
+      const activeFill = getSegmentFill(currentSlide);
+      let currentPercent = 0;
+      if (activeFill && activeFill.parentElement) {
+        const totalW = activeFill.parentElement.offsetWidth;
+        const currW = parseFloat(window.getComputedStyle(activeFill).width);
+        currentPercent = totalW > 0 ? (currW / totalW) * 100 : 0;
+      }
+
+      updateSegments(currentSlide, remainingTime, currentPercent);
+      scheduleNext(remainingTime);
+      updatePauseButtonUI(false);
+    }
+
+    function updatePauseButtonUI(paused) {
+      if (!pauseToggleBtn) return;
+      const pauseIcon = pauseToggleBtn.querySelector('.pause-icon');
+      const playIcon = pauseToggleBtn.querySelector('.play-icon');
+      if (pauseIcon && playIcon) {
+        pauseIcon.style.display = paused ? 'none' : 'block';
+        playIcon.style.display = paused ? 'block' : 'none';
+        pauseToggleBtn.setAttribute('aria-label', paused ? 'Resume Slideshow' : 'Pause Slideshow');
+      }
+    }
+
+    // Manual Pause Toggle Button
+    if (pauseToggleBtn) {
+      pauseToggleBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (isPaused) {
+          resumeSlider();
+        } else {
+          pauseSlider();
+        }
+      });
+    }
+
+    // Previous / Next button listeners
+    if (prevBtn) {
+      prevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        goToSlide(currentSlide - 1);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        goToSlide(currentSlide + 1);
+      });
+    }
+
+    // Segment tab click listeners
+    segments.forEach((seg, idx) => {
+      seg.addEventListener('click', (e) => {
+        e.preventDefault();
+        goToSlide(idx);
+      });
+    });
+
+    // Pause on hover
+    heroSlider.addEventListener('mouseenter', pauseSlider);
+    heroSlider.addEventListener('mouseleave', resumeSlider);
+
+    // Keyboard navigation
+    heroSlider.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        goToSlide(currentSlide - 1);
+      } else if (e.key === 'ArrowRight') {
+        goToSlide(currentSlide + 1);
+      }
+    });
+
+    // Mobile touch gestures
+    let touchStartX = 0;
+    let touchStartY = 0;
+    heroSlider.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    heroSlider.addEventListener('touchend', (e) => {
+      const touchEndX = e.changedTouches[0].screenX;
+      const touchEndY = e.changedTouches[0].screenY;
+      const deltaX = touchEndX - touchStartX;
+      const deltaY = touchEndY - touchStartY;
+
+      if (Math.abs(deltaX) > 45 && Math.abs(deltaX) > Math.abs(deltaY) * 1.5) {
+        if (deltaX < 0) {
+          goToSlide(currentSlide + 1);
+        } else {
+          goToSlide(currentSlide - 1);
+        }
+      }
+    }, { passive: true });
+
+    // Handle tab visibility changes
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        pauseSlider();
+      } else {
+        resumeSlider();
+      }
+    });
+
+    // Kick off initial slide and segmented progress
+    updateSegments(0, SLIDE_DURATION, 0);
+    scheduleNext(SLIDE_DURATION);
+  }
 });
+
 
 
