@@ -720,26 +720,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ------------------------------------------------------------------------
-  // 8. Testimonials Carousel Next/Prev
-  // ------------------------------------------------------------------------
-  const prevReviewBtn = document.getElementById('prevReviewBtn');
-  const nextReviewBtn = document.getElementById('nextReviewBtn');
-  const reviewsContainer = document.getElementById('reviewsContainer');
-  if (prevReviewBtn && nextReviewBtn && reviewsContainer) {
-    nextReviewBtn.addEventListener('click', () => {
-      const firstChild = reviewsContainer.firstElementChild;
-      if (firstChild) {
-        reviewsContainer.appendChild(firstChild);
-      }
-    });
-    prevReviewBtn.addEventListener('click', () => {
-      const lastChild = reviewsContainer.lastElementChild;
-      if (lastChild) {
-        reviewsContainer.insertBefore(lastChild, reviewsContainer.firstElementChild);
-      }
-    });
-  }
+
 
   // ------------------------------------------------------------------------
   // 9. Headquarters Contact Page Form
@@ -988,7 +969,111 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ------------------------------------------------------------------------
-  // 14. Ultra-Premium Cinema Auto Slider Banner (1920x750 Canvas)
+  // 14. Ultra-Cinema Golden Wings Video Hero Banner Controller (1080p)
+  // ------------------------------------------------------------------------
+  const heroCinemaVideo = document.getElementById('heroCinemaVideo');
+  const videoPlayPauseBtn = document.getElementById('videoPlayPauseBtn');
+  const videoAudioBtn = document.getElementById('videoAudioBtn');
+
+  if (heroCinemaVideo) {
+    heroCinemaVideo.muted = true;
+    heroCinemaVideo.defaultMuted = true;
+
+    let userManuallyPaused = false;
+
+    // Trigger autoplay safely
+    const playPromise = heroCinemaVideo.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        heroCinemaVideo.muted = true;
+        heroCinemaVideo.play().catch(() => {});
+      });
+    }
+
+    // Play / Pause Toggle Button
+    if (videoPlayPauseBtn) {
+      const pauseIcon = videoPlayPauseBtn.querySelector('.ctrl-icon-pause');
+      const playIcon = videoPlayPauseBtn.querySelector('.ctrl-icon-play');
+      const btnLabel = videoPlayPauseBtn.querySelector('.ctrl-btn-label');
+
+      function updatePlayPauseUI(isPaused) {
+        if (pauseIcon && playIcon) {
+          pauseIcon.style.display = isPaused ? 'none' : 'block';
+          playIcon.style.display = isPaused ? 'block' : 'none';
+        }
+        if (btnLabel) {
+          btnLabel.textContent = isPaused ? 'Play' : 'Pause';
+        }
+        videoPlayPauseBtn.setAttribute('aria-label', isPaused ? 'Play Video' : 'Pause Video');
+      }
+
+      videoPlayPauseBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (heroCinemaVideo.paused) {
+          userManuallyPaused = false;
+          heroCinemaVideo.play();
+          updatePlayPauseUI(false);
+        } else {
+          userManuallyPaused = true;
+          heroCinemaVideo.pause();
+          updatePlayPauseUI(true);
+        }
+      });
+
+      heroCinemaVideo.addEventListener('play', () => updatePlayPauseUI(false));
+      heroCinemaVideo.addEventListener('pause', () => {
+        if (userManuallyPaused) {
+          updatePlayPauseUI(true);
+        }
+      });
+    }
+
+    // Audio Mute / Unmute Toggle Button
+    if (videoAudioBtn) {
+      const mutedIcon = videoAudioBtn.querySelector('.ctrl-icon-muted');
+      const unmutedIcon = videoAudioBtn.querySelector('.ctrl-icon-unmuted');
+      const audioLabel = document.getElementById('audioBtnLabel');
+
+      function updateAudioUI(isMuted) {
+        if (mutedIcon && unmutedIcon) {
+          mutedIcon.style.display = isMuted ? 'block' : 'none';
+          unmutedIcon.style.display = isMuted ? 'none' : 'block';
+        }
+        if (audioLabel) {
+          audioLabel.textContent = isMuted ? 'Sound On' : 'Mute';
+        }
+        videoAudioBtn.setAttribute('aria-label', isMuted ? 'Unmute Audio' : 'Mute Audio');
+      }
+
+      videoAudioBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        heroCinemaVideo.muted = !heroCinemaVideo.muted;
+        updateAudioUI(heroCinemaVideo.muted);
+      });
+    }
+
+    // Auto pause video when scrolled offscreen to conserve system resources
+    if ('IntersectionObserver' in window) {
+      const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) {
+            if (!heroCinemaVideo.paused) {
+              heroCinemaVideo.pause();
+            }
+          } else {
+            if (!userManuallyPaused && heroCinemaVideo.paused) {
+              heroCinemaVideo.play().catch(() => {});
+            }
+          }
+        });
+      }, { threshold: 0.2 });
+
+      videoObserver.observe(heroCinemaVideo);
+    }
+  }
+
+  // ------------------------------------------------------------------------
+  // Fallback: Ultra-Premium Cinema Auto Slider Banner (if active)
   // ------------------------------------------------------------------------
   const sliderTrack = document.getElementById('mainSliderTrack');
   const heroSlider = document.querySelector('.premium-slider-banner, .full-screen-slider-banner');
@@ -1241,6 +1326,127 @@ document.addEventListener('DOMContentLoaded', () => {
   if (agencyVideo) {
     agencyVideo.muted = true;
     agencyVideo.defaultMuted = true;
+  }
+
+  // ------------------------------------------------------------------------
+  // Customer Reviews Carousel (Split Horizontal Card Slider)
+  // ------------------------------------------------------------------------
+  const reviewsTrack = document.getElementById('reviewsTrack');
+  const prevReviewBtn = document.getElementById('prevReviewBtn');
+  const nextReviewBtn = document.getElementById('nextReviewBtn');
+  const reviewsViewport = document.getElementById('reviewsViewport');
+  const reviewDots = document.querySelectorAll('.review-dot');
+
+  if (reviewsTrack && prevReviewBtn && nextReviewBtn) {
+    let currentReviewSlide = 0;
+    const cards = reviewsTrack.querySelectorAll('.testimonial-card-split');
+    const totalCards = cards.length;
+    let reviewAutoTimer = null;
+
+    function getCardsPerView() {
+      return window.innerWidth > 1024 ? 2 : 1;
+    }
+
+    function getMaxSlides() {
+      const perView = getCardsPerView();
+      return Math.ceil(totalCards / perView);
+    }
+
+    function updateReviewsSlider(targetIndex) {
+      const maxSlides = getMaxSlides();
+      const perView = getCardsPerView();
+
+      if (targetIndex < 0) {
+        currentReviewSlide = maxSlides - 1;
+      } else if (targetIndex >= maxSlides) {
+        currentReviewSlide = 0;
+      } else {
+        currentReviewSlide = targetIndex;
+      }
+
+      if (cards.length > 0) {
+        const firstCard = cards[0];
+        const cardWidth = firstCard.offsetWidth;
+        const gap = 24;
+        const offset = currentReviewSlide * ((cardWidth + gap) * perView);
+        reviewsTrack.style.transform = `translateX(-${offset}px)`;
+      }
+
+      // Update active dot
+      reviewDots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === currentReviewSlide);
+      });
+    }
+
+    prevReviewBtn.addEventListener('click', () => {
+      updateReviewsSlider(currentReviewSlide - 1);
+      resetReviewTimer();
+    });
+
+    nextReviewBtn.addEventListener('click', () => {
+      updateReviewsSlider(currentReviewSlide + 1);
+      resetReviewTimer();
+    });
+
+    reviewDots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const slideIndex = parseInt(dot.getAttribute('data-slide'), 10) || 0;
+        updateReviewsSlider(slideIndex);
+        resetReviewTimer();
+      });
+    });
+
+    // Touch Swipe Support for mobile devices
+    let touchStartX = 0;
+    let touchStartY = 0;
+    reviewsTrack.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    reviewsTrack.addEventListener('touchend', (e) => {
+      const deltaX = e.changedTouches[0].clientX - touchStartX;
+      const deltaY = e.changedTouches[0].clientY - touchStartY;
+      if (Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY)) {
+        if (deltaX < 0) {
+          updateReviewsSlider(currentReviewSlide + 1);
+        } else {
+          updateReviewsSlider(currentReviewSlide - 1);
+        }
+        resetReviewTimer();
+      }
+    }, { passive: true });
+
+    // Auto-advance every 8 seconds, pausing on hover
+    function startReviewTimer() {
+      stopReviewTimer();
+      reviewAutoTimer = setInterval(() => {
+        updateReviewsSlider(currentReviewSlide + 1);
+      }, 8000);
+    }
+
+    function stopReviewTimer() {
+      if (reviewAutoTimer) {
+        clearInterval(reviewAutoTimer);
+        reviewAutoTimer = null;
+      }
+    }
+
+    function resetReviewTimer() {
+      stopReviewTimer();
+      startReviewTimer();
+    }
+
+    if (reviewsViewport) {
+      reviewsViewport.addEventListener('mouseenter', stopReviewTimer);
+      reviewsViewport.addEventListener('mouseleave', startReviewTimer);
+    }
+
+    startReviewTimer();
+
+    window.addEventListener('resize', () => {
+      updateReviewsSlider(currentReviewSlide);
+    });
   }
 });
 

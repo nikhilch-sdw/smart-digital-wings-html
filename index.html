@@ -26,8 +26,92 @@
   <link rel="icon" type="image/png" href="assets/Smart Digital Wings (1).png">
 
   <!-- Royal Blue (#093360) & Gold Design System Stylesheets -->
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/style.css?v=4.2">
+  <link rel="stylesheet" href="css/components.css?v=4.2">
+
+  <!-- Pure Golden Wings Banner (Zero Color Overlay & Increased Height) -->
+  <style id="banner-clean-styling">
+    #hero,
+    #hero.premium-video-hero,
+    .premium-video-hero {
+      position: relative !important;
+      width: 100% !important;
+      height: 520px !important;
+      max-height: 520px !important;
+      background: #000000 !important;
+      overflow: hidden !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    #hero::before,
+    #hero::after,
+    .premium-video-hero::before,
+    .premium-video-hero::after,
+    .hero-section::before,
+    .hero-section::after {
+      display: none !important;
+      content: none !important;
+      background: none !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      filter: none !important;
+    }
+    .video-banner-stage {
+      position: relative !important;
+      width: 100% !important;
+      height: 100% !important;
+      overflow: hidden !important;
+      background: #000000 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    .hero-cinema-video {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      object-position: center 35% !important;
+      display: block !important;
+      filter: none !important;
+      -webkit-filter: none !important;
+      mix-blend-mode: normal !important;
+      opacity: 1 !important;
+    }
+    @media (max-width: 1200px) {
+      #hero,
+      #hero.premium-video-hero,
+      .premium-video-hero {
+        height: 480px !important;
+        max-height: 480px !important;
+      }
+      .hero-cinema-video {
+        object-position: center 34% !important;
+      }
+    }
+    @media (max-width: 992px) {
+      #hero,
+      #hero.premium-video-hero,
+      .premium-video-hero {
+        height: 400px !important;
+        max-height: 400px !important;
+      }
+      .hero-cinema-video {
+        object-position: center 32% !important;
+      }
+    }
+    @media (max-width: 640px) {
+      #hero,
+      #hero.premium-video-hero,
+      .premium-video-hero {
+        height: 280px !important;
+        max-height: 280px !important;
+      }
+      .hero-cinema-video {
+        object-position: center 30% !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -139,14 +223,15 @@
   </header>
 
   <!-- Mobile Navigation Drawer (Clean Categorized Layout) -->
-  <div id="mobileDrawer" class="mobile-nav-drawer"> <a href="index.html" class="nav-link">Home</a> <div class="mobile-nav-group-title">Services & Growth</div>
+  <div id="mobileDrawer" class="mobile-nav-drawer"> <a href="index.html" class="nav-link">Home</a>
+    <div class="mobile-nav-group-title">Services & Growth</div>
     <a href="service-smm.html" class="nav-link mobile-sublink">Social Media & Meta Ads</a>
     <a href="service-seo.html" class="nav-link mobile-sublink">Search Engine Optimization</a>
     <a href="service-web-design.html" class="nav-link mobile-sublink">High-Converting Web Design</a>
     <a href="service-ppc.html" class="nav-link mobile-sublink">Google PPC Search Ads</a>
     <a href="service-branding.html" class="nav-link mobile-sublink">Brand Identity & Design</a>
     <a href="service-analytics.html" class="nav-link mobile-sublink">Enterprise Analytics & CRO</a>
-    
+
     <a href="#agency-video" class="nav-link mobile-sublink">Agency Showcase Video</a>
 
     <div class="mobile-nav-group-title">Proof & Company</div>
@@ -178,100 +263,59 @@
          HERO SECTION: Royal Blue Gradient (#093360) + Live Instant Proposal Form
          ==================================================================== -->
     <!-- ====================================================================
-         HERO SECTION: Ultra-Premium Image Auto Slider Banner (1920 x 750 px)
+         HERO SECTION: Pure 1080p Golden Wings Video Banner (Zero Overlays / Reduced Height)
          ==================================================================== -->
-    <section id="hero" class="hero-section premium-slider-banner" aria-roledescription="carousel" aria-label="Agency Showcase Gallery">
-      <h1 class="visually-hidden">Smart Digital Wings - Luxury Digital Marketing, Web Architecture & Brand Growth Studio</h1>
-      
-      <!-- Top Edge Ambient Shimmer -->
-      <div class="slider-ambient-top"></div>
+    <section id="hero" class="premium-video-hero" aria-label="Smart Digital Wings Cinema Showcase"
+      style="position: relative; width: 100%; height: 520px; max-height: 520px; background: #000000; overflow: hidden; margin: 0; padding: 0; border: none; box-shadow: none;">
+      <h1 class="visually-hidden">Smart Digital Wings - Luxury Digital Marketing, Web Architecture & Brand Growth Studio
+      </h1>
 
-      <!-- Slider Track with Ultra-Resolution Cinema Banners -->
-      <div class="slider-track" id="mainSliderTrack">
-
-        <!-- Slide 1: Web Architecture & Futuristic Engineering -->
-        <div class="slider-slide active" data-slide="0" role="group" aria-roledescription="slide" aria-label="1 of 4">
-          <div class="slide-media-wrap">
-            <img src="assets/banner-web-architecture.jpg" alt="High-Converting Web Architecture and Digital Engineering" class="slide-cinema-img" loading="eager" decoding="async">
-          </div>
-        </div>
-
-        <!-- Slide 2: Technical SEO & Algorithmic Search Dominance -->
-        <div class="slider-slide" data-slide="1" role="group" aria-roledescription="slide" aria-label="2 of 4">
-          <div class="slide-media-wrap">
-            <img src="assets/banner-seo-dominance.jpg" alt="Search Engine Optimization and Algorithmic Dominance" class="slide-cinema-img" loading="lazy" decoding="async">
-          </div>
-        </div>
-
-        <!-- Slide 3: Performance Advertising & Multi-Channel ROI War Room -->
-        <div class="slider-slide" data-slide="2" role="group" aria-roledescription="slide" aria-label="3 of 4">
-          <div class="slide-media-wrap">
-            <img src="assets/banner-performance-ads.jpg" alt="Performance Advertising and Multi-Channel Growth Command" class="slide-cinema-img" loading="lazy" decoding="async">
-          </div>
-        </div>
-
-        <!-- Slide 4: Brand Strategy & Prestige Creative Atelier -->
-        <div class="slider-slide" data-slide="3" role="group" aria-roledescription="slide" aria-label="4 of 4">
-          <div class="slide-media-wrap">
-            <img src="assets/banner-prestige-branding.jpg" alt="Prestige Brand Strategy and Creative Design Atelier" class="slide-cinema-img" loading="lazy" decoding="async">
-          </div>
-        </div>
-
+      <!-- Pure Cinema Video Stage (Zero Color Overlays) -->
+      <div class="video-banner-stage"
+        style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #000000; margin: 0; padding: 0;">
+        <video id="heroCinemaVideo" class="hero-cinema-video" poster="assets/video/golden-wings-poster.jpg" autoplay
+          muted loop playsinline preload="auto"
+          style="width: 100%; height: 100%; object-fit: cover; object-position: center 35%; display: block; filter: none; -webkit-filter: none; mix-blend-mode: normal; opacity: 1;">
+          <source src="assets/video/Golden_wings_brand-reveal_video_1080p_20260922172130.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
       </div>
 
-      <!-- Luxury Navigation Controls -->
-      <div class="slider-cinema-nav">
-        <!-- Floating Glass Arrows -->
-        <button class="cinema-arrow-btn cinema-prev-btn" id="fullSliderPrev" aria-label="Previous Slide">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="15 18 9 12 15 6"></polyline>
-          </svg>
-        </button>
-        <button class="cinema-arrow-btn cinema-next-btn" id="fullSliderNext" aria-label="Next Slide">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </button>
-      </div>
-
-      <!-- Ultra-Sleek Glassmorphic Bottom Controller Bar -->
-      <div class="slider-controller-panel">
-        <div class="controller-glass-shell">
-          
-          <!-- Slide Counter -->
-          <div class="controller-counter" id="fullSliderCounter">
-            <span class="counter-curr current-slide">01</span>
-            <span class="counter-div">/</span>
-            <span class="counter-total total-slides">04</span>
-          </div>
-
-          <!-- Segmented Gold Progress Bars -->
-          <div class="controller-segments" id="fullSliderDots" role="tablist" aria-label="Slide Selection">
-            <button type="button" class="segment-btn active" data-index="0" role="tab" aria-selected="true" aria-label="Slide 1">
-              <span class="segment-track"><span class="segment-fill"></span></span>
-            </button>
-            <button type="button" class="segment-btn" data-index="1" role="tab" aria-selected="false" aria-label="Slide 2">
-              <span class="segment-track"><span class="segment-fill"></span></span>
-            </button>
-            <button type="button" class="segment-btn" data-index="2" role="tab" aria-selected="false" aria-label="Slide 3">
-              <span class="segment-track"><span class="segment-fill"></span></span>
-            </button>
-            <button type="button" class="segment-btn" data-index="3" role="tab" aria-selected="false" aria-label="Slide 4">
-              <span class="segment-track"><span class="segment-fill"></span></span>
-            </button>
-          </div>
-
-          <!-- Play/Pause Status Indicator -->
-          <button type="button" class="controller-pause-btn" id="sliderPauseBtn" aria-label="Pause Slideshow">
-            <svg class="pause-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+      <!-- Sleek Glassmorphic Floating Video Controller -->
+      <div class="video-controller-bar">
+        <div class="video-control-pill">
+          <!-- Play/Pause Toggle -->
+          <button type="button" class="video-ctrl-btn" id="videoPlayPauseBtn" aria-label="Pause Video"
+            title="Play / Pause">
+            <svg class="ctrl-icon-pause" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
               <rect x="6" y="4" width="4" height="16" rx="1"></rect>
               <rect x="14" y="4" width="4" height="16" rx="1"></rect>
             </svg>
-            <svg class="play-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+            <svg class="ctrl-icon-play" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"
+              style="display: none;">
               <polygon points="5 3 19 12 5 21 5 3"></polygon>
             </svg>
+            <span class="ctrl-btn-label">Pause</span>
           </button>
 
+          <div class="ctrl-divider"></div>
+
+          <!-- Sound Mute/Unmute Toggle -->
+          <button type="button" class="video-ctrl-btn" id="videoAudioBtn" aria-label="Unmute Audio"
+            title="Sound On / Off">
+            <svg class="ctrl-icon-muted" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <line x1="23" y1="9" x2="17" y2="15"></line>
+              <line x1="17" y1="9" x2="23" y2="15"></line>
+            </svg>
+            <svg class="ctrl-icon-unmuted" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            </svg>
+            <span class="ctrl-btn-label" id="audioBtnLabel">Sound On</span>
+          </button>
         </div>
       </div>
 
@@ -288,75 +332,75 @@
           <div class="about-content-col">
             <div class="section-badge">About Smart Digital Wings</div>
 
-              <h2 class="about-title">
-                Flying Brands Beyond <span class="blue-text">Industry Boundaries</span>
-              </h2>
+            <h2 class="about-title">
+              Flying Brands Beyond <span class="blue-text">Industry Boundaries</span>
+            </h2>
 
-              <p class="about-lead-text">
-                Founded with a mission to eliminate empty marketing promises, <strong>Smart Digital Wings</strong>
-                engineers predictable revenue growth. We treat your ad spend like our own capital—combining
-                high-converting bespoke Web Design, technical SEO dominance, and viral paid media funnels with real-time
-                Looker & GA4 analytics.
-              </p>
+            <p class="about-lead-text">
+              Founded with a mission to eliminate empty marketing promises, <strong>Smart Digital Wings</strong>
+              engineers predictable revenue growth. We treat your ad spend like our own capital—combining
+              high-converting bespoke Web Design, technical SEO dominance, and viral paid media funnels with real-time
+              Looker & GA4 analytics.
+            </p>
 
-              <!-- 4 Core Value Points (Simple & Clean - No Box) -->
-              <div class="about-values-grid">
+            <!-- 4 Core Value Points (Simple & Clean - No Box) -->
+            <div class="about-values-grid">
 
-                <!-- Point 1: Performance-First -->
-                <div class="about-value-item">
-                  <div class="about-value-icon icon-blue">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-                      stroke-linecap="round" stroke-linejoin="round">
-                      <path
-                        d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
-                      <path
-                        d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
-                      <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
-                      <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
-                    </svg>
-                  </div>
-                  <strong class="about-value-title">Performance-First Ethos</strong>
+              <!-- Point 1: Performance-First -->
+              <div class="about-value-item">
+                <div class="about-value-icon icon-blue">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+                    <path
+                      d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+                    <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+                    <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                  </svg>
                 </div>
-
-                <!-- Point 2: Sub-Second Speed -->
-                <div class="about-value-item">
-                  <div class="about-value-icon icon-green">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-                      stroke-linecap="round" stroke-linejoin="round">
-                      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-                    </svg>
-                  </div>
-                  <strong class="about-value-title">Sub-Second Web Speed</strong>
-                </div>
-
-                <!-- Point 3: Certified Media Squad -->
-                <div class="about-value-item">
-                  <div class="about-value-icon icon-gold">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-                      stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M12 2l8 4v6c0 5.25-3.5 10-8 11-4.5-1-8-5.75-8-11V6l8-4z" />
-                      <path d="M9 12l2 2 4-4" />
-                    </svg>
-                  </div>
-                  <strong class="about-value-title">Certified Media Squad</strong>
-                </div>
-
-                <!-- Point 4: Transparent Reporting -->
-                <div class="about-value-item">
-                  <div class="about-value-icon icon-purple">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-                      stroke-linecap="round" stroke-linejoin="round">
-                      <line x1="18" y1="20" x2="18" y2="10" />
-                      <line x1="12" y1="20" x2="12" y2="4" />
-                      <line x1="6" y1="20" x2="6" y2="14" />
-                      <path d="M4 20h16" />
-                      <circle cx="12" cy="4" r="2" fill="currentColor" />
-                    </svg>
-                  </div>
-                  <strong class="about-value-title">Transparent Reporting</strong>
-                </div>
-
+                <strong class="about-value-title">Performance-First Ethos</strong>
               </div>
+
+              <!-- Point 2: Sub-Second Speed -->
+              <div class="about-value-item">
+                <div class="about-value-icon icon-green">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                  </svg>
+                </div>
+                <strong class="about-value-title">Sub-Second Web Speed</strong>
+              </div>
+
+              <!-- Point 3: Certified Media Squad -->
+              <div class="about-value-item">
+                <div class="about-value-icon icon-gold">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2l8 4v6c0 5.25-3.5 10-8 11-4.5-1-8-5.75-8-11V6l8-4z" />
+                    <path d="M9 12l2 2 4-4" />
+                  </svg>
+                </div>
+                <strong class="about-value-title">Certified Media Squad</strong>
+              </div>
+
+              <!-- Point 4: Transparent Reporting -->
+              <div class="about-value-item">
+                <div class="about-value-icon icon-purple">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="20" x2="18" y2="10" />
+                    <line x1="12" y1="20" x2="12" y2="4" />
+                    <line x1="6" y1="20" x2="6" y2="14" />
+                    <path d="M4 20h16" />
+                    <circle cx="12" cy="4" r="2" fill="currentColor" />
+                  </svg>
+                </div>
+                <strong class="about-value-title">Transparent Reporting</strong>
+              </div>
+
+            </div>
 
             <!-- Bottom CTA Row -->
             <div class="about-cta-row">
@@ -441,10 +485,12 @@
                 <h3 class="service-card-title">Social Media Advertising</h3>
               </div>
               <p class="service-card-desc">
-                Scale brand reach and viral ad conversions with dynamic creative testing (DCT), predictive CBO bidding, and Meta CAPI tracking.
+                Scale brand reach and viral ad conversions with dynamic creative testing (DCT), predictive CBO bidding,
+                and Meta CAPI tracking.
               </p>
               <div class="service-card-actions">
-                <a href="service-smm.html" class="service-btn service-btn-details" title="Explore Social Media Advertising">
+                <a href="service-smm.html" class="service-btn service-btn-details"
+                  title="Explore Social Media Advertising">
                   <span>Explore</span>
                   <span>&rarr;</span>
                 </a>
@@ -471,10 +517,12 @@
                 <h3 class="service-card-title">Performance Marketing</h3>
               </div>
               <p class="service-card-desc">
-                Full-funnel customer acquisition engineered for maximized ROAS, multi-touch attribution, and algorithmic budget scaling.
+                Full-funnel customer acquisition engineered for maximized ROAS, multi-touch attribution, and algorithmic
+                budget scaling.
               </p>
               <div class="service-card-actions">
-                <a href="service-analytics.html" class="service-btn service-btn-details" title="Explore Performance Marketing">
+                <a href="service-analytics.html" class="service-btn service-btn-details"
+                  title="Explore Performance Marketing">
                   <span>Explore</span>
                   <span>&rarr;</span>
                 </a>
@@ -501,10 +549,12 @@
                 <h3 class="service-card-title">Website Designing</h3>
               </div>
               <p class="service-card-desc">
-                Bespoke, sub-second digital flagships engineered with psychological copywriting, frictionless checkout, and luxury UI/UX appeal.
+                Bespoke, sub-second digital flagships engineered with psychological copywriting, frictionless checkout,
+                and luxury UI/UX appeal.
               </p>
               <div class="service-card-actions">
-                <a href="service-web-design.html" class="service-btn service-btn-details" title="Explore Website Designing">
+                <a href="service-web-design.html" class="service-btn service-btn-details"
+                  title="Explore Website Designing">
                   <span>Explore</span>
                   <span>&rarr;</span>
                 </a>
@@ -531,10 +581,12 @@
                 <h3 class="service-card-title">Graphic Designing</h3>
               </div>
               <p class="service-card-desc">
-                Distinctive visual systems, brand style guides, bespoke typography, and premium packaging that command pricing power.
+                Distinctive visual systems, brand style guides, bespoke typography, and premium packaging that command
+                pricing power.
               </p>
               <div class="service-card-actions">
-                <a href="service-branding.html" class="service-btn service-btn-details" title="Explore Graphic Designing">
+                <a href="service-branding.html" class="service-btn service-btn-details"
+                  title="Explore Graphic Designing">
                   <span>Explore</span>
                   <span>&rarr;</span>
                 </a>
@@ -561,7 +613,8 @@
                 <h3 class="service-card-title">Videoshoot &amp; Edit</h3>
               </div>
               <p class="service-card-desc">
-                Commercial 4K video shoots, viral social reel production, CGI motion graphics, and high-retention post-production video editing.
+                Commercial 4K video shoots, viral social reel production, CGI motion graphics, and high-retention
+                post-production video editing.
               </p>
               <div class="service-card-actions">
                 <a href="contact.html" class="service-btn service-btn-details" title="Explore Videoshoot & Edit">
@@ -591,7 +644,8 @@
                 <h3 class="service-card-title">Google Ads</h3>
               </div>
               <p class="service-card-desc">
-                Precision Google Search, Performance Max, and YouTube campaigns with aggressive negative keyword sculpts and click-fraud defense.
+                Precision Google Search, Performance Max, and YouTube campaigns with aggressive negative keyword sculpts
+                and click-fraud defense.
               </p>
               <div class="service-card-actions">
                 <a href="service-ppc.html" class="service-btn service-btn-details" title="Explore Google Ads">
@@ -621,10 +675,12 @@
                 <h3 class="service-card-title">Search Engine Optimization</h3>
               </div>
               <p class="service-card-desc">
-                Rank #1 for high-intent purchase queries with programmatic topic clusters, Core Web Vitals fixes, and Tier-1 digital PR links.
+                Rank #1 for high-intent purchase queries with programmatic topic clusters, Core Web Vitals fixes, and
+                Tier-1 digital PR links.
               </p>
               <div class="service-card-actions">
-                <a href="service-seo.html" class="service-btn service-btn-details" title="Explore Search Engine Optimization">
+                <a href="service-seo.html" class="service-btn service-btn-details"
+                  title="Explore Search Engine Optimization">
                   <span>Explore</span>
                   <span>&rarr;</span>
                 </a>
@@ -651,7 +707,8 @@
                 <h3 class="service-card-title">Influencer &amp; Content Marketing</h3>
               </div>
               <p class="service-card-desc">
-                High-converting creator partnerships, viral UGC distribution campaigns, and strategic content that builds passionate brand loyalty.
+                High-converting creator partnerships, viral UGC distribution campaigns, and strategic content that
+                builds passionate brand loyalty.
               </p>
               <div class="service-card-actions">
                 <a href="contact.html" class="service-btn service-btn-details" title="Explore Influencer Marketing">
@@ -688,13 +745,7 @@
     <section id="agency-video" class="agency-video-section">
       <div class="container">
         <div class="agency-video-wrapper">
-          <video 
-            id="agencyVideoPlayer" 
-            class="agency-video-element" 
-            controls 
-            muted 
-            playsinline 
-            preload="metadata" 
+          <video id="agencyVideoPlayer" class="agency-video-element" controls muted playsinline preload="metadata"
             poster="assets/banner-web-architecture.jpg">
             <source src="assets/agency-showcase.mp4" type="video/mp4">
             <source src="https://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
@@ -712,7 +763,8 @@
           <div class="section-badge">Our Work</div>
           <h2 class="section-title">Work That Drives Results. <span class="blue-text">Built To Scale.</span></h2>
           <p class="section-subtitle">
-            A showcase of high-performance websites, e-commerce stores, brand portals, and digital growth campaigns delivered for ambitious brands.
+            A showcase of high-performance websites, e-commerce stores, brand portals, and digital growth campaigns
+            delivered for ambitious brands.
           </p>
         </div>
 
@@ -731,10 +783,8 @@
           <div class="case-study-card" data-category="ecommerce">
             <div class="case-study-img-wrap">
               <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=75"
-                alt="Aura Luxury Apparel" loading="eager" decoding="async" width="600" height="400">
-            </div>
-            <div class="case-study-header">
-              <h3 class="case-study-title" title="Aura Luxury — Fashion E-Commerce">Aura Luxury — Fashion E-Commerce</h3>
+                alt="Aura Luxury Apparel - Fashion E-Commerce" loading="eager" decoding="async" width="600"
+                height="400">
             </div>
           </div>
 
@@ -742,10 +792,8 @@
           <div class="case-study-card" data-category="seo">
             <div class="case-study-img-wrap">
               <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=75"
-                alt="Apex Financial Partners" loading="eager" decoding="async" width="600" height="400">
-            </div>
-            <div class="case-study-header">
-              <h3 class="case-study-title" title="Apex Financial — Wealth Advisory & SEO">Apex Financial — Wealth Advisory & SEO</h3>
+                alt="Apex Financial Partners - Wealth Advisory & SEO" loading="eager" decoding="async" width="600"
+                height="400">
             </div>
           </div>
 
@@ -753,10 +801,8 @@
           <div class="case-study-card" data-category="web-design">
             <div class="case-study-img-wrap">
               <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=75"
-                alt="Verve Health Clinics" loading="eager" decoding="async" width="600" height="400">
-            </div>
-            <div class="case-study-header">
-              <h3 class="case-study-title" title="Verve Health — Clinic Web App & CRO">Verve Health — Clinic Web App & CRO</h3>
+                alt="Verve Health Clinics - Clinic Web App & CRO" loading="eager" decoding="async" width="600"
+                height="400">
             </div>
           </div>
 
@@ -764,10 +810,8 @@
           <div class="case-study-card" data-category="smm">
             <div class="case-study-img-wrap">
               <img src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&fit=crop&w=600&q=75"
-                alt="Solaria Solar Solutions" loading="eager" decoding="async" width="600" height="400">
-            </div>
-            <div class="case-study-header">
-              <h3 class="case-study-title" title="Solaria Solar — Clean Energy Funnel">Solaria Solar — Clean Energy Funnel</h3>
+                alt="Solaria Solar Solutions - Clean Energy Funnel" loading="eager" decoding="async" width="600"
+                height="400">
             </div>
           </div>
 
@@ -775,10 +819,7 @@
           <div class="case-study-card" data-category="ecommerce">
             <div class="case-study-img-wrap">
               <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=600&q=75"
-                alt="Kaviar Fine Jewels" loading="eager" decoding="async" width="600" height="400">
-            </div>
-            <div class="case-study-header">
-              <h3 class="case-study-title" title="Kaviar Jewels — Luxury E-Commerce">Kaviar Jewels — Luxury E-Commerce</h3>
+                alt="Kaviar Fine Jewels - Luxury E-Commerce" loading="eager" decoding="async" width="600" height="400">
             </div>
           </div>
 
@@ -786,10 +827,7 @@
           <div class="case-study-card" data-category="seo">
             <div class="case-study-img-wrap">
               <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=75"
-                alt="Zenith Legal Group" loading="eager" decoding="async" width="600" height="400">
-            </div>
-            <div class="case-study-header">
-              <h3 class="case-study-title" title="Zenith Legal — Law Firm Web & SEO">Zenith Legal — Law Firm Web & SEO</h3>
+                alt="Zenith Legal Group - Law Firm Web & SEO" loading="eager" decoding="async" width="600" height="400">
             </div>
           </div>
 
@@ -797,10 +835,8 @@
           <div class="case-study-card" data-category="web-design">
             <div class="case-study-img-wrap">
               <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=600&q=75"
-                alt="AeroJet Private Charter" loading="eager" decoding="async" width="600" height="400">
-            </div>
-            <div class="case-study-header">
-              <h3 class="case-study-title" title="AeroJet Charter — Jet Booking Platform">AeroJet Charter — Jet Booking Platform</h3>
+                alt="AeroJet Private Charter - Jet Booking Platform" loading="eager" decoding="async" width="600"
+                height="400">
             </div>
           </div>
 
@@ -808,10 +844,8 @@
           <div class="case-study-card" data-category="smm">
             <div class="case-study-img-wrap">
               <img src="https://images.unsplash.com/photo-1536700503339-1e4b06520771?auto=format&fit=crop&w=600&q=75"
-                alt="NexGen Electric Vehicles" loading="eager" decoding="async" width="600" height="400">
-            </div>
-            <div class="case-study-header">
-              <h3 class="case-study-title" title="NexGen EV — Electric Mobility Ads">NexGen EV — Electric Mobility Ads</h3>
+                alt="NexGen Electric Vehicles - Electric Mobility Ads" loading="eager" decoding="async" width="600"
+                height="400">
             </div>
           </div>
 
@@ -1118,115 +1152,273 @@
     <!-- ====================================================================
          TESTIMONIALS & REVIEWS SLIDER
          ==================================================================== -->
-    <section id="reviews" class="section" style="background:#FFFFFF;">
+    <!-- ====================================================================
+         CUSTOMER REVIEWS: Luxury Horizontal Split Testimonial Slider
+         ==================================================================== -->
+    <section id="reviews" class="section reviews-showcase-section">
       <div class="container">
 
-        <div
-          style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;flex-wrap:wrap;gap:20px;">
+        <!-- Section Header with Title, Rating Summary & Slider Arrows -->
+        <div class="reviews-header-wrap">
           <div>
-            <div class="section-badge">Verified Client Endorsements</div>
-            <h2 class="section-title">Trusted by Growth Leaders <span class="blue-text">Worldwide</span></h2>
-            <p class="section-subtitle">See what founders, CEOs, and CMOs say about scaling revenue with Smart Digital
-              Wings.</p>
+            <div class="section-badge">Client Success Stories</div>
+            <h2 class="section-title">Customer <span class="blue-text">Reviews</span></h2>
+            <p class="reviews-rating-sub">
+              <span class="rating-score">4.9/5</span> from <strong>240+</strong> verified brand partners across India
+              &amp; Global
+            </p>
           </div>
 
-          <div style="display:flex;align-items:center;gap:12px;">
-            <button id="prevReviewBtn" class="btn btn-outline-blue"
-              style="width:46px;height:46px;border-radius:50%;padding:0;" aria-label="Previous Review">&larr;</button>
-            <button id="nextReviewBtn" class="btn btn-blue" style="width:46px;height:46px;border-radius:50%;padding:0;"
-              aria-label="Next Review">&rarr;</button>
+          <!-- Circular Navigation Buttons -->
+          <div class="reviews-nav-arrows">
+            <button id="prevReviewBtn" class="reviews-nav-btn" aria-label="Previous Reviews">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <button id="nextReviewBtn" class="reviews-nav-btn" aria-label="Next Reviews">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
           </div>
         </div>
 
-        <div style="display:grid;grid-template-columns:repeat(3, 1fr);gap:28px;" id="reviewsContainer">
+        <!-- Slider Viewport -->
+        <div class="reviews-slider-viewport" id="reviewsViewport">
+          <div class="reviews-slider-track" id="reviewsTrack">
 
-          <div class="review-card">
-            <div>
-              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
-                <div style="color:var(--gold-primary);font-size:1.1rem;">★★★★★</div>
-                <span
-                  style="font-size:0.6875rem;font-weight:800;color:var(--primary);background:var(--primary-tint);padding:4px 10px;border-radius:12px;">
-                  8.4x ROAS • ₹1.4 Cr
-                </span>
-              </div>
-              <p
-                style="font-size:0.875rem;color:var(--text-main);line-height:1.7;font-style:italic;margin-bottom:24px;">
-                "Smart Digital Wings completely transformed our digital trajectory. Their custom website design paired
-                with Meta ad reels scaled our store from ₹4.5 Lakh/mo to over ₹32 Lakh/mo in just 4 months."
-              </p>
-            </div>
-            <div
-              style="display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid var(--border-light);">
-              <div style="display:flex;align-items:center;gap:12px;">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"
-                  alt="Marcus Vance"
-                  style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--primary);">
-                <div>
-                  <div style="font-weight:800;font-size:0.875rem;color:var(--text-dark);">Marcus Vance</div>
-                  <div style="font-size:0.75rem;color:var(--text-muted);">CEO, Aura Luxury Group</div>
+            <!-- Card 1: Rajesh Malhotra -->
+            <article class="testimonial-card-split">
+              <div class="testimonial-photo-wrap">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80"
+                  alt="Rajesh Malhotra - Managing Director" loading="lazy">
+                <div class="testimonial-verified-badge">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <polyline points="9 12 11 14 15 10"></polyline>
+                  </svg>
+                  <span>Verified Partner</span>
+                </div>
+                <div class="testimonial-metric-pill">
+                  <span>✓ ₹1.4 Cr Revenue Added</span>
                 </div>
               </div>
-            </div>
-          </div>
 
-          <div class="review-card">
-            <div>
-              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
-                <div style="color:var(--gold-primary);font-size:1.1rem;">★★★★★</div>
-                <span
-                  style="font-size:0.6875rem;font-weight:800;color:var(--primary);background:var(--primary-tint);padding:4px 10px;border-radius:12px;">
-                  Rank #1 for 38 Terms
-                </span>
-              </div>
-              <p
-                style="font-size:0.875rem;color:var(--text-main);line-height:1.7;font-style:italic;margin-bottom:24px;">
-                "We tried 3 different SEO agencies before finding Smart Digital Wings. Their technical SEO squad fixed
-                our indexing issues within 3 weeks and moved us to Google Rank #1 for our most valuable terms."
-              </p>
-            </div>
-            <div
-              style="display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid var(--border-light);">
-              <div style="display:flex;align-items:center;gap:12px;">
-                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80"
-                  alt="Elena Rostova"
-                  style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--primary);">
-                <div>
-                  <div style="font-weight:800;font-size:0.875rem;color:var(--text-dark);">Elena Rostova</div>
-                  <div style="font-size:0.75rem;color:var(--text-muted);">VP Marketing, Apex Financial</div>
+              <div class="testimonial-content-wrap">
+                <div class="testimonial-header-row">
+                  <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                    ★★★★★
+                  </div>
+                  <span class="testimonial-service-tag tag-coral">Meta Ads &amp; E-Commerce</span>
+                </div>
+                <blockquote class="testimonial-quote">
+                  "Smart Digital Wings completely transformed our digital trajectory. Their custom website redesign
+                  paired with dynamic Meta ad reels scaled our monthly sales from ₹4.5 Lakh to over ₹38 Lakh in just 4
+                  months. Exceptional hands-on execution."
+                </blockquote>
+                <div class="testimonial-author-wrap">
+                  <h4 class="testimonial-author-name">Rajesh Malhotra</h4>
+                  <p class="testimonial-author-role">Managing Director, Technopack Systems • Noida Sector 63</p>
                 </div>
               </div>
-            </div>
-          </div>
+            </article>
 
-          <div class="review-card">
-            <div>
-              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
-                <div style="color:var(--gold-primary);font-size:1.1rem;">★★★★★</div>
-                <span
-                  style="font-size:0.6875rem;font-weight:800;color:var(--primary);background:var(--primary-tint);padding:4px 10px;border-radius:12px;">
-                  +210% Booking Lift
-                </span>
-              </div>
-              <p
-                style="font-size:0.875rem;color:var(--text-main);line-height:1.7;font-style:italic;margin-bottom:24px;">
-                "The web redesign and interactive consultation booking tool they engineered doubled our appointment
-                conversion rate overnight. Best investment we made all year!"
-              </p>
-            </div>
-            <div
-              style="display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid var(--border-light);">
-              <div style="display:flex;align-items:center;gap:12px;">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
-                  alt="David Chen"
-                  style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--primary);">
-                <div>
-                  <div style="font-weight:800;font-size:0.875rem;color:var(--text-dark);">David Chen</div>
-                  <div style="font-size:0.75rem;color:var(--text-muted);">Managing Director, Verve Health</div>
+            <!-- Card 2: Priyanka Sen -->
+            <article class="testimonial-card-split">
+              <div class="testimonial-photo-wrap">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80"
+                  alt="Priyanka Sen - VP Growth & Marketing" loading="lazy">
+                <div class="testimonial-verified-badge">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <polyline points="9 12 11 14 15 10"></polyline>
+                  </svg>
+                  <span>Verified Partner</span>
+                </div>
+                <div class="testimonial-metric-pill">
+                  <span>✓ 8.4x Media ROAS Scaled</span>
                 </div>
               </div>
-            </div>
-          </div>
 
+              <div class="testimonial-content-wrap">
+                <div class="testimonial-header-row">
+                  <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                    ★★★★★
+                  </div>
+                  <span class="testimonial-service-tag tag-coral">Omnichannel Performance</span>
+                </div>
+                <blockquote class="testimonial-quote">
+                  "We tried three high-ticket growth agencies before finding Smart Digital Wings. Their team eliminated
+                  wasted ad spend, rebuilt our landing funnel, and boosted our blended ROAS to 8.4x while expanding into
+                  4 new metro markets."
+                </blockquote>
+                <div class="testimonial-author-wrap">
+                  <h4 class="testimonial-author-name">Priyanka Sen</h4>
+                  <p class="testimonial-author-role">VP Growth &amp; Marketing, Aurelia Retail • Gurugram</p>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 3: Vikram Singhania -->
+            <article class="testimonial-card-split">
+              <div class="testimonial-photo-wrap">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80"
+                  alt="Vikram Singhania - Founder & CEO" loading="lazy">
+                <div class="testimonial-verified-badge">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <polyline points="9 12 11 14 15 10"></polyline>
+                  </svg>
+                  <span>Verified Partner</span>
+                </div>
+                <div class="testimonial-metric-pill">
+                  <span>✓ Rank #1 for 38 Terms</span>
+                </div>
+              </div>
+
+              <div class="testimonial-content-wrap">
+                <div class="testimonial-header-row">
+                  <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                    ★★★★★
+                  </div>
+                  <span class="testimonial-service-tag tag-coral">Technical SEO &amp; PR</span>
+                </div>
+                <blockquote class="testimonial-quote">
+                  "Their technical SEO squad audited our Core Web Vitals, created programmatic topic clusters, and
+                  secured Tier-1 media authority. Within 90 days, we outranked legacy incumbents for 38 high-intent
+                  commercial terms."
+                </blockquote>
+                <div class="testimonial-author-wrap">
+                  <h4 class="testimonial-author-name">Vikram Singhania</h4>
+                  <p class="testimonial-author-role">Founder &amp; CEO, Apex Wealth Advisors • Bengaluru</p>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 4: Elena Rostova -->
+            <article class="testimonial-card-split">
+              <div class="testimonial-photo-wrap">
+                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80"
+                  alt="Elena Rostova - Managing Director" loading="lazy">
+                <div class="testimonial-verified-badge">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <polyline points="9 12 11 14 15 10"></polyline>
+                  </svg>
+                  <span>Verified Partner</span>
+                </div>
+                <div class="testimonial-metric-pill">
+                  <span>✓ +210% Booking Lift</span>
+                </div>
+              </div>
+
+              <div class="testimonial-content-wrap">
+                <div class="testimonial-header-row">
+                  <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                    ★★★★★
+                  </div>
+                  <span class="testimonial-service-tag tag-coral">Bespoke Web App &amp; CRO</span>
+                </div>
+                <blockquote class="testimonial-quote">
+                  "The web architecture and interactive appointment funnel they engineered doubled our clinic's
+                  consultation conversion rate. Sub-second load speeds and frictionless mobile UX made this the highest
+                  ROI investment of our year."
+                </blockquote>
+                <div class="testimonial-author-wrap">
+                  <h4 class="testimonial-author-name">Elena Rostova</h4>
+                  <p class="testimonial-author-role">Managing Director, Verve Health Clinics • Delhi NCR</p>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 5: Marcus Vance -->
+            <article class="testimonial-card-split">
+              <div class="testimonial-photo-wrap">
+                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80"
+                  alt="Marcus Vance - CEO" loading="lazy">
+                <div class="testimonial-verified-badge">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <polyline points="9 12 11 14 15 10"></polyline>
+                  </svg>
+                  <span>Verified Partner</span>
+                </div>
+                <div class="testimonial-metric-pill">
+                  <span>✓ ₹4.8 Cr Client Pipeline</span>
+                </div>
+              </div>
+
+              <div class="testimonial-content-wrap">
+                <div class="testimonial-header-row">
+                  <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                    ★★★★★
+                  </div>
+                  <span class="testimonial-service-tag tag-coral">Google Ads &amp; PMax Search</span>
+                </div>
+                <blockquote class="testimonial-quote">
+                  "Their Google Performance Max and Search campaigns unlocked a ₹4.8 Cr high-ticket corporate pipeline
+                  for us. With real-time Looker Studio attribution, we know down to the rupee exactly where our revenue
+                  originates."
+                </blockquote>
+                <div class="testimonial-author-wrap">
+                  <h4 class="testimonial-author-name">Marcus Vance</h4>
+                  <p class="testimonial-author-role">CEO, AeroJet Global Charter • Mumbai</p>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 6: Aman Deep Verma -->
+            <article class="testimonial-card-split">
+              <div class="testimonial-photo-wrap">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80"
+                  alt="Aman Deep Verma - Co-Founder & COO" loading="lazy">
+                <div class="testimonial-verified-badge">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <polyline points="9 12 11 14 15 10"></polyline>
+                  </svg>
+                  <span>Verified Partner</span>
+                </div>
+                <div class="testimonial-metric-pill">
+                  <span>✓ -42% Acquisition CAC</span>
+                </div>
+              </div>
+
+              <div class="testimonial-content-wrap">
+                <div class="testimonial-header-row">
+                  <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                    ★★★★★
+                  </div>
+                  <span class="testimonial-service-tag tag-coral">Full-Funnel Performance</span>
+                </div>
+                <blockquote class="testimonial-quote">
+                  "Finding an agency that masters both creative design storytelling and deep algorithmic bidding is
+                  nearly impossible. Smart Digital Wings reduced our acquisition CAC by 42% in our very first quarter."
+                </blockquote>
+                <div class="testimonial-author-wrap">
+                  <h4 class="testimonial-author-name">Aman Deep Verma</h4>
+                  <p class="testimonial-author-role">Co-Founder &amp; COO, Solaria CleanTech • Pune</p>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- Segmented Red Pill & Dots Pagination -->
+        <div class="reviews-dots-container" id="reviewsDots">
+          <button type="button" class="review-dot active" data-slide="0" aria-label="Slide 1"></button>
+          <button type="button" class="review-dot" data-slide="1" aria-label="Slide 2"></button>
+          <button type="button" class="review-dot" data-slide="2" aria-label="Slide 3"></button>
         </div>
 
       </div>
@@ -1258,15 +1450,18 @@
               <div class="faq-image-actions-overlay">
                 <a href="https://wa.me/917017281826?text=Hi%20Smart%20Digital%20Wings%2C%20I%20have%20a%20question%20about%20your%20services."
                   target="_blank" rel="noopener noreferrer" class="faq-action-btn faq-btn-whatsapp">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
                   </svg>
                   <span>Instant Chat on WhatsApp</span>
                   <span class="btn-arrow">&nearr;</span>
                 </a>
 
                 <button type="button" class="faq-action-btn faq-btn-call open-consultation-btn">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                     <line x1="16" y1="2" x2="16" y2="6"></line>
                     <line x1="8" y1="2" x2="8" y2="6"></line>
@@ -1288,13 +1483,16 @@
                 <div class="faq-trigger">
                   <span>How quickly can we expect to see tangible ROI results?</span>
                   <span class="faq-icon-pill" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                      stroke-linejoin="round">
                       <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                   </span>
                 </div>
                 <div class="faq-answer">
-                  <p>For paid advertising (Meta & Google), initial conversion lifts typically emerge within 14–21 days during audience and creative testing sprints. For Technical SEO and organic authority, compounding revenue and top-3 keyword rankings materialize between 45–90 days.</p>
+                  <p>For paid advertising (Meta & Google), initial conversion lifts typically emerge within 14–21 days
+                    during audience and creative testing sprints. For Technical SEO and organic authority, compounding
+                    revenue and top-3 keyword rankings materialize between 45–90 days.</p>
                 </div>
               </div>
 
@@ -1303,13 +1501,16 @@
                 <div class="faq-trigger">
                   <span>Do you require long-term lock-in contracts?</span>
                   <span class="faq-icon-pill" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                      stroke-linejoin="round">
                       <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                   </span>
                 </div>
                 <div class="faq-answer">
-                  <p>No. We operate strictly on flexible month-to-month terms. We believe compounding performance should retain clients, not restrictive lock-in contracts. Over 99% of our brand partners choose to scale with us continuously month after month.</p>
+                  <p>No. We operate strictly on flexible month-to-month terms. We believe compounding performance should
+                    retain clients, not restrictive lock-in contracts. Over 99% of our brand partners choose to scale
+                    with us continuously month after month.</p>
                 </div>
               </div>
 
@@ -1318,13 +1519,16 @@
                 <div class="faq-trigger">
                   <span>Who owns the ad accounts, assets, codebase, and creative designs?</span>
                   <span class="faq-icon-pill" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                      stroke-linejoin="round">
                       <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                   </span>
                 </div>
                 <div class="faq-answer">
-                  <p>You retain 100% full legal ownership of all assets. Your Meta Business Manager, Google Ads accounts, tracking pixels, bespoke website code, and creative files remain fully in your control from day one. If you ever leave, you keep everything.</p>
+                  <p>You retain 100% full legal ownership of all assets. Your Meta Business Manager, Google Ads
+                    accounts, tracking pixels, bespoke website code, and creative files remain fully in your control
+                    from day one. If you ever leave, you keep everything.</p>
                 </div>
               </div>
 
@@ -1333,13 +1537,16 @@
                 <div class="faq-trigger">
                   <span>Can you handle both custom web development and ad marketing?</span>
                   <span class="faq-icon-pill" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                      stroke-linejoin="round">
                       <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                   </span>
                 </div>
                 <div class="faq-answer">
-                  <p>Yes — this is our core competitive advantage. High ad spend is wasted if your website loads slowly or fails to convert. We engineer sub-second, high-converting landing funnels and simultaneously drive targeted, high-intent traffic to them.</p>
+                  <p>Yes — this is our core competitive advantage. High ad spend is wasted if your website loads slowly
+                    or fails to convert. We engineer sub-second, high-converting landing funnels and simultaneously
+                    drive targeted, high-intent traffic to them.</p>
                 </div>
               </div>
 
@@ -1348,13 +1555,16 @@
                 <div class="faq-trigger">
                   <span>How does your agency pricing and engagement model work?</span>
                   <span class="faq-icon-pill" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                      stroke-linejoin="round">
                       <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                   </span>
                 </div>
                 <div class="faq-answer">
-                  <p>We offer transparent flat-fee monthly growth agreements or hybrid performance models (base management + performance milestone bonuses). There are zero onboarding fees, zero hidden markups, and zero unexpected surcharges.</p>
+                  <p>We offer transparent flat-fee monthly growth agreements or hybrid performance models (base
+                    management + performance milestone bonuses). There are zero onboarding fees, zero hidden markups,
+                    and zero unexpected surcharges.</p>
                 </div>
               </div>
 
@@ -1363,13 +1573,15 @@
                 <div class="faq-trigger">
                   <span>Can you audit our current setup before we sign?</span>
                   <span class="faq-icon-pill" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                      stroke-linejoin="round">
                       <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                   </span>
                 </div>
                 <div class="faq-answer">
-                  <p>Absolutely. We provide a complimentary 360° growth audit analyzing your conversion leaks, ad spend efficiency, tracking pixel health, and search rankings before any mutual commitment.</p>
+                  <p>Absolutely. We provide a complimentary 360° growth audit analyzing your conversion leaks, ad spend
+                    efficiency, tracking pixel health, and search rankings before any mutual commitment.</p>
                 </div>
               </div>
 
