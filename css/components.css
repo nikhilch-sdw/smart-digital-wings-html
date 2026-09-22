@@ -994,7 +994,7 @@
 }
 
 .tier-title {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-display);
   font-size: 1.25rem;
   font-weight: 800;
   color: var(--text-dark);
