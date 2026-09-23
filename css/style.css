@@ -2371,6 +2371,12 @@ img {
   box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
 }
 
+.social-pinterest {
+  background: #E60023 !important;
+  border-color: rgba(230, 0, 35, 0.6) !important;
+  box-shadow: 0 4px 14px rgba(230, 0, 35, 0.35);
+}
+
 .social-x {
   background: #000000 !important;
   border-color: rgba(255, 255, 255, 0.3) !important;
