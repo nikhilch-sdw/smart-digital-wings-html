@@ -1483,15 +1483,16 @@ img {
 }
 
 /* ==========================================================================
-   Pure 1080p Golden Wings Video Hero Banner (Zero Overlays / Reduced Height)
+   Pure 1080p Golden Wings Video Hero Banner (Full Viewport on Desktop & Laptop)
    ========================================================================== */
 #hero.premium-video-hero,
 .premium-video-hero,
 #hero {
   position: relative;
   width: 100%;
-  height: 520px;
-  max-height: 520px;
+  height: calc(100vh - 69px);
+  height: calc(100dvh - 69px);
+  max-height: none;
   background: #000000 !important;
   overflow: hidden;
   user-select: none;
@@ -1499,7 +1500,7 @@ img {
   border: none !important;
   padding: 0 !important;
   margin: 0 !important;
-  min-height: auto !important;
+  min-height: 520px;
 }
 
 /* Strictly disable all pseudo-element ambient glow orbs and color overlays */
@@ -1654,18 +1655,20 @@ img {
   border: 0 !important;
 }
 
-/* Responsive Rules for Video Hero (Reduced Height - Zero Bottom Empty Space) */
+/* Responsive Rules for Video Hero (Full Viewport on Desktop & Laptop) */
 @media (max-width: 1200px) {
   #hero.premium-video-hero,
   .premium-video-hero,
   #hero,
   .premium-slider-banner {
-    height: 480px;
-    max-height: 480px;
+    height: calc(100vh - 69px);
+    height: calc(100dvh - 69px);
+    max-height: none;
+    min-height: 500px;
   }
 
   .hero-cinema-video {
-    object-position: center 34%;
+    object-position: center 35%;
   }
 
   .video-controller-bar {
@@ -1679,8 +1682,9 @@ img {
   .premium-video-hero,
   #hero,
   .premium-slider-banner {
-    height: 400px;
-    max-height: 400px;
+    height: 420px;
+    max-height: 420px;
+    min-height: auto;
   }
 
   .hero-cinema-video {

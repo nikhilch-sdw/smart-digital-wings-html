@@ -26,18 +26,20 @@
   <link rel="icon" type="image/png" href="assets/Smart Digital Wings (1).png">
 
   <!-- Royal Blue (#093360) & Gold Design System Stylesheets -->
-  <link rel="stylesheet" href="css/style.css?v=4.2">
-  <link rel="stylesheet" href="css/components.css?v=4.2">
+  <link rel="stylesheet" href="css/style.css?v=4.4">
+  <link rel="stylesheet" href="css/components.css?v=4.4">
 
-  <!-- Pure Golden Wings Banner (Zero Color Overlay & Increased Height) -->
+  <!-- Pure Golden Wings Banner (Full Viewport Height on Desktop & Laptop) -->
   <style id="banner-clean-styling">
     #hero,
     #hero.premium-video-hero,
     .premium-video-hero {
       position: relative !important;
       width: 100% !important;
-      height: 520px !important;
-      max-height: 520px !important;
+      height: calc(100vh - 69px) !important;
+      height: calc(100dvh - 69px) !important;
+      max-height: none !important;
+      min-height: 520px !important;
       background: #000000 !important;
       overflow: hidden !important;
       margin: 0 !important;
@@ -82,19 +84,22 @@
       #hero,
       #hero.premium-video-hero,
       .premium-video-hero {
-        height: 480px !important;
-        max-height: 480px !important;
+        height: calc(100vh - 69px) !important;
+        height: calc(100dvh - 69px) !important;
+        max-height: none !important;
+        min-height: 500px !important;
       }
       .hero-cinema-video {
-        object-position: center 34% !important;
+        object-position: center 35% !important;
       }
     }
     @media (max-width: 992px) {
       #hero,
       #hero.premium-video-hero,
       .premium-video-hero {
-        height: 400px !important;
-        max-height: 400px !important;
+        height: 420px !important;
+        max-height: 420px !important;
+        min-height: auto !important;
       }
       .hero-cinema-video {
         object-position: center 32% !important;
@@ -106,6 +111,7 @@
       .premium-video-hero {
         height: 280px !important;
         max-height: 280px !important;
+        min-height: auto !important;
       }
       .hero-cinema-video {
         object-position: center 30% !important;
@@ -263,10 +269,10 @@
          HERO SECTION: Royal Blue Gradient (#093360) + Live Instant Proposal Form
          ==================================================================== -->
     <!-- ====================================================================
-         HERO SECTION: Pure 1080p Golden Wings Video Banner (Zero Overlays / Reduced Height)
+         HERO SECTION: Pure 1080p Golden Wings Video Banner (Full Viewport on Desktop & Laptop)
          ==================================================================== -->
     <section id="hero" class="premium-video-hero" aria-label="Smart Digital Wings Cinema Showcase"
-      style="position: relative; width: 100%; height: 520px; max-height: 520px; background: #000000; overflow: hidden; margin: 0; padding: 0; border: none; box-shadow: none;">
+      style="position: relative; width: 100%; height: calc(100vh - 69px); min-height: 520px; background: #000000; overflow: hidden; margin: 0; padding: 0; border: none; box-shadow: none;">
       <h1 class="visually-hidden">Smart Digital Wings - Luxury Digital Marketing, Web Architecture & Brand Growth Studio
       </h1>
 
