@@ -4512,14 +4512,26 @@ dialog.custom-modal::backdrop {
   }
 }
 
-/* Full-Width Google Map Section */
-.contact-fullscreen-map-section {
+/* Office Location & Full-Width Google Map Section */
+.contact-map-section {
+  position: relative;
+  background: #FFFFFF;
+  padding: 56px 0 0 0;
+  border-top: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.contact-map-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.contact-fullscreen-map-wrap {
   position: relative;
   width: 100%;
   height: 480px;
   background: #020C18;
   overflow: hidden;
-  border-top: 1px solid rgba(212, 175, 55, 0.25);
+  border-top: 1px solid #E2E8F0;
 }
 
 .fullscreen-map-iframe {
