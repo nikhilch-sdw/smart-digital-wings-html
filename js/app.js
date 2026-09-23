@@ -1342,7 +1342,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const prevReviewBtn = document.getElementById('prevReviewBtn');
   const nextReviewBtn = document.getElementById('nextReviewBtn');
   const reviewsViewport = document.getElementById('reviewsViewport');
-  const reviewDots = document.querySelectorAll('.review-dot');
+  const reviewsDotsContainer = document.getElementById('reviewsDots');
 
   if (reviewsTrack && prevReviewBtn && nextReviewBtn) {
     let currentReviewSlide = 0;
@@ -1359,6 +1359,24 @@ document.addEventListener('DOMContentLoaded', () => {
       return Math.ceil(totalCards / perView);
     }
 
+    function renderDots() {
+      if (!reviewsDotsContainer) return;
+      const maxSlides = getMaxSlides();
+      reviewsDotsContainer.innerHTML = '';
+      for (let i = 0; i < maxSlides; i++) {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'review-dot' + (i === currentReviewSlide ? ' active' : '');
+        dot.setAttribute('data-slide', i);
+        dot.setAttribute('aria-label', `Slide ${i + 1}`);
+        dot.addEventListener('click', () => {
+          updateReviewsSlider(i);
+          resetReviewTimer();
+        });
+        reviewsDotsContainer.appendChild(dot);
+      }
+    }
+
     function updateReviewsSlider(targetIndex) {
       const maxSlides = getMaxSlides();
       const perView = getCardsPerView();
@@ -1372,17 +1390,23 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (cards.length > 0) {
+        const targetCardIndex = Math.min(currentReviewSlide * perView, cards.length - 1);
+        const targetCard = cards[targetCardIndex];
         const firstCard = cards[0];
-        const cardWidth = firstCard.offsetWidth;
-        const gap = 24;
-        const offset = currentReviewSlide * ((cardWidth + gap) * perView);
+        
+        // Exact pixel offset from first card's position inside track
+        // Prevents over-translation that clips the left card's border radius
+        const offset = targetCard.offsetLeft - firstCard.offsetLeft;
         reviewsTrack.style.transform = `translateX(-${offset}px)`;
       }
 
       // Update active dot
-      reviewDots.forEach((dot, idx) => {
-        dot.classList.toggle('active', idx === currentReviewSlide);
-      });
+      if (reviewsDotsContainer) {
+        const allDots = reviewsDotsContainer.querySelectorAll('.review-dot');
+        allDots.forEach((dot, idx) => {
+          dot.classList.toggle('active', idx === currentReviewSlide);
+        });
+      }
     }
 
     prevReviewBtn.addEventListener('click', () => {
@@ -1393,14 +1417,6 @@ document.addEventListener('DOMContentLoaded', () => {
     nextReviewBtn.addEventListener('click', () => {
       updateReviewsSlider(currentReviewSlide + 1);
       resetReviewTimer();
-    });
-
-    reviewDots.forEach((dot) => {
-      dot.addEventListener('click', () => {
-        const slideIndex = parseInt(dot.getAttribute('data-slide'), 10) || 0;
-        updateReviewsSlider(slideIndex);
-        resetReviewTimer();
-      });
     });
 
     // Touch Swipe Support for mobile devices
@@ -1424,12 +1440,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }, { passive: true });
 
-    // Auto-advance every 8 seconds, pausing on hover
+    // Auto-advance every 3.5 seconds (in 3-4s range), pausing on hover
     function startReviewTimer() {
       stopReviewTimer();
       reviewAutoTimer = setInterval(() => {
         updateReviewsSlider(currentReviewSlide + 1);
-      }, 8000);
+      }, 3500);
     }
 
     function stopReviewTimer() {
@@ -1449,9 +1465,12 @@ document.addEventListener('DOMContentLoaded', () => {
       reviewsViewport.addEventListener('mouseleave', startReviewTimer);
     }
 
+    renderDots();
+    updateReviewsSlider(0);
     startReviewTimer();
 
     window.addEventListener('resize', () => {
+      renderDots();
       updateReviewsSlider(currentReviewSlide);
     });
   }

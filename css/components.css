@@ -2379,7 +2379,8 @@
   overflow: hidden;
   width: 100%;
   position: relative;
-  padding: 6px 2px;
+  padding: 8px 4px;
+  box-sizing: border-box;
 }
 
 .reviews-slider-track {
@@ -2396,6 +2397,7 @@
   background: #FFFFFF;
   border: 1.5px solid #E2E8F0;
   border-radius: 18px;
+  -webkit-border-radius: 18px;
   overflow: hidden;
   padding: 0 !important;
   box-shadow: 0 4px 20px rgba(9, 51, 96, 0.06), 0 1px 4px rgba(0, 0, 0, 0.02);
@@ -2406,6 +2408,7 @@
   position: relative;
   box-sizing: border-box;
   isolation: isolate;
+  transform: translateZ(0);
 }
 
 .testimonial-card-split:hover {
