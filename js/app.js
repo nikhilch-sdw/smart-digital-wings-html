@@ -686,15 +686,91 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ------------------------------------------------------------------------
-  // 7. Contact Form Submission
+  // 7. Contact Section: Live Operations Clock, Chips & Form Workflows
   // ------------------------------------------------------------------------
+  // 7.1 Live IST Operations Clock
+  const contactLiveClock = document.getElementById('contactLiveClock');
+  if (contactLiveClock) {
+    const updateISTClock = () => {
+      try {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString('en-US', {
+          timeZone: 'Asia/Kolkata',
+          hour: 'numeric',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: true
+        });
+        contactLiveClock.textContent = `${timeString} IST`;
+      } catch (err) {
+        const now = new Date();
+        contactLiveClock.textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + ' IST';
+      }
+    };
+    updateISTClock();
+    setInterval(updateISTClock, 1000);
+  }
+
+  // 7.2 One-Click Copy Email with Visual Feedback
+  const copyEmailBtn = document.getElementById('copyEmailBtn');
+  const copyEmailText = document.getElementById('copyEmailText');
+  if (copyEmailBtn && copyEmailText) {
+    copyEmailBtn.addEventListener('click', async () => {
+      const email = 'smartdigitalwings@gmail.com';
+      try {
+        await navigator.clipboard.writeText(email);
+        const originalText = copyEmailText.textContent;
+        copyEmailText.textContent = 'Copied! ✓';
+        copyEmailBtn.classList.add('copied');
+        if (typeof showToast === 'function') {
+          showToast('Email address copied to clipboard! 📋');
+        }
+        setTimeout(() => {
+          copyEmailText.textContent = originalText;
+          copyEmailBtn.classList.remove('copied');
+        }, 2200);
+      } catch (e) {
+        window.location.href = `mailto:${email}`;
+      }
+    });
+  }
+
+  // 7.3 Interactive Service Selection Chips
+  const serviceChips = document.querySelectorAll('.service-chip');
+  const serviceInput = document.getElementById('contactService');
+  serviceChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      serviceChips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      const val = chip.getAttribute('data-value');
+      if (serviceInput && val) {
+        serviceInput.value = val;
+      }
+    });
+  });
+
+  // 7.4 Interactive Budget Tier Chips
+  const budgetChips = document.querySelectorAll('.budget-chip');
+  const budgetInput = document.getElementById('contactBudget');
+  budgetChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      budgetChips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      const val = chip.getAttribute('data-value');
+      if (budgetInput && val) {
+        budgetInput.value = val;
+      }
+    });
+  });
+
+  // 7.5 Contact Form Submission
   const contactForm = document.getElementById('contactEnquiryForm');
   if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const submitBtn = contactForm.querySelector('button[type="submit"]');
       const originalText = submitBtn.innerHTML;
-      submitBtn.innerHTML = '<span>Sending Message...</span>';
+      submitBtn.innerHTML = '<span>Transmitting Strategy Request...</span>';
       submitBtn.disabled = true;
 
       const payload = {
@@ -702,7 +778,8 @@ document.addEventListener('DOMContentLoaded', () => {
         email: document.getElementById('contactEmail')?.value,
         phone: document.getElementById('contactPhone')?.value,
         website: document.getElementById('contactWebsite')?.value,
-        service: document.getElementById('contactService')?.value,
+        service: document.getElementById('contactService')?.value || 'Social Media & Meta Ads',
+        budget: document.getElementById('contactBudget')?.value || '₹1L – ₹5L/mo',
         message: document.getElementById('contactMessage')?.value
       };
 
@@ -711,11 +788,22 @@ document.addEventListener('DOMContentLoaded', () => {
       submitBtn.disabled = false;
 
       if (res.success) {
-        triggerConfetti();
-        showToast('Enquiry sent successfully! Our executive will contact you shortly.');
+        if (typeof triggerConfetti === 'function') {
+          triggerConfetti();
+        }
+        if (typeof showToast === 'function') {
+          showToast('Growth Audit Request received! Our Senior Partner will contact you within 2 business hours.');
+        }
         contactForm.reset();
+        // Reset chip active states to defaults
+        serviceChips.forEach((c, idx) => c.classList.toggle('active', idx === 0));
+        budgetChips.forEach((c, idx) => c.classList.toggle('active', idx === 1));
+        if (serviceInput) serviceInput.value = 'Social Media & Meta Ads';
+        if (budgetInput) budgetInput.value = '₹1L – ₹5L/mo';
       } else {
-        showToast(res.message || 'Submission error', 'error');
+        if (typeof showToast === 'function') {
+          showToast(res.message || 'Submission error. Please connect directly via WhatsApp.', 'error');
+        }
       }
     });
   }

@@ -4102,32 +4102,109 @@ dialog.custom-modal::backdrop {
 
 .contact-layout-grid {
   display: grid;
-  grid-template-columns: 1fr 1.15fr;
-  gap: 22px;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 24px;
   align-items: stretch;
 }
 
-/* Left Office Details Card - Luxury Sapphire Glass */
-.contact-office-card {
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.1) 0%, rgba(6, 49, 98, 0.78) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 16px;
+/* ==========================================================================
+   LEFT CARD: Executive Headquarters & Live Operations Desk
+   ========================================================================== */
+.contact-office-card.luxury-desk-card {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.1) 0%, rgba(6, 42, 84, 0.88) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 18px;
   padding: 24px 26px;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 0 16px 40px -8px rgba(2, 19, 39, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  box-shadow: 0 20px 50px -10px rgba(2, 19, 39, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.28);
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.contact-office-card:hover {
+.contact-office-card.luxury-desk-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 22px 50px -8px rgba(2, 19, 39, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  border-color: rgba(212, 175, 55, 0.35);
+  box-shadow: 0 26px 60px -10px rgba(2, 19, 39, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  border-color: rgba(212, 175, 55, 0.45);
 }
 
+/* 1. Live Operations Beacon & Dynamic Clock Bar */
+.contact-live-status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  margin-bottom: 14px;
+}
+
+.live-beacon-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pulse-beacon {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 10px #10B981;
+  animation: beaconGlow 1.8s infinite ease-in-out;
+}
+
+@keyframes beaconGlow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 10px #10B981;
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.85);
+    box-shadow: 0 0 4px #10B981;
+  }
+}
+
+.desk-status-text {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #6EE7B7;
+}
+
+.live-clock-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #F8FAFC;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.live-clock-time {
+  color: var(--gold-light);
+}
+
+.live-clock-sub {
+  color: #34D399;
+  font-size: 0.65rem;
+}
+
+/* Card Kicker & Heading */
 .contact-card-kicker {
   display: inline-flex;
   align-items: center;
@@ -4140,43 +4217,21 @@ dialog.custom-modal::backdrop {
   margin-bottom: 4px;
 }
 
-.contact-card-kicker .pulse-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #10B981;
-  box-shadow: 0 0 8px #10B981;
-  animation: pulseDot 2s infinite ease-in-out;
-}
-
-@keyframes pulseDot {
-
-  0%,
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  50% {
-    opacity: 0.4;
-    transform: scale(0.85);
-  }
-}
-
 .contact-office-title {
   font-family: var(--font-display);
-  font-size: 1.15rem;
+  font-size: 1.18rem;
   font-weight: 800;
   color: #FFFFFF;
   margin-bottom: 16px;
   line-height: 1.25;
 }
 
+/* Touchpoint List */
 .contact-info-list {
   display: flex;
   flex-direction: column;
   gap: 13px;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .contact-info-item {
@@ -4194,22 +4249,22 @@ dialog.custom-modal::backdrop {
   width: 36px;
   height: 36px;
   border-radius: 10px;
-  background: linear-gradient(135deg, rgba(212, 175, 55, 0.18) 0%, rgba(9, 51, 96, 0.4) 100%);
-  border: 1px solid rgba(212, 175, 55, 0.35);
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(9, 51, 96, 0.5) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--gold-light);
   flex-shrink: 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: all 0.2s ease;
 }
 
 .contact-info-item:hover .contact-info-icon {
   border-color: var(--gold-primary);
   color: #FFFFFF;
-  background: linear-gradient(135deg, rgba(212, 175, 55, 0.32) 0%, rgba(9, 51, 96, 0.6) 100%);
-  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.3);
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.35) 0%, rgba(9, 51, 96, 0.7) 100%);
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.35);
 }
 
 .contact-info-icon svg {
@@ -4217,8 +4272,12 @@ dialog.custom-modal::backdrop {
   height: 17px;
 }
 
+.contact-info-body {
+  flex: 1;
+}
+
 .contact-info-label {
-  font-size: 0.7rem;
+  font-size: 0.6875rem;
   font-weight: 700;
   color: var(--gold-lighter);
   text-transform: uppercase;
@@ -4228,14 +4287,15 @@ dialog.custom-modal::backdrop {
 
 .contact-info-val {
   font-size: 0.8125rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.92);
   line-height: 1.35;
+  font-weight: 500;
 }
 
 .contact-info-val a {
   color: #FFFFFF;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
   transition: color var(--transition-fast);
 }
 
@@ -4244,28 +4304,138 @@ dialog.custom-modal::backdrop {
   text-decoration: underline;
 }
 
-.contact-map-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 3px;
-  font-size: 0.65rem;
-  font-weight: 700;
-  color: var(--gold-light) !important;
-  background: rgba(212, 175, 55, 0.15);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  border-radius: 8px;
-  padding: 1px 7px;
-  margin-left: 6px;
-  text-decoration: none !important;
-  vertical-align: middle;
-  transition: all 0.2s ease;
+.contact-action-row {
+  margin-top: 4px;
 }
 
-.contact-map-pill:hover {
+.contact-action-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 6px;
+  padding: 2px 9px;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  vertical-align: middle;
+}
+
+.contact-action-chip:hover {
   background: var(--gold-primary);
   color: #041f3f !important;
   border-color: var(--gold-primary);
   transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(212, 175, 55, 0.3);
+}
+
+.copy-chip {
+  font-family: inherit;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #E2E8F0;
+}
+
+.copy-chip:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #FFFFFF !important;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.copy-chip.copied {
+  background: #10B981 !important;
+  color: #041f3f !important;
+  border-color: #10B981 !important;
+}
+
+.sla-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--gold-lighter);
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  padding: 2px 7px;
+  border-radius: 6px;
+  margin-top: 4px;
+}
+
+/* Fast-Route WhatsApp Priority Banner */
+.contact-wa-highway {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 14px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(37, 211, 102, 0.15) 0%, rgba(9, 51, 96, 0.5) 100%);
+  border: 1px solid rgba(37, 211, 102, 0.4);
+  color: #FFFFFF;
+  text-decoration: none;
+  margin: 12px 0 10px 0;
+  transition: all 0.25s ease;
+}
+
+.contact-wa-highway:hover {
+  background: linear-gradient(135deg, rgba(37, 211, 102, 0.28) 0%, rgba(9, 51, 96, 0.7) 100%);
+  border-color: #25D366;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+}
+
+.wa-highway-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.wa-highway-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #25D366;
+  color: #041f3f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 3px 8px rgba(37, 211, 102, 0.3);
+}
+
+.wa-highway-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.wa-highway-title {
+  font-size: 0.78125rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.2;
+}
+
+.wa-highway-sub {
+  font-size: 0.65625rem;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.25;
+}
+
+.wa-highway-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  color: #041f3f;
+  background: #25D366;
+  padding: 5px 11px;
+  border-radius: 20px;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(37, 211, 102, 0.35);
 }
 
 /* Left Card Track Record / Proof Box */
@@ -4274,7 +4444,7 @@ dialog.custom-modal::backdrop {
   border: 1px solid rgba(212, 175, 55, 0.22);
   border-radius: 12px;
   padding: 11px 14px;
-  margin: 14px 0 10px 0;
+  margin: 10px 0 8px 0;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
@@ -4285,6 +4455,12 @@ dialog.custom-modal::backdrop {
   margin-bottom: 8px;
   padding-bottom: 6px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.proof-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .proof-star {
@@ -4338,13 +4514,13 @@ dialog.custom-modal::backdrop {
   line-height: 1.2;
 }
 
-/* Desk Status Badge & WhatsApp Action */
+/* Desk Status Footer */
 .contact-desk-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  padding-top: 14px;
+  padding-top: 12px;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   margin-top: auto;
 }
@@ -4354,7 +4530,7 @@ dialog.custom-modal::backdrop {
   align-items: center;
   gap: 6px;
   font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .desk-status-pill .desk-dot {
@@ -4365,36 +4541,23 @@ dialog.custom-modal::backdrop {
   box-shadow: 0 0 6px #10B981;
 }
 
-.contact-wa-action {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 5px 12px;
-  border-radius: 20px;
-  background: rgba(37, 211, 102, 0.15);
-  border: 1px solid rgba(37, 211, 102, 0.4);
-  color: #55f396;
-  font-size: 0.72rem;
+.desk-nda-tag {
+  font-size: 0.65rem;
+  color: var(--gold-lighter);
   font-weight: 700;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  white-space: nowrap;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
-.contact-wa-action:hover {
-  background: #25D366;
-  color: #041f3f;
-  border-color: #25D366;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35);
-}
-
-/* Right Form Card - Pristine Luxury Card with Golden Top Bar */
-.contact-form-card {
-  background: #FFFFFF;
-  border-radius: 16px;
-  padding: 22px 26px 20px 26px;
-  box-shadow: 0 20px 50px -10px rgba(2, 19, 39, 0.45), 0 0 0 1px rgba(212, 175, 55, 0.22);
+/* ==========================================================================
+   RIGHT CARD: Frosted Pearlescent Quartz Luxury Form Card
+   ========================================================================== */
+.contact-form-card.luxury-form-card {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F9FBFE 100%);
+  border-radius: 18px;
+  padding: 24px 26px 20px 26px;
+  box-shadow: 0 24px 60px -12px rgba(2, 19, 39, 0.55), 0 0 0 1px rgba(212, 175, 55, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.8);
   display: flex;
   flex-direction: column;
   position: relative;
@@ -4402,18 +4565,18 @@ dialog.custom-modal::backdrop {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.contact-form-card:hover {
+.contact-form-card.luxury-form-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 24px 60px -10px rgba(2, 19, 39, 0.55), 0 0 0 1px rgba(212, 175, 55, 0.35);
+  box-shadow: 0 28px 70px -12px rgba(2, 19, 39, 0.65), 0 0 0 1px rgba(212, 175, 55, 0.45);
 }
 
-.contact-form-card::before {
+.contact-form-card.luxury-form-card::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 3.5px;
+  height: 4px;
   background: linear-gradient(90deg, var(--gold-primary) 0%, #2f85e8 50%, var(--gold-light) 100%);
 }
 
@@ -4422,7 +4585,7 @@ dialog.custom-modal::backdrop {
   align-items: flex-start;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 .form-kicker {
@@ -4438,16 +4601,16 @@ dialog.custom-modal::backdrop {
   font-size: 0.65rem;
   font-weight: 800;
   color: #8C6813;
-  background: rgba(212, 175, 55, 0.15);
-  border: 1px solid rgba(212, 175, 55, 0.35);
-  padding: 2px 8px;
+  background: rgba(212, 175, 55, 0.16);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  padding: 3px 9px;
   border-radius: 12px;
   white-space: nowrap;
 }
 
 .contact-form-title {
   font-family: var(--font-display);
-  font-size: 1.15rem;
+  font-size: 1.18rem;
   font-weight: 800;
   color: var(--text-dark);
   line-height: 1.25;
@@ -4460,8 +4623,80 @@ dialog.custom-modal::backdrop {
   line-height: 1.35;
 }
 
+/* Interactive Chips Section (Services & Budget) */
+.form-chips-group {
+  margin-bottom: 10px;
+}
+
+.form-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.form-label-title {
+  font-size: 0.71rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.form-label-hint {
+  font-size: 0.625rem;
+  font-weight: 500;
+  color: #64748B;
+}
+
+.service-chips-wrap,
+.budget-chips-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.form-chip {
+  font-family: var(--font-sans);
+  font-size: 0.73rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 18px;
+  background: #F1F5F9;
+  border: 1.5px solid #CBD5E1;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  user-select: none;
+  line-height: 1.2;
+}
+
+.form-chip .chip-icon {
+  font-size: 0.8rem;
+}
+
+.form-chip:hover {
+  border-color: #94A3B8;
+  background: #E2E8F0;
+  transform: translateY(-1px);
+}
+
+.form-chip.active {
+  background: linear-gradient(135deg, #093360 0%, #0d4684 100%);
+  color: #FFFFFF;
+  border-color: var(--gold-primary);
+  box-shadow: 0 4px 12px rgba(9, 51, 96, 0.28);
+}
+
+.budget-chip {
+  font-size: 0.71rem;
+  padding: 5px 11px;
+}
+
+/* Form Inputs with Micro-Icons */
 #contactEnquiryForm .form-group {
-  margin-bottom: 9px;
+  margin-bottom: 8px;
 }
 
 #contactEnquiryForm .form-label {
@@ -4472,8 +4707,26 @@ dialog.custom-modal::backdrop {
   display: block;
 }
 
-#contactEnquiryForm .form-input,
-#contactEnquiryForm .form-select {
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-with-icon .field-icon {
+  position: absolute;
+  left: 11px;
+  font-size: 0.8rem;
+  opacity: 0.65;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.input-with-icon .form-input {
+  padding-left: 32px !important;
+}
+
+#contactEnquiryForm .form-input {
   height: 38px;
   padding: 6px 12px;
   font-size: 0.8125rem;
@@ -4487,9 +4740,9 @@ dialog.custom-modal::backdrop {
 }
 
 #contactEnquiryForm .form-textarea {
-  min-height: 52px;
-  height: 52px;
-  padding: 6px 12px;
+  min-height: 48px;
+  height: 48px;
+  padding: 8px 12px;
   font-size: 0.8125rem;
   color: #0f172a;
   background: #F8FAFC;
@@ -4502,14 +4755,12 @@ dialog.custom-modal::backdrop {
 }
 
 #contactEnquiryForm .form-input:hover,
-#contactEnquiryForm .form-select:hover,
 #contactEnquiryForm .form-textarea:hover {
   border-color: #CBD5E1;
   background: #FFFFFF;
 }
 
 #contactEnquiryForm .form-input:focus,
-#contactEnquiryForm .form-select:focus,
 #contactEnquiryForm .form-textarea:focus {
   border-color: var(--primary);
   background: #FFFFFF;
@@ -4520,17 +4771,18 @@ dialog.custom-modal::backdrop {
 .form-row-2col {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: 10px;
 }
 
+/* Submit Button */
 .contact-submit-btn {
-  height: 42px;
+  height: 44px;
   padding: 0 24px;
   font-family: var(--font-display);
   font-size: 0.875rem;
   font-weight: 800;
   letter-spacing: 0.02em;
-  margin-top: 4px;
+  margin-top: 5px;
   width: 100%;
   border-radius: 9px;
   display: flex;
@@ -4552,12 +4804,20 @@ dialog.custom-modal::backdrop {
   color: #021327;
 }
 
+.contact-submit-btn .btn-arrow {
+  transition: transform 0.2s ease;
+}
+
+.contact-submit-btn:hover .btn-arrow {
+  transform: translateX(3px);
+}
+
 .form-trust-note {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  margin-top: 8px;
+  margin-top: 7px;
   font-size: 0.6875rem;
   color: var(--text-muted);
   text-align: center;
@@ -4567,10 +4827,65 @@ dialog.custom-modal::backdrop {
   color: #CBD5E1;
 }
 
-@media (max-width: 900px) {
+/* "What Happens Next?" Transparency Steps */
+.form-process-steps {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: #F1F5F9;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+}
+
+.process-step-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  line-height: 1.2;
+}
+
+.process-step-item .step-num {
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  background: #093360;
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 0.625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.process-step-text strong {
+  display: block;
+  color: #0F172A;
+  font-weight: 700;
+  font-size: 0.6875rem;
+}
+
+.process-step-text span {
+  display: block;
+  font-size: 0.59375rem;
+  color: #64748B;
+}
+
+.process-step-divider {
+  width: 1px;
+  height: 20px;
+  background: #CBD5E1;
+  flex-shrink: 0;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 960px) {
   .contact-layout-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 22px;
   }
 }
 
@@ -4578,6 +4893,14 @@ dialog.custom-modal::backdrop {
   .form-row-2col {
     grid-template-columns: 1fr;
     gap: 0;
+  }
+  .form-process-steps {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .process-step-divider {
+    display: none;
   }
 }
 

@@ -26,8 +26,8 @@
   <link rel="icon" type="image/png" href="assets/Smart Digital Wings (1).png">
 
   <!-- Royal Blue (#093360) & Gold Design System Stylesheets -->
-  <link rel="stylesheet" href="css/style.css?v=4.5">
-  <link rel="stylesheet" href="css/components.css?v=4.5">
+  <link rel="stylesheet" href="css/style.css?v=4.6">
+  <link rel="stylesheet" href="css/components.css?v=4.6">
 
   <!-- Pure Golden Wings Banner (Full Viewport Height on Desktop & Laptop) -->
   <style id="banner-clean-styling">
@@ -1978,28 +1978,41 @@
     <!-- ====================================================================
          CONTACT & OFFICE SECTION (Royal Blue #093360 Background)
          ==================================================================== -->
-    <section id="contact" class="section section-blue">
+    <section id="contact" class="section section-blue contact-upgraded-section">
       <div class="container">
         <div class="section-header">
-          <div class="section-badge section-badge-gold">Get In Touch</div>
+          <div class="section-badge section-badge-gold">✦ Direct Executive Desk</div>
           <h2 class="section-title">Ready to Elevate <span class="gold-text-glow">Your Brand?</span></h2>
-          <p class="section-subtitle">Reach out directly or send us an inquiry. Our growth directors respond within 2
-            business hours.</p>
+          <p class="section-subtitle">Connect directly with our senior growth partners or request a complimentary 360° revenue forecast. We review your data and respond within 2 business hours.</p>
         </div>
 
         <div class="contact-layout-grid">
 
-          <!-- Office Details Left (Luxury Sapphire Glass) -->
-          <div class="contact-office-card">
+          <!-- Office & Live Operations Desk (Left Column - Luxury Obsidian Sapphire Glass) -->
+          <div class="contact-office-card luxury-desk-card">
             <div>
+              <!-- Live Operations Beacon & Dynamic IST Clock Bar -->
+              <div class="contact-live-status-bar">
+                <div class="live-beacon-wrap">
+                  <span class="pulse-beacon"></span>
+                  <span class="desk-status-text">Operations Desk Live</span>
+                </div>
+                <div class="live-clock-pill">
+                  <span id="contactLiveClock" class="live-clock-time">--:-- -- IST</span>
+                  <span class="live-clock-sub">• Online</span>
+                </div>
+              </div>
+
+              <!-- Card Heading -->
               <div class="contact-card-kicker">
-                <span class="pulse-dot"></span>
-                <span>Global Headquarters & Direct Desk</span>
+                <span>Executive Headquarters &bull; NCR Growth Corridor</span>
               </div>
               <h3 class="contact-office-title">Meerut Cantt HQ & Operations</h3>
 
+              <!-- Direct Touchpoints List -->
               <div class="contact-info-list">
 
+                <!-- 1. Office Location Tile -->
                 <div class="contact-info-item">
                   <div class="contact-info-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -2008,18 +2021,21 @@
                       <circle cx="12" cy="10" r="3"></circle>
                     </svg>
                   </div>
-                  <div>
-                    <div class="contact-info-label">Office Address</div>
+                  <div class="contact-info-body">
+                    <div class="contact-info-label">Office & Growth Studio</div>
                     <div class="contact-info-val">
                       Kanker Khera, Meerut Cantt, UP 250001
+                    </div>
+                    <div class="contact-action-row">
                       <a href="https://maps.google.com/?q=Kanker+Khera+Meerut+Cantt+Meerut+Uttar+Pradesh+250001"
-                        target="_blank" rel="noopener noreferrer" class="contact-map-pill">
-                        <span>Directions</span> &nearr;
+                        target="_blank" rel="noopener noreferrer" class="contact-action-chip">
+                        <span>Directions on Google Maps</span> &nearr;
                       </a>
                     </div>
                   </div>
                 </div>
 
+                <!-- 2. Phone Line -->
                 <div class="contact-info-item">
                   <div class="contact-info-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -2029,14 +2045,20 @@
                       </path>
                     </svg>
                   </div>
-                  <div>
-                    <div class="contact-info-label">Direct Phone & WhatsApp</div>
+                  <div class="contact-info-body">
+                    <div class="contact-info-label">Direct Client Line</div>
                     <div class="contact-info-val">
-                      <a href="tel:+91 70172 81826">+91 70172 81826</a>
+                      <a href="tel:+917017281826" class="phone-link">+91 70172 81826</a>
+                    </div>
+                    <div class="contact-action-row">
+                      <a href="tel:+917017281826" class="contact-action-chip">
+                        <span>Tap to Call</span> 📞
+                      </a>
                     </div>
                   </div>
                 </div>
 
+                <!-- 3. Official Email with 1-Click Copy -->
                 <div class="contact-info-item">
                   <div class="contact-info-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -2045,14 +2067,21 @@
                       <polyline points="22,6 12,13 2,6"></polyline>
                     </svg>
                   </div>
-                  <div>
-                    <div class="contact-info-label">Official Email</div>
+                  <div class="contact-info-body">
+                    <div class="contact-info-label">Official RFPs & Enquiries</div>
                     <div class="contact-info-val">
                       <a href="mailto:smartdigitalwings@gmail.com">smartdigitalwings@gmail.com</a>
+                    </div>
+                    <div class="contact-action-row">
+                      <button type="button" id="copyEmailBtn" class="contact-action-chip copy-chip" aria-label="Copy official email address">
+                        <span id="copyEmailText">Copy Email</span>
+                        <svg class="copy-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                      </button>
                     </div>
                   </div>
                 </div>
 
+                <!-- 4. Operating Hours & Priority SLA -->
                 <div class="contact-info-item">
                   <div class="contact-info-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -2061,24 +2090,44 @@
                       <polyline points="12 6 12 12 16 14"></polyline>
                     </svg>
                   </div>
-                  <div>
-                    <div class="contact-info-label">Operating Hours</div>
+                  <div class="contact-info-body">
+                    <div class="contact-info-label">Studio Hours & Priority SLA</div>
                     <div class="contact-info-val">
-                      Mon - Sat: 9:00 AM - 7:00 PM IST (24/7 Priority SLA)
+                      Mon – Sat: 9:00 AM – 7:00 PM IST
                     </div>
+                    <span class="sla-badge">✦ 24/7 Dedicated SLA for Retainers</span>
                   </div>
                 </div>
 
               </div>
 
-              <!-- Agency Growth Proof & Trust Box (Fills Space with High-Impact Credentials) -->
+              <!-- Fast-Route WhatsApp Priority Banner -->
+              <a href="https://wa.me/917017281826?text=Hi%20Smart%20Digital%20Wings%2C%20I%20would%20like%20to%20discuss%20a%20growth%20proposal."
+                target="_blank" rel="noopener noreferrer" class="contact-wa-highway" aria-label="Start instant WhatsApp conversation">
+                <div class="wa-highway-left">
+                  <div class="wa-highway-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.24-.74-.66-1.24-1.48-1.39-1.73-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.71 4.3 3.8 2.53 1.09 2.53.73 2.98.69.46-.04 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.12-.22-.19-.47-.32z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="wa-highway-title">Need Immediate Answers?</div>
+                    <div class="wa-highway-sub">Chat directly with our Growth Principal on WhatsApp</div>
+                  </div>
+                </div>
+                <div class="wa-highway-btn">
+                  <span>Chat in 60s</span> &rarr;
+                </div>
+              </a>
+
+              <!-- Agency Growth Proof & Audited Track Record -->
               <div class="contact-card-proof">
                 <div class="proof-header">
-                  <div style="display:flex;align-items:center;gap:6px;">
+                  <div class="proof-title-wrap">
                     <span class="proof-star">★★★★★</span>
-                    <span class="proof-label">Verified Track Record</span>
+                    <span class="proof-label">Audited Track Record</span>
                   </div>
-                  <span class="proof-badge">4.9/5 Rating</span>
+                  <span class="proof-badge">4.9/5 Rating (240+ Brands)</span>
                 </div>
                 <div class="proof-stats-row">
                   <div class="proof-stat-item">
@@ -2098,87 +2147,151 @@
 
             </div>
 
-            <!-- Desk Status Badge & Quick WhatsApp Action -->
+            <!-- Card Footer Status -->
             <div class="contact-desk-footer">
               <div class="desk-status-pill">
                 <span class="desk-dot"></span>
-                <span>Direct Desk: <strong>&lt; 2h Response</strong></span>
+                <span>Response SLA: <strong>&lt; 2 Business Hours</strong></span>
               </div>
-              <a href="https://wa.me/917017281826?text=Hi%20Smart%20Digital%20Wings%2C%20I%20would%20like%20to%20discuss%20a%20growth%20proposal."
-                target="_blank" rel="noopener noreferrer" class="contact-wa-action" aria-label="Chat on WhatsApp">
-                <span>WhatsApp</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <path d="M7 17L17 7M17 7H7M17 7V17" />
-                </svg>
-              </a>
+              <span class="desk-nda-tag">🔒 Strict NDAs Signed</span>
             </div>
           </div>
 
-          <!-- Contact Form Right (Pristine Luxury Card) -->
-          <div class="contact-form-card">
+          <!-- Contact Form Right (Frosted Pearlescent Quartz Luxury Card) -->
+          <div class="contact-form-card luxury-form-card">
             <div class="form-header-row">
               <div>
-                <div class="form-kicker">✦ FAST-TRACK ENQUIRY</div>
-                <h3 class="contact-form-title">Send a Direct Message</h3>
+                <div class="form-kicker">✦ FAST-TRACK STRATEGY ENQUIRY</div>
+                <h3 class="contact-form-title">Request Your Growth Blueprint</h3>
               </div>
-              <span class="free-audit-badge">Free Audit</span>
+              <span class="free-audit-badge">Free 360° Audit</span>
             </div>
-            <p class="contact-form-subtitle">Receive a tailored growth forecast & bespoke proposal within 2 business
-              hours.</p>
+            <p class="contact-form-subtitle">Receive a tailored revenue roadmap, conversion funnel teardown & bespoke proposal within 2 business hours.</p>
 
-            <form id="contactEnquiryForm">
+            <form id="contactEnquiryForm" novalidate>
+              <!-- 1. Interactive Service Objective Chips -->
+              <div class="form-group form-chips-group">
+                <div class="form-label-row">
+                  <span class="form-label-title">1. Select Primary Growth Objective *</span>
+                  <span class="form-label-hint">Click to select</span>
+                </div>
+                <input type="hidden" name="service" id="contactService" value="Social Media & Meta Ads">
+                <div class="service-chips-wrap" id="serviceChipsWrap">
+                  <button type="button" class="form-chip service-chip active" data-value="Social Media & Meta Ads">
+                    <span class="chip-icon">🎯</span> Paid Ads (Meta & Google)
+                  </button>
+                  <button type="button" class="form-chip service-chip" data-value="SEO Dominance Campaign">
+                    <span class="chip-icon">🔍</span> SEO & Organic Scale
+                  </button>
+                  <button type="button" class="form-chip service-chip" data-value="Luxury Web Redesign">
+                    <span class="chip-icon">💎</span> Web & CRO Redesign
+                  </button>
+                  <button type="button" class="form-chip service-chip" data-value="Full-Funnel Growth">
+                    <span class="chip-icon">📈</span> Full-Funnel Omnichannel
+                  </button>
+                </div>
+              </div>
+
+              <!-- 2. Interactive Monthly Budget Tier Chips -->
+              <div class="form-group form-chips-group">
+                <div class="form-label-row">
+                  <span class="form-label-title">2. Approximate Monthly Ad Spend / Budget</span>
+                  <span class="form-label-hint">For custom allocation</span>
+                </div>
+                <input type="hidden" name="budget" id="contactBudget" value="₹1L – ₹5L/mo">
+                <div class="budget-chips-wrap" id="budgetChipsWrap">
+                  <button type="button" class="form-chip budget-chip" data-value="< ₹1L/mo">&lt; ₹1L / mo</button>
+                  <button type="button" class="form-chip budget-chip active" data-value="₹1L – ₹5L/mo">₹1L – ₹5L / mo</button>
+                  <button type="button" class="form-chip budget-chip" data-value="₹5L – ₹15L/mo">₹5L – ₹15L / mo</button>
+                  <button type="button" class="form-chip budget-chip" data-value="₹15L+ Scale">₹15L+ / Multi-Crore</button>
+                </div>
+              </div>
+
+              <!-- 3. Direct Contact Details 2-Column Grid -->
               <div class="form-row-2col">
                 <div class="form-group">
                   <label for="contactName" class="form-label">Your Name *</label>
-                  <input type="text" id="contactName" class="form-input" placeholder="e.g. Rahul Sharma" required>
+                  <div class="input-with-icon">
+                    <span class="field-icon" aria-hidden="true">👤</span>
+                    <input type="text" id="contactName" class="form-input" placeholder="e.g. Rahul Sharma" required>
+                  </div>
                 </div>
                 <div class="form-group">
-                  <label for="contactEmail" class="form-label">Email Address *</label>
-                  <input type="email" id="contactEmail" class="form-input" placeholder="rahul@company.com" required>
+                  <label for="contactEmail" class="form-label">Work Email *</label>
+                  <div class="input-with-icon">
+                    <span class="field-icon" aria-hidden="true">✉️</span>
+                    <input type="email" id="contactEmail" class="form-input" placeholder="rahul@brand.com" required>
+                  </div>
                 </div>
               </div>
 
               <div class="form-row-2col">
                 <div class="form-group">
-                  <label for="contactPhone" class="form-label">Phone Number *</label>
-                  <input type="tel" id="contactPhone" class="form-input" placeholder="+91 98765 43210" required>
+                  <label for="contactPhone" class="form-label">Phone / WhatsApp *</label>
+                  <div class="input-with-icon">
+                    <span class="field-icon" aria-hidden="true">📞</span>
+                    <input type="tel" id="contactPhone" class="form-input" placeholder="+91 98765 43210" required>
+                  </div>
                 </div>
                 <div class="form-group">
-                  <label for="contactWebsite" class="form-label">Website / Social URL</label>
-                  <input type="url" id="contactWebsite" class="form-input" placeholder="https://yourbrand.com">
+                  <label for="contactWebsite" class="form-label">Website or Social Handle</label>
+                  <div class="input-with-icon">
+                    <span class="field-icon" aria-hidden="true">🌐</span>
+                    <input type="url" id="contactWebsite" class="form-input" placeholder="https://yourbrand.com">
+                  </div>
                 </div>
               </div>
 
+              <!-- 4. Project Objectives / Message -->
               <div class="form-group">
-                <label for="contactService" class="form-label">Enquiry Topic</label>
-                <select id="contactService" class="form-select">
-                  <option value="General Growth Enquiry">General Growth Enquiry</option>
-                  <option value="Social Media Marketing">Social Media & Meta Ads</option>
-                  <option value="SEO Dominance Campaign">Technical SEO Audit</option>
-                  <option value="Luxury Web Redesign">Luxury Website Redesign</option>
-                  <option value="Partnership Proposal">Partnership Proposal</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label for="contactMessage" class="form-label">Project Details & Objectives *</label>
+                <label for="contactMessage" class="form-label">Project Objectives & Timeline *</label>
                 <textarea id="contactMessage" class="form-textarea" rows="2"
-                  placeholder="Tell us about your current targets, hurdles, and desired timeline..."
+                  placeholder="Share your current targets, hurdles (e.g. ROAS dip, lead cost), and desired sprint timeline..."
                   required></textarea>
               </div>
 
-              <button type="submit" class="contact-submit-btn">
-                <span>Send Growth Inquiry</span>
-                <span>&rarr;</span>
+              <!-- Submit Button with Gold Shimmer & Live State -->
+              <button type="submit" class="contact-submit-btn" id="contactSubmitBtn">
+                <span class="btn-text">Request Free Growth Audit & Proposal</span>
+                <span class="btn-arrow">&rarr;</span>
               </button>
 
+              <!-- Trust & Security Strip -->
               <div class="form-trust-note">
-                <span>🔒 100% Privacy</span>
+                <span>🔒 100% Confidential</span>
                 <span class="trust-bullet">•</span>
-                <span>Zero Spam Guarantee</span>
+                <span>Zero Spam Policy</span>
                 <span class="trust-bullet">•</span>
-                <span>NDAs Respected</span>
+                <span>Mutual NDAs Respected</span>
               </div>
+
+              <!-- "What Happens Next?" Transparency Steps -->
+              <div class="form-process-steps">
+                <div class="process-step-item">
+                  <span class="step-num">1</span>
+                  <div class="process-step-text">
+                    <strong>2-Hr Audit</strong>
+                    <span>Traffic & funnel review</span>
+                  </div>
+                </div>
+                <div class="process-step-divider"></div>
+                <div class="process-step-item">
+                  <span class="step-num">2</span>
+                  <div class="process-step-text">
+                    <strong>Growth Blueprint</strong>
+                    <span>Revenue milestones</span>
+                  </div>
+                </div>
+                <div class="process-step-divider"></div>
+                <div class="process-step-item">
+                  <span class="step-num">3</span>
+                  <div class="process-step-text">
+                    <strong>1:1 Strategy Call</strong>
+                    <span>30-min walkthrough</span>
+                  </div>
+                </div>
+              </div>
+
             </form>
           </div>
 
@@ -2508,7 +2621,7 @@
   <!-- Application Modules -->
   <script src="js/api.js"></script>
   <script src="js/calculator.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/app.js?v=4.6"></script>
 </body>
 
 </html>
