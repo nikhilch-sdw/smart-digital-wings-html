@@ -26,8 +26,8 @@
   <link rel="icon" type="image/png" href="assets/Smart Digital Wings (1).png">
 
   <!-- Royal Blue (#093360) & Gold Design System Stylesheets -->
-  <link rel="stylesheet" href="css/style.css?v=4.4">
-  <link rel="stylesheet" href="css/components.css?v=4.4">
+  <link rel="stylesheet" href="css/style.css?v=4.5">
+  <link rel="stylesheet" href="css/components.css?v=4.5">
 
   <!-- Pure Golden Wings Banner (Full Viewport Height on Desktop & Laptop) -->
   <style id="banner-clean-styling">
@@ -891,267 +891,644 @@
           </div>
         </div>
       </div>
+      <!-- Infinite Logo Marquee Strip (3 Dynamic Rows with Middle Row in Opposite Direction) -->
+      <div class="marquee-rows-container">
 
-      <!-- Infinite Logo Marquee Strip -->
-      <div class="marquee-wrapper">
-        <div class="marquee-track">
-          <!-- Item 1: Google Premier Partner -->
-          <div class="partner-pill">
-            <div class="partner-icon-wrap" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path fill="#EA4335"
-                  d="M12 5c1.6 0 3 .6 4.1 1.7l3.1-3.1C17.3 1.8 14.8 1 12 1 7.5 1 3.7 3.6 1.9 7.3l3.7 2.9C6.5 7.4 9 5 12 5z" />
-                <path fill="#4285F4"
-                  d="M23.5 12.3c0-.8-.1-1.7-.2-2.3H12v4.6h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.9z" />
-                <path fill="#FBBC05"
-                  d="M5.6 14.8c-.2-.7-.4-1.5-.4-2.8 0-1.3.2-2.1.4-2.8L1.9 6.3C.7 8.7 0 10.8 0 12s.7 3.3 1.9 5.7l3.7-2.9z" />
-                <path fill="#34A853"
-                  d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3 0-5.5-2.4-6.4-5.2L1.9 16C3.7 20.4 7.5 23 12 23z" />
-              </svg>
+        <!-- Row 1: Paid Media & Growth Platforms (Leftward Scroll) -->
+        <div class="marquee-wrapper" aria-label="Paid Media & Growth Partners">
+          <div class="marquee-track">
+            <!-- Item 1: Google Premier Partner -->
+            <div class="partner-pill">
+              <div class="partner-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#EA4335" d="M12 5c1.6 0 3 .6 4.1 1.7l3.1-3.1C17.3 1.8 14.8 1 12 1 7.5 1 3.7 3.6 1.9 7.3l3.7 2.9C6.5 7.4 9 5 12 5z" />
+                  <path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.7-.2-2.3H12v4.6h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.9z" />
+                  <path fill="#FBBC05" d="M5.6 14.8c-.2-.7-.4-1.5-.4-2.8 0-1.3.2-2.1.4-2.8L1.9 6.3C.7 8.7 0 10.8 0 12s.7 3.3 1.9 5.7l3.7-2.9z" />
+                  <path fill="#34A853" d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3 0-5.5-2.4-6.4-5.2L1.9 16C3.7 20.4 7.5 23 12 23z" />
+                </svg>
+              </div>
+              <span class="partner-name">Google Partner</span>
+              <span class="partner-badge-tag">Premier</span>
             </div>
-            <span class="partner-name">Google Partner</span>
-            <span class="partner-badge-tag">Premier</span>
-          </div>
 
-          <!-- Item 2: Meta Business Partner -->
-          <div class="partner-pill">
-            <div class="partner-icon-wrap" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path fill="#0081FB"
-                  d="M6.9 17.5c-3.1 0-5.3-2.3-5.3-5.5 0-3.3 2.2-5.5 5.3-5.5 2.4 0 4.1 1.3 5.1 3.2 1-1.9 2.7-3.2 5.1-3.2 3.1 0 5.3 2.2 5.3 5.5 0 3.2-2.2 5.5-5.3 5.5-2.5 0-4.2-1.4-5.1-3.3-1 1.9-2.6 3.3-5.1 3.3zm0-2.4c1.7 0 3-1.4 3.8-3.1-.8-1.7-2.1-3.1-3.8-3.1-1.7 0-3 1.4-3 3.1 0 1.7 1.3 3.1 3 3.1zm10.2 0c1.7 0 3-1.4 3-3.1 0-1.7-1.3-3.1-3-3.1-1.7 0-3 1.4-3.8 3.1.8 1.7 2.1 3.1 3.8 3.1z" />
-              </svg>
+            <!-- Item 2: Meta Business Partner -->
+            <div class="partner-pill">
+              <div class="partner-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#0081FB" d="M6.9 17.5c-3.1 0-5.3-2.3-5.3-5.5 0-3.3 2.2-5.5 5.3-5.5 2.4 0 4.1 1.3 5.1 3.2 1-1.9 2.7-3.2 5.1-3.2 3.1 0 5.3 2.2 5.3 5.5 0 3.2-2.2 5.5-5.3 5.5-2.5 0-4.2-1.4-5.1-3.3-1 1.9-2.6 3.3-5.1 3.3zm0-2.4c1.7 0 3-1.4 3.8-3.1-.8-1.7-2.1-3.1-3.8-3.1-1.7 0-3 1.4-3 3.1 0 1.7 1.3 3.1 3 3.1zm10.2 0c1.7 0 3-1.4 3-3.1 0-1.7-1.3-3.1-3-3.1-1.7 0-3 1.4-3.8 3.1.8 1.7 2.1 3.1 3.8 3.1z" />
+                </svg>
+              </div>
+              <span class="partner-name">Meta Business</span>
+              <span class="partner-badge-tag">Certified</span>
             </div>
-            <span class="partner-name">Meta Business</span>
-            <span class="partner-badge-tag">Certified</span>
-          </div>
 
-          <!-- Item 3: Shopify Plus Partner -->
-          <div class="partner-pill">
-            <div class="partner-icon-wrap" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path fill="#95BF47"
-                  d="M19.8 6.5c-.1-.3-.3-.5-.6-.5l-2.4-.4c-.1 0-.3-.1-.4-.2-.8-1.8-2.2-4.1-4.7-4.1-.3 0-.6 0-.9.1L9 2.1C8.7 1.4 8.2.9 7.5.9c-1.4 0-2.1 1.7-2.3 2.7L2.1 5.9c-.3.1-.5.4-.5.7L.1 20.3c-.1.8.5 1.5 1.3 1.5h19.2c.8 0 1.4-.7 1.3-1.5L19.8 6.5zM11.7 3.3c1.3 0 2.2 1.7 2.7 3.2l-4.5-.7c.4-1.5 1-2.5 1.8-2.5zm-2.4 9.1c0-2.8 3.5-3.1 3.5-4.8 0-.9-.7-1.4-1.6-1.4-.9 0-1.5.5-1.9 1.2l-1.3-.9c.7-1.2 1.8-1.9 3.2-1.9 2.1 0 3.3 1.2 3.3 2.8 0 2.9-3.5 3.1-3.5 4.8 0 .9.8 1.4 1.7 1.4.7 0 1.3-.3 1.8-.9l1.2 1c-.8 1-1.9 1.5-3 1.5-2.2 0-3.4-1.3-3.4-2.9z" />
-              </svg>
+            <!-- Item 3: Amazon Advertising -->
+            <div class="partner-pill">
+              <div class="partner-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#FF9900" d="M13.9 14.5c-2.3 0-4.4-.3-6.5-1.7-.3-.2-.4-.6-.1-.9l.8-.9c.2-.2.6-.3.9-.1 1.6 1 3.3 1.3 4.9 1.3 2.1 0 4.1-.7 4.1-2.4 0-1.2-.8-1.8-2.6-2.2l-2.4-.6c-2.7-.6-4.4-1.9-4.4-4.2 0-2.6 2.3-4.5 5.8-4.5 1.9 0 3.7.4 5.2 1.3.3.2.4.5.2.8l-.8 1.1c-.2.2-.5.3-.8.1-1.3-.7-2.6-1-3.9-1-2 0-3.3.9-3.3 2.1 0 1.1.8 1.7 2.5 2.1l2.3.5c3.2.7 4.7 2.1 4.7 4.5 0 3-2.6 4.6-6.6 4.6z" />
+                  <path fill="#FF9900" d="M21.7 18.2C17.3 21.4 11.2 22.8 5.7 21c-2.1-.7-4-1.8-5.7-3.2-.3-.2-.2-.6.1-.7.4-.1.8-.1 1.2.1 1.5 1.1 3.1 1.9 4.9 2.4 4.8 1.4 10.3.3 14.4-2.3.4-.3.9.1.7.5-.1.2-.3.3-.6.4z" />
+                </svg>
+              </div>
+              <span class="partner-name">Amazon Ads</span>
+              <span class="partner-badge-tag">Accredited</span>
             </div>
-            <span class="partner-name">Shopify Plus</span>
-            <span class="partner-badge-tag">Partner</span>
-          </div>
 
-          <!-- Item 4: HubSpot Solutions Partner -->
-          <div class="partner-pill">
-            <div class="partner-icon-wrap" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path fill="#FF7A59"
-                  d="M18.8 7.3V4.6c.7-.4 1.2-1.1 1.2-2 0-1.3-1.1-2.4-2.4-2.4-1.3 0-2.4 1.1-2.4 2.4 0 .9.5 1.6 1.2 2v2.7c-1.2.4-2.2 1.3-2.7 2.4l-5-3.8c.1-.3.1-.6.1-.9 0-1.7-1.4-3.1-3.1-3.1S2.6 3.2 2.6 4.9c0 1.7 1.4 3.1 3.1 3.1.7 0 1.3-.2 1.8-.6l4.9 3.8c-.4.8-.6 1.7-.6 2.7s.2 1.9.6 2.7l-3.3 3.3c-.4-.3-.9-.4-1.5-.4-1.5 0-2.7 1.2-2.7 2.7S6.1 24.9 7.6 24.9s2.7-1.2 2.7-2.7c0-.6-.2-1.1-.5-1.5l3.3-3.3c.7.5 1.6.8 2.5.8 2.5 0 4.5-2 4.5-4.5 0-1.8-1.1-3.4-2.6-4.1V7.3h1.3zM15.6 16.5c-1.5 0-2.7-1.2-2.7-2.7s1.2-2.7 2.7-2.7 2.7 1.2 2.7 2.7-1.2 2.7-2.7 2.7z" />
-              </svg>
+            <!-- Item 4: TikTok For Business -->
+            <div class="partner-pill">
+              <div class="partner-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#25F4EE" d="M19.5 5.5c-1.3-.9-2.2-2.3-2.5-3.9h-3.4v14.4c0 1.9-1.5 3.4-3.4 3.4s-3.4-1.5-3.4-3.4 1.5-3.4 3.4-3.4c.4 0 .8.1 1.1.2V9.3c-.4-.1-.7-.1-1.1-.1-3.8 0-6.8 3.1-6.8 6.8s3.1 6.8 6.8 6.8 6.8-3.1 6.8-6.8V8.9c1.6 1.2 3.5 1.8 5.5 1.8V7.3c-1.1 0-2.1-.6-3-1.8z" />
+                  <path fill="#FE2C55" d="M19.5 5.5c-1.3-.9-2.2-2.3-2.5-3.9h-1.5c.3 1.6 1.2 3 2.5 3.9v1.8c-1.9 0-3.9-.7-5.5-1.8v1.5c1.6 1.2 3.5 1.8 5.5 1.8v-1.9c.9 1.2 1.9 1.8 3 1.8v-3.4c-1.1 0-2.1-.6-3-1.8z" />
+                </svg>
+              </div>
+              <span class="partner-name">TikTok Ads</span>
+              <span class="partner-badge-tag">Official</span>
             </div>
-            <span class="partner-name">HubSpot Solutions</span>
-            <span class="partner-badge-tag">Inbound & CRM</span>
-          </div>
 
-          <!-- Item 5: Amazon Advertising Accredited -->
-          <div class="partner-pill">
-            <div class="partner-icon-wrap" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path fill="#FF9900"
-                  d="M13.9 14.5c-2.3 0-4.4-.3-6.5-1.7-.3-.2-.4-.6-.1-.9l.8-.9c.2-.2.6-.3.9-.1 1.6 1 3.3 1.3 4.9 1.3 2.1 0 4.1-.7 4.1-2.4 0-1.2-.8-1.8-2.6-2.2l-2.4-.6c-2.7-.6-4.4-1.9-4.4-4.2 0-2.6 2.3-4.5 5.8-4.5 1.9 0 3.7.4 5.2 1.3.3.2.4.5.2.8l-.8 1.1c-.2.2-.5.3-.8.1-1.3-.7-2.6-1-3.9-1-2 0-3.3.9-3.3 2.1 0 1.1.8 1.7 2.5 2.1l2.3.5c3.2.7 4.7 2.1 4.7 4.5 0 3-2.6 4.6-6.6 4.6z" />
-                <path fill="#FF9900"
-                  d="M21.7 18.2C17.3 21.4 11.2 22.8 5.7 21c-2.1-.7-4-1.8-5.7-3.2-.3-.2-.2-.6.1-.7.4-.1.8-.1 1.2.1 1.5 1.1 3.1 1.9 4.9 2.4 4.8 1.4 10.3.3 14.4-2.3.4-.3.9.1.7.5-.1.2-.3.3-.6.4z" />
-              </svg>
+            <!-- Item 5: LinkedIn Marketing Partner -->
+            <div class="partner-pill">
+              <div class="partner-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#0A66C2" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.63 1.63 0 1 0 0-3.26 1.63 1.63 0 0 0 0 3.26m1.4 9.74V9.93H5.06v8.57h2.8z"/>
+                </svg>
+              </div>
+              <span class="partner-name">LinkedIn Ads</span>
+              <span class="partner-badge-tag">B2B Tier</span>
             </div>
-            <span class="partner-name">Amazon Ads</span>
-            <span class="partner-badge-tag">Accredited</span>
-          </div>
 
-          <!-- Item 6: TikTok For Business Partner -->
-          <div class="partner-pill">
-            <div class="partner-icon-wrap" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path fill="#25F4EE"
-                  d="M19.5 5.5c-1.3-.9-2.2-2.3-2.5-3.9h-3.4v14.4c0 1.9-1.5 3.4-3.4 3.4s-3.4-1.5-3.4-3.4 1.5-3.4 3.4-3.4c.4 0 .8.1 1.1.2V9.3c-.4-.1-.7-.1-1.1-.1-3.8 0-6.8 3.1-6.8 6.8s3.1 6.8 6.8 6.8 6.8-3.1 6.8-6.8V8.9c1.6 1.2 3.5 1.8 5.5 1.8V7.3c-1.1 0-2.1-.6-3-1.8z" />
-                <path fill="#FE2C55"
-                  d="M19.5 5.5c-1.3-.9-2.2-2.3-2.5-3.9h-1.5c.3 1.6 1.2 3 2.5 3.9v1.8c-1.9 0-3.9-.7-5.5-1.8v1.5c1.6 1.2 3.5 1.8 5.5 1.8v-1.9c.9 1.2 1.9 1.8 3 1.8v-3.4c-1.1 0-2.1-.6-3-1.8z" />
-              </svg>
+            <!-- Item 6: YouTube Advertising -->
+            <div class="partner-pill">
+              <div class="partner-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#FF0000" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/>
+                </svg>
+              </div>
+              <span class="partner-name">YouTube Video</span>
+              <span class="partner-badge-tag">Certified</span>
             </div>
-            <span class="partner-name">TikTok Ads</span>
-            <span class="partner-badge-tag">Official</span>
-          </div>
 
-          <!-- Item 7: Klaviyo Master Silver Partner -->
-          <div class="partner-pill">
-            <div class="partner-icon-wrap" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path fill="#F26522"
-                  d="M22.8 17.5L13.2 4.3c-.5-.7-1.5-.9-2.2-.4-.2.2-.4.4-.5.7L1.2 17.5c-.6.8-.4 1.9.4 2.5.3.2.7.3 1.1.3h18.6c1 0 1.8-.8 1.8-1.8 0-.4-.1-.7-.3-1z" />
-                <path fill="#FFFFFF" d="M12 8.5l4.5 7.5h-9L12 8.5z" />
-              </svg>
+            <!-- Item 7: Pinterest Ads -->
+            <div class="partner-pill">
+              <div class="partner-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#E60023" d="M12 0a12 12 0 0 0-4.4 23.2c-.1-1-.1-2.5 0-3.5.1-1 .7-5.5.7-5.5s-.2-.3-.2-.8c0-.8.5-1.4 1-1.4.5 0 .7.4.7.8 0 .5-.3 1.2-.5 1.9-.1.6.3 1 .9 1 1 0 1.8-1.1 1.8-2.6 0-1.4-1-2.3-2.4-2.3-1.6 0-2.6 1.2-2.6 2.5 0 .5.2 1 .4 1.3.1.1.1.2 0 .3l-.2.7c0 .1-.1.1-.2.1-1.3-.6-2-2.4-2-3.9 0-3.2 2.3-6 6.6-6 3.5 0 6.2 2.5 6.2 5.8 0 3.4-2.2 6.2-5.2 6.2-1 0-2-.5-2.3-.2l-.6 2.4c-.2.9-.8 2-1.3 2.6A12 12 0 1 0 12 0z"/>
+                </svg>
+              </div>
+              <span class="partner-name">Pinterest Ads</span>
+              <span class="partner-badge-tag">Verified</span>
             </div>
-            <span class="partner-name">Klaviyo Master</span>
-            <span class="partner-badge-tag">Retention</span>
-          </div>
 
-          <!-- Item 8: GA4 & GTM Certified -->
-          <div class="partner-pill">
-            <div class="partner-icon-wrap" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path fill="#F9AB00"
-                  d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.5h-2v-7h2zm-1-8.5a1.25 1.25 0 1 1 1.25-1.25A1.25 1.25 0 0 1 12 8z" />
-                <path fill="#E37400" d="M18 16.5h-2v-4h2zm-10 0H6v-2h2z" />
-              </svg>
+            <!-- Item 8: Microsoft Ads -->
+            <div class="partner-pill">
+              <div class="partner-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#F25022" d="M1 1h10v10H1z"/><path fill="#7FBA00" d="M13 1h10v10H13z"/><path fill="#00A4EF" d="M1 13h10v10H1z"/><path fill="#FFB900" d="M13 13h10v10H13z"/>
+                </svg>
+              </div>
+              <span class="partner-name">Microsoft Ads</span>
+              <span class="partner-badge-tag">Bing Elite</span>
             </div>
-            <span class="partner-name">Analytics 4</span>
-            <span class="partner-badge-tag">Enterprise</span>
-          </div>
 
-          <!-- Item 9: SEMrush Agency Partner -->
-          <div class="partner-pill">
-            <div class="partner-icon-wrap" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path fill="#FF642D"
-                  d="M19.5 8.2c-.3-.4-.8-.6-1.3-.5-.5.1-.9.5-1 1-.1.9-.8 2.2-2.1 2.2-1.3 0-2.3-1.1-2.3-2.5 0-2.1 2.2-4.1 4.5-5.3.4-.2.6-.6.5-1-.1-.4-.5-.7-1-.6-4.5.6-8.8 4.2-8.8 8.8 0 4.9 4 8.7 8.9 8.7 4.9 0 8.8-3.9 8.8-8.8 0-.8-.1-1.4-.3-2z" />
-              </svg>
+            <!-- Item 9: Apple Search Ads -->
+            <div class="partner-pill">
+              <div class="partner-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#A2AAAD" d="M18.7 19.5c-.8 1.2-1.7 2.4-3 2.4-1.4 0-1.8-.8-3.4-.8s-2 .8-3.4.8c-1.3 0-2.3-1.3-3.1-2.5-1.7-2.5-3-7-1.3-10 1.1-1.9 3-3 5-3 1.3 0 2.5.9 3.3.9.8 0 2.3-1.1 3.8-1 1.6.1 3.1.8 4.1 2.2-3.3 2-2.8 6.3.5 7.6-.8 1.8-1.7 3.6-2.5 4.9zM15.5 4.5c.7-.9 1.2-2.1 1-3.3-1 .1-2.3.7-3 1.5-.6.8-1.2 2-1 3.2 1.2.1 2.3-.5 3-1.4z"/>
+                </svg>
+              </div>
+              <span class="partner-name">Apple Search</span>
+              <span class="partner-badge-tag">Official</span>
             </div>
-            <span class="partner-name">SEMrush</span>
-            <span class="partner-badge-tag">Agency Tier</span>
-          </div>
 
-          <!-- Item 10: Stripe Verified Partner -->
-          <div class="partner-pill">
-            <div class="partner-icon-wrap" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path fill="#635BFF"
-                  d="M13.9 8.3c0-.9-.7-1.4-1.9-1.4-1.7 0-3.8.7-5.1 1.5l-.8-2.9C7.8 4.7 10.3 4 12.5 4c4 0 6.6 2 6.6 5.8 0 4.9-6.7 5.1-6.7 7.7 0 1 .9 1.6 2.3 1.6 1.9 0 4.4-.9 5.8-1.8l.8 3c-1.7.9-4.2 1.5-6.8 1.5-4.3 0-7.2-2.1-7.2-5.9-.1-5.3 6.6-5.3 6.6-7.6z" />
-              </svg>
+            <!-- Item 10: X / Twitter Ads -->
+            <div class="partner-pill">
+              <div class="partner-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#FFFFFF" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </div>
+              <span class="partner-name">X Ads</span>
+              <span class="partner-badge-tag">Flight Partner</span>
             </div>
-            <span class="partner-name">Stripe Payments</span>
-            <span class="partner-badge-tag">Verified</span>
-          </div>
 
-          <!-- ==========================================================
-               CLONED SET FOR SEAMLESS 360° INFINITE SCROLL (aria-hidden)
-               ========================================================== -->
-          <div class="partner-pill" aria-hidden="true">
-            <div class="partner-icon-wrap">
-              <svg viewBox="0 0 24 24">
-                <path fill="#EA4335"
-                  d="M12 5c1.6 0 3 .6 4.1 1.7l3.1-3.1C17.3 1.8 14.8 1 12 1 7.5 1 3.7 3.6 1.9 7.3l3.7 2.9C6.5 7.4 9 5 12 5z" />
-                <path fill="#4285F4"
-                  d="M23.5 12.3c0-.8-.1-1.7-.2-2.3H12v4.6h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.9z" />
-                <path fill="#FBBC05"
-                  d="M5.6 14.8c-.2-.7-.4-1.5-.4-2.8 0-1.3.2-2.1.4-2.8L1.9 6.3C.7 8.7 0 10.8 0 12s.7 3.3 1.9 5.7l3.7-2.9z" />
-                <path fill="#34A853"
-                  d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3 0-5.5-2.4-6.4-5.2L1.9 16C3.7 20.4 7.5 23 12 23z" />
-              </svg>
+            <!-- Cloned Set (Row 1) for Seamless Infinite Loop -->
+            <div class="partner-pill" aria-hidden="true">
+              <div class="partner-icon-wrap">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#EA4335" d="M12 5c1.6 0 3 .6 4.1 1.7l3.1-3.1C17.3 1.8 14.8 1 12 1 7.5 1 3.7 3.6 1.9 7.3l3.7 2.9C6.5 7.4 9 5 12 5z" />
+                  <path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.7-.2-2.3H12v4.6h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.9z" />
+                  <path fill="#FBBC05" d="M5.6 14.8c-.2-.7-.4-1.5-.4-2.8 0-1.3.2-2.1.4-2.8L1.9 6.3C.7 8.7 0 10.8 0 12s.7 3.3 1.9 5.7l3.7-2.9z" />
+                  <path fill="#34A853" d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3 0-5.5-2.4-6.4-5.2L1.9 16C3.7 20.4 7.5 23 12 23z" />
+                </svg>
+              </div>
+              <span class="partner-name">Google Partner</span>
+              <span class="partner-badge-tag">Premier</span>
             </div>
-            <span class="partner-name">Google Partner</span>
-            <span class="partner-badge-tag">Premier</span>
-          </div>
-
-          <div class="partner-pill" aria-hidden="true">
-            <div class="partner-icon-wrap">
-              <svg viewBox="0 0 24 24">
-                <path fill="#0081FB"
-                  d="M6.9 17.5c-3.1 0-5.3-2.3-5.3-5.5 0-3.3 2.2-5.5 5.3-5.5 2.4 0 4.1 1.3 5.1 3.2 1-1.9 2.7-3.2 5.1-3.2 3.1 0 5.3 2.2 5.3 5.5 0 3.2-2.2 5.5-5.3 5.5-2.5 0-4.2-1.4-5.1-3.3-1 1.9-2.6 3.3-5.1 3.3zm0-2.4c1.7 0 3-1.4 3.8-3.1-.8-1.7-2.1-3.1-3.8-3.1-1.7 0-3 1.4-3 3.1 0 1.7 1.3 3.1 3 3.1zm10.2 0c1.7 0 3-1.4 3-3.1 0-1.7-1.3-3.1-3-3.1-1.7 0-3 1.4-3.8 3.1.8 1.7 2.1 3.1 3.8 3.1z" />
-              </svg>
+            <div class="partner-pill" aria-hidden="true">
+              <div class="partner-icon-wrap">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#0081FB" d="M6.9 17.5c-3.1 0-5.3-2.3-5.3-5.5 0-3.3 2.2-5.5 5.3-5.5 2.4 0 4.1 1.3 5.1 3.2 1-1.9 2.7-3.2 5.1-3.2 3.1 0 5.3 2.2 5.3 5.5 0 3.2-2.2 5.5-5.3 5.5-2.5 0-4.2-1.4-5.1-3.3-1 1.9-2.6 3.3-5.1 3.3zm0-2.4c1.7 0 3-1.4 3.8-3.1-.8-1.7-2.1-3.1-3.8-3.1-1.7 0-3 1.4-3 3.1 0 1.7 1.3 3.1 3 3.1zm10.2 0c1.7 0 3-1.4 3-3.1 0-1.7-1.3-3.1-3-3.1-1.7 0-3 1.4-3.8 3.1.8 1.7 2.1 3.1 3.8 3.1z" />
+                </svg>
+              </div>
+              <span class="partner-name">Meta Business</span>
+              <span class="partner-badge-tag">Certified</span>
             </div>
-            <span class="partner-name">Meta Business</span>
-            <span class="partner-badge-tag">Certified</span>
-          </div>
-
-          <div class="partner-pill" aria-hidden="true">
-            <div class="partner-icon-wrap">
-              <svg viewBox="0 0 24 24">
-                <path fill="#95BF47"
-                  d="M19.8 6.5c-.1-.3-.3-.5-.6-.5l-2.4-.4c-.1 0-.3-.1-.4-.2-.8-1.8-2.2-4.1-4.7-4.1-.3 0-.6 0-.9.1L9 2.1C8.7 1.4 8.2.9 7.5.9c-1.4 0-2.1 1.7-2.3 2.7L2.1 5.9c-.3.1-.5.4-.5.7L.1 20.3c-.1.8.5 1.5 1.3 1.5h19.2c.8 0 1.4-.7 1.3-1.5L19.8 6.5zM11.7 3.3c1.3 0 2.2 1.7 2.7 3.2l-4.5-.7c.4-1.5 1-2.5 1.8-2.5zm-2.4 9.1c0-2.8 3.5-3.1 3.5-4.8 0-.9-.7-1.4-1.6-1.4-.9 0-1.5.5-1.9 1.2l-1.3-.9c.7-1.2 1.8-1.9 3.2-1.9 2.1 0 3.3 1.2 3.3 2.8 0 2.9-3.5 3.1-3.5 4.8 0 .9.8 1.4 1.7 1.4.7 0 1.3-.3 1.8-.9l1.2 1c-.8 1-1.9 1.5-3 1.5-2.2 0-3.4-1.3-3.4-2.9z" />
-              </svg>
+            <div class="partner-pill" aria-hidden="true">
+              <div class="partner-icon-wrap">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#FF9900" d="M13.9 14.5c-2.3 0-4.4-.3-6.5-1.7-.3-.2-.4-.6-.1-.9l.8-.9c.2-.2.6-.3.9-.1 1.6 1 3.3 1.3 4.9 1.3 2.1 0 4.1-.7 4.1-2.4 0-1.2-.8-1.8-2.6-2.2l-2.4-.6c-2.7-.6-4.4-1.9-4.4-4.2 0-2.6 2.3-4.5 5.8-4.5 1.9 0 3.7.4 5.2 1.3.3.2.4.5.2.8l-.8 1.1c-.2.2-.5.3-.8.1-1.3-.7-2.6-1-3.9-1-2 0-3.3.9-3.3 2.1 0 1.1.8 1.7 2.5 2.1l2.3.5c3.2.7 4.7 2.1 4.7 4.5 0 3-2.6 4.6-6.6 4.6z" />
+                  <path fill="#FF9900" d="M21.7 18.2C17.3 21.4 11.2 22.8 5.7 21c-2.1-.7-4-1.8-5.7-3.2-.3-.2-.2-.6.1-.7.4-.1.8-.1 1.2.1 1.5 1.1 3.1 1.9 4.9 2.4 4.8 1.4 10.3.3 14.4-2.3.4-.3.9.1.7.5-.1.2-.3.3-.6.4z" />
+                </svg>
+              </div>
+              <span class="partner-name">Amazon Ads</span>
+              <span class="partner-badge-tag">Accredited</span>
             </div>
-            <span class="partner-name">Shopify Plus</span>
-            <span class="partner-badge-tag">Partner</span>
-          </div>
-
-          <div class="partner-pill" aria-hidden="true">
-            <div class="partner-icon-wrap">
-              <svg viewBox="0 0 24 24">
-                <path fill="#FF7A59"
-                  d="M18.8 7.3V4.6c.7-.4 1.2-1.1 1.2-2 0-1.3-1.1-2.4-2.4-2.4-1.3 0-2.4 1.1-2.4 2.4 0 .9.5 1.6 1.2 2v2.7c-1.2.4-2.2 1.3-2.7 2.4l-5-3.8c.1-.3.1-.6.1-.9 0-1.7-1.4-3.1-3.1-3.1S2.6 3.2 2.6 4.9c0 1.7 1.4 3.1 3.1 3.1.7 0 1.3-.2 1.8-.6l4.9 3.8c-.4.8-.6 1.7-.6 2.7s.2 1.9.6 2.7l-3.3 3.3c-.4-.3-.9-.4-1.5-.4-1.5 0-2.7 1.2-2.7 2.7S6.1 24.9 7.6 24.9s2.7-1.2 2.7-2.7c0-.6-.2-1.1-.5-1.5l3.3-3.3c.7.5 1.6.8 2.5.8 2.5 0 4.5-2 4.5-4.5 0-1.8-1.1-3.4-2.6-4.1V7.3h1.3zM15.6 16.5c-1.5 0-2.7-1.2-2.7-2.7s1.2-2.7 2.7-2.7 2.7 1.2 2.7 2.7-1.2 2.7-2.7 2.7z" />
-              </svg>
+            <div class="partner-pill" aria-hidden="true">
+              <div class="partner-icon-wrap">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#25F4EE" d="M19.5 5.5c-1.3-.9-2.2-2.3-2.5-3.9h-3.4v14.4c0 1.9-1.5 3.4-3.4 3.4s-3.4-1.5-3.4-3.4 1.5-3.4 3.4-3.4c.4 0 .8.1 1.1.2V9.3c-.4-.1-.7-.1-1.1-.1-3.8 0-6.8 3.1-6.8 6.8s3.1 6.8 6.8 6.8 6.8-3.1 6.8-6.8V8.9c1.6 1.2 3.5 1.8 5.5 1.8V7.3c-1.1 0-2.1-.6-3-1.8z" />
+                  <path fill="#FE2C55" d="M19.5 5.5c-1.3-.9-2.2-2.3-2.5-3.9h-1.5c.3 1.6 1.2 3 2.5 3.9v1.8c-1.9 0-3.9-.7-5.5-1.8v1.5c1.6 1.2 3.5 1.8 5.5 1.8v-1.9c.9 1.2 1.9 1.8 3 1.8v-3.4c-1.1 0-2.1-.6-3-1.8z" />
+                </svg>
+              </div>
+              <span class="partner-name">TikTok Ads</span>
+              <span class="partner-badge-tag">Official</span>
             </div>
-            <span class="partner-name">HubSpot Solutions</span>
-            <span class="partner-badge-tag">Inbound & CRM</span>
-          </div>
-
-          <div class="partner-pill" aria-hidden="true">
-            <div class="partner-icon-wrap">
-              <svg viewBox="0 0 24 24">
-                <path fill="#FF9900"
-                  d="M13.9 14.5c-2.3 0-4.4-.3-6.5-1.7-.3-.2-.4-.6-.1-.9l.8-.9c.2-.2.6-.3.9-.1 1.6 1 3.3 1.3 4.9 1.3 2.1 0 4.1-.7 4.1-2.4 0-1.2-.8-1.8-2.6-2.2l-2.4-.6c-2.7-.6-4.4-1.9-4.4-4.2 0-2.6 2.3-4.5 5.8-4.5 1.9 0 3.7.4 5.2 1.3.3.2.4.5.2.8l-.8 1.1c-.2.2-.5.3-.8.1-1.3-.7-2.6-1-3.9-1-2 0-3.3.9-3.3 2.1 0 1.1.8 1.7 2.5 2.1l2.3.5c3.2.7 4.7 2.1 4.7 4.5 0 3-2.6 4.6-6.6 4.6z" />
-                <path fill="#FF9900"
-                  d="M21.7 18.2C17.3 21.4 11.2 22.8 5.7 21c-2.1-.7-4-1.8-5.7-3.2-.3-.2-.2-.6.1-.7.4-.1.8-.1 1.2.1 1.5 1.1 3.1 1.9 4.9 2.4 4.8 1.4 10.3.3 14.4-2.3.4-.3.9.1.7.5-.1.2-.3.3-.6.4z" />
-              </svg>
+            <div class="partner-pill" aria-hidden="true">
+              <div class="partner-icon-wrap">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#0A66C2" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.63 1.63 0 1 0 0-3.26 1.63 1.63 0 0 0 0 3.26m1.4 9.74V9.93H5.06v8.57h2.8z"/>
+                </svg>
+              </div>
+              <span class="partner-name">LinkedIn Ads</span>
+              <span class="partner-badge-tag">B2B Tier</span>
             </div>
-            <span class="partner-name">Amazon Ads</span>
-            <span class="partner-badge-tag">Accredited</span>
-          </div>
-
-          <div class="partner-pill" aria-hidden="true">
-            <div class="partner-icon-wrap">
-              <svg viewBox="0 0 24 24">
-                <path fill="#25F4EE"
-                  d="M19.5 5.5c-1.3-.9-2.2-2.3-2.5-3.9h-3.4v14.4c0 1.9-1.5 3.4-3.4 3.4s-3.4-1.5-3.4-3.4 1.5-3.4 3.4-3.4c.4 0 .8.1 1.1.2V9.3c-.4-.1-.7-.1-1.1-.1-3.8 0-6.8 3.1-6.8 6.8s3.1 6.8 6.8 6.8 6.8-3.1 6.8-6.8V8.9c1.6 1.2 3.5 1.8 5.5 1.8V7.3c-1.1 0-2.1-.6-3-1.8z" />
-                <path fill="#FE2C55"
-                  d="M19.5 5.5c-1.3-.9-2.2-2.3-2.5-3.9h-1.5c.3 1.6 1.2 3 2.5 3.9v1.8c-1.9 0-3.9-.7-5.5-1.8v1.5c1.6 1.2 3.5 1.8 5.5 1.8v-1.9c.9 1.2 1.9 1.8 3 1.8v-3.4c-1.1 0-2.1-.6-3-1.8z" />
-              </svg>
+            <div class="partner-pill" aria-hidden="true">
+              <div class="partner-icon-wrap">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#FF0000" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/>
+                </svg>
+              </div>
+              <span class="partner-name">YouTube Video</span>
+              <span class="partner-badge-tag">Certified</span>
             </div>
-            <span class="partner-name">TikTok Ads</span>
-            <span class="partner-badge-tag">Official</span>
-          </div>
-
-          <div class="partner-pill" aria-hidden="true">
-            <div class="partner-icon-wrap">
-              <svg viewBox="0 0 24 24">
-                <path fill="#F26522"
-                  d="M22.8 17.5L13.2 4.3c-.5-.7-1.5-.9-2.2-.4-.2.2-.4.4-.5.7L1.2 17.5c-.6.8-.4 1.9.4 2.5.3.2.7.3 1.1.3h18.6c1 0 1.8-.8 1.8-1.8 0-.4-.1-.7-.3-1z" />
-                <path fill="#FFFFFF" d="M12 8.5l4.5 7.5h-9L12 8.5z" />
-              </svg>
+            <div class="partner-pill" aria-hidden="true">
+              <div class="partner-icon-wrap">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#E60023" d="M12 0a12 12 0 0 0-4.4 23.2c-.1-1-.1-2.5 0-3.5.1-1 .7-5.5.7-5.5s-.2-.3-.2-.8c0-.8.5-1.4 1-1.4.5 0 .7.4.7.8 0 .5-.3 1.2-.5 1.9-.1.6.3 1 .9 1 1 0 1.8-1.1 1.8-2.6 0-1.4-1-2.3-2.4-2.3-1.6 0-2.6 1.2-2.6 2.5 0 .5.2 1 .4 1.3.1.1.1.2 0 .3l-.2.7c0 .1-.1.1-.2.1-1.3-.6-2-2.4-2-3.9 0-3.2 2.3-6 6.6-6 3.5 0 6.2 2.5 6.2 5.8 0 3.4-2.2 6.2-5.2 6.2-1 0-2-.5-2.3-.2l-.6 2.4c-.2.9-.8 2-1.3 2.6A12 12 0 1 0 12 0z"/>
+                </svg>
+              </div>
+              <span class="partner-name">Pinterest Ads</span>
+              <span class="partner-badge-tag">Verified</span>
             </div>
-            <span class="partner-name">Klaviyo Master</span>
-            <span class="partner-badge-tag">Retention</span>
-          </div>
-
-          <div class="partner-pill" aria-hidden="true">
-            <div class="partner-icon-wrap">
-              <svg viewBox="0 0 24 24">
-                <path fill="#F9AB00"
-                  d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.5h-2v-7h2zm-1-8.5a1.25 1.25 0 1 1 1.25-1.25A1.25 1.25 0 0 1 12 8z" />
-                <path fill="#E37400" d="M18 16.5h-2v-4h2zm-10 0H6v-2h2z" />
-              </svg>
+            <div class="partner-pill" aria-hidden="true">
+              <div class="partner-icon-wrap">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#F25022" d="M1 1h10v10H1z"/><path fill="#7FBA00" d="M13 1h10v10H13z"/><path fill="#00A4EF" d="M1 13h10v10H1z"/><path fill="#FFB900" d="M13 13h10v10H13z"/>
+                </svg>
+              </div>
+              <span class="partner-name">Microsoft Ads</span>
+              <span class="partner-badge-tag">Bing Elite</span>
             </div>
-            <span class="partner-name">Analytics 4</span>
-            <span class="partner-badge-tag">Enterprise</span>
-          </div>
-
-          <div class="partner-pill" aria-hidden="true">
-            <div class="partner-icon-wrap">
-              <svg viewBox="0 0 24 24">
-                <path fill="#FF642D"
-                  d="M19.5 8.2c-.3-.4-.8-.6-1.3-.5-.5.1-.9.5-1 1-.1.9-.8 2.2-2.1 2.2-1.3 0-2.3-1.1-2.3-2.5 0-2.1 2.2-4.1 4.5-5.3.4-.2.6-.6.5-1-.1-.4-.5-.7-1-.6-4.5.6-8.8 4.2-8.8 8.8 0 4.9 4 8.7 8.9 8.7 4.9 0 8.8-3.9 8.8-8.8 0-.8-.1-1.4-.3-2z" />
-              </svg>
+            <div class="partner-pill" aria-hidden="true">
+              <div class="partner-icon-wrap">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#A2AAAD" d="M18.7 19.5c-.8 1.2-1.7 2.4-3 2.4-1.4 0-1.8-.8-3.4-.8s-2 .8-3.4.8c-1.3 0-2.3-1.3-3.1-2.5-1.7-2.5-3-7-1.3-10 1.1-1.9 3-3 5-3 1.3 0 2.5.9 3.3.9.8 0 2.3-1.1 3.8-1 1.6.1 3.1.8 4.1 2.2-3.3 2-2.8 6.3.5 7.6-.8 1.8-1.7 3.6-2.5 4.9zM15.5 4.5c.7-.9 1.2-2.1 1-3.3-1 .1-2.3.7-3 1.5-.6.8-1.2 2-1 3.2 1.2.1 2.3-.5 3-1.4z"/>
+                </svg>
+              </div>
+              <span class="partner-name">Apple Search</span>
+              <span class="partner-badge-tag">Official</span>
             </div>
-            <span class="partner-name">SEMrush</span>
-            <span class="partner-badge-tag">Agency Tier</span>
-          </div>
-
-          <div class="partner-pill" aria-hidden="true">
-            <div class="partner-icon-wrap">
-              <svg viewBox="0 0 24 24">
-                <path fill="#635BFF"
-                  d="M13.9 8.3c0-.9-.7-1.4-1.9-1.4-1.7 0-3.8.7-5.1 1.5l-.8-2.9C7.8 4.7 10.3 4 12.5 4c4 0 6.6 2 6.6 5.8 0 4.9-6.7 5.1-6.7 7.7 0 1 .9 1.6 2.3 1.6 1.9 0 4.4-.9 5.8-1.8l.8 3c-1.7.9-4.2 1.5-6.8 1.5-4.3 0-7.2-2.1-7.2-5.9-.1-5.3 6.6-5.3 6.6-7.6z" />
-              </svg>
+            <div class="partner-pill" aria-hidden="true">
+              <div class="partner-icon-wrap">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#FFFFFF" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </div>
+              <span class="partner-name">X Ads</span>
+              <span class="partner-badge-tag">Flight Partner</span>
             </div>
-            <span class="partner-name">Stripe Payments</span>
-            <span class="partner-badge-tag">Verified</span>
           </div>
         </div>
+
+        <!-- Row 2: E-Commerce, Retention & Funnels (OPPOSITE DIRECTION: Rightward Scroll) -->
+        <div class="marquee-wrapper" aria-label="E-Commerce & CRM Retention Partners">
+          <div class="marquee-track marquee-reverse">
+            <!-- Item 1: Shopify Plus Partner -->
+            <div class="partner-pill">
+              <div class="partner-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#95BF47" d="M19.8 6.5c-.1-.3-.3-.5-.6-.5l-2.4-.4c-.1 0-.3-.1-.4-.2-.8-1.8-2.2-4.1-4.7-4.1-.3 0-.6 0-.9.1L9 2.1C8.7 1.4 8.2.9 7.5.9c-1.4 0-2.1 1.7-2.3 2.7L2.1 5.9c-.3.1-.5.4-.5.7L.1 20.3c-.1.8.5 1.5 1.3 1.5h19.2c.8 0 1.4-.7 1.3-1.5L19.8 6.5zM11.7 3.3c1.3 0 2.2 1.7 2.7 3.2l-4.5-.7c.4-1.5 1-2.5 1.8-2.5zm-2.4 9.1c0-2.8 3.5-3.1 3.5-4.8 0-.9-.7-1.4-1.6-1.4-.9 0-1.5.5-1.9 1.2l-1.3-.9c.7-1.2 1.8-1.9 3.2-1.9 2.1 0 3.3 1.2 3.3 2.8 0 2.9-3.5 3.1-3.5 4.8 0 .9.8 1.4 1.7 1.4.7 0 1.3-.3 1.8-.9l1.2 1c-.8 1-1.9 1.5-3 1.5-2.2 0-3.4-1.3-3.4-2.9z" />
+                </svg>
+              </div>
+              <span class="partner-name">Shopify Plus</span>
+              <span class="partner-badge-tag">Partner</span>
+            </div>
+
+            <!-- Item 2: Klaviyo Master Partner -->
+            <div class="partner-pill">
+              <div class="partner-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#F26522" d="M22.8 17.5L13.2 4.3c-.5-.7-1.5-.9-2.2-.4-.2.2-.4.4-.5.7L1.2 17.5c-.6.8-.4 1.9.4 2.5.3.2.7.3 1.1.3h18.6c1 0 1.8-.8 1.8-1.8 0-.4-.1-.7-.3-1z" />
+                  <path fill="#FFFFFF" d="M12 8.5l4.5 7.5h-9L12 8.5z" />
+                </svg>
+              </div>
+              <span class="partner-name">Klaviyo Master</span>
+              <span class="partner-badge-tag">Retention</span>
+            </div>
+
+            <!-- Item 3: HubSpot Solutions -->
+            <div class="partner-pill">
+              <div class="partner-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#FF7A59" d="M18.8 7.3V4.6c.7-.4 1.2-1.1 1.2-2 0-1.3-1.1-2.4-2.4-2.4-1.3 0-2.4 1.1-2.4 2.4 0 .9.5 1.6 1.2 2v2.7c-1.2.4-2.2 1.3-2.7 2.4l-5-3.8c.1-.3.1-.6.1-.9 0-1.7-1.4-3.1-3.1-3.1S2.6 3.2 2.6 4.9c0 1.7 1.4 3.1 3.1 3.1.7 0 1.3-.2 1.8-.6l4.9 3.8c-.4.8-.6 1.7-.6 2.7s.2 1.9.6 2.7l-3.3 3.3c-.4-.3-.9-.4-1.5-.4-1.5 0-2.7 1.2-2.7 2.7S6.1 24.9 7.6 24.9s2.7-1.2 2.7-2.7c0-.6-.2-1.1-.5-1.5l3.3-3.3c.7.5 1.6.8 2.5.8 2.5 0 4.5-2 4.5-4.5 0-1.8-1.1-3.4-2.6-4.1V7.3h1.3zM15.6 16.5c-1.5 0-2.7-1.2-2.7-2.7s1.2-2.7 2.7-2.7 2.7 1.2 2.7 2.7-1.2 2.7-2.7 2.7z" />
+                </svg>
+              </div>
+              <span class="partner-name">HubSpot Solutions</span>
+              <span class="partner-badge-tag">Inbound & CRM</span>
+            </div>
+
+            <!-- Item 4: WooCommerce Expert -->
+            <div class="partner-pill">
+              <div class="partner-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#96588A" d="M2.2 4.5h19.6c1.2 0 2.2 1 2.2 2.2v10.6c0 1.2-1 2.2-2.2 2.2H2.2C1 19.5 0 18.5 0 17.3V6.7c0-1.2 1-2.2 2.2-2.2zm4.1 11.4c1.1 0 1.9-.6 2.3-1.6l2-6.5h-2.1l-1.3 4.6-1.3-4.6H3.8l2 6.5c.3 1 1.2 1.6 2.3 1.6zm7.4 0c1.1 0 1.9-.6 2.3-1.6l2-6.5h-2.1l-1.3 4.6-1.3-4.6h-2.1l2 6.5c.3 1 1.2 1.6 2.3 1.6z"/>
+                </svg>
+              </div>
+              <span class="partner-name">WooCommerce</span>
+              <span class="partner-badge-tag">Verified Dev</span>
+            </div>
+
+            <!-- Item 5: Stripe Payments -->
+            <div class="partner-pill">
+              <div class="partner-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#635BFF" d="M13.9 8.3c0-.9-.7-1.4-1.9-1.4-1.7 0-3.8.7-5.1 1.5l-.8-2.9C7.8 4.7 10.3 4 12.5 4c4 0 6.6 2 6.6 5.8 0 4.9-6.7 5.1-6.7 7.7 0 1 .9 1.6 2.3 1.6 1.9 0 4.4-.9 5.8-1.8l.8 3c-1.7.9-4.2 1.5-6.8 1.5-4.3 0-7.2-2.1-7.2-5.9-.1-5.3 6.6-5.3 6.6-7.6z" />
+                </svg>
+              </div>
+              <span class="partner-name">Stripe Payments</span>
+              <span class="partner-badge-tag">Verified</span>
+            </div>
+
+            <!-- Item 6: Salesforce Ecosystem -->
+            <div class="partner-pill">
+              <div class="partner-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#00A1E0" d="M10.1 5.4c1.2-1.5 3-2.4 5-2.4 2.7 0 5 1.7 5.9 4.1.8.3 1.5.8 2 1.5 1.1 1.4 1 3.4-.2 4.7-.2.2-.4.4-.6.6.5.7.8 1.6.8 2.6 0 2.5-2 4.5-4.5 4.5H5.5C2.5 20.9 0 18.4 0 15.4c0-2.6 1.8-4.8 4.4-5.3.7-2.7 3.2-4.7 6.1-4.7h-.4z"/>
+                </svg>
+              </div>
+              <span class="partner-name">Salesforce</span>
+              <span class="partner-badge-tag">Cloud Scale</span>
+            </div>
+
+            <!-- Item 7: Omnisend Email & SMS -->
+            <div class="partner-pill">
+              <div class="partner-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#2E72D2" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14.93V18h-2v-1.07c-2.83-.48-4-2.54-4-2.54l1.46-1.27s.96 1.54 2.54 1.82v-3.41c-2.34-.63-4-1.5-4-3.53 0-2.07 1.62-3.48 4-3.87V3h2v1.07c2.2.41 3.4 2.14 3.4 2.14l-1.47 1.25s-.85-1.28-2.21-1.54v3.13c2.53.7 4 1.66 4 3.76 0 2.22-1.78 3.65-3.72 4.12z"/>
+                </svg>
+              </div>
+              <span class="partner-name">Omnisend</span>
+              <span class="partner-badge-tag">SMS & Email</span>
+            </div>
+
+            <!-- Item 8: BigCommerce -->
+            <div class="partner-pill">
+              <div class="partner-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#121118" stroke="#FFFFFF" stroke-width="1.2" d="M3 4h6.5c3.6 0 6 2 6 4.7 0 1.6-.8 3-2.2 3.8 2 .8 3.2 2.5 3.2 4.5 0 3.2-2.6 5-6.5 5H3V4zm5.5 6.5h1.2c1.2 0 2-.6 2-1.7s-.8-1.6-2-1.6H8.5v3.3zm0 8.3h1.5c1.4 0 2.3-.7 2.3-2s-.9-2-2.3-2H8.5v4z"/>
+                </svg>
+              </div>
+              <span class="partner-name">BigCommerce</span>
+              <span class="partner-badge-tag">Enterprise</span>
+            </div>
+
+            <!-- Item 9: Razorpay -->
+            <div class="partner-pill">
+              <div class="partner-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#02042B" d="M0 0h24v24H0z"/><path fill="#0C2340" d="M22.5 2H1.5v20h21V2z"/><path fill="#528FF0" d="M8.2 18.2l3.4-12.4h4.8c2.4 0 4 1.4 3.4 3.7-.5 1.8-2 2.8-3.7 3.1l2.4 5.6h-3.4l-2-4.8H11l-1.3 4.8H8.2zm3.3-7.2h2.2c1 0 1.7-.5 1.9-1.3.2-.8-.2-1.3-1.2-1.3h-2.1l-.8 2.6z"/>
+                </svg>
+              </div>
+              <span class="partner-name">Razorpay</span>
+              <span class="partner-badge-tag">Platinum</span>
+            </div>
+
+            <!-- Item 10: PayPal Commerce -->
+            <div class="partner-pill">
+              <div class="partner-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#003087" d="M7 21l3-18h6.5c3.6 0 5.5 1.8 5 4.8-.6 3.6-3.2 5.7-6.8 5.7H11.5L9.8 21H7z"/><path fill="#0079C1" d="M9.8 13.5l1.7-10h6.5c3.6 0 5.5 1.8 5 4.8-.6 3.6-3.2 5.7-6.8 5.7H11.5l-.7 4.2-1 4.3z"/>
+                </svg>
+              </div>
+              <span class="partner-name">PayPal</span>
+              <span class="partner-badge-tag">Official</span>
+            </div>
+
+            <!-- Cloned Set (Row 2) for Seamless Infinite Loop -->
+            <div class="partner-pill" aria-hidden="true">
+              <div class="partner-icon-wrap">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#95BF47" d="M19.8 6.5c-.1-.3-.3-.5-.6-.5l-2.4-.4c-.1 0-.3-.1-.4-.2-.8-1.8-2.2-4.1-4.7-4.1-.3 0-.6 0-.9.1L9 2.1C8.7 1.4 8.2.9 7.5.9c-1.4 0-2.1 1.7-2.3 2.7L2.1 5.9c-.3.1-.5.4-.5.7L.1 20.3c-.1.8.5 1.5 1.3 1.5h19.2c.8 0 1.4-.7 1.3-1.5L19.8 6.5zM11.7 3.3c1.3 0 2.2 1.7 2.7 3.2l-4.5-.7c.4-1.5 1-2.5 1.8-2.5zm-2.4 9.1c0-2.8 3.5-3.1 3.5-4.8 0-.9-.7-1.4-1.6-1.4-.9 0-1.5.5-1.9 1.2l-1.3-.9c.7-1.2 1.8-1.9 3.2-1.9 2.1 0 3.3 1.2 3.3 2.8 0 2.9-3.5 3.1-3.5 4.8 0 .9.8 1.4 1.7 1.4.7 0 1.3-.3 1.8-.9l1.2 1c-.8 1-1.9 1.5-3 1.5-2.2 0-3.4-1.3-3.4-2.9z" />
+                </svg>
+              </div>
+              <span class="partner-name">Shopify Plus</span>
+              <span class="partner-badge-tag">Partner</span>
+            </div>
+            <div class="partner-pill" aria-hidden="true">
+              <div class="partner-icon-wrap">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#F26522" d="M22.8 17.5L13.2 4.3c-.5-.7-1.5-.9-2.2-.4-.2.2-.4.4-.5.7L1.2 17.5c-.6.8-.4 1.9.4 2.5.3.2.7.3 1.1.3h18.6c1 0 1.8-.8 1.8-1.8 0-.4-.1-.7-.3-1z" />
+                  <path fill="#FFFFFF" d="M12 8.5l4.5 7.5h-9L12 8.5z" />
+                </svg>
+              </div>
+              <span class="partner-name">Klaviyo Master</span>
+              <span class="partner-badge-tag">Retention</span>
+            </div>
+            <div class="partner-pill" aria-hidden="true">
+              <div class="partner-icon-wrap">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#FF7A59" d="M18.8 7.3V4.6c.7-.4 1.2-1.1 1.2-2 0-1.3-1.1-2.4-2.4-2.4-1.3 0-2.4 1.1-2.4 2.4 0 .9.5 1.6 1.2 2v2.7c-1.2.4-2.2 1.3-2.7 2.4l-5-3.8c.1-.3.1-.6.1-.9 0-1.7-1.4-3.1-3.1-3.1S2.6 3.2 2.6 4.9c0 1.7 1.4 3.1 3.1 3.1.7 0 1.3-.2 1.8-.6l4.9 3.8c-.4.8-.6 1.7-.6 2.7s.2 1.9.6 2.7l-3.3 3.3c-.4-.3-.9-.4-1.5-.4-1.5 0-2.7 1.2-2.7 2.7S6.1 24.9 7.6 24.9s2.7-1.2 2.7-2.7c0-.6-.2-1.1-.5-1.5l3.3-3.3c.7.5 1.6.8 2.5.8 2.5 0 4.5-2 4.5-4.5 0-1.8-1.1-3.4-2.6-4.1V7.3h1.3zM15.6 16.5c-1.5 0-2.7-1.2-2.7-2.7s1.2-2.7 2.7-2.7 2.7 1.2 2.7 2.7-1.2 2.7-2.7 2.7z" />
+                </svg>
+              </div>
+              <span class="partner-name">HubSpot Solutions</span>
+              <span class="partner-badge-tag">Inbound & CRM</span>
+            </div>
+            <div class="partner-pill" aria-hidden="true">
+              <div class="partner-icon-wrap">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#96588A" d="M2.2 4.5h19.6c1.2 0 2.2 1 2.2 2.2v10.6c0 1.2-1 2.2-2.2 2.2H2.2C1 19.5 0 18.5 0 17.3V6.7c0-1.2 1-2.2 2.2-2.2zm4.1 11.4c1.1 0 1.9-.6 2.3-1.6l2-6.5h-2.1l-1.3 4.6-1.3-4.6H3.8l2 6.5c.3 1 1.2 1.6 2.3 1.6zm7.4 0c1.1 0 1.9-.6 2.3-1.6l2-6.5h-2.1l-1.3 4.6-1.3-4.6h-2.1l2 6.5c.3 1 1.2 1.6 2.3 1.6z"/>
+                </svg>
+              </div>
+              <span class="partner-name">WooCommerce</span>
+              <span class="partner-badge-tag">Verified Dev</span>
+            </div>
+            <div class="partner-pill" aria-hidden="true">
+              <div class="partner-icon-wrap">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#635BFF" d="M13.9 8.3c0-.9-.7-1.4-1.9-1.4-1.7 0-3.8.7-5.1 1.5l-.8-2.9C7.8 4.7 10.3 4 12.5 4c4 0 6.6 2 6.6 5.8 0 4.9-6.7 5.1-6.7 7.7 0 1 .9 1.6 2.3 1.6 1.9 0 4.4-.9 5.8-1.8l.8 3c-1.7.9-4.2 1.5-6.8 1.5-4.3 0-7.2-2.1-7.2-5.9-.1-5.3 6.6-5.3 6.6-7.6z" />
+                </svg>
+              </div>
+              <span class="partner-name">Stripe Payments</span>
+              <span class="partner-badge-tag">Verified</span>
+            </div>
+            <div class="partner-pill" aria-hidden="true">
+              <div class="partner-icon-wrap">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#00A1E0" d="M10.1 5.4c1.2-1.5 3-2.4 5-2.4 2.7 0 5 1.7 5.9 4.1.8.3 1.5.8 2 1.5 1.1 1.4 1 3.4-.2 4.7-.2.2-.4.4-.6.6.5.7.8 1.6.8 2.6 0 2.5-2 4.5-4.5 4.5H5.5C2.5 20.9 0 18.4 0 15.4c0-2.6 1.8-4.8 4.4-5.3.7-2.7 3.2-4.7 6.1-4.7h-.4z"/>
+                </svg>
+              </div>
+              <span class="partner-name">Salesforce</span>
+              <span class="partner-badge-tag">Cloud Scale</span>
+            </div>
+            <div class="partner-pill" aria-hidden="true">
+              <div class="partner-icon-wrap">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#2E72D2" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14.93V18h-2v-1.07c-2.83-.48-4-2.54-4-2.54l1.46-1.27s.96 1.54 2.54 1.82v-3.41c-2.34-.63-4-1.5-4-3.53 0-2.07 1.62-3.48 4-3.87V3h2v1.07c2.2.41 3.4 2.14 3.4 2.14l-1.47 1.25s-.85-1.28-2.21-1.54v3.13c2.53.7 4 1.66 4 3.76 0 2.22-1.78 3.65-3.72 4.12z"/>
+                </svg>
+              </div>
+              <span class="partner-name">Omnisend</span>
+              <span class="partner-badge-tag">SMS & Email</span>
+            </div>
+            <div class="partner-pill" aria-hidden="true">
+              <div class="partner-icon-wrap">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#121118" stroke="#FFFFFF" stroke-width="1.2" d="M3 4h6.5c3.6 0 6 2 6 4.7 0 1.6-.8 3-2.2 3.8 2 .8 3.2 2.5 3.2 4.5 0 3.2-2.6 5-6.5 5H3V4zm5.5 6.5h1.2c1.2 0 2-.6 2-1.7s-.8-1.6-2-1.6H8.5v3.3zm0 8.3h1.5c1.4 0 2.3-.7 2.3-2s-.9-2-2.3-2H8.5v4z"/>
+                </svg>
+              </div>
+              <span class="partner-name">BigCommerce</span>
+              <span class="partner-badge-tag">Enterprise</span>
+            </div>
+            <div class="partner-pill" aria-hidden="true">
+              <div class="partner-icon-wrap">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#02042B" d="M0 0h24v24H0z"/><path fill="#0C2340" d="M22.5 2H1.5v20h21V2z"/><path fill="#528FF0" d="M8.2 18.2l3.4-12.4h4.8c2.4 0 4 1.4 3.4 3.7-.5 1.8-2 2.8-3.7 3.1l2.4 5.6h-3.4l-2-4.8H11l-1.3 4.8H8.2zm3.3-7.2h2.2c1 0 1.7-.5 1.9-1.3.2-.8-.2-1.3-1.2-1.3h-2.1l-.8 2.6z"/>
+                </svg>
+              </div>
+              <span class="partner-name">Razorpay</span>
+              <span class="partner-badge-tag">Platinum</span>
+            </div>
+            <div class="partner-pill" aria-hidden="true">
+              <div class="partner-icon-wrap">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#003087" d="M7 21l3-18h6.5c3.6 0 5.5 1.8 5 4.8-.6 3.6-3.2 5.7-6.8 5.7H11.5L9.8 21H7z"/><path fill="#0079C1" d="M9.8 13.5l1.7-10h6.5c3.6 0 5.5 1.8 5 4.8-.6 3.6-3.2 5.7-6.8 5.7H11.5l-.7 4.2-1 4.3z"/>
+                </svg>
+              </div>
+              <span class="partner-name">PayPal</span>
+              <span class="partner-badge-tag">Official</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 3: SEO, Deep Analytics & High-Performance Web (Leftward Scroll) -->
+        <div class="marquee-wrapper" aria-label="SEO, Analytics & Architecture Stack">
+          <div class="marquee-track marquee-track-3">
+            <!-- Item 1: Google Analytics 4 -->
+            <div class="partner-pill">
+              <div class="partner-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#F9AB00" d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.5h-2v-7h2zm-1-8.5a1.25 1.25 0 1 1 1.25-1.25A1.25 1.25 0 0 1 12 8z" />
+                  <path fill="#E37400" d="M18 16.5h-2v-4h2zm-10 0H6v-2h2z" />
+                </svg>
+              </div>
+              <span class="partner-name">Analytics 4</span>
+              <span class="partner-badge-tag">Enterprise</span>
+            </div>
+
+            <!-- Item 2: SEMrush Agency Partner -->
+            <div class="partner-pill">
+              <div class="partner-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#FF642D" d="M19.5 8.2c-.3-.4-.8-.6-1.3-.5-.5.1-.9.5-1 1-.1.9-.8 2.2-2.1 2.2-1.3 0-2.3-1.1-2.3-2.5 0-2.1 2.2-4.1 4.5-5.3.4-.2.6-.6.5-1-.1-.4-.5-.7-1-.6-4.5.6-8.8 4.2-8.8 8.8 0 4.9 4 8.7 8.9 8.7 4.9 0 8.8-3.9 8.8-8.8 0-.8-.1-1.4-.3-2z" />
+                </svg>
+              </div>
+              <span class="partner-name">SEMrush</span>
+              <span class="partner-badge-tag">Agency Tier</span>
+            </div>
+
+            <!-- Item 3: Looker Studio BI -->
+            <div class="partner-pill">
+              <div class="partner-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#4285F4" d="M3 3h4v18H3z"/><path fill="#34A853" d="M10 8h4v13h-4z"/><path fill="#FBBC05" d="M17 13h4v8h-4z"/>
+                </svg>
+              </div>
+              <span class="partner-name">Looker Studio</span>
+              <span class="partner-badge-tag">Live BI Sync</span>
+            </div>
+
+            <!-- Item 4: Ahrefs SEO Authority -->
+            <div class="partner-pill">
+              <div class="partner-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#FF5C35" d="M12 2L2 22h4.5l2-4.5h7l2 4.5H22L12 2zm0 6.5l2.2 5h-4.4L12 8.5z"/>
+                </svg>
+              </div>
+              <span class="partner-name">Ahrefs</span>
+              <span class="partner-badge-tag">Authority Tier</span>
+            </div>
+
+            <!-- Item 5: Triple Whale Attribution -->
+            <div class="partner-pill">
+              <div class="partner-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#00F0FF" d="M18.5 7.5c-1.3-1-3.2-1.5-5.5-1.5-3.5 0-6.2 1.3-7.5 3.5-1 1.7-.8 3.5.5 4.7 1.5 1.4 4 2.1 6.8 2.1 2.3 0 4.3-.5 5.7-1.5 1.8-1.3 2.5-3.3 2.5-5.1 0-.8-.7-1.5-1.5-1.5-.4 0-.7.1-1 .3l-.5-.5z"/>
+                </svg>
+              </div>
+              <span class="partner-name">Triple Whale</span>
+              <span class="partner-badge-tag">Attribution</span>
+            </div>
+
+            <!-- Item 6: Cloudflare Speed & Security -->
+            <div class="partner-pill">
+              <div class="partner-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#F38020" d="M19.4 12.3c-.3-.2-.7-.3-1.1-.3-.3 0-.6.1-.9.2-.5-2.3-2.6-4.1-5-4.1-2.2 0-4.1 1.4-4.8 3.4-.4-.2-.8-.3-1.2-.3-1.9 0-3.5 1.6-3.5 3.5 0 .2 0 .4.1.6-1.7.5-3 2.1-3 3.9 0 2.3 1.9 4.2 4.2 4.2h15.2c2.1 0 3.8-1.7 3.8-3.8 0-1.9-1.4-3.5-3.3-3.7-.2-1.6-1.4-3-3.1-3.4-.3-.1-.6-.2-.9-.2h-.5z"/>
+                </svg>
+              </div>
+              <span class="partner-name">Cloudflare</span>
+              <span class="partner-badge-tag">Edge CDN</span>
+            </div>
+
+            <!-- Item 7: Webflow Certified Partner -->
+            <div class="partner-pill">
+              <div class="partner-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#146EF5" d="M17.8 8.1c-.8.9-1.7 1.4-2.8 1.4-1.3 0-2.3-.7-2.9-1.9l-2.4 7.2h2.5l1.4-4.5c.3-.9.9-1.4 1.7-1.4.7 0 1.2.4 1.5 1.1l1.4 4.8h2.6L17.8 8.1zM6.6 8.1c-.8.9-1.7 1.4-2.8 1.4-1.3 0-2.3-.7-2.9-1.9L0 14.8h2.5l1.4-4.5c.3-.9.9-1.4 1.7-1.4.7 0 1.2.4 1.5 1.1l1.4 4.8h2.6L6.6 8.1z"/>
+                </svg>
+              </div>
+              <span class="partner-name">Webflow</span>
+              <span class="partner-badge-tag">Certified Dev</span>
+            </div>
+
+            <!-- Item 8: Hotjar Behavioral CRO -->
+            <div class="partner-pill">
+              <div class="partner-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#FD3A5C" d="M12 2C8.5 6 6 8.5 6 12.5 6 16.1 8.7 19 12 19s6-2.9 6-6.5C18 8.5 15.5 6 12 2zm0 14c-1.7 0-3-1.3-3-3 0-1.5 1.5-3.3 3-5 1.5 1.7 3 3.5 3 5 0 1.7-1.3 3-3 3z"/>
+                </svg>
+              </div>
+              <span class="partner-name">Hotjar</span>
+              <span class="partner-badge-tag">CRO Heatmaps</span>
+            </div>
+
+            <!-- Item 9: Screaming Frog Technical SEO -->
+            <div class="partner-pill">
+              <div class="partner-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" fill="#3DBB36"/><circle cx="9" cy="10" r="2.5" fill="#FFFFFF"/><circle cx="15" cy="10" r="2.5" fill="#FFFFFF"/><circle cx="9" cy="10" r="1" fill="#000000"/><circle cx="15" cy="10" r="1" fill="#000000"/><path d="M7 16c2 2 8 2 10 0" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" fill="none"/>
+                </svg>
+              </div>
+              <span class="partner-name">Screaming Frog</span>
+              <span class="partner-badge-tag">Technical SEO</span>
+            </div>
+
+            <!-- Item 10: Vercel Cloud Architecture -->
+            <div class="partner-pill">
+              <div class="partner-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#FFFFFF" d="M12 1L24 22H0L12 1z"/>
+                </svg>
+              </div>
+              <span class="partner-name">Vercel</span>
+              <span class="partner-badge-tag">Edge Speed</span>
+            </div>
+
+            <!-- Cloned Set (Row 3) for Seamless Infinite Loop -->
+            <div class="partner-pill" aria-hidden="true">
+              <div class="partner-icon-wrap">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#F9AB00" d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.5h-2v-7h2zm-1-8.5a1.25 1.25 0 1 1 1.25-1.25A1.25 1.25 0 0 1 12 8z" />
+                  <path fill="#E37400" d="M18 16.5h-2v-4h2zm-10 0H6v-2h2z" />
+                </svg>
+              </div>
+              <span class="partner-name">Analytics 4</span>
+              <span class="partner-badge-tag">Enterprise</span>
+            </div>
+            <div class="partner-pill" aria-hidden="true">
+              <div class="partner-icon-wrap">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#FF642D" d="M19.5 8.2c-.3-.4-.8-.6-1.3-.5-.5.1-.9.5-1 1-.1.9-.8 2.2-2.1 2.2-1.3 0-2.3-1.1-2.3-2.5 0-2.1 2.2-4.1 4.5-5.3.4-.2.6-.6.5-1-.1-.4-.5-.7-1-.6-4.5.6-8.8 4.2-8.8 8.8 0 4.9 4 8.7 8.9 8.7 4.9 0 8.8-3.9 8.8-8.8 0-.8-.1-1.4-.3-2z" />
+                </svg>
+              </div>
+              <span class="partner-name">SEMrush</span>
+              <span class="partner-badge-tag">Agency Tier</span>
+            </div>
+            <div class="partner-pill" aria-hidden="true">
+              <div class="partner-icon-wrap">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#4285F4" d="M3 3h4v18H3z"/><path fill="#34A853" d="M10 8h4v13h-4z"/><path fill="#FBBC05" d="M17 13h4v8h-4z"/>
+                </svg>
+              </div>
+              <span class="partner-name">Looker Studio</span>
+              <span class="partner-badge-tag">Live BI Sync</span>
+            </div>
+            <div class="partner-pill" aria-hidden="true">
+              <div class="partner-icon-wrap">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#FF5C35" d="M12 2L2 22h4.5l2-4.5h7l2 4.5H22L12 2zm0 6.5l2.2 5h-4.4L12 8.5z"/>
+                </svg>
+              </div>
+              <span class="partner-name">Ahrefs</span>
+              <span class="partner-badge-tag">Authority Tier</span>
+            </div>
+            <div class="partner-pill" aria-hidden="true">
+              <div class="partner-icon-wrap">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#00F0FF" d="M18.5 7.5c-1.3-1-3.2-1.5-5.5-1.5-3.5 0-6.2 1.3-7.5 3.5-1 1.7-.8 3.5.5 4.7 1.5 1.4 4 2.1 6.8 2.1 2.3 0 4.3-.5 5.7-1.5 1.8-1.3 2.5-3.3 2.5-5.1 0-.8-.7-1.5-1.5-1.5-.4 0-.7.1-1 .3l-.5-.5z"/>
+                </svg>
+              </div>
+              <span class="partner-name">Triple Whale</span>
+              <span class="partner-badge-tag">Attribution</span>
+            </div>
+            <div class="partner-pill" aria-hidden="true">
+              <div class="partner-icon-wrap">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#F38020" d="M19.4 12.3c-.3-.2-.7-.3-1.1-.3-.3 0-.6.1-.9.2-.5-2.3-2.6-4.1-5-4.1-2.2 0-4.1 1.4-4.8 3.4-.4-.2-.8-.3-1.2-.3-1.9 0-3.5 1.6-3.5 3.5 0 .2 0 .4.1.6-1.7.5-3 2.1-3 3.9 0 2.3 1.9 4.2 4.2 4.2h15.2c2.1 0 3.8-1.7 3.8-3.8 0-1.9-1.4-3.5-3.3-3.7-.2-1.6-1.4-3-3.1-3.4-.3-.1-.6-.2-.9-.2h-.5z"/>
+                </svg>
+              </div>
+              <span class="partner-name">Cloudflare</span>
+              <span class="partner-badge-tag">Edge CDN</span>
+            </div>
+            <div class="partner-pill" aria-hidden="true">
+              <div class="partner-icon-wrap">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#146EF5" d="M17.8 8.1c-.8.9-1.7 1.4-2.8 1.4-1.3 0-2.3-.7-2.9-1.9l-2.4 7.2h2.5l1.4-4.5c.3-.9.9-1.4 1.7-1.4.7 0 1.2.4 1.5 1.1l1.4 4.8h2.6L17.8 8.1zM6.6 8.1c-.8.9-1.7 1.4-2.8 1.4-1.3 0-2.3-.7-2.9-1.9L0 14.8h2.5l1.4-4.5c.3-.9.9-1.4 1.7-1.4.7 0 1.2.4 1.5 1.1l1.4 4.8h2.6L6.6 8.1z"/>
+                </svg>
+              </div>
+              <span class="partner-name">Webflow</span>
+              <span class="partner-badge-tag">Certified Dev</span>
+            </div>
+            <div class="partner-pill" aria-hidden="true">
+              <div class="partner-icon-wrap">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#FD3A5C" d="M12 2C8.5 6 6 8.5 6 12.5 6 16.1 8.7 19 12 19s6-2.9 6-6.5C18 8.5 15.5 6 12 2zm0 14c-1.7 0-3-1.3-3-3 0-1.5 1.5-3.3 3-5 1.5 1.7 3 3.5 3 5 0 1.7-1.3 3-3 3z"/>
+                </svg>
+              </div>
+              <span class="partner-name">Hotjar</span>
+              <span class="partner-badge-tag">CRO Heatmaps</span>
+            </div>
+            <div class="partner-pill" aria-hidden="true">
+              <div class="partner-icon-wrap">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" fill="#3DBB36"/><circle cx="9" cy="10" r="2.5" fill="#FFFFFF"/><circle cx="15" cy="10" r="2.5" fill="#FFFFFF"/><circle cx="9" cy="10" r="1" fill="#000000"/><circle cx="15" cy="10" r="1" fill="#000000"/><path d="M7 16c2 2 8 2 10 0" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" fill="none"/>
+                </svg>
+              </div>
+              <span class="partner-name">Screaming Frog</span>
+              <span class="partner-badge-tag">Technical SEO</span>
+            </div>
+            <div class="partner-pill" aria-hidden="true">
+              <div class="partner-icon-wrap">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#FFFFFF" d="M12 1L24 22H0L12 1z"/>
+                </svg>
+              </div>
+              <span class="partner-name">Vercel</span>
+              <span class="partner-badge-tag">Edge Speed</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
