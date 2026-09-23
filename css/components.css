@@ -4094,140 +4094,255 @@ dialog.custom-modal::backdrop {
 }
 
 /* ==========================================================================
-   10. Minimalist Contact & Inquiry Section (Clean Editorial Aesthetic)
+   10. Minimalist Contact & Inquiry Section (Stunning Luxury Architectural BG)
    ========================================================================== */
 .contact-minimal-section {
-  padding: 88px 0 96px 0;
-  background: #FAFAFA;
-  border-top: 1px solid #EAEAEA;
-  color: #0F172A;
   position: relative;
+  padding: 100px 0 110px 0;
+  background: #0B111E url('../assets/contact-luxury-bg.jpg') center center / cover no-repeat;
+  color: #FFFFFF;
+  overflow: hidden;
+}
+
+/* Cinematic Dark Vignette Overlay with Depth: Keeps image crisp yet guarantees pristine text contrast */
+.contact-minimal-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(7, 12, 22, 0.84) 0%, rgba(11, 18, 32, 0.76) 50%, rgba(5, 9, 16, 0.88) 100%);
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
+  z-index: 1;
+}
+
+/* Subtle Warm Golden Ambient Light Beam */
+.contact-minimal-section::after {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -60px;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.contact-minimal-section .container {
+  position: relative;
+  z-index: 2;
 }
 
 .contact-minimal-grid {
   display: grid;
   grid-template-columns: 1fr 1.25fr;
-  gap: 56px;
-  align-items: flex-start;
+  gap: 60px;
+  align-items: center;
 }
 
-/* Left Column */
+/* Left Column: Typography & Direct Presence */
 .contact-minimal-left {
   max-width: 480px;
 }
 
 .contact-eyebrow {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-size: 0.78125rem;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #093360;
-  margin-bottom: 12px;
+  letter-spacing: 0.12em;
+  color: var(--gold-light, #E6CA65);
+  margin-bottom: 14px;
+}
+
+.contact-eyebrow::before {
+  content: '';
+  width: 18px;
+  height: 2px;
+  background: var(--gold-primary, #D4AF37);
+  border-radius: 2px;
 }
 
 .contact-minimal-title {
   font-family: var(--font-display, 'Manrope', sans-serif);
-  font-size: clamp(2rem, 3.4vw, 2.75rem);
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
   font-weight: 800;
-  color: #0F172A;
-  line-height: 1.18;
+  color: #FFFFFF;
+  line-height: 1.15;
   letter-spacing: -0.03em;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .contact-minimal-desc {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: #475569;
-  margin-bottom: 36px;
+  font-size: 1.03125rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 32px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .contact-minimal-channels {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 14px;
   margin-bottom: 32px;
-  padding-top: 24px;
-  border-top: 1px solid #E2E8F0;
 }
 
 .contact-channel-item {
   display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 13px 18px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.25s ease;
+}
+
+.contact-channel-item:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(212, 175, 55, 0.45);
+  transform: translateX(4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.channel-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(212, 175, 55, 0.14);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  color: #E6CA65;
+  flex-shrink: 0;
+}
+
+.channel-info {
+  display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 2px;
 }
 
 .channel-label {
   font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #94A3B8;
+  letter-spacing: 0.08em;
+  color: rgba(212, 175, 55, 0.9);
 }
 
 .channel-link {
-  font-size: 1.05rem;
+  font-size: 1.0625rem;
   font-weight: 700;
-  color: #0F172A;
+  color: #FFFFFF;
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
   width: fit-content;
 }
 
 .channel-link:hover {
-  color: #093360;
-  text-decoration: underline;
+  color: var(--gold-light, #E6CA65);
 }
 
 .channel-text {
   font-size: 0.9375rem;
-  color: #334155;
-  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.45;
   margin: 0;
 }
 
 .contact-minimal-actions {
-  padding-top: 6px;
+  padding-top: 4px;
 }
 
 .contact-wa-minimal-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 0.9rem;
+  gap: 10px;
+  font-size: 0.9375rem;
   font-weight: 700;
-  color: #0F172A;
+  color: #FFFFFF;
   text-decoration: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  background: #FFFFFF;
-  border: 1.5px solid #CBD5E1;
-  transition: all 0.2s ease;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  padding: 12px 24px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .contact-wa-minimal-btn:hover {
-  background: #093360;
-  color: #FFFFFF;
-  border-color: #093360;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(9, 51, 96, 0.15);
+  background: #25D366;
+  color: #041f3f;
+  border-color: #25D366;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
 }
 
-/* Right Column: Clean Form */
+/* Right Column: Stunning Frosted Glass Card */
 .contact-minimal-right {
-  background: #FFFFFF;
-  border: 1px solid #E2E8F0;
-  border-radius: 16px;
-  padding: 38px 40px;
-  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  padding: 34px 40px 32px 40px;
+  box-shadow: 0 30px 80px -15px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.7) inset;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.contact-minimal-right:hover {
+  box-shadow: 0 36px 90px -15px rgba(0, 0, 0, 0.72), 0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+}
+
+/* Golden Accent Top Rim */
+.contact-minimal-right::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3.5px;
+  background: linear-gradient(90deg, #D4AF37 0%, #E6CA65 50%, #B08216 100%);
+}
+
+.contact-card-header {
+  margin-bottom: 22px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.contact-card-title {
+  font-family: var(--font-display, 'Manrope', sans-serif);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 5px 0;
+  letter-spacing: -0.02em;
+}
+
+.contact-card-subtitle {
+  font-size: 0.875rem;
+  color: #64748B;
+  line-height: 1.45;
+  margin: 0;
 }
 
 .contact-minimal-form {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
 }
 
 .form-grid-2 {
@@ -4243,9 +4358,10 @@ dialog.custom-modal::backdrop {
 }
 
 .minimal-label {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #334155;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #1E293B;
+  letter-spacing: -0.01em;
 }
 
 .minimal-input,
@@ -4258,8 +4374,8 @@ dialog.custom-modal::backdrop {
   color: #0F172A;
   background: #F8FAFC;
   border: 1.5px solid #E2E8F0;
-  border-radius: 8px;
-  padding: 10px 14px;
+  border-radius: 10px;
+  padding: 11px 15px;
   transition: all 0.2s ease;
   outline: none;
 }
@@ -4268,8 +4384,8 @@ dialog.custom-modal::backdrop {
 .minimal-select:focus,
 .minimal-textarea:focus {
   background: #FFFFFF;
-  border-color: #093360;
-  box-shadow: 0 0 0 3px rgba(9, 51, 96, 0.08);
+  border-color: #D4AF37;
+  box-shadow: 0 0 0 3.5px rgba(212, 175, 55, 0.18);
 }
 
 .minimal-input::placeholder,
@@ -4280,7 +4396,7 @@ dialog.custom-modal::backdrop {
 
 .minimal-textarea {
   resize: vertical;
-  min-height: 105px;
+  min-height: 100px;
   line-height: 1.5;
 }
 
@@ -4296,45 +4412,50 @@ dialog.custom-modal::backdrop {
 .minimal-submit-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-family: inherit;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--font-display, 'Manrope', sans-serif);
   font-size: 0.9375rem;
-  font-weight: 700;
-  color: #FFFFFF;
-  background: #093360;
-  border: none;
-  border-radius: 8px;
-  padding: 12px 26px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: #091a2e;
+  background: linear-gradient(135deg, #FFF0C2 0%, #E6CA65 50%, #D4AF37 100%);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  padding: 13px 32px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35);
   white-space: nowrap;
 }
 
 .minimal-submit-btn:hover {
-  background: #0c4380;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(9, 51, 96, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(212, 175, 55, 0.5);
+  background: linear-gradient(135deg, #FFFFFF 0%, #F5DE96 45%, #E0BC48 100%);
+  color: #04101e;
 }
 
 .minimal-disclaimer {
   font-size: 0.78125rem;
   color: #64748B;
+  font-weight: 500;
 }
 
 /* Responsive */
 @media (max-width: 960px) {
   .contact-minimal-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 44px;
   }
   .contact-minimal-right {
-    padding: 28px 24px;
+    padding: 30px 24px;
   }
 }
 
 @media (max-width: 580px) {
   .contact-minimal-section {
-    padding: 60px 0;
+    padding: 70px 0;
   }
   .form-grid-2 {
     grid-template-columns: 1fr;
