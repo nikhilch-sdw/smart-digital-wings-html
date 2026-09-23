@@ -6605,23 +6605,24 @@ dialog.custom-modal::backdrop {
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-  display: flex;
-  flex-direction: column;
+  transition: transform 0.28s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.28s ease, border-color 0.28s ease;
+  display: block;
+  cursor: pointer;
 }
 
 .result-minimal-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--blue-royal, #2F85E8);
-  box-shadow: 0 12px 28px rgba(11, 37, 69, 0.1);
+  transform: translateY(-5px);
+  border-color: rgba(200, 155, 60, 0.45);
+  box-shadow: 0 14px 28px rgba(11, 37, 69, 0.12);
 }
 
 .result-minimal-media {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   background: #0B2545;
+  border-radius: 13px;
 }
 
 .result-minimal-media img {
@@ -6629,11 +6630,11 @@ dialog.custom-modal::backdrop {
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.35s ease;
+  transition: transform 0.4s cubic-bezier(0.2, 0, 0, 1);
 }
 
 .result-minimal-card:hover .result-minimal-media img {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
 .result-minimal-body {
