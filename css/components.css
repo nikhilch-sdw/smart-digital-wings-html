@@ -4791,11 +4791,15 @@ dialog.custom-modal::backdrop {
 
 /* Card Body Content */
 .service-card-body {
-  padding: 18px 18px 16px 18px;
+  padding: 18px 18px 18px 18px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   background: linear-gradient(180deg, #FFFFFF 0%, #FAFCFF 100%);
+  position: relative;
+  overflow: hidden;
+  min-height: 136px;
+  box-sizing: border-box;
 }
 
 .service-card-header {
@@ -4824,51 +4828,57 @@ dialog.custom-modal::backdrop {
   font-size: 0.8125rem;
   color: #64748B;
   line-height: 1.5;
-  margin-bottom: 14px;
+  margin-bottom: 0;
   height: 3em;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1), transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Feature Capability Micro-Pills */
+.service-image-card:hover .service-card-desc,
+.service-image-card:focus-within .service-card-desc {
+  opacity: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+}
+
+/* Feature Capability Micro-Pills (Legacy) */
 .service-card-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  margin-bottom: 14px;
+  display: none;
 }
 
-.service-pill-tag {
-  font-size: 0.6875rem;
-  font-weight: 600;
-  color: #475569;
-  background: #F1F5F9;
-  border: 1px solid #E2E8F0;
-  padding: 3px 8px;
-  border-radius: 6px;
-  letter-spacing: 0.01em;
-  white-space: nowrap;
-  transition: all 0.2s ease;
-}
-
-.service-image-card:hover .service-pill-tag {
-  background: rgba(255, 232, 158, 0.15);
-  border-color: rgba(212, 175, 55, 0.35);
-  color: #0F172A;
-}
-
-/* Modern Executive Dual Action Bar */
+/* Modern Executive Dual Action Bar - Revealed on Hover */
 .service-image-card .service-card-actions {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-top: auto;
-  padding-top: 14px;
-  border-top: 1px solid #F1F5F9;
-  position: relative;
-  z-index: 2;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px 18px 14px 18px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, #FFFFFF 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 -4px 14px rgba(9, 51, 96, 0.05);
+  transform: translateY(100%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, visibility 0.35s;
+  z-index: 5;
+  box-sizing: border-box;
+}
+
+.service-image-card:hover .service-card-actions,
+.service-image-card:focus-within .service-card-actions {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 /* Primary Explore Button with Animated Sliding Arrow */
@@ -4978,6 +4988,35 @@ dialog.custom-modal::backdrop {
   .services-visual-grid {
     grid-template-columns: 1fr;
     gap: 18px;
+  }
+}
+
+/* Touch & Mobile Accessibility Fallback */
+@media (max-width: 991px), (hover: none) {
+  .service-card-body {
+    min-height: auto;
+    overflow: visible;
+  }
+
+  .service-card-desc {
+    opacity: 1 !important;
+    transform: none !important;
+    margin-bottom: 12px;
+  }
+
+  .service-image-card .service-card-actions {
+    position: relative;
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    padding: 14px 0 0 0;
+    margin-top: auto;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none;
+    border-top: 1px solid #F1F5F9;
   }
 }
 
