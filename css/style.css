@@ -2210,14 +2210,15 @@ img {
   font-size: 0.6875rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #94A3B8 !important;
+  color: #FFFFFF !important;
   font-weight: 600;
   margin-top: 4px;
+  opacity: 0.95;
 }
 
 .footer-desc,
 .footer-brand p {
-  color: #CBD5E1;
+  color: #FFFFFF;
   font-size: 0.90rem;
   font-weight: 400;
   line-height: 1.68;
@@ -2315,7 +2316,7 @@ img {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #FFFFFF;
+  color: #FFFFFF !important;
   margin: 0 0 20px 0;
   position: relative;
   display: inline-block;
@@ -2345,7 +2346,7 @@ img {
 }
 
 .footer-links li a {
-  color: #CBD5E1;
+  color: #FFFFFF !important;
   font-size: 0.90rem;
   font-weight: 500;
   text-decoration: none;
@@ -2356,9 +2357,9 @@ img {
 }
 
 .footer-links li a:hover {
-  color: #FFFFFF;
+  color: #FFE89E !important;
   transform: translateX(5px);
-  text-shadow: 0 0 12px rgba(255, 255, 255, 0.25);
+  text-shadow: 0 0 12px rgba(255, 232, 158, 0.45);
 }
 
 /* Contact Card (Column 4) */
@@ -2385,8 +2386,12 @@ img {
   align-items: flex-start;
   gap: 12px;
   font-size: 0.86rem;
-  color: #CBD5E1;
+  color: #FFFFFF !important;
   line-height: 1.5;
+}
+
+.footer-contact-list li span {
+  color: #FFFFFF !important;
 }
 
 .footer-contact-icon {
@@ -2409,14 +2414,14 @@ img {
 }
 
 .footer-contact-list a {
-  color: #FFFFFF;
+  color: #FFFFFF !important;
   font-weight: 600;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .footer-contact-list a:hover {
-  color: #EAD186;
+  color: #FFE89E !important;
 }
 
 .footer-cta-wrap {
@@ -2469,13 +2474,14 @@ img {
   padding-top: 26px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   font-size: 0.85rem;
-  color: #94A3B8;
+  color: #FFFFFF;
   flex-wrap: wrap;
   gap: 16px;
 }
 
 .footer-bottom-copy {
-  color: #94A3B8;
+  color: #FFFFFF !important;
+  opacity: 0.9;
 }
 
 .footer-bottom-links {
@@ -2486,19 +2492,21 @@ img {
 }
 
 .footer-bottom-links a {
-  color: #CBD5E1;
+  color: #FFFFFF !important;
   text-decoration: none;
   font-size: 0.85rem;
   font-weight: 500;
   transition: color 0.2s ease;
+  opacity: 0.9;
 }
 
 .footer-bottom-links a:hover {
-  color: #FFFFFF;
+  color: #FFE89E !important;
+  opacity: 1;
 }
 
 .footer-sep {
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.35);
   font-size: 0.75rem;
 }
 
