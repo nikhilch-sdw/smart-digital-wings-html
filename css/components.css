@@ -4848,26 +4848,9 @@ dialog.custom-modal::backdrop {
   pointer-events: none;
 }
 
-/* Luxury Category Frosted Glass Badge */
+/* Luxury Category Frosted Glass Badge (Hidden as requested) */
 .service-card-pill {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  background: rgba(4, 23, 44, 0.82);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 232, 158, 0.35);
-  color: #FFE89E;
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  padding: 5px 11px;
-  border-radius: 999px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-  z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
+  display: none !important;
 }
 
 /* Quick Indicator Arrow (Top Right) */
