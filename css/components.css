@@ -8620,3 +8620,92 @@ dialog.custom-modal::backdrop {
     font-size: 0.8125rem;
   }
 }
+
+/* ====================================================================
+   YOUTUBE SHORT VIDEO GALLERY (5 IN A ROW WITH CONTROLS)
+   ==================================================================== */
+.yt-shorts-gallery-section {
+  padding: 36px 0 60px 0;
+  width: 100%;
+}
+
+.yt-shorts-container {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.yt-shorts-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+  width: 100%;
+}
+
+.yt-short-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #030D1A;
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  box-shadow: 0 8px 24px -4px rgba(9, 51, 96, 0.1), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+.yt-short-card:hover {
+  transform: translateY(-5px);
+  border-color: #D4AF37;
+  box-shadow: 0 16px 36px -6px rgba(9, 51, 96, 0.22), 0 0 0 1px rgba(212, 175, 55, 0.4);
+}
+
+.yt-short-card iframe,
+.yt-short-card video {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  object-fit: cover;
+  background: #000;
+}
+
+/* Responsive Grid Breakpoints */
+@media (max-width: 1380px) {
+  .yt-shorts-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .yt-shorts-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+}
+
+@media (max-width: 680px) {
+  .yt-shorts-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .yt-shorts-gallery-section {
+    padding: 20px 0 40px 0;
+  }
+
+  .yt-shorts-container {
+    padding: 0 12px;
+  }
+}
+
+@media (max-width: 420px) {
+  .yt-shorts-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+}
