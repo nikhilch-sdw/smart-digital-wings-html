@@ -2327,6 +2327,13 @@
   gap: 16px;
 }
 
+.reviews-header-text,
+.reviews-header-wrap > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .reviews-rating-sub {
   font-size: 0.90625rem;
   color: #334155;
