@@ -243,7 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Consultation Service Select Pill Toggles
   const servicePills = document.querySelectorAll('.service-select-pill');
-  let selectedBookingServices = ['SEO Dominance', 'Social Media & Meta Ads'];
+  let selectedBookingServices = ['SEO Dominance', 'Social Media Marketing'];
 
   servicePills.forEach(pill => {
     pill.addEventListener('click', () => {
@@ -1474,6 +1474,40 @@ document.addEventListener('DOMContentLoaded', () => {
       updateReviewsSlider(currentReviewSlide);
     });
   }
+
+  // ------------------------------------------------------------------------
+  // Service Cards Click Delegation (Full Card Clickable)
+  // ------------------------------------------------------------------------
+  document.addEventListener('click', (e) => {
+    // Only process primary (left) clicks
+    if (e.button !== 0) return;
+
+    // Preserve WhatsApp consultation button functionality completely
+    if (e.target.closest('.service-btn-whatsapp') || e.target.closest('.service-btn-wa')) {
+      return;
+    }
+
+    // If an anchor was clicked directly (title link, media link, explore button), let standard behavior handle it
+    if (e.target.closest('a')) {
+      return;
+    }
+
+    // Check if the click occurred on a service image card
+    const card = e.target.closest('.service-image-card');
+    if (!card) return;
+
+    const targetUrl = card.getAttribute('data-card-href') ||
+                      card.querySelector('.service-card-title-link')?.getAttribute('href') ||
+                      card.querySelector('.service-btn-details')?.getAttribute('href');
+
+    if (targetUrl) {
+      if (e.ctrlKey || e.metaKey) {
+        window.open(targetUrl, '_blank');
+      } else {
+        window.location.href = targetUrl;
+      }
+    }
+  });
 });
 
 
