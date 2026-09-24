@@ -8192,11 +8192,24 @@ dialog.custom-modal::backdrop {
   line-height: 1.2;
   margin-bottom: 10px;
   letter-spacing: -0.02em;
-  background: linear-gradient(135deg, #093360 0%, #0d68c9 55%, #1d82ee 100%);
+  background: linear-gradient(
+    120deg,
+    #072242 0%,
+    #093360 18%,
+    #0d68c9 38%,
+    #1d82ee 58%,
+    #38bdf8 72%,
+    #0d68c9 86%,
+    #072242 100%
+  );
+  background-size: 260% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
   display: inline-block;
+  animation: liveTitleGradient 7s ease-in-out infinite;
 }
 
 .gallery-hero-sub {

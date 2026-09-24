@@ -155,12 +155,43 @@ img {
   filter: drop-shadow(0 2px 12px rgba(212, 175, 55, 0.35));
 }
 
+/* Animated Live Gradient Transitions for Titles & Highlighted Text */
+@keyframes liveTitleGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 .blue-text {
-  background: linear-gradient(135deg, #093360 0%, #0d68c9 55%, #1d82ee 100%);
+  background: linear-gradient(
+    120deg,
+    #093360 0%,
+    #0d68c9 22%,
+    #1d82ee 46%,
+    #38bdf8 62%,
+    #0d68c9 80%,
+    #093360 100%
+  );
+  background-size: 260% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
   display: inline-block;
+  animation: liveTitleGradient 6.5s ease-in-out infinite;
+  transition: filter 0.3s ease;
+}
+
+.blue-text:hover {
+  animation-duration: 3.2s;
+  filter: drop-shadow(0 2px 14px rgba(13, 104, 201, 0.28));
 }
 
 /* Containers */
@@ -244,11 +275,29 @@ img {
   font-weight: 800;
   margin-bottom: 0;
   line-height: 1.25;
-  background: linear-gradient(135deg, #093360 0%, #0d68c9 55%, #1d82ee 100%);
+  background: linear-gradient(
+    120deg,
+    #072242 0%,
+    #093360 18%,
+    #0d68c9 38%,
+    #1d82ee 58%,
+    #38bdf8 72%,
+    #0d68c9 86%,
+    #072242 100%
+  );
+  background-size: 260% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
   display: inline-block;
+  animation: liveTitleGradient 7s ease-in-out infinite;
+  transition: filter 0.3s ease;
+}
+
+.section-title:hover {
+  animation-duration: 3.5s;
 }
 
 .section-blue .section-title,
@@ -257,6 +306,15 @@ img {
   background: none !important;
   -webkit-text-fill-color: #FFFFFF !important;
   color: #FFFFFF !important;
+  animation: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-title,
+  .blue-text,
+  .gallery-hero-title {
+    animation: none !important;
+  }
 }
 
 .section-subtitle {
@@ -2059,6 +2117,7 @@ img {
   color: #093360;
   background: none;
   -webkit-text-fill-color: initial;
+  animation: none !important;
 }
 
 .internal-fast-track-card .fast-track-desc {
