@@ -6884,6 +6884,313 @@ dialog.custom-modal::backdrop {
   }
 }
 
+/* ==========================================================================
+   Modern Single Image Auto Slider Banner (Pure Visuals, No Text or Tabs)
+   ========================================================================== */
+.single-slider-banner-section {
+  padding: 36px 0 44px 0;
+  background: #FFFFFF;
+  border-top: 1px solid var(--border-light, #E2E8F0);
+  border-bottom: 1px solid var(--border-light, #E2E8F0);
+  position: relative;
+}
+
+.single-slider-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.single-slider-wrapper {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(9, 51, 96, 0.08);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  background: #040D1A;
+  user-select: none;
+  cursor: grab;
+}
+
+.single-slider-wrapper:active {
+  cursor: grabbing;
+}
+
+.single-slider-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.single-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.single-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.single-slider-wrapper:hover .single-slide img {
+  transform: scale(1.025);
+}
+
+/* Glassmorphic Floating Navigation Controls */
+.single-slider-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(11, 37, 69, 0.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+.single-slider-nav:hover {
+  background: rgba(9, 51, 96, 0.85);
+  border-color: #D4AF37;
+  color: #FFFFFF;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.single-slider-prev {
+  left: 20px;
+}
+
+.single-slider-next {
+  right: 20px;
+}
+
+/* Pagination Dots */
+.single-slider-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(7, 24, 46, 0.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.single-slider-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.45);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.single-slider-dot:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.single-slider-dot.active {
+  width: 32px;
+  background: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
+}
+
+/* Auto-Slide Progress Bar */
+.single-slider-progress-track {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  z-index: 11;
+  overflow: hidden;
+}
+
+.single-slider-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #D4AF37, #10B981, #38BDF8);
+  transition: width 0.1s linear;
+}
+
+/* Fullscreen Lightbox Modal */
+.single-gallery-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.28s ease;
+}
+
+.single-gallery-lightbox.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.single-lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(4, 13, 26, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.single-lightbox-dialog {
+  position: relative;
+  z-index: 10;
+  width: 92%;
+  max-width: 1200px;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.single-lightbox-stage {
+  max-width: 100%;
+  max-height: 86vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.single-lightbox-stage img {
+  max-width: 100%;
+  max-height: 86vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+  transition: opacity 0.22s ease;
+}
+
+.single-lightbox-close {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(11, 37, 69, 0.6);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  z-index: 20;
+}
+
+.single-lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.08);
+}
+
+.single-lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(11, 37, 69, 0.7);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  z-index: 20;
+}
+
+.single-lightbox-nav:hover {
+  background: #093360;
+  border-color: #D4AF37;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.single-lightbox-prev {
+  left: -24px;
+}
+
+.single-lightbox-next {
+  right: -24px;
+}
+
+@media (max-width: 991px) {
+  .single-slider-wrapper {
+    height: 400px;
+    border-radius: 16px;
+  }
+  .single-lightbox-prev {
+    left: 10px;
+  }
+  .single-lightbox-next {
+    right: 10px;
+  }
+}
+
+@media (max-width: 640px) {
+  .single-slider-banner-section {
+    padding: 24px 0 32px 0;
+  }
+  .single-slider-container {
+    padding: 0 16px;
+  }
+  .single-slider-wrapper {
+    height: 250px;
+    border-radius: 14px;
+  }
+  .single-slider-nav {
+    width: 38px;
+    height: 38px;
+  }
+  .single-slider-prev {
+    left: 10px;
+  }
+  .single-slider-next {
+    right: 10px;
+  }
+  .single-slider-dot.active {
+    width: 22px;
+  }
+}
+
 /* Strategic Deep Dive Section (400-500 Words) */
 .service-deep-dive-section {
   padding: 56px 0;

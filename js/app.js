@@ -1508,6 +1508,269 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
+
+  // ------------------------------------------------------------------------
+  // 15. Modern Single Image Auto Slider Banner (Pure Visuals, No Text/Tabs)
+  // ------------------------------------------------------------------------
+  // ------------------------------------------------------------------------
+  // 15. Modern Single Image Auto Slider Banner (Pure Visuals, No Text/Tabs)
+  // ------------------------------------------------------------------------
+  document.querySelectorAll('.single-slider-banner-section').forEach((singleSlider) => {
+    const wrapper = singleSlider.querySelector('.single-slider-wrapper');
+    const track = singleSlider.querySelector('.single-slider-track');
+    if (!wrapper || !track) return;
+
+    const slides = Array.from(track.querySelectorAll('.single-slide'));
+    const prevBtn = singleSlider.querySelector('.single-slider-prev');
+    const nextBtn = singleSlider.querySelector('.single-slider-next');
+    const dotsContainer = singleSlider.querySelector('.single-slider-dots');
+    const progressBar = singleSlider.querySelector('.single-slider-progress-bar');
+
+    // Lightbox Elements
+    const lightbox = document.getElementById('singleGalleryLightbox') || singleSlider.querySelector('.single-gallery-lightbox');
+    const lightboxImg = lightbox?.querySelector('#singleLightboxImg') || document.getElementById('singleLightboxImg');
+    const lightboxClose = lightbox?.querySelector('#singleLightboxClose') || document.getElementById('singleLightboxClose');
+    const lightboxPrev = lightbox?.querySelector('#singleLightboxPrev') || document.getElementById('singleLightboxPrev');
+    const lightboxNext = lightbox?.querySelector('#singleLightboxNext') || document.getElementById('singleLightboxNext');
+    const lightboxBackdrop = lightbox?.querySelector('#singleLightboxBackdrop') || document.getElementById('singleLightboxBackdrop');
+
+    let currentSlide = 0;
+    const slideDuration = 4000; // 4 seconds per image
+    let isHovered = false;
+    let animFrame = null;
+    let startTime = 0;
+    let elapsed = 0;
+    let activeLightboxIndex = 0;
+
+    // Render navigation dots
+    function renderDots() {
+      if (!dotsContainer) return;
+      dotsContainer.innerHTML = '';
+      slides.forEach((_, idx) => {
+        const dot = document.createElement('button');
+        dot.className = `single-slider-dot ${idx === currentSlide ? 'active' : ''}`;
+        dot.setAttribute('type', 'button');
+        dot.setAttribute('aria-label', `Slide ${idx + 1}`);
+        dot.addEventListener('click', (e) => {
+          e.stopPropagation();
+          goToSlide(idx);
+        });
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    function updateSlider(resetProgress = true) {
+      if (slides.length === 0) return;
+      if (currentSlide < 0) currentSlide = slides.length - 1;
+      if (currentSlide >= slides.length) currentSlide = 0;
+
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+      slides.forEach((slide, idx) => {
+        slide.classList.toggle('active', idx === currentSlide);
+      });
+
+      if (dotsContainer) {
+        const dots = dotsContainer.querySelectorAll('.single-slider-dot');
+        dots.forEach((dot, idx) => {
+          dot.classList.toggle('active', idx === currentSlide);
+        });
+      }
+
+      if (resetProgress && !isHovered) {
+        startProgress();
+      }
+    }
+
+    function goToSlide(idx) {
+      currentSlide = idx;
+      updateSlider(true);
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      updateSlider(true);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      updateSlider(true);
+    }
+
+    // Auto-slide progress loop
+    function startProgress() {
+      stopProgress();
+      startTime = performance.now() - elapsed;
+
+      function step(now) {
+        if (isHovered) return;
+        elapsed = now - startTime;
+        const progressPct = Math.min(100, (elapsed / slideDuration) * 100);
+
+        if (progressBar) {
+          progressBar.style.width = `${progressPct}%`;
+        }
+
+        if (elapsed >= slideDuration) {
+          elapsed = 0;
+          if (progressBar) progressBar.style.width = '0%';
+          nextSlide();
+        } else {
+          animFrame = requestAnimationFrame(step);
+        }
+      }
+
+      animFrame = requestAnimationFrame(step);
+    }
+
+    function stopProgress() {
+      if (animFrame) {
+        cancelAnimationFrame(animFrame);
+        animFrame = null;
+      }
+    }
+
+    function pauseProgress() {
+      stopProgress();
+    }
+
+    function resumeProgress() {
+      if (!isHovered) {
+        startProgress();
+      }
+    }
+
+    // Pause on hover
+    if (wrapper) {
+      wrapper.addEventListener('mouseenter', () => {
+        isHovered = true;
+        pauseProgress();
+      });
+
+      wrapper.addEventListener('mouseleave', () => {
+        isHovered = false;
+        resumeProgress();
+      });
+    }
+
+    // Controls
+    if (prevBtn) {
+      prevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        prevSlide();
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        nextSlide();
+      });
+    }
+
+    // Touch & Swipe Support
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    wrapper.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      isHovered = true;
+      pauseProgress();
+    }, { passive: true });
+
+    wrapper.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      isHovered = false;
+      resumeProgress();
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 40) {
+        if (diff > 0) nextSlide();
+        else prevSlide();
+      }
+    }, { passive: true });
+
+    // Mouse Drag Support
+    let mouseStartX = 0;
+    let isMouseDown = false;
+
+    wrapper.addEventListener('mousedown', (e) => {
+      if (e.target.closest('button')) return;
+      isMouseDown = true;
+      mouseStartX = e.clientX;
+    });
+
+    window.addEventListener('mouseup', (e) => {
+      if (!isMouseDown) return;
+      isMouseDown = false;
+      const diff = mouseStartX - e.clientX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) nextSlide();
+        else prevSlide();
+      }
+    });
+
+    // Lightbox Preview on Click
+    function openLightbox(index) {
+      if (!lightbox || slides.length === 0) return;
+      activeLightboxIndex = (index + slides.length) % slides.length;
+      const targetSlide = slides[activeLightboxIndex];
+      const imgSrc = targetSlide.getAttribute('data-img') || targetSlide.querySelector('img')?.src;
+
+      if (lightboxImg) {
+        lightboxImg.src = imgSrc;
+      }
+
+      lightbox.classList.add('active');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      pauseProgress();
+    }
+
+    function closeLightbox() {
+      if (!lightbox) return;
+      lightbox.classList.remove('active');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (!isHovered) {
+        startProgress();
+      }
+    }
+
+    function nextLightbox() {
+      openLightbox(activeLightboxIndex + 1);
+    }
+
+    function prevLightbox() {
+      openLightbox(activeLightboxIndex - 1);
+    }
+
+    slides.forEach((slide, idx) => {
+      slide.addEventListener('click', (e) => {
+        if (e.target.closest('button')) return;
+        openLightbox(idx);
+      });
+    });
+
+    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+    if (lightboxBackdrop) lightboxBackdrop.addEventListener('click', closeLightbox);
+    if (lightboxPrev) lightboxPrev.addEventListener('click', prevLightbox);
+    if (lightboxNext) lightboxNext.addEventListener('click', nextLightbox);
+
+    window.addEventListener('keydown', (e) => {
+      if (lightbox && lightbox.classList.contains('active')) {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') nextLightbox();
+        if (e.key === 'ArrowLeft') prevLightbox();
+      }
+    });
+
+    // Initialize
+    renderDots();
+    updateSlider(true);
+    startProgress();
+  });
 });
 
 
