@@ -3656,9 +3656,13 @@ dialog.custom-modal::backdrop {
   font-size: clamp(2rem, 2.7vw, 2.6rem);
   font-weight: 800;
   line-height: 1.2;
-  color: var(--text-dark);
   margin-top: 10px;
   margin-bottom: 16px;
+  background: linear-gradient(135deg, #093360 0%, #0d68c9 55%, #1d82ee 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
 }
 
 .about-lead-text {
@@ -8072,10 +8076,14 @@ dialog.custom-modal::backdrop {
   font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif !important;
   font-size: clamp(1.85rem, 3.8vw, 2.75rem);
   font-weight: 800;
-  color: #093360;
   line-height: 1.2;
   margin-bottom: 10px;
   letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #093360 0%, #0d68c9 55%, #1d82ee 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
 }
 
 .gallery-hero-sub {
