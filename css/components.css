@@ -7684,6 +7684,283 @@ dialog.custom-modal::backdrop {
   margin: 0;
 }
 
+/* ==========================================================================
+   Agency History & Milestones Evolution Timeline (about.html)
+   ========================================================================== */
+.about-history-section {
+  padding: 56px 0 68px 0;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-section-alt, #F8FAFC);
+}
+
+.history-section-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted, #64748B);
+  line-height: 1.6;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.agency-timeline {
+  position: relative;
+  max-width: 1080px;
+  margin: 36px auto 0 auto;
+  padding: 10px 0;
+}
+
+/* Center vertical spine */
+.agency-timeline::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 50%;
+  width: 3px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, 
+    rgba(13, 104, 201, 0.2) 0%, 
+    rgba(13, 104, 201, 0.85) 30%, 
+    rgba(29, 130, 238, 0.9) 75%, 
+    rgba(13, 104, 201, 0.25) 100%
+  );
+  border-radius: 999px;
+  z-index: 1;
+}
+
+.timeline-entry {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  padding-bottom: 44px;
+  width: 100%;
+}
+
+.timeline-entry:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-entry.timeline-entry-reverse {
+  justify-content: flex-end;
+}
+
+/* Milestone Node Center Anchor */
+.timeline-marker {
+  position: absolute;
+  left: 50%;
+  top: 22px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  z-index: 3;
+}
+
+.marker-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 4px solid #0d68c9;
+  box-shadow: 0 0 0 4px rgba(13, 104, 201, 0.16), 0 4px 12px rgba(13, 104, 201, 0.25);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.timeline-entry:hover .marker-dot {
+  transform: scale(1.25);
+  border-color: #1d82ee;
+  box-shadow: 0 0 0 6px rgba(29, 130, 238, 0.25), 0 6px 18px rgba(13, 104, 201, 0.38);
+}
+
+.marker-year {
+  font-family: 'Manrope', -apple-system, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #093360;
+  background: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(13, 104, 201, 0.22);
+  box-shadow: 0 2px 6px rgba(9, 51, 96, 0.05);
+  white-space: nowrap;
+}
+
+/* Timeline Card */
+.timeline-card {
+  width: calc(50% - 48px);
+  background: #FFFFFF;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 18px;
+  padding: 24px 26px;
+  box-shadow: 0 8px 24px rgba(9, 51, 96, 0.05);
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.4s ease;
+  z-index: 2;
+}
+
+.timeline-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(13, 104, 201, 0.4);
+  box-shadow: 0 16px 36px rgba(9, 51, 96, 0.12);
+}
+
+.timeline-card-highlight {
+  border-color: rgba(13, 104, 201, 0.45);
+  background: linear-gradient(145deg, #FFFFFF 0%, #F8FAFD 100%);
+  box-shadow: 0 10px 30px rgba(13, 104, 201, 0.08);
+}
+
+.timeline-card-highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #093360 0%, #0d68c9 50%, #38bdf8 100%);
+  border-radius: 18px 18px 0 0;
+}
+
+.timeline-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.timeline-tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.70rem;
+  font-weight: 750;
+  padding: 3px 9px;
+  border-radius: 999px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.tag-blue {
+  background: rgba(13, 104, 201, 0.1);
+  color: #0d68c9;
+  border: 1px solid rgba(13, 104, 201, 0.2);
+}
+
+.tag-green {
+  background: rgba(16, 185, 129, 0.1);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.tag-gold {
+  background: rgba(212, 175, 55, 0.12);
+  color: #B45309;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+.tag-purple {
+  background: rgba(139, 92, 246, 0.1);
+  color: #7C3AED;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.timeline-timeframe {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #64748B;
+}
+
+.timeline-heading {
+  font-family: 'Manrope', -apple-system, sans-serif;
+  font-size: 1.10rem;
+  font-weight: 800;
+  color: #072242;
+  line-height: 1.35;
+  margin-bottom: 8px;
+  letter-spacing: -0.015em;
+}
+
+.timeline-text {
+  font-size: 0.86rem;
+  color: #475569;
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+
+.timeline-metrics-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding-top: 12px;
+  border-top: 1px solid #EDF2F7;
+}
+
+.timeline-metric-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  padding: 5px 11px;
+  border-radius: 8px;
+  font-size: 0.76rem;
+  color: #475569;
+}
+
+.timeline-metric-pill strong {
+  font-family: 'Manrope', -apple-system, sans-serif;
+  font-weight: 800;
+  color: #093360;
+  font-size: 0.82rem;
+}
+
+/* Tablet & Mobile (< 900px) Responsive Architecture */
+@media (max-width: 900px) {
+  .agency-timeline::before {
+    left: 20px;
+    transform: none;
+  }
+
+  .timeline-entry,
+  .timeline-entry.timeline-entry-reverse {
+    justify-content: flex-start;
+    padding-left: 50px;
+  }
+
+  .timeline-marker {
+    left: 20px;
+    transform: translateX(-50%);
+  }
+
+  .timeline-card {
+    width: 100%;
+    padding: 20px 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-history-section {
+    padding: 40px 0 48px 0;
+  }
+
+  .timeline-metrics-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .timeline-metric-pill {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
 /* 4 Operational Disciplines Grid (Photo + Title) */
 .about-disciplines-grid {
   display: grid;
