@@ -171,27 +171,26 @@ img {
 .blue-text {
   background: linear-gradient(
     120deg,
-    #093360 0%,
-    #0d68c9 22%,
-    #1d82ee 46%,
-    #38bdf8 62%,
-    #0d68c9 80%,
-    #093360 100%
+    #0d68c9 0%,
+    #1d82ee 25%,
+    #38bdf8 50%,
+    #1d82ee 75%,
+    #0d68c9 100%
   );
-  background-size: 260% auto;
+  background-size: 220% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   display: inline-block;
-  animation: liveTitleGradient 6.5s ease-in-out infinite;
-  transition: filter 0.3s ease;
+  animation: liveTitleGradient 6s ease-in-out infinite;
+  transition: filter 0.3s ease, animation-duration 0.3s ease;
 }
 
 .blue-text:hover {
-  animation-duration: 3.2s;
-  filter: drop-shadow(0 2px 14px rgba(13, 104, 201, 0.28));
+  animation-duration: 3s;
+  filter: drop-shadow(0 2px 14px rgba(13, 104, 201, 0.32));
 }
 
 /* Containers */
@@ -282,33 +281,34 @@ img {
 }
 
 .section-title {
+  font-family: var(--font-display, 'Manrope', sans-serif);
   font-size: clamp(1.85rem, 3.2vw, 2.5rem);
   font-weight: 800;
   margin-bottom: 0;
   line-height: 1.25;
+  color: #072242;
+  letter-spacing: -0.02em;
+  display: block;
+}
+
+.section-title.live-gradient,
+.title-live-gradient {
   background: linear-gradient(
     120deg,
     #072242 0%,
-    #093360 18%,
-    #0d68c9 38%,
-    #1d82ee 58%,
-    #38bdf8 72%,
-    #0d68c9 86%,
+    #0d68c9 25%,
+    #1d82ee 50%,
+    #38bdf8 70%,
+    #0d68c9 88%,
     #072242 100%
   );
-  background-size: 260% auto;
+  background-size: 240% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
-  display: block;
-  animation: liveTitleGradient 7s ease-in-out infinite;
-  transition: filter 0.3s ease;
-}
-
-.section-title:hover {
-  animation-duration: 3.5s;
+  animation: liveTitleGradient 6s ease-in-out infinite;
 }
 
 .section-blue .section-title,

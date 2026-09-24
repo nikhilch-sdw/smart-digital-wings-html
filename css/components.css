@@ -3660,16 +3660,15 @@ dialog.custom-modal::backdrop {
 }
 
 .about-title {
+  font-family: var(--font-display, 'Manrope', sans-serif);
   font-size: clamp(2rem, 2.7vw, 2.6rem);
   font-weight: 800;
   line-height: 1.2;
   margin-top: 10px;
   margin-bottom: 16px;
-  background: linear-gradient(135deg, #093360 0%, #0d68c9 55%, #1d82ee 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  display: inline-block;
+  color: #072242;
+  letter-spacing: -0.02em;
+  display: block;
 }
 
 .about-lead-text {
@@ -6458,7 +6457,7 @@ dialog.custom-modal::backdrop {
   font-family: var(--font-display);
   font-size: clamp(1.65rem, 2.6vw, 2.2rem);
   font-weight: 800;
-  color: var(--text-dark);
+  color: #072242;
   line-height: 1.22;
   margin: 6px 0 10px 0;
   letter-spacing: -0.015em;
