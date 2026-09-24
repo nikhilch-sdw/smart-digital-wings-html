@@ -38,7 +38,7 @@
   --bg-section-alt: #F0F6FD;
   --text-dark: #0F172A;
   --text-main: #1E293B;
-  --text-muted: #64748B;
+  --text-muted: #334155;
   --text-dim: #94A3B8;
   --border-light: #E2E8F0;
   --border-blue: rgba(9, 51, 96, 0.2);
@@ -422,7 +422,7 @@ img {
   font-size: 0.625rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #64748B;
+  color: #334155;
   font-weight: 600;
   margin-top: 1px;
 }
@@ -2096,7 +2096,7 @@ img {
   margin-top: 12px;
   font-size: 0.76rem;
   font-weight: 600;
-  color: #64748B;
+  color: #334155;
   flex-wrap: wrap;
 }
 
