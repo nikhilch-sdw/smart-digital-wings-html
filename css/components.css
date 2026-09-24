@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
 /* ==========================================================================
    SMART DIGITAL WINGS - INTERACTIVE COMPONENTS (#093360 ROYAL BLUE & GOLD)
    Calculator, Package Builder, Services, Timeline, Reviews, & Modals
@@ -4573,7 +4575,7 @@ dialog.custom-modal::backdrop {
 }
 
 .map-card-title {
-  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif !important;
   font-size: 1.05rem;
   font-weight: 700;
   color: #FFFFFF;
@@ -4883,7 +4885,7 @@ dialog.custom-modal::backdrop {
 .service-badge-num {
   background: linear-gradient(135deg, #FFC727 0%, #F5A60F 100%);
   color: #0B2545;
-  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif !important;
   font-weight: 850;
   font-size: 1.05rem;
   line-height: 1;
@@ -4936,7 +4938,7 @@ dialog.custom-modal::backdrop {
 }
 
 .service-card-title {
-  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif !important;
   font-size: 1.15rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -8067,7 +8069,7 @@ dialog.custom-modal::backdrop {
 }
 
 .gallery-hero-title {
-  font-family: var(--font-display);
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif !important;
   font-size: clamp(1.85rem, 3.8vw, 2.75rem);
   font-weight: 800;
   color: #093360;
