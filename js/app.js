@@ -1510,10 +1510,67 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ------------------------------------------------------------------------
-  // 15. Modern Single Image Auto Slider Banner (Pure Visuals, No Text/Tabs)
+  // 15. Horizontal Accordion Showcase (Expanding Interactive Card Panels)
   // ------------------------------------------------------------------------
+  document.querySelectorAll('.horizontal-accordion').forEach((accordion) => {
+    const panels = Array.from(accordion.querySelectorAll('.accordion-panel'));
+    if (!panels.length) return;
+
+    // Activate a panel by element
+    function activatePanel(targetPanel) {
+      if (!targetPanel || targetPanel.classList.contains('active')) return;
+      panels.forEach((p) => {
+        p.classList.remove('active');
+        p.setAttribute('aria-selected', 'false');
+      });
+      targetPanel.classList.add('active');
+      targetPanel.setAttribute('aria-selected', 'true');
+    }
+
+    panels.forEach((panel, index) => {
+      // Hover activation on desktop/laptop
+      panel.addEventListener('mouseenter', () => {
+        if (window.innerWidth > 768) {
+          activatePanel(panel);
+        }
+      });
+
+      // Click / Tap activation (desktop + mobile)
+      panel.addEventListener('click', (e) => {
+        if (e.target.closest('.accordion-cta')) return;
+        activatePanel(panel);
+      });
+
+      // Keyboard navigation
+      panel.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          activatePanel(panel);
+        } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+          e.preventDefault();
+          const nextIndex = (index + 1) % panels.length;
+          panels[nextIndex].focus();
+          activatePanel(panels[nextIndex]);
+        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+          e.preventDefault();
+          const prevIndex = (index - 1 + panels.length) % panels.length;
+          panels[prevIndex].focus();
+          activatePanel(panels[prevIndex]);
+        } else if (e.key === 'Home') {
+          e.preventDefault();
+          panels[0].focus();
+          activatePanel(panels[0]);
+        } else if (e.key === 'End') {
+          e.preventDefault();
+          panels[panels.length - 1].focus();
+          activatePanel(panels[panels.length - 1]);
+        }
+      });
+    });
+  });
+
   // ------------------------------------------------------------------------
-  // 15. Modern Single Image Auto Slider Banner (Pure Visuals, No Text/Tabs)
+  // 16. Modern Single Image Auto Slider Banner (Pure Visuals, No Text/Tabs)
   // ------------------------------------------------------------------------
   document.querySelectorAll('.single-slider-banner-section').forEach((singleSlider) => {
     const wrapper = singleSlider.querySelector('.single-slider-wrapper');

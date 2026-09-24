@@ -287,86 +287,174 @@
       </div>
     </section>
 
-    <!-- Single Image Auto Slider Banner (Pure Visual Showcase, No Text or Tabs) -->
-    <section class="single-slider-banner-section" id="singleImageBannerSlider" aria-label="Google Ads & Commercial PPC Showcase">
-      <div class="single-slider-container">
-        <div class="single-slider-wrapper" id="singleSliderWrapper">
+    <!-- Interactive Horizontal Accordion Showcase (Replaces Slider) -->
+    <section class="horizontal-accordion-section" id="horizontalAccordionSection" aria-label="Google Ads Showcase Accordion">
+      <div class="horizontal-accordion-container">
+        
+        <div class="horizontal-accordion-header">
+          <div class="section-badge">Commercial PPC Showcase</div>
+          <h2 class="section-title">Engineered for <span class="blue-text">High-Intent ROAS</span></h2>
+          <p class="section-subtitle">
+            Explore institutional-grade Google Ads architectures engineered to dominate search auctions, maximize conversion value, and scale predictably.
+          </p>
+        </div>
+
+        <div class="horizontal-accordion" id="serviceHorizontalAccordion" role="tablist">
           
-          <!-- Slider Track (1 Image per Slide) -->
-          <div class="single-slider-track" id="singleSliderTrack">
-            <div class="single-slide active" data-img="https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&fit=crop&w=1600&q=85">
-              <img src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&fit=crop&w=1600&q=85" alt="Google Ads Showcase 1" loading="lazy">
+          <!-- Panel 1: Precision Search -->
+          <div class="accordion-panel active" tabindex="0" role="tab" aria-selected="true" aria-label="Precision Paid Search Auctions">
+            <div class="accordion-panel-bg" style="background-image: url('https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&fit=crop&w=1600&q=85');"></div>
+            <div class="accordion-panel-overlay"></div>
+            
+            <div class="accordion-collapsed-bar">
+              <span class="accordion-collapsed-num">01</span>
+              <span class="accordion-collapsed-title">Search Auctions</span>
+              <span class="accordion-collapsed-icon">✦</span>
             </div>
-            <div class="single-slide" data-img="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=1600&q=85">
-              <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=1600&q=85" alt="Google Ads Showcase 2" loading="lazy">
-            </div>
-            <div class="single-slide" data-img="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=85">
-              <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=85" alt="Google Ads Showcase 3" loading="lazy">
-            </div>
-            <div class="single-slide" data-img="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1600&q=85">
-              <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1600&q=85" alt="Google Ads Showcase 4" loading="lazy">
-            </div>
-            <div class="single-slide" data-img="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=85">
-              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=85" alt="Google Ads Showcase 5" loading="lazy">
-            </div>
-            <div class="single-slide" data-img="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1600&q=85">
-              <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1600&q=85" alt="Google Ads Showcase 6" loading="lazy">
-            </div>
-            <div class="single-slide" data-img="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=85">
-              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=85" alt="Google Ads Showcase 7" loading="lazy">
-            </div>
-            <div class="single-slide" data-img="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=85">
-              <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=85" alt="Google Ads Showcase 8" loading="lazy">
+
+            <div class="accordion-expanded-content">
+              <div class="accordion-badge">✦ High-Intent Search</div>
+              <h3 class="accordion-title">Precision Paid Search Auctions</h3>
+              <p class="accordion-desc">
+                Targeting high-intent commercial search phrases with negative keyword expansion and tCPA smart bidding rules that eliminate wasted budget.
+              </p>
+              <div class="accordion-footer">
+                <span class="accordion-pill">🎯 4.8x Search ROAS</span>
+                <span class="accordion-pill">✦ Target-CPA Rules</span>
+                <a href="contact.html" class="accordion-cta">Launch Search &rarr;</a>
+              </div>
             </div>
           </div>
 
-          <!-- Glassmorphic Floating Navigation Controls -->
-          <button type="button" class="single-slider-nav single-slider-prev" id="singleSliderPrev" aria-label="Previous Slide">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="15 18 9 12 15 6"></polyline>
-            </svg>
-          </button>
-          <button type="button" class="single-slider-nav single-slider-next" id="singleSliderNext" aria-label="Next Slide">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </button>
+          <!-- Panel 2: Performance Max -->
+          <div class="accordion-panel" tabindex="0" role="tab" aria-selected="false" aria-label="Multi-Channel PMax Scaling">
+            <div class="accordion-panel-bg" style="background-image: url('https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=1600&q=85');"></div>
+            <div class="accordion-panel-overlay"></div>
+            
+            <div class="accordion-collapsed-bar">
+              <span class="accordion-collapsed-num">02</span>
+              <span class="accordion-collapsed-title">PMax Campaigns</span>
+              <span class="accordion-collapsed-icon">✦</span>
+            </div>
 
-          <!-- Bottom Pagination Indicators -->
-          <div class="single-slider-indicators">
-            <div class="single-slider-dots" id="singleSliderDots"></div>
+            <div class="accordion-expanded-content">
+              <div class="accordion-badge">✦ Performance Max</div>
+              <h3 class="accordion-title">Multi-Channel PMax Scaling</h3>
+              <p class="accordion-desc">
+                Full-funnel Google Shopping, Maps, Gmail, and YouTube inventory powered by first-party customer audience signals and asset groups.
+              </p>
+              <div class="accordion-footer">
+                <span class="accordion-pill">🛍️ +340% Shopping Revenue</span>
+                <span class="accordion-pill">📡 First-Party Audience</span>
+                <a href="contact.html" class="accordion-cta">Scale Shopping &rarr;</a>
+              </div>
+            </div>
           </div>
 
-          <!-- Auto-Slide Countdown Progress Line -->
-          <div class="single-slider-progress-track">
-            <div class="single-slider-progress-bar" id="singleSliderProgressBar"></div>
+          <!-- Panel 3: Corporate B2B Lead Gen -->
+          <div class="accordion-panel" tabindex="0" role="tab" aria-selected="false" aria-label="Enterprise Pipeline Generation">
+            <div class="accordion-panel-bg" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=85');"></div>
+            <div class="accordion-panel-overlay"></div>
+            
+            <div class="accordion-collapsed-bar">
+              <span class="accordion-collapsed-num">03</span>
+              <span class="accordion-collapsed-title">B2B Pipelines</span>
+              <span class="accordion-collapsed-icon">✦</span>
+            </div>
+
+            <div class="accordion-expanded-content">
+              <div class="accordion-badge">✦ Enterprise B2B Ads</div>
+              <h3 class="accordion-title">Enterprise Pipeline Generation</h3>
+              <p class="accordion-desc">
+                Account-based bidding and offline conversion tracking feeding verified decision-maker opportunities straight into your sales CRM.
+              </p>
+              <div class="accordion-footer">
+                <span class="accordion-pill">💼 ₹8.4Cr Sales Pipeline</span>
+                <span class="accordion-pill">🤝 CRM Lead Sync</span>
+                <a href="contact.html" class="accordion-cta">Scale B2B &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 4: Consumer Tech & Hardware -->
+          <div class="accordion-panel" tabindex="0" role="tab" aria-selected="false" aria-label="Product Launch Campaigns">
+            <div class="accordion-panel-bg" style="background-image: url('https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1600&q=85');"></div>
+            <div class="accordion-panel-overlay"></div>
+            
+            <div class="accordion-collapsed-bar">
+              <span class="accordion-collapsed-num">04</span>
+              <span class="accordion-collapsed-title">Product Launches</span>
+              <span class="accordion-collapsed-icon">✦</span>
+            </div>
+
+            <div class="accordion-expanded-content">
+              <div class="accordion-badge">✦ E-Commerce Hardware</div>
+              <h3 class="accordion-title">Product Launch Campaigns</h3>
+              <p class="accordion-desc">
+                Multi-tier commercial search and YouTube discovery driving rapid consumer adoption and profitable first-order unit economics.
+              </p>
+              <div class="accordion-footer">
+                <span class="accordion-pill">🎧 38% Lower CPA</span>
+                <span class="accordion-pill">🚀 Rapid Scaling</span>
+                <a href="contact.html" class="accordion-cta">Launch Product &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 5: Real Estate & High-Ticket -->
+          <div class="accordion-panel" tabindex="0" role="tab" aria-selected="false" aria-label="High-Ticket Real Estate Search">
+            <div class="accordion-panel-bg" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=85');"></div>
+            <div class="accordion-panel-overlay"></div>
+            
+            <div class="accordion-collapsed-bar">
+              <span class="accordion-collapsed-num">05</span>
+              <span class="accordion-collapsed-title">High-Ticket Search</span>
+              <span class="accordion-collapsed-icon">✦</span>
+            </div>
+
+            <div class="accordion-expanded-content">
+              <div class="accordion-badge">✦ Luxury High-Ticket</div>
+              <h3 class="accordion-title">High-Ticket Real Estate Search</h3>
+              <p class="accordion-desc">
+                Geotargeted ultra-HNI investor search funnels with automated phone call tracking and qualified lead forms for premium developments.
+              </p>
+              <div class="accordion-footer">
+                <span class="accordion-pill">🏡 5.2x Pipeline Value</span>
+                <span class="accordion-pill">📞 Verified Calls</span>
+                <a href="contact.html" class="accordion-cta">Scale Real Estate &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 6: Telemetry & Smart Bidding -->
+          <div class="accordion-panel" tabindex="0" role="tab" aria-selected="false" aria-label="Algorithmic ROAS Optimization">
+            <div class="accordion-panel-bg" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=85');"></div>
+            <div class="accordion-panel-overlay"></div>
+            
+            <div class="accordion-collapsed-bar">
+              <span class="accordion-collapsed-num">06</span>
+              <span class="accordion-collapsed-title">ROAS Optimization</span>
+              <span class="accordion-collapsed-icon">✦</span>
+            </div>
+
+            <div class="accordion-expanded-content">
+              <div class="accordion-badge">✦ Smart Bidding &amp; ROAS</div>
+              <h3 class="accordion-title">Algorithmic ROAS Optimization</h3>
+              <p class="accordion-desc">
+                Automated portfolio bid strategies using Google AI signals to protect margin while capturing category top impression share.
+              </p>
+              <div class="accordion-footer">
+                <span class="accordion-pill">📈 92% Top Impression Share</span>
+                <span class="accordion-pill">🤖 Value-Based Bidding</span>
+                <a href="contact.html" class="accordion-cta">Optimize ROAS &rarr;</a>
+              </div>
+            </div>
           </div>
 
         </div>
+
       </div>
     </section>
-
-    <!-- Clean Lightbox Modal for Fullscreen Image View -->
-    <div class="single-gallery-lightbox" id="singleGalleryLightbox" role="dialog" aria-modal="true" aria-hidden="true">
-      <div class="single-lightbox-backdrop" id="singleLightboxBackdrop"></div>
-      <div class="single-lightbox-dialog">
-        <button type="button" class="single-lightbox-close" id="singleLightboxClose" aria-label="Close Fullscreen (Esc)">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-        <button type="button" class="single-lightbox-nav single-lightbox-prev" id="singleLightboxPrev" aria-label="Previous Image">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
-        </button>
-        <div class="single-lightbox-stage">
-          <img src="" alt="Fullscreen Preview" id="singleLightboxImg">
-        </div>
-        <button type="button" class="single-lightbox-nav single-lightbox-next" id="singleLightboxNext" aria-label="Next Image">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-        </button>
-      </div>
-    </div>
 
     <!-- Comprehensive Strategic Service Overview (400-500 Words) -->
     <section class="section section-alt service-deep-dive-section">

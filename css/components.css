@@ -6891,6 +6891,392 @@ dialog.custom-modal::backdrop {
 }
 
 /* ==========================================================================
+   Horizontal Accordion Showcase (Expanding Interactive Card Panels)
+   ========================================================================== */
+.horizontal-accordion-section {
+  padding: 44px 0 52px 0;
+  background: #FFFFFF;
+  border-top: 1px solid var(--border-light, #E2E8F0);
+  border-bottom: 1px solid var(--border-light, #E2E8F0);
+  position: relative;
+  overflow: hidden;
+}
+
+.horizontal-accordion-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.horizontal-accordion-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.horizontal-accordion-header .section-badge {
+  margin-bottom: 10px;
+}
+
+.horizontal-accordion-header .section-title {
+  margin-bottom: 8px;
+}
+
+.horizontal-accordion-header .section-subtitle {
+  max-width: 680px;
+  margin: 0 auto;
+  font-size: 0.96rem;
+  color: var(--text-muted, #64748B);
+  line-height: 1.5;
+}
+
+.horizontal-accordion {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  height: 520px;
+  border-radius: 22px;
+  position: relative;
+  user-select: none;
+}
+
+.accordion-panel {
+  position: relative;
+  flex: 1;
+  min-width: 72px;
+  height: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #040D1A;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 8px 24px rgba(9, 51, 96, 0.06);
+  transition: flex 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s ease,
+              box-shadow 0.4s ease;
+  outline: none;
+}
+
+.accordion-panel:focus-visible {
+  outline: 2px solid #0d68c9;
+  outline-offset: 2px;
+}
+
+.accordion-panel.active {
+  flex: 5.2;
+  cursor: default;
+  border-color: rgba(13, 104, 201, 0.55);
+  box-shadow: 0 20px 50px rgba(9, 51, 96, 0.22);
+}
+
+.accordion-panel-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+  filter: brightness(0.62) saturate(0.9);
+}
+
+.accordion-panel:hover .accordion-panel-bg,
+.accordion-panel.active .accordion-panel-bg {
+  filter: brightness(0.88) saturate(1.08);
+}
+
+.accordion-panel.active .accordion-panel-bg {
+  transform: scale(1.035);
+}
+
+.accordion-panel-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(4, 13, 26, 0.22) 0%,
+    rgba(4, 13, 26, 0.52) 45%,
+    rgba(4, 13, 26, 0.92) 80%,
+    rgba(4, 13, 26, 0.98) 100%
+  );
+  transition: background 0.5s ease;
+  pointer-events: none;
+}
+
+.accordion-panel.active .accordion-panel-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(4, 13, 26, 0.1) 0%,
+    rgba(4, 13, 26, 0.38) 48%,
+    rgba(4, 13, 26, 0.86) 78%,
+    rgba(4, 13, 26, 0.97) 100%
+  );
+}
+
+/* Collapsed State Elements */
+.accordion-collapsed-bar {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 8px;
+  z-index: 4;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.accordion-panel.active .accordion-collapsed-bar {
+  opacity: 0;
+}
+
+.accordion-collapsed-num {
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  background: rgba(13, 104, 201, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  letter-spacing: -0.01em;
+}
+
+.accordion-collapsed-title {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: nowrap;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  margin-bottom: 12px;
+}
+
+.accordion-collapsed-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 0.82rem;
+}
+
+/* Expanded State Content */
+.accordion-expanded-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 34px 36px 30px 36px;
+  z-index: 5;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.accordion-panel.active .accordion-expanded-content {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition: opacity 0.45s ease 0.18s, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.18s;
+}
+
+.accordion-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  padding: 5px 14px;
+  background: rgba(13, 104, 201, 0.38);
+  border: 1px solid rgba(56, 189, 248, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 999px;
+  color: #38BDF8;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.accordion-title {
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: clamp(1.4rem, 2.3vw, 2.05rem);
+  font-weight: 800;
+  color: #FFFFFF !important;
+  line-height: 1.2;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.025em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.accordion-desc {
+  font-size: 0.94rem;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.6;
+  max-width: 620px;
+  margin: 0 0 20px 0;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.accordion-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.accordion-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #FFFFFF;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.accordion-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #FFE89E 0%, #D4AF37 50%, #BD8C1B 100%);
+  color: #093360;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-left: auto;
+}
+
+.accordion-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+  color: #093360;
+}
+
+/* Tablet Adaptations (991px and down) */
+@media (max-width: 991px) {
+  .horizontal-accordion {
+    height: 480px;
+    gap: 10px;
+  }
+  .accordion-panel {
+    min-width: 58px;
+    border-radius: 16px;
+  }
+  .accordion-expanded-content {
+    padding: 24px 24px 20px 24px;
+  }
+  .accordion-title {
+    font-size: 1.35rem;
+  }
+  .accordion-desc {
+    font-size: 0.88rem;
+    margin-bottom: 14px;
+  }
+  .accordion-cta {
+    margin-left: 0;
+  }
+}
+
+/* Mobile Adaptations (768px and down) - Vertical Accordion Stack */
+@media (max-width: 768px) {
+  .horizontal-accordion-section {
+    padding: 32px 0 40px 0;
+  }
+  .horizontal-accordion-container {
+    padding: 0 16px;
+  }
+  .horizontal-accordion {
+    flex-direction: column;
+    height: 640px;
+    gap: 8px;
+  }
+  .accordion-panel {
+    width: 100%;
+    min-width: unset;
+    min-height: 52px;
+    flex: 1;
+    border-radius: 14px;
+  }
+  .accordion-panel.active {
+    flex: 5.5;
+  }
+  .accordion-collapsed-bar {
+    flex-direction: row;
+    padding: 0 16px;
+    justify-content: flex-start;
+    gap: 14px;
+  }
+  .accordion-collapsed-num {
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+  }
+  .accordion-collapsed-title {
+    writing-mode: horizontal-tb;
+    transform: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 0;
+  }
+  .accordion-collapsed-icon {
+    display: none;
+  }
+  .accordion-expanded-content {
+    padding: 18px 18px 16px 18px;
+  }
+  .accordion-title {
+    font-size: 1.2rem;
+  }
+  .accordion-desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 0.82rem;
+    margin-bottom: 12px;
+  }
+  .accordion-pill {
+    padding: 4px 10px;
+    font-size: 0.74rem;
+  }
+  .accordion-cta {
+    padding: 5px 14px;
+    font-size: 0.78rem;
+  }
+}
+
+/* ==========================================================================
    Modern Single Image Auto Slider Banner (Pure Visuals, No Text or Tabs)
    ========================================================================== */
 .single-slider-banner-section {
