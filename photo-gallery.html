@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Gallery | Smart Digital Wings — Luxury Creative Studio & Production</title>
+  <meta name="description"
+    content="Explore the official photo gallery of Smart Digital Wings. High-end commercial photoshoots, brand advertising visuals, creative studio productions, and team culture.">
+  <meta property="og:title" content="Photo Gallery | Smart Digital Wings">
+  <meta property="og:description"
+    content="Commercial photoshoots, brand campaigns, studio production stills, and creative direction by Smart Digital Wings.">
+
+  <!-- Google Fonts: Manrope (Headings) & Inter (UI/Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/Smart Digital Wings (1).png">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css?v=4.5">
+</head>
+
+<body>
+
+  <!-- Main Navigation Header -->
+  <header class="main-header">
+    <div class="container nav-container">
+
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" aria-label="Smart Digital Wings Home">
+        <div class="logo-badge">
+          <div class="logo-badge-inner">
+            <img src="assets/Smart Digital Wings (1).png" alt="Smart Digital Wings Logo">
+          </div>
+        </div>
+        <div class="brand-info">
+          <span class="brand-name">SMART <span class="gold-text">DIGITAL WINGS</span></span>
+          <span class="brand-sub">Digital Marketing & Growth Agency</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+
+        <!-- Services & Solutions Dropdown -->
+        <div class="nav-dropdown">
+          <a href="services.html" class="nav-link nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+            <span>Services</span>
+            <svg class="dropdown-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="service-smm.html" class="dropdown-item">
+              <span class="dropdown-item-title">Social Media Marketing</span>
+            </a>
+            <a href="service-analytics.html" class="dropdown-item">
+              <span class="dropdown-item-title">Performance Marketing</span>
+            </a>
+            <a href="service-web-design.html" class="dropdown-item">
+              <span class="dropdown-item-title">Website Designing</span>
+            </a>
+            <a href="service-branding.html" class="dropdown-item">
+              <span class="dropdown-item-title">Graphic Designing</span>
+            </a>
+            <a href="contact.html" class="dropdown-item">
+              <span class="dropdown-item-title">Videoshoot & Edit</span>
+            </a>
+            <a href="service-ppc.html" class="dropdown-item">
+              <span class="dropdown-item-title">Google Ads</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="services.html" class="dropdown-item dropdown-view-all">
+              <span class="dropdown-item-title">View All Services</span>
+              <svg class="dropdown-view-all-arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Our Work (Direct Link) -->
+        <a href="our-work.html" class="nav-link">Our Work</a>
+
+        <!-- Gallery Dropdown (Active) -->
+        <div class="nav-dropdown">
+          <a href="photo-gallery.html" class="nav-link nav-dropdown-toggle active" aria-haspopup="true" aria-expanded="false">
+            <span>Gallery</span>
+            <svg class="dropdown-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="photo-gallery.html" class="dropdown-item active">
+              <span class="dropdown-item-title">Photos Gallery</span>
+            </a>
+            <a href="video-gallery.html" class="dropdown-item">
+              <span class="dropdown-item-title">Videos Gallery</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Company & Proof Dropdown -->
+        <div class="nav-dropdown">
+          <a href="about.html" class="nav-link nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+            <span>Company</span>
+            <svg class="dropdown-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="about.html" class="dropdown-item">
+              <span class="dropdown-item-title">About Us</span>
+            </a>
+            <a href="index.html#reviews" class="dropdown-item">
+              <span class="dropdown-item-title">Client Reviews</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact (Direct Link) -->
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- CTA Buttons & Contact -->
+      <div class="nav-cta-group">
+        <a href="tel:+91 70172 81826" class="nav-phone" title="Direct Phone">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg>
+          <span>+91 70172 81826</span>
+        </a>
+        <button class="btn btn-gold btn-sm open-consultation-btn">
+          <span>Get a Proposal</span>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button id="mobileMenuBtn" class="mobile-menu-toggle" aria-label="Toggle Navigation Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div id="mobileDrawer" class="mobile-nav-drawer">
+    <a href="index.html" class="nav-link">Home</a>
+
+    <div class="mobile-nav-group-title">Services & Growth</div>
+    <a href="service-smm.html" class="nav-link mobile-sublink">Social Media Marketing</a>
+    <a href="service-analytics.html" class="nav-link mobile-sublink">Performance Marketing</a>
+    <a href="service-web-design.html" class="nav-link mobile-sublink">Website Designing</a>
+    <a href="service-branding.html" class="nav-link mobile-sublink">Graphic Designing</a>
+    <a href="contact.html" class="nav-link mobile-sublink">Videoshoot & Edit</a>
+    <a href="service-ppc.html" class="nav-link mobile-sublink">Google Ads</a>
+    <a href="services.html" class="nav-link mobile-sublink mobile-view-all-link">View All Services &rarr;</a>
+
+    <a href="index.html#agency-video" class="nav-link mobile-sublink">Agency Showcase Video</a>
+
+    <div class="mobile-nav-group-title">Gallery</div>
+    <a href="photo-gallery.html" class="nav-link mobile-sublink active">Photos Gallery</a>
+    <a href="video-gallery.html" class="nav-link mobile-sublink">Videos Gallery</a>
+
+    <div class="mobile-nav-group-title">Proof & Company</div>
+    <a href="our-work.html" class="nav-link mobile-sublink">Our Work</a>
+    <a href="about.html" class="nav-link mobile-sublink">About Us</a>
+    <a href="index.html#reviews" class="nav-link mobile-sublink">Client Reviews</a>
+
+    <a href="contact.html" class="nav-link" style="margin-top:6px;">Contact Us</a>
+    <div style="margin-top:16px;">
+      <button class="btn btn-gold btn-lg open-consultation-btn" style="width:100%;">
+        Get Free Proposal &rarr;
+      </button>
+    </div>
+  </div>
+
+  <!-- Floating WhatsApp Action Button -->
+  <a href="https://wa.me/917017281826?text=Hi%20Smart%20Digital%20Wings,%20I'd%20like%20to%20inquire%20about%20your%20services."
+    target="_blank" rel="noopener noreferrer" class="floating-whatsapp-btn" title="Chat on WhatsApp"
+    aria-label="Chat with Smart Digital Wings on WhatsApp">
+    <span class="wa-tooltip">Chat with us</span>
+    <svg viewBox="0 0 448 512" width="30" height="30" fill="currentColor" aria-hidden="true">
+      <path
+        d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+    </svg>
+  </a>
+
+  <main>
+    <!-- Minimalist Breadcrumb Bar -->
+    <div class="breadcrumb-strip">
+      <div class="container">
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-sep">›</span>
+          <span class="breadcrumb-current">Photo Gallery</span>
+        </nav>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         PHOTO GALLERY HERO & GRID
+         ==================================================================== -->
+    <section class="section" style="padding: 40px 0 60px 0;">
+      <div class="container">
+
+        <div class="gallery-hero-header">
+          <div class="gallery-badge">Visual Portfolio &amp; Creative Studio</div>
+          <h1 class="gallery-hero-title">Creative Photo Gallery. <span class="gold-text">High-Impact Visuals.</span></h1>
+          <p class="gallery-hero-sub">Explore our curated collection of commercial photoshoots, brand advertising stills, studio productions, and creative team collaborations.</p>
+        </div>
+
+        <!-- Filter Chips -->
+        <div class="gallery-filter-chips" id="photoFilterRow">
+          <button type="button" class="gallery-chip-btn active" data-filter="all">All Photos (12)</button>
+          <button type="button" class="gallery-chip-btn" data-filter="brand">Brand Shoots</button>
+          <button type="button" class="gallery-chip-btn" data-filter="product">Product &amp; Packaging</button>
+          <button type="button" class="gallery-chip-btn" data-filter="studio">Studio &amp; Campaigns</button>
+          <button type="button" class="gallery-chip-btn" data-filter="team">Team &amp; Culture</button>
+        </div>
+
+        <!-- Photo Grid -->
+        <div class="photo-gallery-grid" id="photoGalleryGrid">
+
+          <!-- Card 1 -->
+          <div class="photo-gallery-card" data-category="team" data-img-src="assets/about-hero-team.jpg" data-img-title="Executive Leadership & Strategic Direction">
+            <div class="photo-card-media">
+              <img src="assets/about-hero-team.jpg" alt="Executive Leadership Team" loading="lazy" decoding="async">
+              <div class="photo-card-overlay">
+                <span class="photo-card-badge">Team &amp; Culture</span>
+                <div class="photo-card-zoom-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                </div>
+              </div>
+            </div>
+            <div class="photo-card-info">
+              <h3 class="photo-card-title">Executive Leadership &amp; Direction</h3>
+              <div class="photo-card-meta">
+                <span>Agency HQ Stills</span>
+                <span class="gold-text">&bull; Full HD</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="photo-gallery-card" data-category="brand" data-img-src="assets/service-videoshoot.jpg" data-img-title="4K Cinema Commercial Production Shoot">
+            <div class="photo-card-media">
+              <img src="assets/service-videoshoot.jpg" alt="4K Cinema Camera Production" loading="lazy" decoding="async">
+              <div class="photo-card-overlay">
+                <span class="photo-card-badge">Brand Shoots</span>
+                <div class="photo-card-zoom-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                </div>
+              </div>
+            </div>
+            <div class="photo-card-info">
+              <h3 class="photo-card-title">4K Commercial Production Shoot</h3>
+              <div class="photo-card-meta">
+                <span>On-Location Set</span>
+                <span class="gold-text">&bull; Cine Rig</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="photo-gallery-card" data-category="studio" data-img-src="assets/agency-digital-workspace.jpg" data-img-title="Digital Architecture & Creative Production Lab">
+            <div class="photo-card-media">
+              <img src="assets/agency-digital-workspace.jpg" alt="Digital Creative Lab" loading="lazy" decoding="async">
+              <div class="photo-card-overlay">
+                <span class="photo-card-badge">Studio &amp; Campaigns</span>
+                <div class="photo-card-zoom-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                </div>
+              </div>
+            </div>
+            <div class="photo-card-info">
+              <h3 class="photo-card-title">Creative Production Lab</h3>
+              <div class="photo-card-meta">
+                <span>Studio Setup</span>
+                <span class="gold-text">&bull; Retouching</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="photo-gallery-card" data-category="product" data-img-src="assets/service-branding.jpg" data-img-title="Luxury Packaging & Identity Showcase">
+            <div class="photo-card-media">
+              <img src="assets/service-branding.jpg" alt="Packaging & Identity" loading="lazy" decoding="async">
+              <div class="photo-card-overlay">
+                <span class="photo-card-badge">Product &amp; Packaging</span>
+                <div class="photo-card-zoom-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                </div>
+              </div>
+            </div>
+            <div class="photo-card-info">
+              <h3 class="photo-card-title">Packaging &amp; Identity Showcase</h3>
+              <div class="photo-card-meta">
+                <span>Brand Identity</span>
+                <span class="gold-text">&bull; Studio Still</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="photo-gallery-card" data-category="studio" data-img-src="assets/banner-web-architecture.jpg" data-img-title="High-End Design System Architecture">
+            <div class="photo-card-media">
+              <img src="assets/banner-web-architecture.jpg" alt="Design System Architecture" loading="lazy" decoding="async">
+              <div class="photo-card-overlay">
+                <span class="photo-card-badge">Studio &amp; Campaigns</span>
+                <div class="photo-card-zoom-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                </div>
+              </div>
+            </div>
+            <div class="photo-card-info">
+              <h3 class="photo-card-title">Modern Web System Stills</h3>
+              <div class="photo-card-meta">
+                <span>UI/UX Architecture</span>
+                <span class="gold-text">&bull; Precision</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="photo-gallery-card" data-category="team" data-img-src="assets/team-studio-collab.jpg" data-img-title="Creative Studio Brainstorm Session">
+            <div class="photo-card-media">
+              <img src="assets/team-studio-collab.jpg" alt="Creative Studio Brainstorm" loading="lazy" decoding="async">
+              <div class="photo-card-overlay">
+                <span class="photo-card-badge">Team &amp; Culture</span>
+                <div class="photo-card-zoom-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                </div>
+              </div>
+            </div>
+            <div class="photo-card-info">
+              <h3 class="photo-card-title">Studio Collaboration &amp; Concepting</h3>
+              <div class="photo-card-meta">
+                <span>Creative Session</span>
+                <span class="gold-text">&bull; In-House</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 7 -->
+          <div class="photo-gallery-card" data-category="brand" data-img-src="assets/service-influencer.jpg" data-img-title="Influencer & Celebrity Brand Shoot">
+            <div class="photo-card-media">
+              <img src="assets/service-influencer.jpg" alt="Influencer Campaign Shoot" loading="lazy" decoding="async">
+              <div class="photo-card-overlay">
+                <span class="photo-card-badge">Brand Shoots</span>
+                <div class="photo-card-zoom-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                </div>
+              </div>
+            </div>
+            <div class="photo-card-info">
+              <h3 class="photo-card-title">Influencer Campaign Production</h3>
+              <div class="photo-card-meta">
+                <span>Lifestyle Shoot</span>
+                <span class="gold-text">&bull; Studio Rig</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 8 -->
+          <div class="photo-gallery-card" data-category="studio" data-img-src="assets/banner-prestige-branding.jpg" data-img-title="Prestige Brand Identity & Luxe Typography">
+            <div class="photo-card-media">
+              <img src="assets/banner-prestige-branding.jpg" alt="Prestige Brand Identity" loading="lazy" decoding="async">
+              <div class="photo-card-overlay">
+                <span class="photo-card-badge">Studio &amp; Campaigns</span>
+                <div class="photo-card-zoom-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                </div>
+              </div>
+            </div>
+            <div class="photo-card-info">
+              <h3 class="photo-card-title">Prestige Branding Typography</h3>
+              <div class="photo-card-meta">
+                <span>Gold Foil Asset</span>
+                <span class="gold-text">&bull; Macro Shot</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 9 -->
+          <div class="photo-gallery-card" data-category="team" data-img-src="assets/agency-glass-brainstorm.jpg" data-img-title="Campaign Architecture Storyboarding">
+            <div class="photo-card-media">
+              <img src="assets/agency-glass-brainstorm.jpg" alt="Storyboarding Sprint" loading="lazy" decoding="async">
+              <div class="photo-card-overlay">
+                <span class="photo-card-badge">Team &amp; Culture</span>
+                <div class="photo-card-zoom-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                </div>
+              </div>
+            </div>
+            <div class="photo-card-info">
+              <h3 class="photo-card-title">Campaign Storyboarding</h3>
+              <div class="photo-card-meta">
+                <span>Glassboard Sprint</span>
+                <span class="gold-text">&bull; Strategy</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 10 -->
+          <div class="photo-gallery-card" data-category="brand" data-img-src="assets/service-smm.jpg" data-img-title="Social Media High-Engagement Visuals">
+            <div class="photo-card-media">
+              <img src="assets/service-smm.jpg" alt="Social Media Visual Shoot" loading="lazy" decoding="async">
+              <div class="photo-card-overlay">
+                <span class="photo-card-badge">Brand Shoots</span>
+                <div class="photo-card-zoom-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                </div>
+              </div>
+            </div>
+            <div class="photo-card-info">
+              <h3 class="photo-card-title">Social Content Production</h3>
+              <div class="photo-card-meta">
+                <span>Creator Campaign</span>
+                <span class="gold-text">&bull; Multi-Format</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 11 -->
+          <div class="photo-gallery-card" data-category="product" data-img-src="assets/banner-performance-ads.jpg" data-img-title="High-ROAS Ad Creative Imagery">
+            <div class="photo-card-media">
+              <img src="assets/banner-performance-ads.jpg" alt="Ad Creative Imagery" loading="lazy" decoding="async">
+              <div class="photo-card-overlay">
+                <span class="photo-card-badge">Product &amp; Packaging</span>
+                <div class="photo-card-zoom-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                </div>
+              </div>
+            </div>
+            <div class="photo-card-info">
+              <h3 class="photo-card-title">High-ROAS Ad Creative Stills</h3>
+              <div class="photo-card-meta">
+                <span>Omnichannel</span>
+                <span class="gold-text">&bull; Conversion</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 12 -->
+          <div class="photo-gallery-card" data-category="team" data-img-src="assets/team-growth-meeting.jpg" data-img-title="Growth Operations Strategy Session">
+            <div class="photo-card-media">
+              <img src="assets/team-growth-meeting.jpg" alt="Growth Operations Session" loading="lazy" decoding="async">
+              <div class="photo-card-overlay">
+                <span class="photo-card-badge">Team &amp; Culture</span>
+                <div class="photo-card-zoom-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                </div>
+              </div>
+            </div>
+            <div class="photo-card-info">
+              <h3 class="photo-card-title">Growth Operations Session</h3>
+              <div class="photo-card-meta">
+                <span>Strategic Advisory</span>
+                <span class="gold-text">&bull; Live</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Call to Action Banner -->
+        <div class="about-proposal-deck" style="margin-top: 30px;">
+          <div>
+            <div class="about-proposal-badge">Creative Production Studio</div>
+            <h2 class="about-proposal-title">Ready to Elevate Your Visual Identity?</h2>
+            <p class="about-proposal-desc">From bespoke commercial photoshoots and product campaigns to high-converting social media stills, we craft visuals that command attention.</p>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:12px; align-items:flex-start;">
+            <button class="btn btn-gold btn-lg open-consultation-btn">
+              <span>Book a Photoshoot</span> &rarr;
+            </button>
+            <a href="tel:+917017281826" style="color:#CBD5E1; font-size:0.875rem; text-decoration:none; display:inline-flex; align-items:center; gap:6px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Direct Studio Line: +91 70172 81826
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================================================================
+       INTERACTIVE FULLSCREEN PHOTO LIGHTBOX
+       ==================================================================== -->
+  <div id="photoLightboxModal" class="single-gallery-lightbox" aria-hidden="true" role="dialog" aria-label="Photo Lightbox">
+    <div id="photoLightboxBackdrop" class="single-lightbox-backdrop"></div>
+    <div class="single-lightbox-dialog">
+      <button id="photoLightboxClose" class="single-lightbox-close" aria-label="Close Lightbox">&times;</button>
+      <button id="photoLightboxPrev" class="single-lightbox-arrow prev" aria-label="Previous Image">&#10094;</button>
+      <div class="single-lightbox-stage">
+        <img id="photoLightboxImage" src="" alt="Full view preview">
+      </div>
+      <button id="photoLightboxNext" class="single-lightbox-arrow next" aria-label="Next Image">&#10095;</button>
+      <div id="photoLightboxCaption" style="position:absolute; bottom:-40px; color:#FFFFFF; font-family:var(--font-sans); font-size:0.9rem; font-weight:600; text-align:center; width:100%;"></div>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="main-footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="logo-badge-inner">
+            <img src="assets/Smart Digital Wings (1).png" alt="Smart Digital Wings Logo">
+          </div>
+          <span class="brand-name">SMART <span class="gold-text">DIGITAL WINGS</span></span>
+        </div>
+        <p class="footer-desc">Premium full-service digital marketing, high-performance web engineering, and commercial media production agency helping businesses scale profitably.</p>
+        <div class="footer-contact-info">
+          <p><strong>Email:</strong> smartdigitalwings@gmail.com</p>
+          <p><strong>Phone:</strong> +91 70172 81826</p>
+          <p><strong>Location:</strong> Delhi NCR, India</p>
+        </div>
+      </div>
+
+      <div class="footer-nav">
+        <div class="footer-col">
+          <h4 class="footer-heading">Services</h4>
+          <ul class="footer-links">
+            <li><a href="service-smm.html">Social Media Marketing</a></li>
+            <li><a href="service-analytics.html">Performance Marketing</a></li>
+            <li><a href="service-web-design.html">Website Designing</a></li>
+            <li><a href="service-branding.html">Graphic Designing</a></li>
+            <li><a href="contact.html">Videoshoot &amp; Edit</a></li>
+            <li><a href="service-ppc.html">Google PPC Search Ads</a></li>
+            <li><a href="services.html" style="color:#B48C36; font-weight:700;">View All Services &rarr;</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Galleries</h4>
+          <ul class="footer-links">
+            <li><a href="photo-gallery.html" class="active">Photo Gallery</a></li>
+            <li><a href="video-gallery.html">Video Gallery</a></li>
+            <li><a href="our-work.html">Client Portfolio</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="index.html#reviews">Client Reviews</a></li>
+            <li><a href="index.html#agency-video">Agency Showcase Video</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-container">
+        <p class="copyright">&copy; 2026 Smart Digital Wings. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+
+  <!-- Photo Gallery Filtering & Lightbox Controller -->
+  <script>
+    (function () {
+      const cards = Array.from(document.querySelectorAll('.photo-gallery-card'));
+      const chips = document.querySelectorAll('#photoFilterRow .gallery-chip-btn');
+      const lightbox = document.getElementById('photoLightboxModal');
+      const lightboxImg = document.getElementById('photoLightboxImage');
+      const lightboxCaption = document.getElementById('photoLightboxCaption');
+      const lightboxClose = document.getElementById('photoLightboxClose');
+      const lightboxPrev = document.getElementById('photoLightboxPrev');
+      const lightboxNext = document.getElementById('photoLightboxNext');
+      const lightboxBackdrop = document.getElementById('photoLightboxBackdrop');
+
+      let visibleCards = [...cards];
+      let currentIndex = 0;
+
+      // Filter Logic
+      chips.forEach(chip => {
+        chip.addEventListener('click', function () {
+          chips.forEach(c => c.classList.remove('active'));
+          this.classList.add('active');
+          const filter = this.getAttribute('data-filter');
+
+          cards.forEach(card => {
+            const cat = card.getAttribute('data-category');
+            if (filter === 'all' || cat === filter) {
+              card.style.display = '';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+
+          visibleCards = cards.filter(card => card.style.display !== 'none');
+        });
+      });
+
+      // Lightbox Functions
+      function showLightbox(index) {
+        if (!visibleCards.length) return;
+        currentIndex = (index + visibleCards.length) % visibleCards.length;
+        const target = visibleCards[currentIndex];
+        const src = target.getAttribute('data-img-src') || target.querySelector('img').src;
+        const title = target.getAttribute('data-img-title') || target.querySelector('.photo-card-title').textContent;
+
+        lightboxImg.src = src;
+        lightboxCaption.textContent = title + ' (' + (currentIndex + 1) + ' of ' + visibleCards.length + ')';
+        lightbox.classList.add('active');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function hideLightbox() {
+        lightbox.classList.remove('active');
+        lightbox.setAttribute('aria-hidden', 'true');
+        lightboxImg.src = '';
+        document.body.style.overflow = '';
+      }
+
+      cards.forEach((card) => {
+        card.addEventListener('click', function () {
+          const idx = visibleCards.indexOf(card);
+          if (idx !== -1) showLightbox(idx);
+        });
+      });
+
+      if (lightboxClose) lightboxClose.addEventListener('click', hideLightbox);
+      if (lightboxBackdrop) lightboxBackdrop.addEventListener('click', hideLightbox);
+      if (lightboxPrev) lightboxPrev.addEventListener('click', () => showLightbox(currentIndex - 1));
+      if (lightboxNext) lightboxNext.addEventListener('click', () => showLightbox(currentIndex + 1));
+
+      window.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') hideLightbox();
+        if (e.key === 'ArrowLeft') showLightbox(currentIndex - 1);
+        if (e.key === 'ArrowRight') showLightbox(currentIndex + 1);
+      });
+    })();
+  </script>
+
+</body>
+
+</html>
