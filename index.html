@@ -33,91 +33,246 @@
   <link rel="stylesheet" href="css/components.css?v=6.6">
 
   <!-- Pure Golden Wings Banner (Full Viewport Height on Desktop & Laptop) -->
-  <style id="banner-clean-styling">
-    #hero,
-    #hero.premium-video-hero,
-    .premium-video-hero {
+  <!-- Ultra-Premium Image Auto Slider Banner Styles -->
+  <style id="hero-slider-styling">
+    #hero.premium-slider-banner,
+    .premium-slider-banner {
       position: relative !important;
       width: 100% !important;
       height: calc(100vh - 69px) !important;
       height: calc(100dvh - 69px) !important;
-      max-height: none !important;
       min-height: 520px !important;
-      background: #000000 !important;
+      max-height: none !important;
+      background: #072242 !important;
       overflow: hidden !important;
       margin: 0 !important;
       padding: 0 !important;
       border: none !important;
       box-shadow: none !important;
     }
-    #hero::before,
-    #hero::after,
-    .premium-video-hero::before,
-    .premium-video-hero::after,
-    .hero-section::before,
-    .hero-section::after {
-      display: none !important;
-      content: none !important;
-      background: none !important;
-      opacity: 0 !important;
-      visibility: hidden !important;
-      filter: none !important;
+    .slider-ambient-top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 48px;
+      background: linear-gradient(180deg, rgba(7, 34, 66, 0.45) 0%, transparent 100%);
+      z-index: 10;
+      pointer-events: none;
     }
-    .video-banner-stage {
-      position: relative !important;
+    .slider-track {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .slider-slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.9s;
+      z-index: 1;
+    }
+    .slider-slide.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      z-index: 2;
+    }
+    .slide-media-wrap {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+    .slide-cinema-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+      transform: scale(1.05);
+      transition: transform 6.5s cubic-bezier(0.25, 1, 0.5, 1);
+      will-change: transform;
+    }
+    .slider-slide.active .slide-cinema-img {
+      transform: scale(1);
+    }
+    .slider-cinema-nav {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      pointer-events: none;
+      z-index: 20;
+    }
+    .cinema-arrow-btn {
+      pointer-events: auto;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(7, 34, 66, 0.7);
+      border: 1.5px solid rgba(255, 255, 255, 0.22);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 16px rgba(13, 104, 201, 0.25);
+    }
+    .cinema-arrow-btn:hover {
+      background: #0056B3;
+      border-color: #38bdf8;
+      color: #FFFFFF;
+      transform: scale(1.12);
+      box-shadow: 0 12px 32px rgba(0, 86, 179, 0.6);
+    }
+    .slider-controller-panel {
+      position: absolute;
+      bottom: 28px;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      z-index: 25;
+      pointer-events: none;
+      padding: 0 20px;
+    }
+    .controller-glass-shell {
+      pointer-events: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      background: rgba(7, 34, 66, 0.82);
+      border: 1.5px solid rgba(255, 255, 255, 0.2);
+      border-radius: 9999px;
+      padding: 8px 22px;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.5), 0 0 24px rgba(13, 104, 201, 0.2);
+    }
+    .controller-counter {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--font-display, 'Manrope', sans-serif);
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.7);
+      letter-spacing: 0.05em;
+    }
+    .controller-counter .counter-curr {
+      color: #38bdf8;
+      font-size: 1rem;
+      font-weight: 800;
+    }
+    .controller-counter .counter-div {
+      opacity: 0.4;
+    }
+    .controller-segments {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .segment-btn {
+      background: none;
+      border: none;
+      padding: 6px 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+    .segment-track {
+      display: block;
+      width: 44px;
+      height: 4px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.22);
+      overflow: hidden;
+      position: relative;
+      transition: all 0.25s ease;
+    }
+    .segment-btn:hover .segment-track {
+      background: rgba(255, 255, 255, 0.45);
+      height: 5px;
+    }
+    .segment-fill {
+      display: block;
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #0056B3 0%, #38bdf8 100%);
+      box-shadow: 0 0 8px rgba(56, 189, 248, 0.9);
+      transition: width 0.05s linear;
+    }
+    .segment-btn.completed .segment-fill {
       width: 100% !important;
-      height: 100% !important;
-      overflow: hidden !important;
-      background: #000000 !important;
-      margin: 0 !important;
-      padding: 0 !important;
     }
-    .hero-cinema-video {
-      width: 100% !important;
-      height: 100% !important;
-      object-fit: cover !important;
-      object-position: center 35% !important;
-      display: block !important;
-      filter: none !important;
-      -webkit-filter: none !important;
-      mix-blend-mode: normal !important;
-      opacity: 1 !important;
+    .controller-pause-btn {
+      background: none;
+      border: none;
+      color: rgba(255, 255, 255, 0.75);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+      transition: color 0.2s, transform 0.2s;
     }
-    @media (max-width: 1200px) {
-      #hero,
-      #hero.premium-video-hero,
-      .premium-video-hero {
-        height: calc(100vh - 69px) !important;
-        height: calc(100dvh - 69px) !important;
-        max-height: none !important;
-        min-height: 500px !important;
-      }
-      .hero-cinema-video {
-        object-position: center 35% !important;
-      }
+    .controller-pause-btn:hover {
+      color: #38bdf8;
+      transform: scale(1.15);
     }
     @media (max-width: 992px) {
-      #hero,
-      #hero.premium-video-hero,
-      .premium-video-hero {
-        height: 420px !important;
-        max-height: 420px !important;
-        min-height: auto !important;
+      #hero.premium-slider-banner,
+      .premium-slider-banner {
+        height: 440px !important;
+        min-height: 440px !important;
+        max-height: 440px !important;
       }
-      .hero-cinema-video {
-        object-position: center 32% !important;
+      .slider-cinema-nav {
+        padding: 0 16px;
+      }
+      .cinema-arrow-btn {
+        width: 42px;
+        height: 42px;
+      }
+      .slider-controller-panel {
+        bottom: 18px;
+      }
+      .segment-track {
+        width: 32px;
       }
     }
     @media (max-width: 640px) {
-      #hero,
-      #hero.premium-video-hero,
-      .premium-video-hero {
-        height: 280px !important;
-        max-height: 280px !important;
-        min-height: auto !important;
+      #hero.premium-slider-banner,
+      .premium-slider-banner {
+        height: 300px !important;
+        min-height: 300px !important;
+        max-height: 300px !important;
       }
-      .hero-cinema-video {
-        object-position: center 30% !important;
+      .cinema-arrow-btn {
+        width: 36px;
+        height: 36px;
+      }
+      .cinema-arrow-btn svg {
+        width: 16px;
+        height: 16px;
+      }
+      .controller-glass-shell {
+        gap: 12px;
+        padding: 6px 16px;
+      }
+      .segment-track {
+        width: 24px;
+        height: 3px;
       }
     }
   </style>
@@ -168,7 +323,7 @@
             <a href="service-branding.html" class="dropdown-item">
               <span class="dropdown-item-title">Graphic Designing</span>
             </a>
-            <a href="contact.html" class="dropdown-item">
+            <a href="service-videoshoot.html" class="dropdown-item">
               <span class="dropdown-item-title">Videoshoot & Edit</span>
             </a>
             <a href="service-ppc.html" class="dropdown-item">
@@ -207,24 +362,7 @@
           </div>
         </div>
 
-        <!-- Gallery Dropdown -->
-        <div class="nav-dropdown">
-          <a href="photo-gallery.html" class="nav-link nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-            <span>Gallery</span>
-            <svg class="dropdown-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="2.5">
-              <polyline points="6 9 12 15 18 9" />
-            </svg>
-          </a>
-          <div class="nav-dropdown-menu">
-            <a href="photo-gallery.html" class="dropdown-item">
-              <span class="dropdown-item-title">Photos</span>
-            </a>
-            <a href="video-gallery.html" class="dropdown-item">
-              <span class="dropdown-item-title">Videos</span>
-            </a>
-          </div>
-        </div>
+
 
         <!-- Contact (Direct Link) -->
         <a href="contact.html" class="nav-link">Contact</a>
@@ -262,7 +400,7 @@
     <a href="service-analytics.html" class="nav-link mobile-sublink">Performance Marketing</a>
     <a href="service-web-design.html" class="nav-link mobile-sublink">Website Designing</a>
     <a href="service-branding.html" class="nav-link mobile-sublink">Graphic Designing</a>
-    <a href="contact.html" class="nav-link mobile-sublink">Videoshoot & Edit</a>
+    <a href="service-videoshoot.html" class="nav-link mobile-sublink">Videoshoot & Edit</a>
     <a href="service-ppc.html" class="nav-link mobile-sublink">Google Ads</a>
     <a href="services.html" class="nav-link mobile-sublink mobile-view-all-link">View All Services &rarr;</a>
 
@@ -273,9 +411,6 @@
     <a href="about.html" class="nav-link mobile-sublink">About Us</a>
     <a href="#reviews" class="nav-link mobile-sublink">Client Reviews</a>
 
-    <div class="mobile-nav-group-title">Gallery</div>
-    <a href="photo-gallery.html" class="nav-link mobile-sublink">Photos</a>
-    <a href="video-gallery.html" class="nav-link mobile-sublink">Videos</a>
 
     <a href="contact.html" class="nav-link" style="margin-top:6px;">Contact Us</a>
     <div style="margin-top:16px;">
@@ -301,63 +436,277 @@
          HERO SECTION: Royal Blue Gradient (#093360) + Live Instant Proposal Form
          ==================================================================== -->
     <!-- ====================================================================
-         HERO SECTION: Pure 1080p Golden Wings Video Banner (Full Viewport on Desktop & Laptop)
+         HERO SECTION: Ultra-Premium Image Auto Slider Banner
          ==================================================================== -->
-    <section id="hero" class="premium-video-hero" aria-label="Smart Digital Wings Cinema Showcase"
-      style="position: relative; width: 100%; height: calc(100vh - 69px); min-height: 520px; background: #000000; overflow: hidden; margin: 0; padding: 0; border: none; box-shadow: none;">
-      <h1 class="visually-hidden">Smart Digital Wings - Luxury Digital Marketing, Web Architecture & Brand Growth Studio
-      </h1>
+    <section id="hero" class="hero-section premium-slider-banner" aria-roledescription="carousel" aria-label="Agency Showcase Gallery">
+      <h1 class="visually-hidden">Smart Digital Wings - Luxury Digital Marketing, Web Architecture & Brand Growth Studio</h1>
+      
+      <!-- Top Edge Ambient Shimmer -->
+      <div class="slider-ambient-top"></div>
 
-      <!-- Pure Cinema Video Stage (Zero Color Overlays) -->
-      <div class="video-banner-stage"
-        style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #000000; margin: 0; padding: 0;">
-        <video id="heroCinemaVideo" class="hero-cinema-video" poster="assets/video/golden-wings-poster.jpg" autoplay
-          muted loop playsinline preload="auto"
-          style="width: 100%; height: 100%; object-fit: cover; object-position: center 35%; display: block; filter: none; -webkit-filter: none; mix-blend-mode: normal; opacity: 1;">
-          <source src="assets/video/Golden_wings_brand-reveal_video_1080p_20260922172130.mp4" type="video/mp4">
-          Your browser does not support HTML5 video.
-        </video>
+      <!-- Slider Track with Ultra-Resolution Cinema Banners -->
+      <div class="slider-track" id="mainSliderTrack">
+
+        <!-- Slide 1: Smart Digital Wings Flagship Banner -->
+        <div class="slider-slide active" data-slide="0" role="group" aria-roledescription="slide" aria-label="1 of 3">
+          <div class="slide-media-wrap">
+            <img src="assets/Hero%20Banner/Banner%20Sdw%201.jpg" alt="Smart Digital Wings - Build Your Brand, Grow Your Business" class="slide-cinema-img" loading="eager" decoding="async">
+          </div>
+        </div>
+
+        <!-- Slide 2: Technical SEO & Algorithmic Search Dominance -->
+        <div class="slider-slide" data-slide="1" role="group" aria-roledescription="slide" aria-label="2 of 3">
+          <div class="slide-media-wrap">
+            <img src="assets/banner-seo-dominance.jpg" alt="Search Engine Optimization and Algorithmic Dominance" class="slide-cinema-img" loading="lazy" decoding="async">
+          </div>
+        </div>
+
+        <!-- Slide 3: Brand Strategy & Prestige Creative Atelier -->
+        <div class="slider-slide" data-slide="2" role="group" aria-roledescription="slide" aria-label="3 of 3">
+          <div class="slide-media-wrap">
+            <img src="assets/banner-prestige-branding.jpg" alt="Prestige Brand Strategy and Creative Design Atelier" class="slide-cinema-img" loading="lazy" decoding="async">
+          </div>
+        </div>
+
       </div>
 
-      <!-- Sleek Glassmorphic Floating Video Controller -->
-      <div class="video-controller-bar">
-        <div class="video-control-pill">
-          <!-- Play/Pause Toggle -->
-          <button type="button" class="video-ctrl-btn" id="videoPlayPauseBtn" aria-label="Pause Video"
-            title="Play / Pause">
-            <svg class="ctrl-icon-pause" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+      <!-- Luxury Navigation Controls -->
+      <div class="slider-cinema-nav">
+        <!-- Floating Glass Arrows -->
+        <button class="cinema-arrow-btn cinema-prev-btn" id="fullSliderPrev" aria-label="Previous Slide">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button class="cinema-arrow-btn cinema-next-btn" id="fullSliderNext" aria-label="Next Slide">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Ultra-Sleek Glassmorphic Bottom Controller Bar -->
+      <div class="slider-controller-panel">
+        <div class="controller-glass-shell">
+          
+          <!-- Slide Counter -->
+          <div class="controller-counter" id="fullSliderCounter">
+            <span class="counter-curr current-slide">01</span>
+            <span class="counter-div">/</span>
+            <span class="counter-total total-slides">03</span>
+          </div>
+
+          <!-- Segmented Progress Bars -->
+          <div class="controller-segments" id="fullSliderDots" role="tablist" aria-label="Slide Selection">
+            <button type="button" class="segment-btn active" data-index="0" role="tab" aria-selected="true" aria-label="Slide 1">
+              <span class="segment-track"><span class="segment-fill"></span></span>
+            </button>
+            <button type="button" class="segment-btn" data-index="1" role="tab" aria-selected="false" aria-label="Slide 2">
+              <span class="segment-track"><span class="segment-fill"></span></span>
+            </button>
+            <button type="button" class="segment-btn" data-index="2" role="tab" aria-selected="false" aria-label="Slide 3">
+              <span class="segment-track"><span class="segment-fill"></span></span>
+            </button>
+          </div>
+
+          <!-- Play/Pause Status Indicator -->
+          <button type="button" class="controller-pause-btn" id="sliderPauseBtn" aria-label="Pause Slideshow">
+            <svg class="pause-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
               <rect x="6" y="4" width="4" height="16" rx="1"></rect>
               <rect x="14" y="4" width="4" height="16" rx="1"></rect>
             </svg>
-            <svg class="ctrl-icon-play" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"
-              style="display: none;">
+            <svg class="play-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
               <polygon points="5 3 19 12 5 21 5 3"></polygon>
             </svg>
-            <span class="ctrl-btn-label">Pause</span>
           </button>
 
-          <div class="ctrl-divider"></div>
-
-          <!-- Sound Mute/Unmute Toggle -->
-          <button type="button" class="video-ctrl-btn" id="videoAudioBtn" aria-label="Unmute Audio"
-            title="Sound On / Off">
-            <svg class="ctrl-icon-muted" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-              <line x1="23" y1="9" x2="17" y2="15"></line>
-              <line x1="17" y1="9" x2="23" y2="15"></line>
-            </svg>
-            <svg class="ctrl-icon-unmuted" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
-              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-            </svg>
-            <span class="ctrl-btn-label" id="audioBtnLabel">Sound On</span>
-          </button>
         </div>
       </div>
 
     </section>
+
+    <!-- Native Hero Slider Infinite Auto-Loop Controller -->
+    <script>
+      (function() {
+        function initHeroBannerLoop() {
+          if (window.__heroSliderInitialized) return;
+          const track = document.getElementById('mainSliderTrack');
+          const hero = document.getElementById('hero');
+          if (!track || !hero) return;
+          window.__heroSliderInitialized = true;
+
+          const slides = Array.from(track.querySelectorAll('.slider-slide'));
+          if (slides.length <= 1) return;
+
+          const prevBtn = document.getElementById('fullSliderPrev');
+          const nextBtn = document.getElementById('fullSliderNext');
+          const dots = Array.from(document.querySelectorAll('#fullSliderDots .segment-btn'));
+          const currentNumEl = document.querySelector('#fullSliderCounter .current-slide');
+          const totalNumEl = document.querySelector('#fullSliderCounter .total-slides');
+          const pauseBtn = document.getElementById('sliderPauseBtn');
+
+          const DURATION = 4500; // 4.5 seconds per slide
+          let currentSlide = 0;
+          let timer = null;
+          let isPaused = false;
+
+          if (totalNumEl) {
+            totalNumEl.textContent = String(slides.length).padStart(2, '0');
+          }
+          if (currentNumEl) {
+            currentNumEl.textContent = '01';
+          }
+
+          function setSegmentProgress(activeIndex) {
+            dots.forEach((dot, idx) => {
+              const fill = dot.querySelector('.segment-fill');
+              if (!fill) return;
+
+              if (idx < activeIndex) {
+                dot.classList.remove('active');
+                dot.classList.add('completed');
+                dot.setAttribute('aria-selected', 'false');
+                fill.style.transition = 'none';
+                fill.style.width = '100%';
+              } else if (idx > activeIndex) {
+                dot.classList.remove('active', 'completed');
+                dot.setAttribute('aria-selected', 'false');
+                fill.style.transition = 'none';
+                fill.style.width = '0%';
+              } else {
+                dot.classList.add('active');
+                dot.classList.remove('completed');
+                dot.setAttribute('aria-selected', 'true');
+                fill.style.transition = 'none';
+                fill.style.width = '0%';
+                void fill.offsetWidth; // Force reflow
+                fill.style.transition = 'width ' + DURATION + 'ms linear';
+                fill.style.width = '100%';
+              }
+            });
+          }
+
+          function goToSlide(targetIdx) {
+            // Infinite loop wrapping calculation
+            const nextIdx = ((targetIdx % slides.length) + slides.length) % slides.length;
+
+            slides.forEach((slide, i) => {
+              if (i === nextIdx) {
+                slide.classList.add('active');
+                slide.setAttribute('aria-hidden', 'false');
+              } else {
+                slide.classList.remove('active');
+                slide.setAttribute('aria-hidden', 'true');
+              }
+            });
+
+            currentSlide = nextIdx;
+
+            if (currentNumEl) {
+              currentNumEl.textContent = String(currentSlide + 1).padStart(2, '0');
+            }
+
+            clearTimeout(timer);
+
+            if (!isPaused) {
+              setSegmentProgress(currentSlide);
+              timer = setTimeout(function() {
+                goToSlide(currentSlide + 1);
+              }, DURATION);
+            }
+          }
+
+          // Next & Previous Controls (jump and keep loop moving)
+          if (prevBtn) {
+            prevBtn.addEventListener('click', function(e) {
+              e.preventDefault();
+              goToSlide(currentSlide - 1);
+            });
+          }
+
+          if (nextBtn) {
+            nextBtn.addEventListener('click', function(e) {
+              e.preventDefault();
+              goToSlide(currentSlide + 1);
+            });
+          }
+
+          // Direct Segment Dots Navigation
+          dots.forEach((dot, idx) => {
+            dot.addEventListener('click', function(e) {
+              e.preventDefault();
+              goToSlide(idx);
+            });
+          });
+
+          // Explicit Pause / Play Button
+          if (pauseBtn) {
+            pauseBtn.addEventListener('click', function(e) {
+              e.preventDefault();
+              isPaused = !isPaused;
+              const pauseIcon = pauseBtn.querySelector('.pause-icon');
+              const playIcon = pauseBtn.querySelector('.play-icon');
+              if (pauseIcon && playIcon) {
+                pauseIcon.style.display = isPaused ? 'none' : 'block';
+                playIcon.style.display = isPaused ? 'block' : 'none';
+              }
+              if (!isPaused) {
+                goToSlide(currentSlide);
+              } else {
+                clearTimeout(timer);
+                dots.forEach(dot => {
+                  const fill = dot.querySelector('.segment-fill');
+                  if (fill && dot.classList.contains('active')) {
+                    const currW = window.getComputedStyle(fill).width;
+                    fill.style.transition = 'none';
+                    fill.style.width = currW;
+                  }
+                });
+              }
+            });
+          }
+
+          // Keyboard navigation
+          hero.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') goToSlide(currentSlide - 1);
+            else if (e.key === 'ArrowRight') goToSlide(currentSlide + 1);
+          });
+
+          // Touch swipe support
+          let startX = 0;
+          let startY = 0;
+          hero.addEventListener('touchstart', function(e) {
+            if (e.touches && e.touches.length) {
+              startX = e.touches[0].clientX;
+              startY = e.touches[0].clientY;
+            }
+          }, { passive: true });
+
+          hero.addEventListener('touchend', function(e) {
+            if (e.changedTouches && e.changedTouches.length) {
+              const diffX = e.changedTouches[0].clientX - startX;
+              const diffY = e.changedTouches[0].clientY - startY;
+              if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY) * 1.3) {
+                if (diffX < 0) goToSlide(currentSlide + 1);
+                else goToSlide(currentSlide - 1);
+              }
+            }
+          }, { passive: true });
+
+          // Start loop
+          setSegmentProgress(0);
+          timer = setTimeout(function() {
+            goToSlide(1);
+          }, DURATION);
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initHeroBannerLoop);
+        } else {
+          initHeroBannerLoop();
+        }
+      })();
+    </script>
 
     <!-- ====================================================================
          ABOUT US SECTION: Clean White with 4 Equal-Height Metric Boxes & Core Ethos
@@ -659,8 +1008,8 @@
 
           <!-- 5. Videoshoot & Edit -->
           <div class="col-12 col-md-6 col-lg-4 service-grid-col">
-            <article class="service-image-card" data-card-href="contact.html">
-              <a href="contact.html" class="service-card-media" aria-label="Explore Videoshoot & Edit">
+            <article class="service-image-card" data-card-href="service-videoshoot.html">
+              <a href="service-videoshoot.html" class="service-card-media" aria-label="Explore Videoshoot & Edit">
                 <img src="assets/service-videoshoot.jpg" alt="Videoshoot & Edit" loading="lazy">
                 <div class="service-card-overlay"></div>
 
@@ -673,14 +1022,14 @@
               <div class="service-card-body">
                 <div class="service-card-header">
                   <h3 class="service-card-title">
-                    <a href="contact.html" class="service-card-title-link">Videoshoot &amp; Edit</a>
+                    <a href="service-videoshoot.html" class="service-card-title-link">Videoshoot &amp; Edit</a>
                   </h3>
                 </div>
                 <p class="service-card-desc">
                   Commercial 4K video shoots, viral social reel production, CGI motion graphics, and high-retention post-production video editing.
                 </p>
                 <div class="service-card-actions">
-                  <a href="contact.html" class="service-btn service-btn-details" title="Explore Videoshoot & Edit">
+                  <a href="service-videoshoot.html" class="service-btn service-btn-details" title="Explore Videoshoot & Edit">
                     <span>Explore Service</span>
                     <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                   </a>
@@ -2279,6 +2628,7 @@
             <li><a href="service-ppc.html">Google PPC Search Ads</a></li>
             <li><a href="service-branding.html">Brand Identity &amp; Creative</a></li>
             <li><a href="service-analytics.html">Analytics &amp; Conversion CRO</a></li>
+            <li><a href="service-videoshoot.html">Videoshoot &amp; Video Editing</a></li>
           </ul>
         </div>
 
@@ -2576,7 +2926,7 @@
   <!-- Application Modules -->
   <script src="js/api.js"></script>
   <script src="js/calculator.js"></script>
-  <script src="js/app.js?v=6.2"></script>
+  <script src="js/app.js?v=7.0"></script>
 </body>
 
 </html>

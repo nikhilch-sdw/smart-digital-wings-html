@@ -66,7 +66,7 @@
             <a href="service-branding.html" class="dropdown-item">
               <span class="dropdown-item-title">Graphic Designing</span>
             </a>
-            <a href="contact.html" class="dropdown-item">
+            <a href="service-videoshoot.html" class="dropdown-item">
               <span class="dropdown-item-title">Videoshoot & Edit</span>
             </a>
             <a href="service-ppc.html" class="dropdown-item">
@@ -105,24 +105,7 @@
           </div>
         </div>
 
-        <!-- Gallery Dropdown -->
-        <div class="nav-dropdown">
-          <a href="photo-gallery.html" class="nav-link nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-            <span>Gallery</span>
-            <svg class="dropdown-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="2.5">
-              <polyline points="6 9 12 15 18 9" />
-            </svg>
-          </a>
-          <div class="nav-dropdown-menu">
-            <a href="photo-gallery.html" class="dropdown-item">
-              <span class="dropdown-item-title">Photos</span>
-            </a>
-            <a href="video-gallery.html" class="dropdown-item">
-              <span class="dropdown-item-title">Videos</span>
-            </a>
-          </div>
-        </div>
+
 
         <!-- Contact (Direct Link) -->
         <a href="contact.html" class="nav-link">Contact</a>
@@ -159,7 +142,7 @@
     <a href="service-analytics.html" class="nav-link mobile-sublink">Performance Marketing</a>
     <a href="service-web-design.html" class="nav-link mobile-sublink">Website Designing</a>
     <a href="service-branding.html" class="nav-link mobile-sublink">Graphic Designing</a>
-    <a href="contact.html" class="nav-link mobile-sublink">Videoshoot & Edit</a>
+    <a href="service-videoshoot.html" class="nav-link mobile-sublink">Videoshoot & Edit</a>
     <a href="service-ppc.html" class="nav-link mobile-sublink">Google Ads</a>
     <a href="services.html" class="nav-link mobile-sublink mobile-view-all-link">View All Services &rarr;</a>
     
@@ -167,9 +150,6 @@
     <a href="our-work.html" class="nav-link mobile-sublink">Our Work</a>
     <a href="about.html" class="nav-link mobile-sublink">About Us</a>
 
-    <div class="mobile-nav-group-title">Gallery</div>
-    <a href="photo-gallery.html" class="nav-link mobile-sublink">Photos</a>
-    <a href="video-gallery.html" class="nav-link mobile-sublink">Videos</a>
 
     <a href="contact.html" class="nav-link mobile-sublink">Contact Us</a>
     <div style="margin-top:16px;">
@@ -287,44 +267,78 @@
       </div>
     </section>
 
-    <!-- Interactive Horizontal Accordion Showcase (Pure Visual Showcase, No Text) -->
-    <section class="horizontal-accordion-section" id="horizontalAccordionSection" aria-label="Organic SEO Visual Showcase">
-      <div class="horizontal-accordion-container">
-        <div class="horizontal-accordion" id="serviceHorizontalAccordion" role="tablist">
-          
-          <div class="accordion-panel active" tabindex="0" role="tab" aria-selected="true" aria-label="SEO Showcase 1">
-            <div class="accordion-panel-bg" style="background-image: url('assets/hero-dashboard.png');"></div>
+    <!-- 3D Perspective Coverflow Slider (1 Center Focused, 2 Left, 2 Right, Auto-sliding) -->
+    <section class="coverflow-slider-section" id="serviceShowcaseSlider" aria-label="Organic SEO Visual Showcase">
+      <div class="coverflow-container">
+        
+        <div class="coverflow-track-wrap">
+          <button class="coverflow-arrow coverflow-prev" aria-label="Previous Slide" type="button">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+
+          <div class="coverflow-stage" role="region" aria-roledescription="carousel" aria-label="Organic SEO Visual Showcase">
+            
+            <div class="coverflow-slide" data-index="0">
+              <div class="coverflow-card">
+                <img src="assets/hero-dashboard.png" alt="SEO Showcase 1" class="coverflow-img" loading="lazy">
+              </div>
+            </div>
+
+            <div class="coverflow-slide" data-index="1">
+              <div class="coverflow-card">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=85" alt="SEO Showcase 2" class="coverflow-img" loading="lazy">
+              </div>
+            </div>
+
+            <div class="coverflow-slide" data-index="2">
+              <div class="coverflow-card">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=85" alt="SEO Showcase 3" class="coverflow-img" loading="lazy">
+              </div>
+            </div>
+
+            <div class="coverflow-slide" data-index="3">
+              <div class="coverflow-card">
+                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=85" alt="SEO Showcase 4" class="coverflow-img" loading="lazy">
+              </div>
+            </div>
+
+            <div class="coverflow-slide" data-index="4">
+              <div class="coverflow-card">
+                <img src="assets/banner-seo-dominance.jpg" alt="SEO Showcase 5" class="coverflow-img" loading="lazy">
+              </div>
+            </div>
+
+            <div class="coverflow-slide" data-index="5">
+              <div class="coverflow-card">
+                <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1600&q=85" alt="SEO Showcase 6" class="coverflow-img" loading="lazy">
+              </div>
+            </div>
+
+            <div class="coverflow-slide" data-index="6">
+              <div class="coverflow-card">
+                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1600&q=85" alt="SEO Showcase 7" class="coverflow-img" loading="lazy">
+              </div>
+            </div>
+
+            <div class="coverflow-slide" data-index="7">
+              <div class="coverflow-card">
+                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=85" alt="SEO Showcase 8" class="coverflow-img" loading="lazy">
+              </div>
+            </div>
+
           </div>
 
-          <div class="accordion-panel" tabindex="0" role="tab" aria-selected="false" aria-label="SEO Showcase 2">
-            <div class="accordion-panel-bg" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=85');"></div>
-          </div>
-
-          <div class="accordion-panel" tabindex="0" role="tab" aria-selected="false" aria-label="SEO Showcase 3">
-            <div class="accordion-panel-bg" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=85');"></div>
-          </div>
-
-          <div class="accordion-panel" tabindex="0" role="tab" aria-selected="false" aria-label="SEO Showcase 4">
-            <div class="accordion-panel-bg" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=85');"></div>
-          </div>
-
-          <div class="accordion-panel" tabindex="0" role="tab" aria-selected="false" aria-label="SEO Showcase 5">
-            <div class="accordion-panel-bg" style="background-image: url('assets/banner-seo-dominance.jpg');"></div>
-          </div>
-
-          <div class="accordion-panel" tabindex="0" role="tab" aria-selected="false" aria-label="SEO Showcase 6">
-            <div class="accordion-panel-bg" style="background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1600&q=85');"></div>
-          </div>
-
-          <div class="accordion-panel" tabindex="0" role="tab" aria-selected="false" aria-label="SEO Showcase 7">
-            <div class="accordion-panel-bg" style="background-image: url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1600&q=85');"></div>
-          </div>
-
-          <div class="accordion-panel" tabindex="0" role="tab" aria-selected="false" aria-label="SEO Showcase 8">
-            <div class="accordion-panel-bg" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=85');"></div>
-          </div>
-
+          <button class="coverflow-arrow coverflow-next" aria-label="Next Slide" type="button">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
         </div>
+
+        <div class="coverflow-pagination" aria-label="Slider Pagination"></div>
+
       </div>
     </section>
 
@@ -333,7 +347,7 @@
       <div class="container" style="max-width:1040px;">
         <div class="section-header" style="text-align:center;margin-bottom:28px;">
           <div class="section-badge">Strategic Service Deep Dive</div>
-          <h2 class="section-title">Enterprise Search Optimization: <span class="blue-text">Engineering Compounding Organic Dominance</span></h2>
+          <h2 class="section-title">Enterprise Search <span class="blue-text">Optimization</span></h2>
         </div>
 
         <div class="service-deep-dive-card">
@@ -440,6 +454,7 @@
             <li><a href="service-ppc.html">Google PPC Search Ads</a></li>
             <li><a href="service-branding.html">Brand Identity &amp; Creative</a></li>
             <li><a href="service-analytics.html">Analytics &amp; Conversion CRO</a></li>
+            <li><a href="service-videoshoot.html">Videoshoot &amp; Video Editing</a></li>
           </ul>
         </div>
 

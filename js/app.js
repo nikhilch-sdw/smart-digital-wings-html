@@ -5,6 +5,60 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   // ------------------------------------------------------------------------
+  // 0. Clean URL Handler: Prevent '#' from showing in browser address bar
+  // ------------------------------------------------------------------------
+  if (window.location.hash) {
+    history.replaceState(null, document.title, window.location.pathname + window.location.search);
+  }
+
+  // Intercept all hash-based anchor clicks so browser URL bar remains clean without '#'
+  document.addEventListener('click', (e) => {
+    const anchor = e.target.closest('a[href*="#"]');
+    if (anchor) {
+      const href = anchor.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        if (href.length > 1) {
+          try {
+            const targetEl = document.querySelector(href);
+            if (targetEl) {
+              targetEl.scrollIntoView({ behavior: 'smooth' });
+            }
+          } catch (err) {
+            // Ignore invalid selector
+          }
+        }
+        if (window.location.hash) {
+          history.replaceState(null, document.title, window.location.pathname + window.location.search);
+        }
+      } else if (href && href.includes('#') && !href.startsWith('http') && !href.startsWith('//')) {
+        const [page, hash] = href.split('#');
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        if (page === '' || page === currentPage) {
+          e.preventDefault();
+          if (hash) {
+            try {
+              const targetEl = document.getElementById(hash);
+              if (targetEl) {
+                targetEl.scrollIntoView({ behavior: 'smooth' });
+              }
+            } catch (err) {}
+          }
+          if (window.location.hash) {
+            history.replaceState(null, document.title, window.location.pathname + window.location.search);
+          }
+        }
+      }
+    }
+  });
+
+  window.addEventListener('hashchange', () => {
+    if (window.location.hash) {
+      history.replaceState(null, document.title, window.location.pathname + window.location.search);
+    }
+  });
+
+  // ------------------------------------------------------------------------
   // 1. Sticky Navigation & Mobile Menu
   // ------------------------------------------------------------------------
   const header = document.querySelector('.main-header');
@@ -1080,12 +1134,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ------------------------------------------------------------------------
-  // Fallback: Ultra-Premium Cinema Auto Slider Banner (if active)
+  // Fallback: Ultra-Premium Cinema Auto Slider Banner (Infinite Loop)
   // ------------------------------------------------------------------------
   const sliderTrack = document.getElementById('mainSliderTrack');
   const heroSlider = document.querySelector('.premium-slider-banner, .full-screen-slider-banner');
 
   if (sliderTrack && heroSlider) {
+    if (window.__heroSliderInitialized) return;
+    window.__heroSliderInitialized = true;
+
     const slides = Array.from(sliderTrack.querySelectorAll('.slider-slide'));
     const prevBtn = document.getElementById('fullSliderPrev');
     const nextBtn = document.getElementById('fullSliderNext');
@@ -1096,26 +1153,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const segments = dotsContainer ? Array.from(dotsContainer.querySelectorAll('.segment-btn')) : [];
     const pauseToggleBtn = document.getElementById('sliderPauseBtn');
 
-    const SLIDE_DURATION = 5500; // 5.5 seconds per slide
+    const SLIDE_DURATION = 4500; // 4.5 seconds per slide for an active, engaging auto-loop
     let currentSlide = 0;
     let autoSlideTimer = null;
     let isPaused = false;
-    let slideStartTime = Date.now();
-    let remainingTime = SLIDE_DURATION;
 
-    // Set initial counter
+    // Set initial total count
     if (totalNumEl) {
       totalNumEl.textContent = String(slides.length).padStart(2, '0');
     }
-
-    function getSegmentFill(index) {
-      if (index >= 0 && index < segments.length) {
-        return segments[index].querySelector('.segment-fill');
-      }
-      return null;
+    if (currentNumEl) {
+      currentNumEl.textContent = '01';
     }
 
-    function updateSegments(activeIdx, duration, fromPercent = 0) {
+    function updateSegments(activeIdx, duration) {
       segments.forEach((seg, idx) => {
         const fill = seg.querySelector('.segment-fill');
         if (!fill) return;
@@ -1132,66 +1183,52 @@ document.addEventListener('DOMContentLoaded', () => {
           fill.style.transition = 'none';
           fill.style.width = '0%';
         } else {
-          // Current active segment
+          // Current active segment: smoothly fill from 0 to 100%
           seg.classList.add('active');
           seg.classList.remove('completed');
           seg.setAttribute('aria-selected', 'true');
 
           fill.style.transition = 'none';
-          fill.style.width = `${fromPercent}%`;
-          fill.offsetHeight; // trigger reflow
+          fill.style.width = '0%';
+          void fill.offsetWidth; // Force synchronous reflow to reliably restart transition
           fill.style.transition = `width ${duration}ms linear`;
           fill.style.width = '100%';
         }
       });
     }
 
-    function pauseSegmentProgress() {
-      const activeFill = getSegmentFill(currentSlide);
-      if (activeFill) {
-        const computedWidth = window.getComputedStyle(activeFill).width;
-        activeFill.style.transition = 'none';
-        activeFill.style.width = computedWidth;
-      }
-    }
-
     function goToSlide(index) {
       if (slides.length <= 1) return;
 
-      const targetIndex = (index + slides.length) % slides.length;
-      if (targetIndex === currentSlide && slides[currentSlide].classList.contains('active')) {
-        slideStartTime = Date.now();
-        remainingTime = SLIDE_DURATION;
-        if (!isPaused) {
-          updateSegments(currentSlide, SLIDE_DURATION, 0);
-          scheduleNext(SLIDE_DURATION);
-        }
-        return;
-      }
+      // Infinite loop math: wraps seamlessly back to 0 after last slide
+      const targetIndex = ((index % slides.length) + slides.length) % slides.length;
 
-      // Update active slide classes
-      slides[currentSlide].classList.remove('active');
-      slides[currentSlide].setAttribute('aria-hidden', 'true');
+      // Update slide active states
+      slides.forEach((slide, idx) => {
+        if (idx === targetIndex) {
+          slide.classList.add('active');
+          slide.setAttribute('aria-hidden', 'false');
+        } else {
+          slide.classList.remove('active');
+          slide.setAttribute('aria-hidden', 'true');
+        }
+      });
 
       currentSlide = targetIndex;
-      slides[currentSlide].classList.add('active');
-      slides[currentSlide].setAttribute('aria-hidden', 'false');
 
-      // Update counter
+      // Update numerical counter (01, 02, 03)
       if (currentNumEl) {
         currentNumEl.textContent = String(currentSlide + 1).padStart(2, '0');
       }
 
-      // Reset timer & segment progress
+      // Always clear and reschedule next slide for continuous infinite loop
       clearTimeout(autoSlideTimer);
-      slideStartTime = Date.now();
-      remainingTime = SLIDE_DURATION;
 
       if (!isPaused) {
-        updateSegments(currentSlide, SLIDE_DURATION, 0);
+        updateSegments(currentSlide, SLIDE_DURATION);
         scheduleNext(SLIDE_DURATION);
       } else {
-        updateSegments(currentSlide, 0, 0);
+        updateSegments(currentSlide, 0);
       }
     }
 
@@ -1208,27 +1245,21 @@ document.addEventListener('DOMContentLoaded', () => {
       if (isPaused) return;
       isPaused = true;
       clearTimeout(autoSlideTimer);
-      const elapsed = Date.now() - slideStartTime;
-      remainingTime = Math.max(400, remainingTime - elapsed);
-      pauseSegmentProgress();
+      segments.forEach(seg => {
+        const fill = seg.querySelector('.segment-fill');
+        if (fill && seg.classList.contains('active')) {
+          const computedWidth = window.getComputedStyle(fill).width;
+          fill.style.transition = 'none';
+          fill.style.width = computedWidth;
+        }
+      });
       updatePauseButtonUI(true);
     }
 
     function resumeSlider() {
       if (!isPaused) return;
       isPaused = false;
-      slideStartTime = Date.now();
-
-      const activeFill = getSegmentFill(currentSlide);
-      let currentPercent = 0;
-      if (activeFill && activeFill.parentElement) {
-        const totalW = activeFill.parentElement.offsetWidth;
-        const currW = parseFloat(window.getComputedStyle(activeFill).width);
-        currentPercent = totalW > 0 ? (currW / totalW) * 100 : 0;
-      }
-
-      updateSegments(currentSlide, remainingTime, currentPercent);
-      scheduleNext(remainingTime);
+      goToSlide(currentSlide);
       updatePauseButtonUI(false);
     }
 
@@ -1243,7 +1274,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // Manual Pause Toggle Button
+    // Explicit Play / Pause Button Toggle
     if (pauseToggleBtn) {
       pauseToggleBtn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -1255,7 +1286,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Previous / Next button listeners
+    // Previous / Next button listeners (immediately jump and continue loop)
     if (prevBtn) {
       prevBtn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -1270,7 +1301,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Segment tab click listeners
+    // Segment tab click listeners (jump directly and keep auto loop running)
     segments.forEach((seg, idx) => {
       seg.addEventListener('click', (e) => {
         e.preventDefault();
@@ -1278,11 +1309,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Pause on hover
-    heroSlider.addEventListener('mouseenter', pauseSlider);
-    heroSlider.addEventListener('mouseleave', resumeSlider);
-
-    // Keyboard navigation
+    // Keyboard navigation (ArrowLeft / ArrowRight)
     heroSlider.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowLeft') {
         goToSlide(currentSlide - 1);
@@ -1291,40 +1318,44 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Mobile touch gestures
+    // Mobile touch swipe gestures
     let touchStartX = 0;
     let touchStartY = 0;
     heroSlider.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].screenX;
-      touchStartY = e.changedTouches[0].screenY;
+      if (e.changedTouches && e.changedTouches.length > 0) {
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+      }
     }, { passive: true });
 
     heroSlider.addEventListener('touchend', (e) => {
-      const touchEndX = e.changedTouches[0].screenX;
-      const touchEndY = e.changedTouches[0].screenY;
-      const deltaX = touchEndX - touchStartX;
-      const deltaY = touchEndY - touchStartY;
+      if (e.changedTouches && e.changedTouches.length > 0) {
+        const touchEndX = e.changedTouches[0].screenX;
+        const touchEndY = e.changedTouches[0].screenY;
+        const deltaX = touchEndX - touchStartX;
+        const deltaY = touchEndY - touchStartY;
 
-      if (Math.abs(deltaX) > 45 && Math.abs(deltaX) > Math.abs(deltaY) * 1.5) {
-        if (deltaX < 0) {
-          goToSlide(currentSlide + 1);
-        } else {
-          goToSlide(currentSlide - 1);
+        if (Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY) * 1.3) {
+          if (deltaX < 0) {
+            goToSlide(currentSlide + 1);
+          } else {
+            goToSlide(currentSlide - 1);
+          }
         }
       }
     }, { passive: true });
 
-    // Handle tab visibility changes
+    // Handle tab visibility changes (pause when user switches away, resume on return)
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) {
-        pauseSlider();
-      } else {
-        resumeSlider();
+        clearTimeout(autoSlideTimer);
+      } else if (!isPaused) {
+        scheduleNext(1200);
       }
     });
 
-    // Kick off initial slide and segmented progress
-    updateSegments(0, SLIDE_DURATION, 0);
+    // Kick off initial slide and start continuous auto-play loop
+    updateSegments(0, SLIDE_DURATION);
     scheduleNext(SLIDE_DURATION);
   }
 
@@ -1510,63 +1541,541 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ------------------------------------------------------------------------
-  // 15. Horizontal Accordion Showcase (Expanding Interactive Card Panels)
+  // 15. 3D Perspective Coverflow Slider & Modern Gallery Lightbox
   // ------------------------------------------------------------------------
-  document.querySelectorAll('.horizontal-accordion').forEach((accordion) => {
-    const panels = Array.from(accordion.querySelectorAll('.accordion-panel'));
-    if (!panels.length) return;
+  let galleryModal = null;
+  let galleryImg = null;
+  let galleryCanvas = null;
+  let galleryCounter = null;
+  let galleryThumbsContainer = null;
+  let currentGalleryIndex = 0;
+  let currentGalleryImages = [];
+  let onGalleryIndexChange = null;
+  let currentZoom = 1;
+  const minZoom = 0.8;
+  const maxZoom = 3.5;
+  let isDragging = false;
+  let dragStartX = 0;
+  let dragStartY = 0;
+  let translateX = 0;
+  let translateY = 0;
 
-    // Activate a panel by element
-    function activatePanel(targetPanel) {
-      if (!targetPanel || targetPanel.classList.contains('active')) return;
-      panels.forEach((p) => {
-        p.classList.remove('active');
-        p.setAttribute('aria-selected', 'false');
-      });
-      targetPanel.classList.add('active');
-      targetPanel.setAttribute('aria-selected', 'true');
+  function initModernGalleryModal() {
+    if (galleryModal) return;
+
+    const existingModal = document.getElementById('modernCoverflowGallery');
+    if (existingModal) {
+      galleryModal = existingModal;
+      galleryImg = existingModal.querySelector('.modern-gallery-img');
+      galleryCanvas = existingModal.querySelector('.modern-gallery-canvas');
+      galleryCounter = existingModal.querySelector('.modern-gallery-counter');
+      galleryThumbsContainer = existingModal.querySelector('.modern-gallery-thumbs');
+      return;
     }
 
-    panels.forEach((panel, index) => {
-      // Hover activation on desktop/laptop
-      panel.addEventListener('mouseenter', () => {
-        if (window.innerWidth > 768) {
-          activatePanel(panel);
+    const modal = document.createElement('div');
+    modal.id = 'modernCoverflowGallery';
+    modal.className = 'modern-gallery-modal';
+    modal.setAttribute('aria-hidden', 'true');
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+
+    modal.innerHTML = `
+      <div class="modern-gallery-backdrop"></div>
+      <div class="modern-gallery-container">
+        <div class="modern-gallery-toolbar">
+          <div class="modern-gallery-counter" aria-live="polite">1 / 1</div>
+          <div class="modern-gallery-tools">
+            <button type="button" class="gallery-tool-btn" data-action="zoom-in" aria-label="Zoom in">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <line x1="11" y1="8" x2="11" y2="14"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+            </button>
+            <button type="button" class="gallery-tool-btn" data-action="zoom-out" aria-label="Zoom out">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+            </button>
+            <button type="button" class="gallery-tool-btn" data-action="reset" aria-label="Reset zoom">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                <polyline points="3 3 3 8 8 8"></polyline>
+              </svg>
+            </button>
+            <button type="button" class="gallery-tool-btn" data-action="fullscreen" aria-label="Toggle fullscreen">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <polyline points="9 21 3 21 3 15"></polyline>
+                <line x1="21" y1="3" x2="14" y2="10"></line>
+                <line x1="3" y1="21" x2="10" y2="14"></line>
+              </svg>
+            </button>
+            <button type="button" class="gallery-tool-btn gallery-close-btn" data-action="close" aria-label="Close">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <button type="button" class="modern-gallery-arrow modern-gallery-prev" aria-label="Previous">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+
+        <button type="button" class="modern-gallery-arrow modern-gallery-next" aria-label="Next">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+
+        <div class="modern-gallery-viewport">
+          <div class="modern-gallery-canvas">
+            <img class="modern-gallery-img" src="" alt="Gallery Image Preview">
+          </div>
+        </div>
+
+        <div class="modern-gallery-thumbs"></div>
+      </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    galleryModal = modal;
+    galleryImg = modal.querySelector('.modern-gallery-img');
+    galleryCanvas = modal.querySelector('.modern-gallery-canvas');
+    galleryCounter = modal.querySelector('.modern-gallery-counter');
+    galleryThumbsContainer = modal.querySelector('.modern-gallery-thumbs');
+
+    modal.querySelector('[data-action="zoom-in"]').addEventListener('click', (e) => {
+      e.stopPropagation();
+      adjustZoom(0.35);
+    });
+    modal.querySelector('[data-action="zoom-out"]').addEventListener('click', (e) => {
+      e.stopPropagation();
+      adjustZoom(-0.35);
+    });
+    modal.querySelector('[data-action="reset"]').addEventListener('click', (e) => {
+      e.stopPropagation();
+      resetZoomTransform();
+    });
+    modal.querySelector('[data-action="fullscreen"]').addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleFullscreen();
+    });
+    modal.querySelector('[data-action="close"]').addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeGallery();
+    });
+    modal.querySelector('.modern-gallery-backdrop').addEventListener('click', closeGallery);
+
+    modal.querySelector('.modern-gallery-prev').addEventListener('click', (e) => {
+      e.stopPropagation();
+      prevGalleryImage();
+    });
+    modal.querySelector('.modern-gallery-next').addEventListener('click', (e) => {
+      e.stopPropagation();
+      nextGalleryImage();
+    });
+
+    // Double-click image to toggle zoom
+    galleryImg.addEventListener('dblclick', () => {
+      if (currentZoom > 1.05) {
+        resetZoomTransform();
+      } else {
+        setZoom(2.0);
+      }
+    });
+
+    // Mouse wheel zoom
+    galleryModal.querySelector('.modern-gallery-viewport').addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const delta = e.deltaY < 0 ? 0.25 : -0.25;
+      adjustZoom(delta);
+    }, { passive: false });
+
+    // Drag to pan when zoomed
+    galleryCanvas.addEventListener('mousedown', (e) => {
+      if (currentZoom <= 1.05) return;
+      isDragging = true;
+      dragStartX = e.clientX - translateX;
+      dragStartY = e.clientY - translateY;
+      galleryCanvas.classList.add('is-dragging');
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      translateX = e.clientX - dragStartX;
+      translateY = e.clientY - dragStartY;
+      applyTransform();
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (isDragging) {
+        isDragging = false;
+        if (galleryCanvas) galleryCanvas.classList.remove('is-dragging');
+      }
+    });
+
+    // Touch support for drag and swipe
+    let touchStartX = 0;
+    galleryCanvas.addEventListener('touchstart', (e) => {
+      if (e.touches.length === 1) {
+        touchStartX = e.touches[0].clientX;
+        if (currentZoom > 1.05) {
+          isDragging = true;
+          dragStartX = e.touches[0].clientX - translateX;
+          dragStartY = e.touches[0].clientY - translateY;
+        }
+      }
+    }, { passive: true });
+
+    galleryCanvas.addEventListener('touchmove', (e) => {
+      if (isDragging && e.touches.length === 1) {
+        translateX = e.touches[0].clientX - dragStartX;
+        translateY = e.touches[0].clientY - dragStartY;
+        applyTransform();
+      }
+    }, { passive: true });
+
+    galleryCanvas.addEventListener('touchend', (e) => {
+      if (isDragging) {
+        isDragging = false;
+      } else if (currentZoom <= 1.05 && e.changedTouches.length === 1) {
+        const diffX = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diffX) > 40) {
+          if (diffX > 0) nextGalleryImage();
+          else prevGalleryImage();
+        }
+      }
+    });
+
+    // Keyboard support
+    window.addEventListener('keydown', (e) => {
+      if (!galleryModal || !galleryModal.classList.contains('is-open')) return;
+      if (e.key === 'Escape') closeGallery();
+      else if (e.key === 'ArrowRight') nextGalleryImage();
+      else if (e.key === 'ArrowLeft') prevGalleryImage();
+      else if (e.key === '+' || e.key === '=') adjustZoom(0.35);
+      else if (e.key === '-' || e.key === '_') adjustZoom(-0.35);
+      else if (e.key === '0' || e.key === 'r') resetZoomTransform();
+      else if (e.key === 'f') toggleFullscreen();
+    });
+  }
+
+  function applyTransform() {
+    if (!galleryImg) return;
+    galleryImg.style.transform = `translate(${translateX}px, ${translateY}px) scale(${currentZoom})`;
+    if (galleryCanvas) {
+      if (currentZoom > 1.05) {
+        galleryCanvas.classList.add('is-zoomed');
+      } else {
+        galleryCanvas.classList.remove('is-zoomed');
+      }
+    }
+  }
+
+  function setZoom(newZoom) {
+    currentZoom = Math.max(minZoom, Math.min(maxZoom, newZoom));
+    if (currentZoom <= 1.05) {
+      translateX = 0;
+      translateY = 0;
+    }
+    applyTransform();
+  }
+
+  function adjustZoom(delta) {
+    setZoom(currentZoom + delta);
+  }
+
+  function resetZoomTransform() {
+    currentZoom = 1;
+    translateX = 0;
+    translateY = 0;
+    applyTransform();
+  }
+
+  function toggleFullscreen() {
+    if (!document.fullscreenElement) {
+      galleryModal.requestFullscreen().catch(() => {});
+    } else {
+      document.exitFullscreen().catch(() => {});
+    }
+  }
+
+  function updateGalleryView() {
+    if (!currentGalleryImages.length) return;
+    const item = currentGalleryImages[currentGalleryIndex];
+    resetZoomTransform();
+
+    galleryImg.src = item.src;
+    galleryImg.alt = item.alt || '';
+    if (galleryCounter) {
+      galleryCounter.textContent = `${currentGalleryIndex + 1} / ${currentGalleryImages.length}`;
+    }
+
+    if (galleryThumbsContainer) {
+      const thumbs = galleryThumbsContainer.querySelectorAll('.modern-gallery-thumb');
+      thumbs.forEach((thumb, idx) => {
+        thumb.classList.toggle('is-active', idx === currentGalleryIndex);
+      });
+    }
+
+    if (onGalleryIndexChange) {
+      onGalleryIndexChange(currentGalleryIndex);
+    }
+  }
+
+  function nextGalleryImage() {
+    if (!currentGalleryImages.length) return;
+    currentGalleryIndex = (currentGalleryIndex + 1) % currentGalleryImages.length;
+    updateGalleryView();
+  }
+
+  function prevGalleryImage() {
+    if (!currentGalleryImages.length) return;
+    currentGalleryIndex = (currentGalleryIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length;
+    updateGalleryView();
+  }
+
+  function closeGallery() {
+    if (!galleryModal) return;
+    galleryModal.classList.remove('is-open');
+    galleryModal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('gallery-open');
+    resetZoomTransform();
+  }
+
+  function openModernGallery(items, index, syncCallback) {
+    initModernGalleryModal();
+    currentGalleryImages = items;
+    currentGalleryIndex = (index + items.length) % items.length;
+    onGalleryIndexChange = syncCallback;
+
+    if (galleryThumbsContainer) {
+      galleryThumbsContainer.innerHTML = '';
+      items.forEach((item, idx) => {
+        const thumb = document.createElement('button');
+        thumb.type = 'button';
+        thumb.className = 'modern-gallery-thumb' + (idx === currentGalleryIndex ? ' is-active' : '');
+        thumb.setAttribute('aria-label', `Thumbnail ${idx + 1}`);
+        thumb.innerHTML = `<img src="${item.src}" alt="">`;
+        thumb.addEventListener('click', (e) => {
+          e.stopPropagation();
+          currentGalleryIndex = idx;
+          updateGalleryView();
+        });
+        galleryThumbsContainer.appendChild(thumb);
+      });
+    }
+
+    updateGalleryView();
+    galleryModal.classList.add('is-open');
+    galleryModal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('gallery-open');
+  }
+
+  // Coverflow Slider Initializer
+  document.querySelectorAll('.coverflow-slider-section').forEach((sliderSection) => {
+    const stage = sliderSection.querySelector('.coverflow-stage');
+    const slides = Array.from(sliderSection.querySelectorAll('.coverflow-slide'));
+    const prevBtn = sliderSection.querySelector('.coverflow-prev');
+    const nextBtn = sliderSection.querySelector('.coverflow-next');
+    const paginationContainer = sliderSection.querySelector('.coverflow-pagination');
+
+    if (!slides.length) return;
+
+    let currentIndex = 0;
+    const total = slides.length;
+    let autoSlideTimer = null;
+    const autoInterval = 3500;
+
+    // Attach sleek zoom badge to each slide
+    slides.forEach((slide) => {
+      const card = slide.querySelector('.coverflow-card');
+      if (card && !card.querySelector('.coverflow-zoom-badge')) {
+        const badge = document.createElement('div');
+        badge.className = 'coverflow-zoom-badge';
+        badge.setAttribute('aria-hidden', 'true');
+        badge.innerHTML = `
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            <line x1="11" y1="8" x2="11" y2="14"></line>
+            <line x1="8" y1="11" x2="14" y2="11"></line>
+          </svg>
+        `;
+        card.appendChild(badge);
+      }
+    });
+
+    // Generate pagination dots
+    if (paginationContainer) {
+      paginationContainer.innerHTML = '';
+      slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'coverflow-dot' + (i === 0 ? ' is-active' : '');
+        dot.type = 'button';
+        dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+        dot.addEventListener('click', () => {
+          goToSlide(i);
+          resetAutoSlide();
+        });
+        paginationContainer.appendChild(dot);
+      });
+    }
+
+    function updateClasses() {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('is-center', 'is-left-1', 'is-left-2', 'is-right-1', 'is-right-2', 'is-hidden');
+
+        let diff = i - currentIndex;
+        while (diff > total / 2) diff -= total;
+        while (diff < -total / 2) diff += total;
+
+        if (diff === 0) {
+          slide.classList.add('is-center');
+          slide.setAttribute('aria-hidden', 'false');
+        } else if (diff === -1) {
+          slide.classList.add('is-left-1');
+          slide.setAttribute('aria-hidden', 'true');
+        } else if (diff === -2) {
+          slide.classList.add('is-left-2');
+          slide.setAttribute('aria-hidden', 'true');
+        } else if (diff === 1) {
+          slide.classList.add('is-right-1');
+          slide.setAttribute('aria-hidden', 'true');
+        } else if (diff === 2) {
+          slide.classList.add('is-right-2');
+          slide.setAttribute('aria-hidden', 'true');
+        } else {
+          slide.classList.add('is-hidden');
+          slide.setAttribute('aria-hidden', 'true');
         }
       });
 
-      // Click / Tap activation (desktop + mobile)
-      panel.addEventListener('click', (e) => {
-        if (e.target.closest('.accordion-cta')) return;
-        activatePanel(panel);
-      });
+      // Update active pagination dot
+      if (paginationContainer) {
+        const dots = paginationContainer.querySelectorAll('.coverflow-dot');
+        dots.forEach((dot, idx) => {
+          dot.classList.toggle('is-active', idx === currentIndex);
+        });
+      }
+    }
 
-      // Keyboard navigation
-      panel.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          activatePanel(panel);
-        } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-          e.preventDefault();
-          const nextIndex = (index + 1) % panels.length;
-          panels[nextIndex].focus();
-          activatePanel(panels[nextIndex]);
-        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-          e.preventDefault();
-          const prevIndex = (index - 1 + panels.length) % panels.length;
-          panels[prevIndex].focus();
-          activatePanel(panels[prevIndex]);
-        } else if (e.key === 'Home') {
-          e.preventDefault();
-          panels[0].focus();
-          activatePanel(panels[0]);
-        } else if (e.key === 'End') {
-          e.preventDefault();
-          panels[panels.length - 1].focus();
-          activatePanel(panels[panels.length - 1]);
+    function goToSlide(index) {
+      currentIndex = (index + total) % total;
+      updateClasses();
+    }
+
+    function nextSlide() {
+      goToSlide(currentIndex + 1);
+    }
+
+    function prevSlide() {
+      goToSlide(currentIndex - 1);
+    }
+
+    // Clicking side slide focuses it; clicking center slide opens zoom gallery
+    slides.forEach((slide, i) => {
+      slide.addEventListener('click', () => {
+        if (i !== currentIndex) {
+          goToSlide(i);
+          resetAutoSlide();
+        } else {
+          pauseAutoSlide();
+          const items = slides.map(s => {
+            const img = s.querySelector('.coverflow-img') || s.querySelector('img');
+            return { src: img ? img.src : '', alt: img ? img.alt : '' };
+          });
+          openModernGallery(items, currentIndex, (newIdx) => {
+            goToSlide(newIdx);
+          });
         }
       });
     });
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        nextSlide();
+        resetAutoSlide();
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        prevSlide();
+        resetAutoSlide();
+      });
+    }
+
+    // Auto-Slider Timer
+    function startAutoSlide() {
+      if (autoSlideTimer) clearInterval(autoSlideTimer);
+      autoSlideTimer = setInterval(() => {
+        nextSlide();
+      }, autoInterval);
+    }
+
+    function pauseAutoSlide() {
+      if (autoSlideTimer) {
+        clearInterval(autoSlideTimer);
+        autoSlideTimer = null;
+      }
+    }
+
+    function resetAutoSlide() {
+      pauseAutoSlide();
+      startAutoSlide();
+    }
+
+    // Pause on mouse hover, resume on mouse leave
+    sliderSection.addEventListener('mouseenter', pauseAutoSlide);
+    sliderSection.addEventListener('mouseleave', startAutoSlide);
+
+    // Touch swipe support for mobile/tablet
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    sliderSection.addEventListener('touchstart', (e) => {
+      pauseAutoSlide();
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+
+    sliderSection.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].clientX;
+      const diffX = touchStartX - touchEndX;
+      if (Math.abs(diffX) > 40) {
+        if (diffX > 0) {
+          nextSlide();
+        } else {
+          prevSlide();
+        }
+      }
+      startAutoSlide();
+    }, { passive: true });
+
+    // Keyboard navigation
+    sliderSection.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        nextSlide();
+        resetAutoSlide();
+      } else if (e.key === 'ArrowLeft') {
+        prevSlide();
+        resetAutoSlide();
+      }
+    });
+
+    // Initialize layout & start auto slider
+    updateClasses();
+    startAutoSlide();
   });
 
   // ------------------------------------------------------------------------
@@ -1828,6 +2337,440 @@ document.addEventListener('DOMContentLoaded', () => {
     updateSlider(true);
     startProgress();
   });
+
+  // ------------------------------------------------------------------------
+  // Our Work Page: Blueprint Selector and Case Modal
+  // ------------------------------------------------------------------------
+
+  // Interactive Growth Blueprint Selector
+  const blueprintButtons = document.querySelectorAll('.blueprint-choice-btn');
+  const blueprintTitle = document.getElementById('blueprintTitle');
+  const blueprintDesc = document.getElementById('blueprintDesc');
+  const blueprintWaBtn = document.getElementById('blueprintWaBtn');
+
+  const blueprintData = {
+    ecommerce: {
+      title: "D2C Scaling & High-ROAS Media Machine",
+      desc: "Comprehensive growth stack: Headless Shopify Plus UX re-engineering, high-velocity Meta & Google Ads creative testing, and automated Klaviyo retention flows designed to scale past ₹50L/month.",
+      waText: "Hi Smart Digital Wings, I'm interested in the D2C Scaling & High-ROAS Media Machine package for my e-commerce brand."
+    },
+    web: {
+      title: "Next.js Custom Web Engineering & CRO",
+      desc: "Ultra-fast headless web architecture with 98+ Core Web Vitals, custom GSAP micro-animations, conversion-engineered user funnels, and enterprise CMS integration.",
+      waText: "Hi Smart Digital Wings, I'm interested in Next.js Custom Web Engineering & CRO for my business."
+    },
+    seo: {
+      title: "Programmatic Organic SEO Dominance Engine",
+      desc: "Technical site architecture overhaul, high-intent transactional keyword clusters, authoritative digital PR backlinks, and E-E-A-T hub content driving steady organic pipelines.",
+      waText: "Hi Smart Digital Wings, I'd like to consult on the Programmatic Organic SEO Dominance Engine."
+    },
+    ads: {
+      title: "Omnichannel Paid Media & Lead Generation",
+      desc: "Multi-touch Google PPC search funnels, Meta dynamic prospecting, retargeting funnels, and real-time ROAS dashboards minimizing acquisition cost while scaling volume.",
+      waText: "Hi Smart Digital Wings, I need help scaling our omnichannel paid media with high ROAS."
+    },
+    video: {
+      title: "Commercial 4K Filming & Viral Reel Studio",
+      desc: "Full-scale on-location commercial filming, FPV drone cinematography, DaVinci Resolve color grading, and high-retention short-form video hooks designed for viral engagement.",
+      waText: "Hi Smart Digital Wings, I'd like to book a Commercial 4K Filming & High-Retention Reel Production project."
+    }
+  };
+
+  if (blueprintButtons.length > 0 && blueprintWaBtn) {
+    blueprintButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        blueprintButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const key = btn.getAttribute('data-blueprint');
+        const data = blueprintData[key];
+        if (data) {
+          if (blueprintTitle) blueprintTitle.textContent = data.title;
+          if (blueprintDesc) blueprintDesc.textContent = data.desc;
+          blueprintWaBtn.href = `https://wa.me/917017281826?text=${encodeURIComponent(data.waText)}`;
+        }
+      });
+    });
+  }
+
+  // Executive Case Study Modal Briefing System
+  const workCaseModal = document.getElementById('workCaseModal');
+  const closeCaseModalBtn = document.getElementById('closeCaseModalBtn');
+  const caseTriggers = document.querySelectorAll('.open-case-modal-btn');
+
+  const caseModalData = {
+    aura: {
+      brand: "Aura Luxury Apparel",
+      media: "assets/portfolio-ecommerce.jpg",
+      kpi1Num: "+340%",
+      kpi1Lbl: "Revenue Growth",
+      kpi2Num: "4.6x",
+      kpi2Lbl: "Blended ROAS",
+      kpi3Num: "68%",
+      kpi3Lbl: "CAC Reduction",
+      challenge: "Aura Luxury was struggling with high traffic acquisition costs and sub-1% mobile conversion rates on an unoptimized legacy store. Abandonment rates were exceeding 78% during checkout.",
+      solution: "Smart Digital Wings engineered a headless Shopify Plus custom theme featuring 0.8s mobile load speeds, integrated 1-click UPI checkout, and launched high-conversion Meta dynamic catalog lookbooks paired with Google Smart Shopping retargeting.",
+      result: "Within 9 months, monthly recurring revenue grew from ₹8.5L to over ₹38L, maintaining a 4.6x blended ROAS across all acquisition channels."
+    },
+    apex: {
+      brand: "Apex Financial Partners",
+      media: "assets/service-seo.jpg",
+      kpi1Num: "#1 Rank",
+      kpi1Lbl: "For 42 Keywords",
+      kpi2Num: "+420%",
+      kpi2Lbl: "Inbound Leads",
+      kpi3Num: "₹12 Cr+",
+      kpi3Lbl: "Asset Pipeline",
+      challenge: "High competition from legacy banks made organic search visibility near impossible. Cost per click in Google Search Ads was exceeding ₹320 per lead.",
+      solution: "Constructed an authoritative programmatic SEO architecture featuring interactive wealth calculators, semantic topical clusters, and verified digital PR backlinks.",
+      result: "Apex surged to Page 1 for high-intent advisory searches, reducing paid ad dependency by 64% and originating ₹12 Cr in qualified wealth management inquiries."
+    },
+    verve: {
+      brand: "Verve Health Clinics",
+      media: "assets/service-web-design.jpg",
+      kpi1Num: "1,850+",
+      kpi1Lbl: "Bookings / Month",
+      kpi2Num: "+185%",
+      kpi2Lbl: "Conversion Rate",
+      kpi3Num: "0.7s",
+      kpi3Lbl: "Core Web Vitals",
+      challenge: "A fragmented medical booking system caused high patient bounce rates and lost appointment opportunities.",
+      solution: "Engineered a streamlined Next.js medical booking platform with direct doctor scheduling, localized Google Maps optimization, and automated WhatsApp appointment reminders.",
+      result: "Patient appointments skyrocketed by 185% within 90 days, while patient acquisition cost dropped by 45% across all 3 regional branches."
+    },
+    solaria: {
+      brand: "Solaria Clean Energy",
+      media: "assets/service-ppc.jpg",
+      kpi1Num: "₹28 Cr+",
+      kpi1Lbl: "B2B Sales Pipeline",
+      kpi2Num: "₹42",
+      kpi2Lbl: "Cost Per Lead",
+      kpi3Num: "5.2x",
+      kpi3Lbl: "Total ROI",
+      challenge: "Lengthy enterprise sales cycles and non-converting lead generation forms led to high customer acquisition friction.",
+      solution: "Developed an interactive Commercial Solar Savings Estimator, deployed 4K commercial drone video creatives, and ran laser-targeted Google Search & LinkedIn ad sequences.",
+      result: "Generated over 420 commercial rooftop solar evaluations, building a qualified ₹28 Cr pipeline at a remarkable ₹42 cost per lead."
+    }
+  };
+
+  if (workCaseModal && caseTriggers.length > 0) {
+    caseTriggers.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const caseKey = btn.getAttribute('data-case-key') || 'aura';
+        const item = caseModalData[caseKey] || caseModalData.aura;
+
+        const brandEl = document.getElementById('modalCaseBrand');
+        const imgEl = document.getElementById('modalCaseImg');
+        const kpi1N = document.getElementById('modalKpi1Num');
+        const kpi1L = document.getElementById('modalKpi1Lbl');
+        const kpi2N = document.getElementById('modalKpi2Num');
+        const kpi2L = document.getElementById('modalKpi2Lbl');
+        const kpi3N = document.getElementById('modalKpi3Num');
+        const kpi3L = document.getElementById('modalKpi3Lbl');
+        const chalEl = document.getElementById('modalCaseChallenge');
+        const solEl = document.getElementById('modalCaseSolution');
+        const resEl = document.getElementById('modalCaseResult');
+
+        if (brandEl) brandEl.textContent = item.brand;
+        if (imgEl) {
+          imgEl.src = item.media;
+          imgEl.alt = item.brand;
+        }
+        if (kpi1N) kpi1N.textContent = item.kpi1Num;
+        if (kpi1L) kpi1L.textContent = item.kpi1Lbl;
+        if (kpi2N) kpi2N.textContent = item.kpi2Num;
+        if (kpi2L) kpi2L.textContent = item.kpi2Lbl;
+        if (kpi3N) kpi3N.textContent = item.kpi3Num;
+        if (kpi3L) kpi3L.textContent = item.kpi3Lbl;
+        if (chalEl) chalEl.textContent = item.challenge;
+        if (solEl) solEl.textContent = item.solution;
+        if (resEl) resEl.textContent = item.result;
+
+        workCaseModal.showModal();
+      });
+    });
+
+    if (closeCaseModalBtn) {
+      closeCaseModalBtn.addEventListener('click', () => workCaseModal.close());
+    }
+
+    workCaseModal.addEventListener('click', (e) => {
+      const rect = workCaseModal.getBoundingClientRect();
+      const isInDialog = (
+        rect.top <= e.clientY &&
+        e.clientY <= rect.top + rect.height &&
+        rect.left <= e.clientX &&
+        e.clientX <= rect.left + rect.width
+      );
+      if (!isInDialog) {
+        workCaseModal.close();
+      }
+    });
+  }
+
+  // ====================================================================
+  // Modern Fullscreen Image Zoom Gallery Controller (Pure Image & Controls, Zero Text)
+  // ====================================================================
+  {
+    const galleryLightbox = document.getElementById('workGalleryLightbox');
+    const galleryImg = document.getElementById('workGalleryImg');
+    const galleryCounter = document.getElementById('workGalleryCounter');
+    const galleryCloseBtn = document.getElementById('workGalleryCloseBtn');
+    const galleryBackdrop = document.getElementById('workGalleryBackdrop');
+    const galleryPrevBtn = document.getElementById('workGalleryPrevBtn');
+    const galleryNextBtn = document.getElementById('workGalleryNextBtn');
+    const zoomInBtn = document.getElementById('galleryZoomInBtn');
+    const zoomOutBtn = document.getElementById('galleryZoomOutBtn');
+    const zoomResetBtn = document.getElementById('galleryZoomResetBtn');
+    const fullscreenBtn = document.getElementById('galleryFullscreenBtn');
+    const galleryStage = document.getElementById('workGalleryStage');
+
+    const galleryItems = document.querySelectorAll('.bento-work-card.gallery-item');
+
+    if (galleryLightbox && galleryImg && galleryItems.length > 0) {
+      const imagesList = Array.from(galleryItems).map(card => {
+        const img = card.querySelector('.bento-card-media img');
+        return img ? img.src : '';
+      });
+
+      let activeGalleryIndex = 0;
+      let zoomScale = 1;
+      let panX = 0;
+      let panY = 0;
+      let isDragging = false;
+      let startDragX = 0;
+      let startDragY = 0;
+
+      function applyZoomTransform(animate = true) {
+        if (galleryImg) {
+          galleryImg.style.transition = animate ? 'transform 0.2s cubic-bezier(0.16, 1, 0.3, 1)' : 'none';
+          galleryImg.style.transform = `translate(${panX}px, ${panY}px) scale(${zoomScale})`;
+          if (zoomScale > 1) {
+            galleryImg.classList.add('zoomed');
+          } else {
+            galleryImg.classList.remove('zoomed');
+            panX = 0;
+            panY = 0;
+          }
+        }
+      }
+
+      function resetZoom() {
+        zoomScale = 1;
+        panX = 0;
+        panY = 0;
+        applyZoomTransform(true);
+      }
+
+      function zoomIn() {
+        zoomScale = Math.min(zoomScale + 0.5, 4);
+        applyZoomTransform(true);
+      }
+
+      function zoomOut() {
+        zoomScale = Math.max(zoomScale - 0.5, 1);
+        if (zoomScale === 1) {
+          panX = 0;
+          panY = 0;
+        }
+        applyZoomTransform(true);
+      }
+
+      function setGalleryImage(index) {
+        if (index < 0) index = imagesList.length - 1;
+        if (index >= imagesList.length) index = 0;
+        activeGalleryIndex = index;
+
+        resetZoom();
+        galleryImg.src = imagesList[activeGalleryIndex];
+        if (galleryCounter) {
+          galleryCounter.textContent = `${activeGalleryIndex + 1} / ${imagesList.length}`;
+        }
+      }
+
+      function openGallery(index = 0) {
+        setGalleryImage(index);
+        galleryLightbox.classList.add('active');
+        galleryLightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeGallery() {
+        galleryLightbox.classList.remove('active');
+        galleryLightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (document.fullscreenElement) {
+          document.exitFullscreen().catch(() => {});
+        }
+        resetZoom();
+      }
+
+      // Attach click triggers to all bento cards
+      galleryItems.forEach((card, idx) => {
+        card.addEventListener('click', (e) => {
+          e.preventDefault();
+          openGallery(idx);
+        });
+      });
+
+      // Navigation & Toolbar Buttons
+      if (galleryCloseBtn) galleryCloseBtn.addEventListener('click', closeGallery);
+      if (galleryBackdrop) galleryBackdrop.addEventListener('click', closeGallery);
+      if (galleryPrevBtn) galleryPrevBtn.addEventListener('click', () => setGalleryImage(activeGalleryIndex - 1));
+      if (galleryNextBtn) galleryNextBtn.addEventListener('click', () => setGalleryImage(activeGalleryIndex + 1));
+
+      if (zoomInBtn) zoomInBtn.addEventListener('click', zoomIn);
+      if (zoomOutBtn) zoomOutBtn.addEventListener('click', zoomOut);
+      if (zoomResetBtn) zoomResetBtn.addEventListener('click', resetZoom);
+
+      // Fullscreen Toggle
+      if (fullscreenBtn) {
+        fullscreenBtn.addEventListener('click', () => {
+          if (!document.fullscreenElement) {
+            galleryLightbox.requestFullscreen().catch(() => {});
+          } else {
+            document.exitFullscreen().catch(() => {});
+          }
+        });
+      }
+
+      // Double Click to Toggle Zoom (1x <-> 2.2x)
+      galleryImg.addEventListener('dblclick', (e) => {
+        e.preventDefault();
+        if (zoomScale > 1) {
+          resetZoom();
+        } else {
+          zoomScale = 2.2;
+          applyZoomTransform(true);
+        }
+      });
+
+      // Mouse Wheel Zoom
+      if (galleryStage) {
+        galleryStage.addEventListener('wheel', (e) => {
+          if (!galleryLightbox.classList.contains('active')) return;
+          e.preventDefault();
+          if (e.deltaY < 0) {
+            zoomScale = Math.min(zoomScale + 0.25, 4);
+          } else {
+            zoomScale = Math.max(zoomScale - 0.25, 1);
+            if (zoomScale === 1) {
+              panX = 0;
+              panY = 0;
+            }
+          }
+          applyZoomTransform(true);
+        }, { passive: false });
+      }
+
+      // Drag / Pan when Zoomed
+      galleryImg.addEventListener('mousedown', (e) => {
+        if (zoomScale <= 1) return;
+        isDragging = true;
+        startDragX = e.clientX - panX;
+        startDragY = e.clientY - panY;
+        e.preventDefault();
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (!isDragging || zoomScale <= 1) return;
+        panX = e.clientX - startDragX;
+        panY = e.clientY - startDragY;
+        applyZoomTransform(false);
+      });
+
+      window.addEventListener('mouseup', () => {
+        isDragging = false;
+      });
+
+      // Touch Support for Mobile (Swipe & Drag)
+      let touchStartX = 0;
+      let touchStartY = 0;
+      let touchStartTime = 0;
+
+      if (galleryStage) {
+        galleryStage.addEventListener('touchstart', (e) => {
+          if (e.touches.length === 1) {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+            touchStartTime = Date.now();
+            if (zoomScale > 1) {
+              isDragging = true;
+              startDragX = e.touches[0].clientX - panX;
+              startDragY = e.touches[0].clientY - panY;
+            }
+          }
+        }, { passive: true });
+
+        galleryStage.addEventListener('touchmove', (e) => {
+          if (zoomScale > 1 && isDragging && e.touches.length === 1) {
+            panX = e.touches[0].clientX - startDragX;
+            panY = e.touches[0].clientY - startDragY;
+            applyZoomTransform(false);
+          }
+        }, { passive: true });
+
+        galleryStage.addEventListener('touchend', (e) => {
+          isDragging = false;
+          if (zoomScale === 1 && e.changedTouches.length === 1) {
+            const deltaX = e.changedTouches[0].clientX - touchStartX;
+            const deltaY = e.changedTouches[0].clientY - touchStartY;
+            const timeDiff = Date.now() - touchStartTime;
+            if (timeDiff < 400 && Math.abs(deltaX) > 45 && Math.abs(deltaY) < 60) {
+              if (deltaX < 0) {
+                setGalleryImage(activeGalleryIndex + 1);
+              } else {
+                setGalleryImage(activeGalleryIndex - 1);
+              }
+            }
+          }
+        });
+      }
+
+      // Keyboard Shortcuts
+      window.addEventListener('keydown', (e) => {
+        if (!galleryLightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') closeGallery();
+        if (e.key === 'ArrowLeft') setGalleryImage(activeGalleryIndex - 1);
+        if (e.key === 'ArrowRight') setGalleryImage(activeGalleryIndex + 1);
+        if (e.key === '+' || e.key === '=') zoomIn();
+        if (e.key === '-' || e.key === '_') zoomOut();
+        if (e.key === '0') resetZoom();
+        if (e.key === 'f' || e.key === 'F') {
+          if (!document.fullscreenElement) {
+            galleryLightbox.requestFullscreen().catch(() => {});
+          } else {
+            document.exitFullscreen().catch(() => {});
+          }
+        }
+      });
+    }
+  }
+
+  // ====================================================================
+  // YouTube Shorts & Video Gallery Category Filter Controller
+  // ====================================================================
+  const videoFilterChips = document.querySelectorAll('#videoFilterRow .gallery-chip-btn');
+  const ytShortCards = document.querySelectorAll('.yt-short-card');
+
+  if (videoFilterChips.length > 0 && ytShortCards.length > 0) {
+    videoFilterChips.forEach(chip => {
+      chip.addEventListener('click', function () {
+        videoFilterChips.forEach(c => c.classList.remove('active'));
+        this.classList.add('active');
+        const filter = this.getAttribute('data-filter');
+
+        ytShortCards.forEach(card => {
+          const cat = card.getAttribute('data-category');
+          if (filter === 'all' || cat === filter) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
 });
 
 
